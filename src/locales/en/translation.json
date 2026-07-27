@@ -1,0 +1,15 @@
+{
+  "menu": {
+    "process": "Operating Process",
+    "services": "Services",
+    "story": "Our Story",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title1": "You can't always be with your family,",
+    "title2": "will always be there to keep",
+    "title3": "love for you",
+    "subtitle": "International standard healthcare assistant for your family",
+    "btnConsult": "Get free consultation"
+  }
+}

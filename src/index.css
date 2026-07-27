@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: #171512;
+  background-color: #FEFCFB;
+}

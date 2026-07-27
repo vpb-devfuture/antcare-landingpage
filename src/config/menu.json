@@ -1,0 +1,22 @@
+[
+  {
+    "id": "process",
+    "path": "#mission-vision-values",
+    "i18nKey": "menu.process"
+  },
+  {
+    "id": "services",
+    "path": "#services",
+    "i18nKey": "menu.services"
+  },
+  {
+    "id": "story",
+    "path": "#our-story",
+    "i18nKey": "menu.story"
+  },
+  {
+    "id": "contact",
+    "path": "#lien-he-gia-dinh",
+    "i18nKey": "menu.contact"
+  }
+]

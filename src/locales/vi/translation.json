@@ -1,0 +1,15 @@
+{
+  "menu": {
+    "process": "Quy trình hoạt động",
+    "services": "Dịch vụ",
+    "story": "Câu chuyện của ANT",
+    "contact": "Liên hệ"
+  },
+  "hero": {
+    "title1": "Bạn không thể ở bên gia đình mọi lúc mọi nơi,",
+    "title2": "sẽ luôn bên cạnh để giữ trọn",
+    "title3": "yêu thương thay bạn",
+    "subtitle": "Trợ lý chăm sóc sức khỏe tiêu chuẩn quốc tế cho gia đình bạn",
+    "btnConsult": "Nhận tư vấn miễn phí"
+  }
+}
