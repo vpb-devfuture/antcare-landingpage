@@ -1,22 +1,44 @@
 [
   {
-    "id": "process",
-    "path": "#mission-vision-values",
-    "i18nKey": "menu.process"
-  },
-  {
     "id": "services",
-    "path": "#services",
-    "i18nKey": "menu.services"
+    "i18nKey": "menu.services",
+    "children": [
+      { "id": "service_tracking", "path": "#", "i18nKey": "menu.service_tracking" },
+      { "id": "service_transport", "path": "#", "i18nKey": "menu.service_transport" },
+      { "id": "service_education", "path": "#", "i18nKey": "menu.service_education" },
+      { "id": "service_maid", "path": "#", "i18nKey": "menu.service_maid" }
+    ]
   },
   {
-    "id": "story",
-    "path": "#our-story",
-    "i18nKey": "menu.story"
+    "id": "recruitment",
+    "i18nKey": "menu.recruitment",
+    "children": [
+      { "id": "recruit_register", "path": "#", "i18nKey": "menu.recruit_register" },
+      { "id": "recruit_benefits", "path": "#quyen-loi-doi-tac", "i18nKey": "menu.recruit_benefits" }
+    ]
+  },
+  {
+    "id": "about",
+    "i18nKey": "menu.about",
+    "children": [
+      { "id": "about_wish", "path": "#our-story", "i18nKey": "menu.about_wish" },
+      { "id": "about_story", "path": "#our-story", "i18nKey": "menu.about_story" },
+      { "id": "about_values", "path": "#mission-vision-values", "i18nKey": "menu.about_values" }
+    ]
   },
   {
     "id": "contact",
-    "path": "#lien-he-gia-dinh",
+    "path": "#",
     "i18nKey": "menu.contact"
+  },
+  {
+    "id": "activities",
+    "path": "#",
+    "i18nKey": "menu.activities"
+  },
+  {
+    "id": "news",
+    "path": "#",
+    "i18nKey": "menu.news"
   }
 ]

@@ -23,112 +23,95 @@ function App() {
 
   return (
     <div className="font-sans text-plum-deep bg-surface-mist">
-      {/* Config usage example */}
-      <div className="fixed top-0 z-[100] bg-black text-white p-2 text-xs">
-        Contact: {siteInfo.hotline} | {siteInfo.email}
-      </div>
       
 {/*  TopNavBar  */}
 <nav className="sticky top-0 z-50 bg-surface-mist shadow-sm text-plum-deep">
 <div className="max-w-container-max mx-auto px-4 md:px-gutter-desktop w-full">
-{/*  Single row: Logo | Nav links | Hotline + Language  */}
+{/* Single row: Logo | Nav links | Hotline + Language */}
 <div className="flex items-center justify-between h-16 md:h-[68px]">
-{/*  Logo  */}
+{/* Logo */}
 <div className="flex-shrink-0">
 <a href="#" className="flex items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity">
     <img alt="247care logo" className="h-10 md:h-12 w-auto object-contain mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3huPMIwhMqL1ilgAL_VFIW3xNg7zIjm2bGRcYUHuQHBgw61lQL1bUlp1OIqwP0AssxFT1AlBpOVONs0TIUlBnTktoAWG-tqXjH_gSj2x8QDQ8aZSbceQA4zzPBH5NhQdWmgHGKOyS4drUuzli7iRX20NYX64KrJ-G7Iil0AcpQokCZ8LnC-vVtJOApgh91A8d4yD2k33Vr88v1YUll1-iwleHebsZfewszEUDXmc2TQOhqKv6airinqD-_Bakd5gjDHuiiBEvh4hm" />
 </a>
 </div>
-{/*  Desktop: Nav links (center)  */}
+
+{/* Desktop: Nav links (center) */}
 <div className="hidden md:flex items-center gap-0.5">
-<div className="relative group">
-<button className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium">
-Dịch vụ <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
-</button>
-<div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-2xl shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
-<div className="flex flex-col py-2">
-<a className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#">Trợ lý theo dõi sức khỏe</a>
-<a className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#">Đưa đón khám bệnh</a>
-<a className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#">Giáo dục lão hóa chủ động</a>
-<a className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#">Giúp việc tại nhà</a>
+  {menu.map(item => item.children ? (
+    <div key={item.id} className="relative group">
+      <button className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium">
+        <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} /> <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
+      </button>
+      <div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-2xl shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
+        <div className="flex flex-col py-2">
+          {item.children.map(child => (
+            <a key={child.id} className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href={child.path} dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} />
+          ))}
+        </div>
+      </div>
+    </div>
+  ) : (
+    <a key={item.id} className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium" href={item.path} dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} />
+  ))}
 </div>
-</div>
-</div>
-<div className="relative group">
-<button className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium">
-Tuyển dụng <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
-</button>
-<div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-2xl shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
-<div className="flex flex-col py-2">
-<a className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#">Đăng ký</a>
-<a className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#quyen-loi-doi-tac">Quyền lợi hợp tác</a>
-</div>
-</div>
-</div>
-<div className="relative group">
-<button className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium">
-Về chúng tôi <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
-</button>
-<div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-2xl shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
-<div className="flex flex-col py-2">
-<a className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#our-story">Tâm nguyện của chúng tôi</a>
-<a className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#our-story">Câu chuyện của <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ</a>
-<a className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#mission-vision-values">Giá trị cốt lõi</a>
-</div>
-</div>
-</div>
-<a className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium" href="#">Liên hệ</a>
-<a className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium" href="#">Hoạt động</a>
-<a className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium" href="#">Tin tức</a>
-</div>
-{/*  Desktop: Hotline + Language (right)  */}
+
+{/* Desktop: Hotline + Language (right) */}
 <div className="hidden md:flex items-center gap-3 flex-shrink-0">
-<a className="flex items-center gap-2 px-4 py-2 border border-plum-deep/20 rounded-full hover:bg-plum-deep/5 transition-colors group" href="tel:19001234">
+<a className="flex items-center gap-2 px-4 py-2 border border-plum-deep/20 rounded-full hover:bg-plum-deep/5 transition-colors group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
 <span className="material-symbols-outlined text-plum-deep text-[20px] group-hover:scale-110 transition-transform">call</span>
-<span className="text-[15px] font-bold text-plum-deep">1900 1234</span>
+<span className="text-[15px] font-bold text-plum-deep">{siteInfo.hotline}</span>
 </a>
 <div className="h-5 w-px bg-border-muted"></div>
 <div className="relative group">
 <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border-muted text-sm font-medium text-plum-deep hover:border-plum-deep/30 hover:bg-plum-deep/5 transition-all">
-<img src="https://flagcdn.com/w20/vn.png" srcset="https://flagcdn.com/w40/vn.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> VN <span className="text-[9px] opacity-50">▼</span>
+<img src={i18n.language === 'en' ? 'https://flagcdn.com/w20/gb.png' : 'https://flagcdn.com/w20/vn.png'} srcSet={i18n.language === 'en' ? 'https://flagcdn.com/w40/gb.png 2x' : 'https://flagcdn.com/w40/vn.png 2x'} alt={i18n.language === 'en' ? 'EN' : 'VN'} className="w-5 h-auto rounded-sm border border-border-muted/30" /> {i18n.language === 'en' ? 'EN' : 'VN'} <span className="text-[9px] opacity-50">▼</span>
 </button>
 <div className="absolute top-full right-0 mt-1 w-36 bg-white rounded-lg shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
 <div className="flex flex-col py-1">
-<button className="flex items-center gap-2 px-4 py-2 text-sm text-primary font-bold hover:bg-earth-orange-bright/10 bg-earth-orange-bright/5 transition-colors text-left w-full">
-<img src="https://flagcdn.com/w20/vn.png" srcset="https://flagcdn.com/w40/vn.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
+<button onClick={() => i18n.changeLanguage("vi")} className="flex items-center gap-2 px-4 py-2 text-sm text-primary font-bold hover:bg-earth-orange-bright/10 bg-earth-orange-bright/5 transition-colors text-left w-full">
+<img src="https://flagcdn.com/w20/vn.png" srcSet="https://flagcdn.com/w40/vn.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
 </button>
-<button className="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-earth-orange-bright/10 transition-colors text-left w-full">
-<img src="https://flagcdn.com/w20/gb.png" srcset="https://flagcdn.com/w40/gb.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
+<button onClick={() => i18n.changeLanguage("en")} className="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-earth-orange-bright/10 transition-colors text-left w-full">
+<img src="https://flagcdn.com/w20/gb.png" srcSet="https://flagcdn.com/w40/gb.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
 </button>
 </div>
 </div>
 </div>
 </div>
-{/*  Mobile: Compact hotline + hamburger  */}
+
+{/* Mobile: Compact hotline + hamburger */}
 <div className="flex md:hidden items-center gap-2">
-<a className="flex items-center gap-1.5 px-3 py-1.5 border border-plum-deep/20 rounded-full text-plum-deep text-sm font-bold" href="tel:19001234">
-<span className="material-symbols-outlined" style={{'fontSize': '16px'}}>call</span> 1900 1234
+<a className="flex items-center gap-1.5 px-3 py-1.5 border border-plum-deep/20 rounded-full text-plum-deep text-sm font-bold" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
+<span className="material-symbols-outlined" style={{fontSize: "16px"}}>call</span> {siteInfo.hotline}
 </a>
 <button id="mobile-menu-btn" className="p-2 rounded-full hover:bg-plum-deep/10 transition-colors" aria-label="Mở menu">
 <span className="material-symbols-outlined text-plum-deep" id="mobile-menu-icon">menu</span>
 </button>
 </div>
 </div>
-{/*  Mobile Menu  */}
+
+{/* Mobile Menu */}
 <div id="mobile-menu" className="hidden md:hidden border-t border-border-muted">
 <div className="flex flex-col py-2">
-<a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" href="#">Dịch vụ</a>
-<a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" href="#">Tuyển dụng</a>
-<a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" href="#">Về chúng tôi</a>
-<a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" href="#">Liên hệ</a>
-<a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" href="#">Hoạt động</a>
-<a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href="#">Tin tức</a>
+  {menu.map(item => (
+    <div key={item.id} className="flex flex-col">
+      <a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" href={item.path} dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} />
+      {item.children && (
+        <div className="flex flex-col bg-surface-lavender/30 pl-4">
+          {item.children.map(child => (
+            <a key={child.id} className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30" href={child.path} dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} />
+          ))}
+        </div>
+      )}
+    </div>
+  ))}
 <div className="flex items-center gap-3 px-4 py-3 border-t border-border-muted mt-1">
-<button className="flex items-center gap-2 text-sm font-bold text-primary hover:text-earth-orange-bright transition-colors bg-earth-orange-bright/10 px-4 py-2 rounded-lg">
-<img src="https://flagcdn.com/w20/vn.png" srcset="https://flagcdn.com/w40/vn.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
+<button onClick={() => i18n.changeLanguage("vi")} className="flex items-center gap-2 text-sm font-bold text-primary hover:text-earth-orange-bright transition-colors bg-earth-orange-bright/10 px-4 py-2 rounded-lg">
+<img src="https://flagcdn.com/w20/vn.png" srcSet="https://flagcdn.com/w40/vn.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
 </button>
-<button className="flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors px-4 py-2 rounded-lg hover:bg-plum-deep/5">
-<img src="https://flagcdn.com/w20/gb.png" srcset="https://flagcdn.com/w40/gb.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
+<button onClick={() => i18n.changeLanguage("en")} className="flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors px-4 py-2 rounded-lg hover:bg-plum-deep/5">
+<img src="https://flagcdn.com/w20/gb.png" srcSet="https://flagcdn.com/w40/gb.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
 </button>
 </div>
 </div>
@@ -144,14 +127,14 @@ Về chúng tôi <span className="text-[9px] group-hover:text-earth-orange-brigh
 <div className="relative inline-block md:ml-24">
 <div className="absolute -left-48 top-1/2 -translate-y-1/2 w-48 h-auto z-20 hidden lg:block">
     <div className="rellax" data-rellax-speed="1.5" data-rellax-percentage="0.5"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApw4T544FToEBVmG4WwxGIhSxFG8tTxsURGlciOwHahHmuiaHC-C73IRc2bPil2_56l4ZL4bM66ikP4UeWJvP1NCXZyEFgY3R1Es8dQWTzNO1jYKJqb1-e7gWAXIsBRyYVaHGpBPPWwaBQOlLZAvfDIhl-sGE_lyEo6LjSs9LIXikI_lGLp4vp_Yb09BDnwTwX8GL5NmIypnZtxNXFuY0MSyvg2MJWaTVEhllCJ3NHa17ZKIh9Q8DeVJviKNJuhKnSavcic9AlaMNX" alt="247care Mascot" className="w-full h-auto object-contain" /></div>
-</div><h1 className="font-display-lg text-plum-deep leading-tight px-4 text-4xl relative inline-block" style={{'lineHeight': '1.1'}}><span className="absolute -left-2 top-0 text-primary-container font-serif leading-none text-4xl">“</span><div className="flex flex-col items-center gap-2"><span className="block text-headline-lg font-bold text-primary-container mb-1">Bạn không thể ở bên gia đình mọi lúc mọi nơi,</span><div className="flex items-center gap-4"><span className="font-bold tracking-tighter text-6xl text-earth-orange-bright leading-none mt-2">KIẾN</span><div className="text-left flex flex-col justify-center leading-tight text-primary-container"><span className="block text-headline-lg font-bold text-primary-container mb-1">sẽ luôn bên cạnh để giữ trọn</span><span className="block text-headline-lg font-bold text-primary-container">yêu thương thay bạn<span className="text-primary-container font-serif ml-1 leading-none text-4xl">”</span></span></div></div></div></h1>
+</div><h1 className="font-display-lg text-plum-deep leading-tight px-4 text-4xl relative inline-block" style={{'lineHeight': '1.1'}}><span className="absolute -left-2 top-0 text-primary-container font-serif leading-none text-4xl">“</span><div className="flex flex-col items-center gap-2"><span className="block text-headline-lg font-bold text-primary-container mb-1">{t("hero.title1")}</span><div className="flex items-center gap-4"><span className="font-bold tracking-tighter text-6xl text-earth-orange-bright leading-none mt-2">KIẾN</span><div className="text-left flex flex-col justify-center leading-tight text-primary-container"><span className="block text-headline-lg font-bold text-primary-container mb-1">{t("hero.title2")}</span><span className="block text-headline-lg font-bold text-primary-container">{t("hero.title3")}<span className="text-primary-container font-serif ml-1 leading-none text-4xl">”</span></span></div></div></div></h1>
 </div>
 </div>
-<p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto animate-fade-in-up delay-200 font-medium text-lg md:text-xl">Trợ lý chăm sóc sức khỏe tiêu chuẩn quốc tế cho gia đình bạn</p>
+<p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto animate-fade-in-up delay-200 font-medium text-lg md:text-xl">{t("hero.subtitle")}</p>
 <div className="flex flex-col items-center gap-4 animate-fade-in-up delay-300 pt-4">
 <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full">
-<a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-earth-orange-bright/30 hover:shadow-2xl hover:shadow-earth-orange-bright/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 h-16 w-full md:w-72" href="#lien-he-gia-dinh"><span className="material-symbols-outlined">chat</span> Nhận tư vấn miễn phí</a>
-<a className="bg-white text-primary border-2 border-primary/10 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 flex flex-row items-center justify-center gap-3 h-16 w-full md:w-72 group" href="tel:19001234"><span className="material-symbols-outlined group-hover:animate-bounce">call</span> <span className="">1900 1234</span></a>
+<a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-earth-orange-bright/30 hover:shadow-2xl hover:shadow-earth-orange-bright/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 h-16 w-full md:w-72" href="#lien-he-gia-dinh"><span className="material-symbols-outlined">chat</span> {t("hero.btnConsult")}</a>
+<a className="bg-white text-primary border-2 border-primary/10 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 flex flex-row items-center justify-center gap-3 h-16 w-full md:w-72 group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}><span className="material-symbols-outlined group-hover:animate-bounce">call</span> <span className="">{siteInfo.hotline}</span></a>
 </div>
 </div>
 </div>
@@ -1017,8 +1000,8 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <div className="md:w-1/2 space-y-8">
 <h3 className="text-primary font-bold text-headline-md mb-2">Kết nối cùng chúng tôi <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ</h3>
 <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-label-md font-bold uppercase tracking-wider mb-2 bg-earth-orange-bright text-white"><span className="material-symbols-outlined text-[18px]">person</span> Dành cho khách hàng</div>
-<h2 className="font-bold text-plum-deep leading-tight text-headline-md"><span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ luôn sẵn sàng đồng hành cùng để giữ trọn yêu thương thay bạn</h2>
-<p className="text-body-lg text-on-surface-variant">Hãy chia sẻ cùng <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ bạn nhé, bạn muốn gọi điện thoại ngay qua hotline <a className="text-earth-orange-bright font-bold hover:underline" href="tel:19001234">1900 1234</a> hay để lại thông tin liên hệ.</p>
+<h2 className="font-bold text-plum-deep leading-tight text-headline-md"><span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ luôn sẵn sàng đồng hành cùng để giữ trọn {t("hero.title3")}</h2>
+<p className="text-body-lg text-on-surface-variant">Hãy chia sẻ cùng <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ bạn nhé, bạn muốn gọi điện thoại ngay qua hotline <a className="text-earth-orange-bright font-bold hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a> hay để lại thông tin liên hệ.</p>
 <div className="space-y-4 pt-4">
 <div className="flex items-center gap-4">
 <div className="w-10 h-10 rounded-full bg-earth-orange-bright/10 flex items-center justify-center shrink-0"><span className="material-symbols-outlined text-earth-orange-bright">schedule</span></div>
@@ -1053,7 +1036,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <input className="w-full bg-white border-none rounded-xl pl-12 pr-6 py-4 focus:ring-2 focus:ring-primary transition-all" placeholder="Nhập địa chỉ hoặc khu vực" type="text" />
 </div>
 </div>
-<button className="bg-earth-orange-bright text-white py-4 px-12 rounded-full font-bold text-lg hover:bg-earth-orange-dark transition-all shadow-lg w-full md:w-auto" type="submit">Nhận tư vấn miễn phí</button>
+<button className="bg-earth-orange-bright text-white py-4 px-12 rounded-full font-bold text-lg hover:bg-earth-orange-dark transition-all shadow-lg w-full md:w-auto" type="submit">{t("hero.btnConsult")}</button>
 </form>
 </div>
 </div>
@@ -1295,14 +1278,14 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <span className="material-symbols-outlined text-primary">call</span>
 <div>
 <p className="text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Số điện thoại</p>
-<a className="text-body-lg font-bold text-earth-orange-bright hover:underline" href="tel:19001234">1900 1234</a>
+<a className="text-body-lg font-bold text-earth-orange-bright hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a>
 </div>
 </div>
 <div className="flex items-start gap-4">
 <span className="material-symbols-outlined text-primary">mail</span>
 <div>
 <p className="text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Email</p>
-<a className="text-body-lg font-bold text-plum-deep hover:text-earth-orange-bright transition-colors" href="mailto:support@antcare.vn">support@antcare.vn</a>
+<a className="text-body-lg font-bold text-plum-deep hover:text-earth-orange-bright transition-colors" href="mailto:{siteInfo.email}">{siteInfo.email}</a>
 </div>
 </div>
 <div className="flex items-start gap-4">
@@ -1353,7 +1336,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <div className="space-y-6">
 <h4 className="font-bold text-headline-md">Văn phòng</h4>
 <p className="opacity-70 leading-relaxed">Tầng 12, Tòa nhà Innovation,<br />Công viên phần mềm Quang Trung,<br />Quận 12, TP. Hồ Chí Minh</p>
-<p className="font-bold text-earth-orange-bright">Hotline: 1900 1234</p>
+<p className="font-bold text-earth-orange-bright">Hotline: {siteInfo.hotline}</p>
 </div>
 </div>
 <div className="max-w-container-max mx-auto px-gutter-desktop pt-8 border-t border-white/10 text-center opacity-60 text-body-sm">

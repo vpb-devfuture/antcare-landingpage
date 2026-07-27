@@ -1,9 +1,20 @@
 {
   "menu": {
-    "process": "Operating Process",
     "services": "Services",
-    "story": "Our Story",
-    "contact": "Contact"
+    "service_tracking": "Health tracking assistant",
+    "service_transport": "Medical transportation",
+    "service_education": "Active aging education",
+    "service_maid": "Home maid",
+    "recruitment": "Recruitment",
+    "recruit_register": "Register",
+    "recruit_benefits": "Partner benefits",
+    "about": "About Us",
+    "about_wish": "Our Wish",
+    "about_story": "Story of <span class=\"text-primary-container\">AN</span><span class=\"text-earth-orange-bright\">T</span>",
+    "about_values": "Core Values",
+    "contact": "Contact",
+    "activities": "Activities",
+    "news": "News"
   },
   "hero": {
     "title1": "You can't always be with your family,",
