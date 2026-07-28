@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   return (
-    <div className="font-sans text-plum-deep bg-surface-mist">
+    <div className="font-sans text-plum-deep bg-surface-mist overflow-x-hidden">
       
 {/*  TopNavBar  */}
 <nav className="sticky top-0 z-50 bg-surface-mist shadow-sm text-plum-deep">
@@ -148,14 +148,14 @@ function App() {
 <div className="relative inline-block md:ml-24">
 <div className="absolute -left-48 top-1/2 -translate-y-1/2 w-48 h-auto z-20 hidden lg:block">
     <div className="rellax" data-rellax-speed="1.5" data-rellax-percentage="0.5"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApw4T544FToEBVmG4WwxGIhSxFG8tTxsURGlciOwHahHmuiaHC-C73IRc2bPil2_56l4ZL4bM66ikP4UeWJvP1NCXZyEFgY3R1Es8dQWTzNO1jYKJqb1-e7gWAXIsBRyYVaHGpBPPWwaBQOlLZAvfDIhl-sGE_lyEo6LjSs9LIXikI_lGLp4vp_Yb09BDnwTwX8GL5NmIypnZtxNXFuY0MSyvg2MJWaTVEhllCJ3NHa17ZKIh9Q8DeVJviKNJuhKnSavcic9AlaMNX" alt="247care Mascot" className="w-full h-auto object-contain" /></div>
-</div><h1 className="font-display-lg text-plum-deep leading-tight px-4 text-4xl relative inline-block" style={{'lineHeight': '1.1'}}><span className="absolute -left-2 top-0 text-primary-container font-serif leading-none text-4xl">“</span><div className="flex flex-col items-center gap-2"><span className="block text-headline-lg font-bold text-primary-container mb-1">{t("hero.title1")}</span><div className="flex items-center gap-4"><span className="font-bold tracking-tighter text-6xl text-earth-orange-bright leading-none mt-2">KIẾN</span><div className="text-left flex flex-col justify-center leading-tight text-primary-container"><span className="block text-headline-lg font-bold text-primary-container mb-1">{t("hero.title2")}</span><span className="block text-headline-lg font-bold text-primary-container">{t("hero.title3")}<span className="text-primary-container font-serif ml-1 leading-none text-4xl">”</span></span></div></div></div></h1>
+</div><h1 className="font-display-lg text-plum-deep leading-tight px-4 text-4xl relative inline-block" style={{'lineHeight': '1.1'}}><span className="absolute -left-2 top-0 text-primary-container font-serif leading-none text-3xl md:text-4xl">“</span><div className="flex flex-col items-center gap-2"><span className="block text-headline-lg font-bold text-primary-container mb-1">{t("hero.title1")}</span><div className="flex items-center gap-4"><span className="font-bold tracking-tighter text-5xl md:text-6xl text-earth-orange-bright leading-none mt-2">KIẾN</span><div className="text-left flex flex-col justify-center leading-tight text-primary-container"><span className="block text-headline-lg font-bold text-primary-container mb-1">{t("hero.title2")}</span><span className="block text-headline-lg font-bold text-primary-container">{t("hero.title3")}<span className="text-primary-container font-serif ml-1 leading-none text-3xl md:text-4xl">”</span></span></div></div></div></h1>
 </div>
 </div>
 <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto animate-fade-in-up delay-200 font-medium text-lg md:text-xl">{t("hero.subtitle")}</p>
 <div className="flex flex-col items-center gap-4 animate-fade-in-up delay-300 pt-4">
 <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full">
-<a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-earth-orange-bright/30 hover:shadow-2xl hover:shadow-earth-orange-bright/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 h-16 w-full md:w-72" href="#lien-he-gia-dinh"><span className="material-symbols-outlined">chat</span> {t("hero.btnConsult")}</a>
-<a className="bg-white text-primary border-2 border-primary/10 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 flex flex-row items-center justify-center gap-3 h-16 w-full md:w-72 group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}><span className="material-symbols-outlined group-hover:animate-bounce">call</span> <span className="">{siteInfo.hotline}</span></a>
+<a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg shadow-xl shadow-earth-orange-bright/30 hover:shadow-2xl hover:shadow-earth-orange-bright/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 h-14 md:h-16 w-full md:w-72" href="#lien-he-gia-dinh"><span className="material-symbols-outlined">chat</span> {t("hero.btnConsult")}</a>
+<a className="bg-white text-primary border-2 border-primary/10 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg shadow-xl hover:shadow-2xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 flex flex-row items-center justify-center gap-3 h-14 md:h-16 w-full md:w-72 group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}><span className="material-symbols-outlined group-hover:animate-bounce">call</span> <span className="">{siteInfo.hotline}</span></a>
 </div>
 </div>
 </div>
