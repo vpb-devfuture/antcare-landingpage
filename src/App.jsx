@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Rellax from 'rellax';
 import siteInfo from './config/siteInfo.json';
@@ -8,6 +8,7 @@ import './i18n';
 
 function App() {
   const { t, i18n } = useTranslation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     var rellax = new Rellax('.rellax', {
@@ -18,6 +19,26 @@ function App() {
       vertical: true,
       horizontal: false
     });
+
+    // Reveal Animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+    });
+
     return () => rellax.destroy();
   }, []);
 
@@ -85,14 +106,14 @@ function App() {
 <a className="flex items-center gap-1.5 px-3 py-1.5 border border-plum-deep/20 rounded-full text-plum-deep text-sm font-bold" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
 <span className="material-symbols-outlined" style={{fontSize: "16px"}}>call</span> {siteInfo.hotline}
 </a>
-<button id="mobile-menu-btn" className="p-2 rounded-full hover:bg-plum-deep/10 transition-colors" aria-label="Mở menu">
-<span className="material-symbols-outlined text-plum-deep" id="mobile-menu-icon">menu</span>
+<button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 rounded-full hover:bg-plum-deep/10 transition-colors" aria-label="Mở menu">
+<span className="material-symbols-outlined text-plum-deep">{isMobileMenuOpen ? "close" : "menu"}</span>
 </button>
 </div>
 </div>
 
 {/* Mobile Menu */}
-<div id="mobile-menu" className="hidden md:hidden border-t border-border-muted">
+<div className={`md:hidden border-t border-border-muted ${isMobileMenuOpen ? "block" : "hidden"}`}>
 <div className="flex flex-col py-2">
   {menu.map(item => (
     <div key={item.id} className="flex flex-col">
