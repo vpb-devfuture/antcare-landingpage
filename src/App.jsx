@@ -268,18 +268,14 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 {/*  4. Services Grid Section (Giải pháp chăm sóc sức khỏe toàn diện)  */}
 <section className="py-12 md:py-24">
 <div className="max-w-container-max mx-auto px-gutter-desktop">
-<div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+<div className="flex flex-col items-center text-center mb-12 gap-4">
 <div className="max-w-2xl reveal">
 <h2 className="font-bold text-plum-deep text-2xl md:text-3xl lg:text-4xl">Giải pháp Chăm sóc Sức khỏe Toàn diện</h2><p className="text-body-sm italic text-on-surface-variant mt-2">* Dịch vụ hỗ trợ song ngữ Việt Anh - cho cả người Việt Nam, nước ngoài</p>
 <p className="text-body-lg text-on-surface-variant mt-2">Các kế hoạch chăm sóc cá nhân hóa được thiết kế cho nhu cầu riêng biệt của mỗi gia đình.</p>
 </div>
-<button className="text-primary font-bold flex items-center gap-2 group mb-1 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-all duration-500 px-4 py-2 rounded-full">
-                    Xem tất cả dịch vụ
-                    <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
-</button>
 </div>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-{pageData?.comprehensiveSolutions.map((service) => (
+{pageData?.comprehensiveSolutions?.map((service) => (
   <div key={service.id} className="group cursor-pointer bg-white border border-surface-lavender rounded-[2.5rem] p-6 flex flex-col shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full reveal">
     <div className="aspect-[16/11] rounded-2xl overflow-hidden mb-4 relative">
       <img alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={service.image} />
