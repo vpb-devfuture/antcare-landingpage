@@ -5,14 +5,26 @@ import Rellax from 'rellax';
 import siteInfo from './config/siteInfo.json';
 import menu from './config/menu.json';
 import './i18n';
+import { getLandingPageData } from './services/apiService';
 
 function App() {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [pageData, setPageData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    getLandingPageData().then(data => {
+      setPageData(data);
+      setIsLoading(false);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (isLoading) return;
+
     var rellax = new Rellax('.rellax', {
       speed: -2,
       center: true,
@@ -50,11 +62,15 @@ function App() {
       rellax.destroy();
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isLoading]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  if (isLoading) {
+    return <div className="min-h-screen flex items-center justify-center bg-surface-mist"><div className="w-12 h-12 border-4 border-earth-orange-bright border-t-transparent rounded-full animate-spin"></div></div>;
+  }
 
   return (
     <div className="font-sans text-plum-deep bg-surface-mist overflow-x-hidden">
@@ -214,40 +230,32 @@ function App() {
 <h2 className="font-bold text-plum-deep mt-4 text-2xl md:text-3xl lg:text-4xl">Có phải gia đình bạn cũng ở trong hoàn cảnh này?</h2>
 </div>
 <div className="grid lg:grid-cols-3 gap-8 mb-20">
-{/*  Situation 01  */}
-<div className="flex flex-col p-8 rounded-3xl bg-white border border-surface-lavender shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal delay-100 group"><h3 className="text-headline-md font-bold text-plum-deep mb-4 flex items-start gap-3"><span className="w-10 h-10 shrink-0 rounded-full bg-earth-orange-bright text-white flex items-center justify-center font-bold text-lg">01</span> “Tôi muốn đưa người thân đi khám bệnh an toàn nhưng công việc quá bận rộn”</h3><div className="h-1 w-12 bg-earth-orange-bright mb-4"></div><p className="text-body-sm text-on-surface-variant">Dịch vụ hộ tống y tế chuyên nghiệp giúp bạn an tâm làm việc và người thân được chăm sóc chu đáo.</p></div>
-{/*  Situation 02  */}
-<div className="flex flex-col p-8 rounded-3xl bg-white border border-surface-lavender shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal delay-100 group"><h3 className="text-headline-md font-bold text-plum-deep mb-4 flex items-start gap-3"><span className="w-10 h-10 shrink-0 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg">02</span> “Tôi muốn bố mẹ mình có người chăm sóc sức khỏe, tập luyện tại nhà mỗi ngày?”</h3><div className="h-1 w-12 bg-earth-orange-bright mb-4"></div><p className="text-body-sm text-on-surface-variant">Chương trình chăm sóc sức khỏe chủ động giúp người cao tuổi rèn luyện thể chất, trí não và tận hưởng cuộc sống.</p></div>
-{/*  Situation 03  */}
-<div className="flex flex-col p-8 rounded-3xl bg-white border border-surface-lavender shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal delay-100 group"><h3 className="text-headline-md font-bold text-plum-deep mb-4 flex items-start gap-3"><span className="w-10 h-10 shrink-0 rounded-full bg-earth-orange-bright text-white flex items-center justify-center font-bold text-lg">03</span> “Tôi muốn người thân của mình có người bầu bạn và dọn dẹp nhà cửa gọn gàng?”</h3><div className="h-1 w-12 bg-earth-orange-bright mb-4"></div><p className="text-body-sm text-on-surface-variant">Dịch vụ thăm nom tại nhà giúp hỗ trợ việc gia đình, chuẩn bị bữa ăn và trò chuyện cùng người cao tuổi.</p></div>
+{pageData?.situations.map((item) => (
+  <div key={item.id} className="flex flex-col p-8 rounded-3xl bg-white border border-surface-lavender shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal delay-100 group">
+    <h3 className="text-headline-md font-bold text-plum-deep mb-4 flex items-start gap-3">
+      <span className={`w-10 h-10 shrink-0 rounded-full ${item.color} text-white flex items-center justify-center font-bold text-lg`}>{item.number}</span> 
+      {item.title}
+    </h3>
+    <div className={`h-1 w-12 ${item.color} mb-4`}></div>
+    <p className="text-body-sm text-on-surface-variant">{item.description}</p>
+  </div>
+))}
 </div>
 <div className="grid md:grid-cols-2 gap-8 md:gap-12 pt-10 md:pt-16 border-t border-plum-deep/10">
-{/*  Expert 1  */}
-<div className="flex items-start gap-6">
-<div className="w-24 h-24 shrink-0 rounded-full overflow-hidden border-4 border-white shadow-lg">
-<img alt="BS. Nguyễn Minh Tú" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7dy6eTQV4-Y52YwCi93PxlfXTiqQUOOaHavw7SqqmdKKd2l3VV8K-W-7fX4EYUTob5AU2hW5khTcgVtr64Z5XYFHaFTGbYInoapacFK3LAjG1vIKvqjYse_BjGGVZiUFQ1yeoaILrnr4Gci1vMx2AJRjcoiCuBYLSpnFKzZRvUFAELKXAhw3kDwY_uBGdUFsAmNo5KDeyKWC9zfaqH1LgGklteTMe5_mb4JhBIJMtRi5faKpfC9bENwogoi2ZCM1I11YPPD3BHWcg" />
-</div>
-<div className="space-y-3">
-<blockquote className="text-xl font-bold text-plum-deep italic leading-snug rellax" data-rellax-speed="-0.3">“Trong các giai đoạn phát triển của cuộc đời, tuổi già là thời điểm con người dễ trải qua cảm giác cô đơn sâu sắc nhất, là mối nguy âm thầm đối với sức khỏe tâm thần”</blockquote>
-<div>
-<p className="text-body-sm font-bold text-plum-deep">PGS.TS Nguyễn Văn Tuấn</p>
-<p className="text-[14px] text-on-surface-variant">Viện trưởng Viện Sức khỏe Tâm thần (Bệnh viện Bạch Mai)</p>
-</div>
-</div>
-</div>
-{/*  Expert 2  */}
-<div className="flex items-start gap-6">
-<div className="w-24 h-24 shrink-0 rounded-full overflow-hidden border-4 border-white shadow-lg">
-<img alt="Điều dưỡng Trần Thị Lan" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDST-gV7UKds38ohCGqBpKbmXGlQqenc3z_IpxcFw0ArV8l2FUYu-w7XYR9hDm-xmIgpFTLE7V4RBZaiJrXZsDOgKHcOjDG4cTSiKvjjOxC30SE5rrUFSHzc-38te6Lgnb046mmtLfyfsDrxwJUgObMxCkqHy4-QjCMWUaFD13YBu22sJzKG0WUYA41vDCBLtHtR8O9twewVCER0A1IFnQqGjdAT9s8BOUM7UlPq65ytPKy9KShHYZj54kVwNJP5WknLXTn8yejzSP9" />
-</div>
-<div className="space-y-3">
-<blockquote className="text-xl font-bold text-plum-deep italic leading-snug rellax" data-rellax-speed="-0.3">“Rèn luyện trí não mỗi ngày là chìa khóa vàng để ngăn ngừa suy giảm trí nhớ.”</blockquote>
-<div>
-<p className="text-body-sm font-bold text-plum-deep">Điều dưỡng Trần Thị Lan</p>
-<p className="text-[14px] text-on-surface-variant">Chuyên viên Chăm sóc Chủ động</p>
-</div>
-</div>
-</div>
+{pageData?.medicalShares.map((expert) => (
+  <div key={expert.id} className="flex items-start gap-6">
+    <div className="w-24 h-24 shrink-0 rounded-full overflow-hidden border-4 border-white shadow-lg">
+      <img alt={expert.name} className="w-full h-full object-cover" src={expert.image} />
+    </div>
+    <div className="space-y-3">
+      <blockquote className="text-xl font-bold text-plum-deep italic leading-snug rellax" data-rellax-speed="-0.3">{expert.quote}</blockquote>
+      <div>
+        <p className="text-body-sm font-bold text-plum-deep">{expert.name}</p>
+        <p className="text-[14px] text-on-surface-variant">{expert.title}</p>
+      </div>
+    </div>
+  </div>
+))}
 </div>
 <div className="mt-16 text-center">
 <a className="inline-flex items-center gap-3 px-8 py-3 bg-white border-2 border-primary text-primary rounded-full font-bold hover:bg-primary hover:text-white transition-all shadow-sm text-label-md" href="#">
@@ -271,94 +279,30 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 </button>
 </div>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-{/*  Service 0: Trợ lý theo dõi sức khỏe  */}
-<div className="group cursor-pointer bg-white border border-surface-lavender rounded-[2.5rem] p-6 flex flex-col shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full reveal">
-<div className="aspect-[16/11] rounded-2xl overflow-hidden mb-4 relative">
-<img alt="Trợ lý theo dõi sức khỏe" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNUMRrhRjYTCz4EWq1ZUUZwD4idg1QI1pat0pt2ts9eAPww8EPOzKptw31BWMYTUzUF02eBf-IjNZ-Wn6ATn2A_4_nCOJ6P5_bwEsTX3kxnci1rMpqJdPTl2vCYbLZ5HoxMx0_7UKS9xhkdwSCK__2cXTlPMX4l01EyVNm0nWDlr97JqxAfn_o5FZlLvzTaD4jR5iGXAhC5lTC07Ty2EUoa4fu8WF272iY8p1Xiq2gAMRtr8kHm5XQMQ" />
-<div className="absolute top-4 left-4 bg-white p-2 rounded-xl shadow-lg">
-<span className="material-symbols-outlined text-earth-orange-bright text-2xl">monitor_heart</span>
-</div>
-</div>
-<div className="flex flex-col flex-grow">
-<h3 className="text-headline-md font-bold text-plum-deep mb-2">Trợ lý theo dõi sức khỏe</h3>
-
-<p className="text-body-sm text-on-surface-variant mb-4 leading-relaxed">Đội ngũ chuyên môn hỗ trợ theo dõi các chỉ số sức khỏe, nhắc lịch thuốc và tư vấn dinh dưỡng hàng ngày.</p>
-<ul className="space-y-1.5 mb-6 flex-grow">
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Nhắc lịch uống thuốc và đo chỉ số sức khỏe</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Theo dõi sát sao tình trạng sức khỏe hàng ngày</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Báo cáo định kỳ cho người thân qua ứng dụng</li>
-</ul>
-<div className="mt-auto text-center">
-<button className="py-2.5 px-8 rounded-full border-2 border-earth-orange-bright text-earth-orange-bright font-bold hover:bg-earth-orange-bright hover:text-white transition-all text-label-md w-fit">Bảng giá dịch vụ</button>
-</div>
-</div>
-</div>
-{/*  Service 1: Đưa đón khám bệnh  */}
-<div className="group cursor-pointer bg-white border border-surface-lavender rounded-[2.5rem] p-6 flex flex-col shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full reveal">
-<div className="aspect-[16/11] rounded-2xl overflow-hidden mb-4 relative">
-<img alt="Đưa đón khám bệnh" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk1zdBfzXOR5tbAybU011146MEhPy2bvwYiMJtqi4Nu6xM_ZzPwFQQnPKyg4wADaC1Ku6sVqXnVty7Y4UDrnkUvkLL0PdSAUQAcbWIgtEV-amxdeMqGUj4aSP2MX9IjtBN00dGq6VNT8Q7P6Q8kDYNtalPmGjZa40DVzbAoP-rG4XIs3WV1EWQUH50clGBwKBJ7cy_ES9ttCskmPu0FstTr0rNLjEcZi1BWbKrAUUAhQ_fq6j82Dly-Q" />
-<div className="absolute top-4 left-4 bg-white p-2 rounded-xl shadow-lg">
-<span className="material-symbols-outlined text-earth-orange-bright text-2xl">medical_services</span>
-</div>
-</div>
-<div className="flex flex-col flex-grow">
-<h3 className="text-headline-md font-bold text-plum-deep mb-2">Đưa đón khám bệnh</h3>
-<p className="text-body-sm text-on-surface-variant mb-4 leading-relaxed">Đội ngũ chuyên nghiệp hỗ trợ đưa đón và đồng hành cùng người già và trẻ em tới các cơ sở y tế an toàn, chu đáo.</p>
-<ul className="space-y-1.5 mb-6 flex-grow">
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Đặt lịch hẹn khám</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span>Đồng hành suốt cả quá trình khám</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span>Dịch vụ chăm người ốm tại viện</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Báo cáo kết quả khám chữa bệnh cho gia đình</li>
-</ul>
-<div className="mt-auto text-center">
-<button className="py-2.5 px-8 rounded-full border-2 border-earth-orange-bright text-earth-orange-bright font-bold hover:bg-earth-orange-bright hover:text-white transition-all text-label-md w-fit">Bảng giá dịch vụ</button>
-</div>
-</div>
-</div>
-{/*  Service 2: Giáo dục lão hóa chủ động  */}
-<div className="group cursor-pointer bg-white border border-surface-lavender rounded-[2.5rem] p-6 flex flex-col shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full reveal">
-<div className="aspect-[16/11] rounded-2xl overflow-hidden mb-4 relative">
-<img alt="Giáo dục lão hóa chủ động" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRZ_AQP2VC54qeJuIdTXUSeboHz78b_DXHzD7-YPNb3uCPRgB9XwVYAWNAISjRoIHkIMtd-7Gp_ACZyD1-K0Drbg3Z-XxU_vLTifV1dOEEYwmOUr5Hj0QZgZJH5vflYlaDzjjH1B6BGMMMR4HNElcJcLZwghqE2aQ-h--wPUjajwldwmQ7YkbGayq_IqGZwqxWQe1jjv25dtTaDU9muEXTm58mPo0x7TjBD3lYm4MKdTjylOwOrqkpgw" />
-<div className="absolute top-4 left-4 bg-white p-2 rounded-xl shadow-lg">
-<span className="material-symbols-outlined text-earth-orange-bright text-2xl">psychology</span>
-</div>
-</div>
-<div className="flex flex-col flex-grow">
-<h3 className="text-headline-md font-bold text-plum-deep mb-2">Giáo dục lão hóa chủ động</h3>
-<p className="text-body-sm text-on-surface-variant mb-4 leading-relaxed">Chương trình giúp người cao tuổi rèn luyện trí não, với các bài tập cải thiện thể chất và tinh thần để tận hưởng cuộc sống.</p>
-<ul className="space-y-1.5 mb-6 flex-grow">
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Bài tập tại nhà kết hợp hoạt động ngoài trời</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Kiểm tra sức khỏe trước mỗi buổi học</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> bài tập cải thiện thể chất và tinh thần</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Kết hợp các kiến thức về công nghệ số</li>
-</ul>
-<div className="mt-auto text-center">
-<button className="py-2.5 px-8 rounded-full border-2 border-earth-orange-bright text-earth-orange-bright font-bold hover:bg-earth-orange-bright hover:text-white transition-all text-label-md w-fit">Bảng giá dịch vụ</button>
-</div>
-</div>
-</div>
-{/*  Service 3: Giúp việc tại nhà  */}
-<div className="group cursor-pointer bg-white border border-surface-lavender rounded-[2.5rem] p-6 flex flex-col shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full reveal">
-<div className="aspect-[16/11] rounded-2xl overflow-hidden mb-4 relative">
-<img alt="Thăm nom tại nhà" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop" />
-<div className="absolute top-4 left-4 bg-white p-2 rounded-xl shadow-lg">
-<span className="material-symbols-outlined text-earth-orange-bright text-2xl">home_repair_service</span>
-</div>
-</div>
-<div className="flex flex-col flex-grow">
-<h3 className="text-headline-md font-bold text-plum-deep mb-2">Giúp việc tại nhà</h3>
-<p className="text-body-sm text-on-surface-variant mb-4 leading-relaxed">Hỗ trợ các công việc gia đình, Hỗ trợ sinh hoạt và trò chuyện chia sẻ cùng người cao tuổi mỗi ngày.</p>
-<ul className="space-y-1.5 mb-6 flex-grow">
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Dịch vụ theo tiếng hàng ngày hoặc định kỳ</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Chăm sóc nội trợ tại nhà</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Kiểm tra sức khỏe mỗi ngày thăm nom</li>
-<li className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant"><span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> Hỗ trợ sinh hoạt và trò chuyện chia sẻ cùng</li>
-</ul>
-<div className="mt-auto text-center">
-<button className="py-2.5 px-8 rounded-full border-2 border-earth-orange-bright text-earth-orange-bright font-bold hover:bg-earth-orange-bright hover:text-white transition-all text-label-md w-fit">Bảng giá dịch vụ</button>
-</div>
-</div>
-</div>
+{pageData?.comprehensiveSolutions.map((service) => (
+  <div key={service.id} className="group cursor-pointer bg-white border border-surface-lavender rounded-[2.5rem] p-6 flex flex-col shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full reveal">
+    <div className="aspect-[16/11] rounded-2xl overflow-hidden mb-4 relative">
+      <img alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={service.image} />
+      <div className="absolute top-4 left-4 bg-white p-2 rounded-xl shadow-lg">
+        <span className="material-symbols-outlined text-earth-orange-bright text-2xl">{service.icon}</span>
+      </div>
+    </div>
+    <div className="flex flex-col flex-grow">
+      <h3 className="text-headline-md font-bold text-plum-deep mb-2">{service.title}</h3>
+      <p className="text-body-sm text-on-surface-variant mb-4 leading-relaxed">{service.description}</p>
+      <ul className="space-y-1.5 mb-6 flex-grow">
+        {service.features.map((feature, idx) => (
+          <li key={idx} className="flex items-start gap-2 text-body-sm leading-tight text-on-surface-variant">
+            <span className="material-symbols-outlined text-earth-orange-bright text-[18px] shrink-0">check_circle</span> {feature}
+          </li>
+        ))}
+      </ul>
+      <div className="mt-auto text-center">
+        <button className="py-2.5 px-8 rounded-full border-2 border-earth-orange-bright text-earth-orange-bright font-bold hover:bg-earth-orange-bright hover:text-white transition-all text-label-md w-fit">Bảng giá dịch vụ</button>
+      </div>
+    </div>
+  </div>
+))}
 </div>
 </div>
 </section>
@@ -374,65 +318,39 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <thead>
 <tr className="bg-primary text-white">
 <th className="p-4 md:p-6 font-bold text-label-lg border-r border-white/10 w-[15%] text-center sticky-col bg-primary">Nội dung</th>
-<th className="p-4 md:p-6 font-bold text-label-lg border-r border-white/10 w-[21%] text-center">Trợ lý theo dõi sức khỏe</th>
-<th className="p-4 md:p-6 font-bold text-label-lg border-r border-white/10 w-[21%] text-center">Đưa đón khám bệnh</th>
-<th className="p-4 md:p-6 font-bold text-label-lg border-r border-white/10 w-[21%] text-center">Giáo dục lão hóa</th>
-<th className="p-4 md:p-6 font-bold text-label-lg w-[21%] text-center">Giúp việc tại nhà</th>
+{pageData?.careServiceDetails.map(service => (
+  <th key={service.id} className="p-4 md:p-6 font-bold text-label-lg border-r border-white/10 w-[21%] text-center">{service.title}</th>
+))}
 </tr>
 </thead>
 <tbody className="text-on-surface">
 <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
 <td className="py-2 px-3 md:py-3 md:px-6 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Đối tượng</td>
-<td className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm text-plum-deep">Người cao tuổi cần theo dõi sức khỏe định kỳ, người có bệnh nền.</td>
-<td className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm">Người cao tuổi, trẻ em cần đi khám chuyên khoa/ tái khám/ khám định kỳ tại bệnh viện, trung tâm y tế</td>
-<td className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm">Người cao tuổi muốn duy trì sự minh mẫn &amp; vận động</td>
-<td className="py-2 px-3 md:py-3 md:px-6 text-[13px] md:text-body-sm">Người già neo đơn hoặc cần hỗ trợ sinh hoạt hàng ngày</td>
+{pageData?.careServiceDetails.map(service => (
+  <td key={service.id} className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm text-plum-deep">{service.target}</td>
+))}
 </tr>
 <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
 <td className="py-2 px-3 md:py-3 md:px-6 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Mục tiêu</td>
-<td className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm">Kiểm soát tốt các chỉ số sức khỏe, duy trì thói quen uống thuốc đúng giờ.</td>
-<td className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm">An toàn y tế, giảm bớt gánh nặng thời gian cho người thân</td>
-<td className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm">Phòng ngừa sa sút trí tuệ, cải thiện thể lực &amp; tinh thần</td>
-<td className="py-2 px-3 md:py-3 md:px-6 text-[13px] md:text-body-sm">Đảm bảo dinh dưỡng, vệ sinh và có người bầu bạn</td>
+{pageData?.careServiceDetails.map(service => (
+  <td key={service.id} className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm">{service.goal}</td>
+))}
 </tr>
 <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
 <td className="py-2 px-3 md:py-3 md:px-6 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Chi tiết dịch vụ</td>
-<td className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm leading-tight text-plum-deep">
-<ul className="list-disc ml-4 space-y-1">
-<li className="">Nhắc uống thuốc và gọi điện hàng ngày</li>
-<li className="">Theo dõi lịch sử thể trạng qua app</li>
-<li className="">Kiểm tra sức khỏe khi đến thăm khám</li>
-</ul>
-</td>
-<td className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm leading-tight">
-<ul className="list-disc ml-4 space-y-1">
-<li className="">Đưa đón tận nhà 2 chiều</li>
-<li className="">Đặt lịch khám trước theo yêu cầu</li>
-<li className="">Đồng hành khám bệnh cùng</li>
-<li className="">Ghi chú thông tin khám bệnh</li>
-<li className="">Dịch vụ chăm người ốm tại bệnh viện</li>
-</ul>
-</td>
-<td className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm leading-tight">
-<ul className="list-disc ml-4 space-y-1">
-<li className="">Chương trình rèn luyện trí não</li>
-<li className="">Duy trì thể chất tại nhà</li>
-<li className="">Hướng dẫn sử dụng công nghệ</li>
-<li className="">Hoạt động trải nghiệm ngoài trời</li>
-</ul>
-</td>
-<td className="py-2 px-3 md:py-3 md:px-6 text-[13px] md:text-body-sm leading-tight">
-<ul className="list-disc ml-4 space-y-1">
-<li className="">Hỗ trợ các công việc gia đình</li>
-<li className="">Trò chuyện và chia sẻ với người cao tuổi</li>
-<li className="">Dịch vụ linh hoạt theo khung giờ</li>
-<li className="">Kiểm tra sức khỏe cơ bản hàng ngày</li>
-</ul>
-</td>
+{pageData?.careServiceDetails.map(service => (
+  <td key={service.id} className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-[13px] md:text-body-sm leading-tight text-plum-deep">
+    <ul className="list-disc ml-4 space-y-1">
+      {service.details.map((detail, idx) => (
+        <li key={idx}>{detail}</li>
+      ))}
+    </ul>
+  </td>
+))}
 </tr>
 <tr className="">
 <td className="py-2 px-3 md:py-3 md:px-6 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Chất lượng &amp; Bảo mật</td>
-<td className="text-[13px] md:text-body-sm font-semibold text-plum-deep text-center" colspan="4">
+<td className="text-[13px] md:text-body-sm font-semibold text-plum-deep text-center" colSpan="4">
 <div className="grid grid-cols-4 gap-0 w-full h-full">
 <div className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-left">Thông tin nhân viên minh bạch, được theo dõi qua app và bảo mật thông tin người sử dụng</div>
 <div className="py-2 px-3 md:py-3 md:px-6 border-r border-surface-lavender text-left">Thông tin nhân viên minh bạch, được theo dõi qua app và bảo mật thông tin người sử dụng</div>
@@ -447,14 +365,13 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 
 {/*  Mobile Card View for Service Comparison (Visible only on mobile)  */}
 <div className="md:hidden space-y-6 reveal delay-200 mt-6">
-{/*  Card 1  */}
-<div className="bg-white rounded-2xl shadow-xl border border-surface-lavender overflow-hidden relative">
-  {/*  Header with Icon  */}
-  <div className="bg-primary/5 p-5 border-b border-surface-lavender flex items-center gap-4">
-    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
-      <span className="material-symbols-outlined text-white text-[24px]">monitor_heart</span>
+{pageData?.careServiceDetails.map(service => (
+<div key={service.id} className="bg-white rounded-2xl shadow-xl border border-surface-lavender overflow-hidden relative">
+  <div className={`${service.bgClass} p-5 border-b border-surface-lavender flex items-center gap-4`}>
+    <div className={`w-12 h-12 rounded-full bg-${service.color} flex items-center justify-center shrink-0 shadow-md`}>
+      <span className="material-symbols-outlined text-white text-[24px]">{service.icon}</span>
     </div>
-    <h3 className="text-xl font-bold text-primary leading-tight">Trợ lý theo dõi sức khỏe</h3>
+    <h3 className={`text-xl font-bold text-${service.color} leading-tight`}>{service.title}</h3>
   </div>
   
   <div className="p-5 space-y-5">
@@ -462,7 +379,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
        <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">group</span>
        <div>
          <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Đối tượng</span>
-         <p className="text-[13px] font-medium text-plum-deep leading-relaxed">Người cao tuổi cần theo dõi sức khỏe định kỳ, người có bệnh nền.</p>
+         <p className="text-[13px] font-medium text-plum-deep leading-relaxed">{service.target}</p>
        </div>
     </div>
     
@@ -470,16 +387,16 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
        <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">flag</span>
        <div>
          <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Mục tiêu</span>
-         <p className="text-[13px] text-on-surface-variant leading-relaxed">Kiểm soát tốt các chỉ số sức khỏe, duy trì thói quen uống thuốc đúng giờ.</p>
+         <p className="text-[13px] text-on-surface-variant leading-relaxed">{service.goal}</p>
        </div>
     </div>
     
     <div className="bg-surface-mist p-4 rounded-xl border border-surface-lavender/50">
       <span className="text-[11px] uppercase text-primary font-bold flex items-center gap-1.5 mb-3"><span className="material-symbols-outlined text-[16px]">list_alt</span> Chi tiết dịch vụ</span>
       <ul className="space-y-2 text-[13px] text-plum-deep">
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Nhắc uống thuốc và gọi điện hàng ngày</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Theo dõi lịch sử thể trạng qua app</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Kiểm tra sức khỏe khi đến thăm khám</li>
+        {service.details.map((detail, idx) => (
+          <li key={idx} className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> {detail}</li>
+        ))}
       </ul>
     </div>
 
@@ -492,134 +409,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
     </div>
   </div>
 </div>
-
-{/*  Card 2  */}
-<div className="bg-white rounded-2xl shadow-xl border border-surface-lavender overflow-hidden relative">
-  <div className="bg-primary/5 p-5 border-b border-surface-lavender flex items-center gap-4">
-    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
-      <span className="material-symbols-outlined text-white text-[24px]">directions_car</span>
-    </div>
-    <h3 className="text-xl font-bold text-primary leading-tight">Đưa đón khám bệnh</h3>
-  </div>
-  
-  <div className="p-5 space-y-5">
-    <div className="flex gap-3">
-       <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">group</span>
-       <div>
-         <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Đối tượng</span>
-         <p className="text-[13px] font-medium text-plum-deep leading-relaxed">Người cao tuổi, trẻ em cần đi khám chuyên khoa/ tái khám tại bệnh viện.</p>
-       </div>
-    </div>
-    <div className="flex gap-3">
-       <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">flag</span>
-       <div>
-         <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Mục tiêu</span>
-         <p className="text-[13px] text-on-surface-variant leading-relaxed">An toàn y tế, giảm bớt gánh nặng thời gian cho người thân.</p>
-       </div>
-    </div>
-    <div className="bg-surface-mist p-4 rounded-xl border border-surface-lavender/50">
-      <span className="text-[11px] uppercase text-primary font-bold flex items-center gap-1.5 mb-3"><span className="material-symbols-outlined text-[16px]">list_alt</span> Chi tiết dịch vụ</span>
-      <ul className="space-y-2 text-[13px] text-plum-deep">
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Đưa đón tận nhà 2 chiều</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Đặt lịch khám trước theo yêu cầu</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Đồng hành khám bệnh cùng</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Ghi chú thông tin khám bệnh</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Dịch vụ chăm người ốm tại bệnh viện</li>
-      </ul>
-    </div>
-    <div className="flex gap-3 bg-primary/5 p-3 rounded-xl border border-primary/10">
-       <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified_user</span>
-       <div>
-         <span className="text-[11px] uppercase text-primary font-bold tracking-wider block mb-1">Chất lượng &amp; Bảo mật</span>
-         <p className="text-[12px] font-medium text-plum-deep leading-relaxed">Thông tin nhân viên minh bạch, được theo dõi qua app và bảo mật thông tin.</p>
-       </div>
-    </div>
-  </div>
-</div>
-
-{/*  Card 3  */}
-<div className="bg-white rounded-2xl shadow-xl border border-surface-lavender overflow-hidden relative">
-  <div className="bg-primary/5 p-5 border-b border-surface-lavender flex items-center gap-4">
-    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
-      <span className="material-symbols-outlined text-white text-[24px]">self_improvement</span>
-    </div>
-    <h3 className="text-xl font-bold text-primary leading-tight">Giáo dục lão hóa</h3>
-  </div>
-  <div className="p-5 space-y-5">
-    <div className="flex gap-3">
-       <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">group</span>
-       <div>
-         <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Đối tượng</span>
-         <p className="text-[13px] font-medium text-plum-deep leading-relaxed">Người cao tuổi muốn duy trì sự minh mẫn &amp; vận động.</p>
-       </div>
-    </div>
-    <div className="flex gap-3">
-       <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">flag</span>
-       <div>
-         <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Mục tiêu</span>
-         <p className="text-[13px] text-on-surface-variant leading-relaxed">Phòng ngừa sa sút trí tuệ, cải thiện thể lực &amp; tinh thần.</p>
-       </div>
-    </div>
-    <div className="bg-surface-mist p-4 rounded-xl border border-surface-lavender/50">
-      <span className="text-[11px] uppercase text-primary font-bold flex items-center gap-1.5 mb-3"><span className="material-symbols-outlined text-[16px]">list_alt</span> Chi tiết dịch vụ</span>
-      <ul className="space-y-2 text-[13px] text-plum-deep">
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Chương trình rèn luyện trí não</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Duy trì thể chất tại nhà</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Hướng dẫn sử dụng công nghệ</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Hoạt động trải nghiệm ngoài trời</li>
-      </ul>
-    </div>
-    <div className="flex gap-3 bg-primary/5 p-3 rounded-xl border border-primary/10">
-       <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified_user</span>
-       <div>
-         <span className="text-[11px] uppercase text-primary font-bold tracking-wider block mb-1">Chất lượng &amp; Bảo mật</span>
-         <p className="text-[12px] font-medium text-plum-deep leading-relaxed">Thông tin nhân viên minh bạch, được theo dõi qua app và bảo mật thông tin.</p>
-       </div>
-    </div>
-  </div>
-</div>
-
-{/*  Card 4  */}
-<div className="bg-white rounded-2xl shadow-xl border border-surface-lavender overflow-hidden relative">
-  <div className="bg-primary/5 p-5 border-b border-surface-lavender flex items-center gap-4">
-    <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-md">
-      <span className="material-symbols-outlined text-white text-[24px]">cleaning_services</span>
-    </div>
-    <h3 className="text-xl font-bold text-primary leading-tight">Giúp việc tại nhà</h3>
-  </div>
-  <div className="p-5 space-y-5">
-    <div className="flex gap-3">
-       <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">group</span>
-       <div>
-         <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Đối tượng</span>
-         <p className="text-[13px] font-medium text-plum-deep leading-relaxed">Người già neo đơn hoặc cần hỗ trợ sinh hoạt hàng ngày.</p>
-       </div>
-    </div>
-    <div className="flex gap-3">
-       <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">flag</span>
-       <div>
-         <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Mục tiêu</span>
-         <p className="text-[13px] text-on-surface-variant leading-relaxed">Đảm bảo dinh dưỡng, vệ sinh và có người bầu bạn.</p>
-       </div>
-    </div>
-    <div className="bg-surface-mist p-4 rounded-xl border border-surface-lavender/50">
-      <span className="text-[11px] uppercase text-primary font-bold flex items-center gap-1.5 mb-3"><span className="material-symbols-outlined text-[16px]">list_alt</span> Chi tiết dịch vụ</span>
-      <ul className="space-y-2 text-[13px] text-plum-deep">
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Hỗ trợ các công việc gia đình</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Trò chuyện và chia sẻ với người cao tuổi</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Dịch vụ linh hoạt theo khung giờ</li>
-        <li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> Kiểm tra sức khỏe cơ bản hàng ngày</li>
-      </ul>
-    </div>
-    <div className="flex gap-3 bg-primary/5 p-3 rounded-xl border border-primary/10">
-       <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified_user</span>
-       <div>
-         <span className="text-[11px] uppercase text-primary font-bold tracking-wider block mb-1">Chất lượng &amp; Bảo mật</span>
-         <p className="text-[12px] font-medium text-plum-deep leading-relaxed">Thông tin nhân viên minh bạch, được theo dõi qua app và bảo mật thông tin.</p>
-       </div>
-    </div>
-  </div>
-</div>
+))}
 </div>
 </div>
 </section>
@@ -640,49 +430,27 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <h3 className="text-headline-lg font-bold">Gói Trợ lý Theo dõi Sức khỏe</h3>
 </div>
 <div className="grid gap-6">
-{/*  Sub-package: Cơ bản  */}
-<div className="bg-surface-lavender p-8 rounded-3xl border border-white/20 transition-all">
-<div className="flex justify-between items-start mb-4">
-<h4 className="text-xl font-bold text-primary">Gói Quan Tâm</h4>
-<div className="text-right text-plum-deep">
-<span className="text-2xl font-bold text-primary">790.000</span><span className="text-sm opacity-80 text-plum-deep"> đồng/tháng</span>
-<div className="flex items-center justify-end gap-1 mt-1 font-bold animate-pulse" style={{'textShadow': 'rgba(0, 0, 0, 0.15) 2px 2px 0px', 'background': 'linear-gradient(rgb(239, 68, 68) 0%, rgb(153, 0, 10) 100%) text', 'WebkitTextFillColor': 'transparent', 'filter': 'drop-shadow(rgba(0, 0, 0, 0.1) 0px 2px 2px)'}}>
-<span className="material-symbols-outlined text-[16px] text-error">auto_awesome</span><span className="text-lg text-error">25.000</span><span className="text-[12px] opacity-90 text-error"> đồng/ngày</span>
-</div>
-</div>
-</div>
-<ul className="space-y-3 text-body-sm text-on-surface">
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Nhắc uống thuốc hàng ngày và gọi điện chăm sóc 2 lần/ tuần</li>
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Thăm nhà và kiểm tra sức khỏe 1 lần/tháng</li>
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Báo cáo qua app cho chủ nhà</li>
-</ul>
-</div>
-{/*  Sub-package: Tiêu chuẩn  */}
-<div className="bg-primary p-8 rounded-3xl border border-white/20 text-white relative">
-<div className="absolute -top-3 right-8 bg-earth-orange-bright text-white px-4 py-1 rounded-full text-[12px] font-bold uppercase">Phổ biến</div>
-<div className="flex justify-between items-start mb-4">
-<h4 className="text-xl font-bold">Gói Chăm sóc</h4>
-<div className="text-right"><span className="text-2xl font-bold">1.490.000</span><span className="text-sm opacity-80"> đồng/tháng</span></div>
-</div>
-<ul className="space-y-3 text-body-sm opacity-90">
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Nhắc uống thuốc hàng ngày và gọi điện chăm sóc hàng ngày</li>
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Thăm nhà và kiểm tra sức khỏe 2 lần/tháng</li>
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Báo cáo qua app cho chủ nhà</li>
-</ul>
-</div>
-{/*  Sub-package: Đồng hành  */}
-<div className="bg-transparent p-8 rounded-3xl border-2 border-white/20 hover:border-white/40 transition-all">
-<div className="flex justify-between items-start mb-4">
-<h4 className="text-xl font-bold text-white">Gói Yêu thương</h4>
-<div className="text-right text-white"><span className="text-2xl font-bold">2.490.000</span><span className="text-sm opacity-80"> đồng/tháng</span></div>
-</div>
-<ul className="space-y-3 text-body-sm opacity-80">
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Nhắc uống thuốc hàng ngày và gọi điện chăm sóc hàng ngày</li>
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Thăm nhà và kiểm tra sức khỏe 4 lần/ tháng</li>
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Đưa cụ đi dạo phố, trải nghiệm dịch vụ cộng đồng 1 lần/tháng</li>
-<li className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> Báo cáo qua app cho chủ nhà</li>
-</ul>
-</div>
+{pageData?.healthMonitorPackages.map(pkg => (
+  <div key={pkg.id} className={`${pkg.highlight ? 'bg-primary text-white relative' : 'bg-surface-lavender hover:bg-white hover:shadow-xl text-on-surface transition-all'} p-8 rounded-3xl border ${pkg.highlight ? 'border-white/20' : 'border-surface-lavender'}`}>
+    {pkg.tag && <div className="absolute -top-3 right-8 bg-earth-orange-bright text-white px-4 py-1 rounded-full text-[12px] font-bold uppercase">{pkg.tag}</div>}
+    <div className="flex justify-between items-start mb-4">
+      <h4 className={`text-xl font-bold ${pkg.highlight ? '' : 'text-primary'}`}>{pkg.name}</h4>
+      <div className={`text-right ${pkg.highlight ? '' : 'text-plum-deep'}`}>
+        <span className={`text-2xl font-bold ${pkg.highlight ? '' : 'text-primary'}`}>{pkg.price}</span><span className={`text-sm opacity-80 ${pkg.highlight ? '' : 'text-plum-deep'}`}> {pkg.unit}</span>
+        {pkg.bonus && (
+          <div className="flex items-center justify-end gap-1 mt-1 font-bold animate-pulse" style={{'textShadow': 'rgba(0, 0, 0, 0.15) 2px 2px 0px', 'background': 'linear-gradient(rgb(239, 68, 68) 0%, rgb(153, 0, 10) 100%) text', 'WebkitTextFillColor': 'transparent', 'filter': 'drop-shadow(rgba(0, 0, 0, 0.1) 0px 2px 2px)'}}>
+            <span className="material-symbols-outlined text-[16px] text-error">auto_awesome</span><span className="text-lg text-error">25.000</span><span className="text-[12px] opacity-90 text-error"> đồng/ngày</span>
+          </div>
+        )}
+      </div>
+    </div>
+    <ul className={`space-y-3 text-body-sm ${pkg.highlight ? 'opacity-90' : ''}`}>
+      {pkg.features.map((feature, idx) => (
+        <li key={idx} className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-sm mt-1">check_circle</span> {feature}</li>
+      ))}
+    </ul>
+  </div>
+))}
 </div>
 </div>
 {/*  Block 2: Gói Dịch vụ Y tế  */}
@@ -696,22 +464,12 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <div className="bg-white/10 rounded-[3rem] border border-white/10 flex flex-col h-full p-8 flex-grow">
 <p className="text-body-lg opacity-90 mb-4">Bao gồm các dịch vụ chuyên sâu hỗ trợ sức khỏe toàn diện:</p>
 <div className="grid grid-cols-2 gap-4 mb-4">
-<div className="bg-surface-lavender p-4 rounded-2xl text-center border border-white/20 shadow-md flex flex-col items-center justify-center h-32">
-<span className="material-symbols-outlined block mb-1 text-primary">medical_services</span>
-<span className="text-label-lg font-bold text-plum-deep">Đưa đón khám bệnh</span>
-</div>
-<div className="bg-surface-lavender p-4 rounded-2xl text-center border border-white/20 shadow-md flex flex-col items-center justify-center h-32">
-<span className="material-symbols-outlined block mb-1 text-primary">bed</span>
-<span className="text-label-lg font-bold text-plum-deep">Chăm nom tại viện</span>
-</div>
-<div className="bg-surface-lavender p-4 rounded-2xl text-center border border-white/20 shadow-md flex flex-col items-center justify-center h-32">
-<span className="material-symbols-outlined block mb-1 text-primary">home_health</span>
-<span className="text-label-lg font-bold text-plum-deep">Giúp việc tại nhà</span>
-</div>
-<div className="bg-surface-lavender p-4 rounded-2xl text-center border border-white/20 shadow-md flex flex-col items-center justify-center h-32">
-<span className="material-symbols-outlined block mb-1 text-primary">psychology</span>
-<span className="text-label-lg font-bold text-plum-deep">Giáo dục lão khoa</span>
-</div>
+{pageData?.medicalPackages.map(medPkg => (
+  <div key={medPkg.id} className="bg-surface-lavender p-4 rounded-2xl text-center border border-white/20 shadow-md flex flex-col items-center justify-center h-32">
+    <span className="material-symbols-outlined block mb-1 text-primary">{medPkg.icon}</span>
+    <span className="text-label-lg font-bold text-plum-deep">{medPkg.title}</span>
+  </div>
+))}
 </div>
 <div className="mt-auto">
 <p className="text-body-sm italic opacity-70 mb-4">Chi tiết giá vui lòng tham khảo Bảng giá dịch vụ chi tiết bên dưới.</p>
@@ -754,10 +512,10 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <div className="font-bold">390.000 VNĐ</div><div className="text-[11px] md:text-[12px] opacity-70">/ 4 tiếng</div>
 <div className="mt-2 font-bold">690.000 VNĐ</div><div className="text-[11px] md:text-[12px] opacity-70">/ 8 tiếng</div>
 </td>
-<td className="p-3 md:p-4 border-r border-surface-lavender text-center bg-surface-mist/50" colspan="2" rowspan="2">
+<td className="p-3 md:p-4 border-r border-surface-lavender text-center bg-surface-mist/50" colSpan="2" rowSpan="2">
 <div className="px-2 md:px-4 text-on-surface-variant leading-relaxed text-[12px] md:text-[13px]">Giảm giá <span className="text-earth-orange-bright font-bold">5%</span> nếu phát sinh dịch vụ tái khám, hoặc đăng ký từ lần thứ 2 trở đi</div>
 </td>
-<td className="p-3 md:p-4 leading-relaxed text-on-surface-variant" rowspan="2">
+<td className="p-3 md:p-4 leading-relaxed text-on-surface-variant" rowSpan="2">
 <ul className="list-disc ml-4 space-y-1 text-[12px] md:text-[13px]">
 <li className="">Chưa bao gồm chi phí 02 lượt vận chuyển từ nhà tới bệnh viện.</li>
 <li className="">Chi phí thăm khám và thuốc men chi trả theo thực tế.</li>

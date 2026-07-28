@@ -1,0 +1,387 @@
+{
+  "situations": [
+    {
+      "id": 1,
+      "number": "01",
+      "title": "“Tôi muốn đưa người thân đi khám bệnh an toàn nhưng công việc quá bận rộn”",
+      "description": "Dịch vụ hộ tống y tế chuyên nghiệp giúp bạn an tâm làm việc và người thân được chăm sóc chu đáo.",
+      "color": "bg-earth-orange-bright"
+    },
+    {
+      "id": 2,
+      "number": "02",
+      "title": "“Tôi muốn bố mẹ mình có người chăm sóc sức khỏe, tập luyện tại nhà mỗi ngày?”",
+      "description": "Chương trình chăm sóc sức khỏe chủ động giúp người cao tuổi rèn luyện thể chất, trí não và tận hưởng cuộc sống.",
+      "color": "bg-primary"
+    },
+    {
+      "id": 3,
+      "number": "03",
+      "title": "“Tôi muốn người thân của mình có người bầu bạn và dọn dẹp nhà cửa gọn gàng?”",
+      "description": "Dịch vụ thăm nom tại nhà giúp hỗ trợ việc gia đình, chuẩn bị bữa ăn và trò chuyện cùng người cao tuổi.",
+      "color": "bg-earth-orange-bright"
+    }
+  ],
+  "medicalShares": [
+    {
+      "id": 1,
+      "name": "PGS.TS Nguyễn Văn Tuấn",
+      "title": "Viện trưởng Viện Sức khỏe Tâm thần (Bệnh viện Bạch Mai)",
+      "quote": "“Trong các giai đoạn phát triển của cuộc đời, tuổi già là thời điểm con người dễ trải qua cảm giác cô đơn sâu sắc nhất, là mối nguy âm thầm đối với sức khỏe tâm thần”",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuB7dy6eTQV4-Y52YwCi93PxlfXTiqQUOOaHavw7SqqmdKKd2l3VV8K-W-7fX4EYUTob5AU2hW5khTcgVtr64Z5XYFHaFTGbYInoapacFK3LAjG1vIKvqjYse_BjGGVZiUFQ1yeoaILrnr4Gci1vMx2AJRjcoiCuBYLSpnFKzZRvUFAELKXAhw3kDwY_uBGdUFsAmNo5KDeyKWC9zfaqH1LgGklteTMe5_mb4JhBIJMtRi5faKpfC9bENwogoi2ZCM1I11YPPD3BHWcg"
+    },
+    {
+      "id": 2,
+      "name": "Điều dưỡng Trần Thị Lan",
+      "title": "Chuyên viên Chăm sóc Chủ động",
+      "quote": "“Rèn luyện trí não mỗi ngày là chìa khóa vàng để ngăn ngừa suy giảm trí nhớ.”",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDST-gV7UKds38ohCGqBpKbmXGlQqenc3z_IpxcFw0ArV8l2FUYu-w7XYR9hDm-xmIgpFTLE7V4RBZaiJrXZsDOgKHcOjDG4cTSiKvjjOxC30SE5rrUFSHzc-38te6Lgnb046mmtLfyfsDrxwJUgObMxCkqHy4-QjCMWUaFD13YBu22sJzKG0WUYA41vDCBLtHtR8O9twewVCER0A1IFnQqGjdAT9s8BOUM7UlPq65ytPKy9KShHYZj54kVwNJP5WknLXTn8yejzSP9"
+    }
+  ],
+  "comprehensiveSolutions": [
+    {
+      "id": 1,
+      "title": "Trợ lý theo dõi sức khỏe",
+      "description": "Đội ngũ chuyên môn hỗ trợ theo dõi các chỉ số sức khỏe, nhắc lịch thuốc và tư vấn dinh dưỡng hàng ngày.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCNUMRrhRjYTCz4EWq1ZUUZwD4idg1QI1pat0pt2ts9eAPww8EPOzKptw31BWMYTUzUF02eBf-IjNZ-Wn6ATn2A_4_nCOJ6P5_bwEsTX3kxnci1rMpqJdPTl2vCYbLZ5HoxMx0_7UKS9xhkdwSCK__2cXTlPMX4l01EyVNm0nWDlr97JqxAfn_o5FZlLvzTaD4jR5iGXAhC5lTC07Ty2EUoa4fu8WF272iY8p1Xiq2gAMRtr8kHm5XQMQ",
+      "icon": "monitor_heart",
+      "features": [
+        "Nhắc lịch uống thuốc và đo chỉ số sức khỏe",
+        "Theo dõi sát sao tình trạng sức khỏe hàng ngày",
+        "Báo cáo định kỳ cho người thân qua ứng dụng"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Đưa đón khám bệnh",
+      "description": "Đội ngũ chuyên nghiệp hỗ trợ đưa đón và đồng hành cùng người già và trẻ em tới các cơ sở y tế an toàn, chu đáo.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDk1zdBfzXOR5tbAybU011146MEhPy2bvwYiMJtqi4Nu6xM_ZzPwFQQnPKyg4wADaC1Ku6sVqXnVty7Y4UDrnkUvkLL0PdSAUQAcbWIgtEV-amxdeMqGUj4aSP2MX9IjtBN00dGq6VNT8Q7P6Q8kDYNtalPmGjZa40DVzbAoP-rG4XIs3WV1EWQUH50clGBwKBJ7cy_ES9ttCskmPu0FstTr0rNLjEcZi1BWbKrAUUAhQ_fq6j82Dly-Q",
+      "icon": "medical_services",
+      "features": [
+        "Đặt lịch hẹn khám",
+        "Đồng hành suốt cả quá trình khám",
+        "Dịch vụ chăm người ốm tại viện",
+        "Báo cáo kết quả khám chữa bệnh cho gia đình"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Giáo dục lão hóa chủ động",
+      "description": "Chương trình giúp người cao tuổi rèn luyện trí não, với các bài tập cải thiện thể chất và tinh thần để tận hưởng cuộc sống.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBRZ_AQP2VC54qeJuIdTXUSeboHz78b_DXHzD7-YPNb3uCPRgB9XwVYAWNAISjRoIHkIMtd-7Gp_ACZyD1-K0Drbg3Z-XxU_vLTifV1dOEEYwmOUr5Hj0QZgZJH5vflYlaDzjjH1B6BGMMMR4HNElcJcLZwghqE2aQ-h--wPUjajwldwmQ7YkbGayq_IqGZwqxWQe1jjv25dtTaDU9muEXTm58mPo0x7TjBD3lYm4MKdTjylOwOrqkpgw",
+      "icon": "psychology",
+      "features": [
+        "Bài tập tại nhà kết hợp hoạt động ngoài trời",
+        "Kiểm tra sức khỏe trước mỗi buổi học",
+        "bài tập cải thiện thể chất và tinh thần",
+        "Kết hợp các kiến thức về công nghệ số"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Giúp việc tại nhà",
+      "description": "Hỗ trợ các công việc gia đình, Hỗ trợ sinh hoạt và trò chuyện chia sẻ cùng người cao tuổi mỗi ngày.",
+      "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop",
+      "icon": "home_repair_service",
+      "features": [
+        "Dịch vụ theo tiếng hàng ngày hoặc định kỳ",
+        "Chăm sóc nội trợ tại nhà",
+        "Kiểm tra sức khỏe mỗi ngày thăm nom",
+        "Hỗ trợ sinh hoạt và trò chuyện chia sẻ cùng"
+      ]
+    }
+  ],
+  "careServiceDetails": [
+    {
+      "id": 1,
+      "title": "Trợ lý theo dõi sức khỏe",
+      "icon": "monitor_heart",
+      "color": "primary",
+      "bgClass": "bg-primary/5",
+      "target": "Người cao tuổi cần theo dõi sức khỏe định kỳ, người có bệnh nền.",
+      "goal": "Kiểm soát tốt các chỉ số sức khỏe, duy trì thói quen uống thuốc đúng giờ.",
+      "details": [
+        "Nhắc uống thuốc và gọi điện hàng ngày",
+        "Theo dõi lịch sử thể trạng qua app",
+        "Kiểm tra sức khỏe khi đến thăm khám"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Đưa đón khám bệnh",
+      "icon": "directions_car",
+      "color": "primary",
+      "bgClass": "bg-primary/5",
+      "target": "Người cao tuổi, trẻ em cần đi khám chuyên khoa/ tái khám tại bệnh viện.",
+      "goal": "An toàn y tế, giảm bớt gánh nặng thời gian cho người thân.",
+      "details": [
+        "Đưa đón tận nhà 2 chiều",
+        "Đặt lịch khám trước theo yêu cầu",
+        "Đồng hành khám bệnh cùng",
+        "Ghi chú thông tin khám bệnh",
+        "Dịch vụ chăm người ốm tại bệnh viện"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Giáo dục lão hóa",
+      "icon": "self_improvement",
+      "color": "primary",
+      "bgClass": "bg-primary/5",
+      "target": "Người cao tuổi muốn duy trì sự minh mẫn & vận động.",
+      "goal": "Phòng ngừa sa sút trí tuệ, cải thiện thể lực & tinh thần.",
+      "details": [
+        "Chương trình rèn luyện trí não",
+        "Duy trì thể chất tại nhà",
+        "Hướng dẫn sử dụng công nghệ",
+        "Hoạt động trải nghiệm ngoài trời"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Giúp việc tại nhà",
+      "icon": "cleaning_services",
+      "color": "primary",
+      "bgClass": "bg-primary/5",
+      "target": "Người già neo đơn hoặc cần hỗ trợ sinh hoạt hàng ngày.",
+      "goal": "Đảm bảo dinh dưỡng, vệ sinh và có người bầu bạn.",
+      "details": [
+        "Hỗ trợ các công việc gia đình",
+        "Trò chuyện và chia sẻ với người cao tuổi",
+        "Dịch vụ linh hoạt theo khung giờ",
+        "Kiểm tra sức khỏe cơ bản hàng ngày"
+      ]
+    }
+  ],
+  "healthMonitorPackages": [
+    {
+      "id": 1,
+      "name": "Gói Quan Tâm",
+      "price": "790.000",
+      "unit": "đồng/tháng",
+      "highlight": false,
+      "bonus": "25.000 đồng/ngày",
+      "features": [
+        "Nhắc uống thuốc hàng ngày và gọi điện chăm sóc 2 lần/ tuần",
+        "Thăm nhà và kiểm tra sức khỏe 1 lần/tháng",
+        "Báo cáo qua app cho chủ nhà"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Gói Chăm sóc",
+      "price": "1.490.000",
+      "unit": "đồng/tháng",
+      "highlight": true,
+      "tag": "Phổ biến",
+      "features": [
+        "Nhắc uống thuốc hàng ngày và gọi điện chăm sóc hàng ngày",
+        "Thăm nhà và kiểm tra sức khỏe 2 lần/tháng",
+        "Báo cáo qua app cho chủ nhà"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Gói Yêu thương",
+      "price": "2.490.000",
+      "unit": "đồng/tháng",
+      "highlight": false,
+      "features": [
+        "Nhắc uống thuốc hàng ngày và gọi điện chăm sóc hàng ngày",
+        "Thăm nhà và kiểm tra sức khỏe 4 lần/ tháng",
+        "Đưa cụ đi dạo phố, trải nghiệm dịch vụ cộng đồng 1 lần/tháng",
+        "Báo cáo qua app cho chủ nhà"
+      ]
+    }
+  ],
+  "medicalPackages": [
+    {
+      "id": 1,
+      "title": "Đưa đón khám bệnh",
+      "icon": "medical_services"
+    },
+    {
+      "id": 2,
+      "title": "Chăm nom tại viện",
+      "icon": "bed"
+    },
+    {
+      "id": 3,
+      "title": "Giúp việc tại nhà",
+      "icon": "home_health"
+    },
+    {
+      "id": 4,
+      "title": "Giáo dục lão khoa",
+      "icon": "psychology"
+    }
+  ],
+  "medicalPackagePricing": [
+    {
+      "id": 1,
+      "category": "Đưa đón khám bệnh",
+      "categoryColor": "text-earth-orange-bright",
+      "title": "Đưa đi khám",
+      "singlePackage": [
+        "390.000 VNĐ / 4 tiếng",
+        "690.000 VNĐ / 8 tiếng"
+      ],
+      "threeDays": "-",
+      "maid": "-",
+      "note": [
+        "Chưa bao gồm chi phí 02 lượt vận chuyển từ nhà tới bệnh viện.",
+        "Chi phí thăm khám và thuốc men chi trả theo thực tế.",
+        "Chỉ áp dụng cho các bệnh không truyền nhiễm."
+      ],
+      "discount": "Giảm giá 5% nếu phát sinh dịch vụ tái khám, hoặc đăng ký từ lần thứ 2 trở đi",
+      "icon": "directions_car"
+    },
+    {
+      "id": 2,
+      "category": "Đưa đón khám bệnh",
+      "categoryColor": "text-earth-orange-bright",
+      "title": "Trông người ốm tại bệnh viện",
+      "singlePackage": [
+        "490.000 VNĐ / ngày",
+        "590.000 VNĐ / ngày + đêm"
+      ],
+      "threeDays": "-",
+      "maid": "-",
+      "note": [],
+      "discount": "Giảm giá 5% nếu phát sinh dịch vụ tái khám, hoặc đăng ký từ lần thứ 2 trở đi",
+      "icon": "local_hospital"
+    },
+    {
+      "id": 3,
+      "category": "Thăm nom tại nhà",
+      "categoryColor": "text-primary",
+      "title": "Dọn dẹp cơ bản, nấu nướng, trò chuyện, kiểm tra sức khỏe",
+      "singlePackage": [
+        "190.000 VNĐ / lần"
+      ],
+      "threeDays": [
+        "190.000 VNĐ / lần"
+      ],
+      "maid": [
+        "170.000 VNĐ / lần"
+      ],
+      "note": [
+        "2.5 tiếng/ lần"
+      ],
+      "icon": "home"
+    },
+    {
+      "id": 4,
+      "category": "Thăm nom tại nhà",
+      "categoryColor": "text-primary",
+      "title": "Dọn dẹp toàn diện, nấu nướng, trò chuyện, kiểm tra sức khỏe",
+      "singlePackage": [
+        "390.000 VNĐ / lần"
+      ],
+      "threeDays": [
+        "370.000 VNĐ / lần"
+      ],
+      "maid": [
+        "350.000 VNĐ / lần"
+      ],
+      "note": [
+        "4.5 tiếng/ lần"
+      ],
+      "icon": "cleaning_services"
+    },
+    {
+      "id": 5,
+      "category": "Phục hồi & Thể chất",
+      "categoryColor": "text-green-600",
+      "title": "Rèn luyện sức khỏe thể chất và tinh thần",
+      "singlePackage": [
+        "390.000 VNĐ / lần"
+      ],
+      "threeDays": [
+        "370.000 VNĐ / lần"
+      ],
+      "maid": [
+        "350.000 VNĐ / lần"
+      ],
+      "note": [
+        "1 lần 120-150 phút tùy tình trạng, chi phí ngoại khóa sẽ trao đổi trước khi phát sinh."
+      ],
+      "icon": "self_improvement"
+    },
+    {
+      "id": 6,
+      "category": "Phục hồi & Thể chất",
+      "categoryColor": "text-green-600",
+      "title": "Phục hồi chức năng sau ốm bệnh bởi điều dưỡng",
+      "singlePackage": [
+        "490.000 VNĐ / lần"
+      ],
+      "threeDays": [
+        "460.000 VNĐ / lần"
+      ],
+      "maid": [
+        "440.000 VNĐ / lần"
+      ],
+      "note": [
+        "1 lần 90-120 phút tùy tình trạng bệnh lý cụ thể."
+      ],
+      "icon": "medical_services"
+    }
+  ],
+  "partnerBenefits": [
+    {
+      "id": 1,
+      "title": "Mở rộng mạng lưới khách hàng",
+      "icon": "group_add"
+    },
+    {
+      "id": 2,
+      "title": "Tăng thêm thu nhập",
+      "icon": "payments"
+    },
+    {
+      "id": 3,
+      "title": "Nâng cao uy tín",
+      "icon": "verified"
+    }
+  ],
+  "cooperationProcess": [
+    {
+      "step": 1,
+      "name": "Đăng ký",
+      "description": "Gửi yêu cầu hợp tác qua email hoặc hotline."
+    },
+    {
+      "step": 2,
+      "name": "Đánh giá",
+      "description": "ANT sẽ liên hệ trao đổi và đánh giá năng lực."
+    },
+    {
+      "step": 3,
+      "name": "Ký kết",
+      "description": "Thống nhất quyền lợi và ký hợp đồng hợp tác."
+    }
+  ],
+  "antOperatingProcess": [
+    {
+      "step": 1,
+      "name": "Tiếp nhận yêu cầu",
+      "description": "Lắng nghe nhu cầu qua hotline, zalo hoặc website."
+    },
+    {
+      "step": 2,
+      "name": "Tư vấn & Lên lịch",
+      "description": "Đề xuất gói dịch vụ và chọn chuyên viên phù hợp."
+    },
+    {
+      "step": 3,
+      "name": "Cung cấp dịch vụ",
+      "description": "Chuyên viên thực hiện công việc tận tâm tại nhà/viện."
+    },
+    {
+      "step": 4,
+      "name": "Đánh giá & Cải thiện",
+      "description": "Lấy ý kiến phản hồi để không ngừng nâng cao chất lượng."
+    }
+  ]
+}
