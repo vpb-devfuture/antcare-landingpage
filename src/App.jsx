@@ -73,7 +73,7 @@ function App() {
   }
 
   return (
-    <div className="font-sans text-plum-deep bg-surface-mist overflow-x-hidden">
+    <div className="font-sans text-plum-deep bg-surface-mist">
       
 {/*  TopNavBar  */}
 <nav className="sticky top-0 z-50 bg-surface-mist shadow-sm text-plum-deep">

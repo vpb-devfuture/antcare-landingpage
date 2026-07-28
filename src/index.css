@@ -13,6 +13,7 @@ body {
   font-family: "Be Vietnam Pro", sans-serif;
   color: #171512;
   background-color: #FEFCFB;
+  overflow-x: hidden;
 }
 
 .material-symbols-outlined {
