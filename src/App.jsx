@@ -1313,14 +1313,14 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <span className="material-symbols-outlined text-primary">call</span>
 <div>
 <p className="text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Số điện thoại</p>
-<a className="text-body-lg font-bold text-earth-orange-bright hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a>
+<a className="text-body-lg font-bold text-earth-orange-bright md:hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a>
 </div>
 </div>
 <div className="flex items-start gap-4">
 <span className="material-symbols-outlined text-primary">mail</span>
 <div>
 <p className="text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Email</p>
-<a className="text-body-lg font-bold text-plum-deep hover:text-earth-orange-bright transition-colors" href="mailto:{siteInfo.email}">{siteInfo.email}</a>
+<a className="text-body-lg font-bold text-plum-deep md:hover:text-earth-orange-bright transition-colors" href="mailto:{siteInfo.email}">{siteInfo.email}</a>
 </div>
 </div>
 <div className="flex items-start gap-4">
@@ -1339,33 +1339,33 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <div className="max-w-container-max mx-auto px-gutter-desktop grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 <div className="space-y-6">
 <div className="flex items-center gap-4">
-<a href="#" className="flex items-center gap-3 cursor-pointer hover:opacity-90 transition-opacity">
+<a href="#" className="flex items-center gap-3 cursor-pointer md:hover:opacity-90 transition-opacity">
     <img alt="247care footer logo" className="h-20 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh50_3vCqlGCO7WIFt3ruzYqzt-lrcNbgIct-onlATuH0s-Q0Aj9I-V_nZc4cqxV6RczROAfO9pcSYRoFoRV34F9e0D-rQP1AHsAhjGSU8PSmngsNqEc3Q1VNapKTBCND7xkk5QdkYYvXpJ07muMjqBu5yUryM8qUfxyBR4HTZnx2nSO5uav7iM9KfWFGsUjEawPs4oJd9wHl-9b5iC_7w1ghFjjj1YLf6Od2u2Ju015JxmyrjgFuzS6xFMitmlCMyRPekHVDTmJ3l" />
 </a>
 </div>
 <p className="text-body-sm opacity-80 leading-relaxed">Chăm sóc sức khỏe tại nhà và già hóa năng động tiêu chuẩn quốc tế. Giữ trọn yêu thương cho gia đình bạn dù ở bất cứ đâu.</p>
 <div className="flex gap-4">
-<a className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-earth-orange-bright transition-colors" href="#"><span className="material-symbols-outlined text-sm">public</span></a>
-<a className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-earth-orange-bright transition-colors" href="#"><span className="material-symbols-outlined text-sm">alternate_email</span></a>
-<a className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-earth-orange-bright transition-colors" href="#"><span className="material-symbols-outlined text-sm">share</span></a>
+<a className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center md:hover:bg-earth-orange-bright transition-colors" href="#"><span className="material-symbols-outlined text-sm">public</span></a>
+<a className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center md:hover:bg-earth-orange-bright transition-colors" href="#"><span className="material-symbols-outlined text-sm">alternate_email</span></a>
+<a className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center md:hover:bg-earth-orange-bright transition-colors" href="#"><span className="material-symbols-outlined text-sm">share</span></a>
 </div>
 </div>
 <div className="space-y-6">
 <h4 className="font-bold text-headline-md">Liên kết</h4>
 <ul className="space-y-4 opacity-70">
-<li className=""><a className="hover:text-earth-orange-bright transition-colors" href="#">Trang chủ</a></li>
-<li className=""><a className="hover:text-earth-orange-bright transition-colors" href="#">Về chúng tôi</a></li>
-<li className=""><a className="hover:text-earth-orange-bright transition-colors" href="#">Dịch vụ</a></li>
-<li className=""><a className="hover:text-earth-orange-bright transition-colors" href="#">Liên hệ</a></li>
+<li className=""><a className="md:hover:text-earth-orange-bright transition-colors" href="#">Trang chủ</a></li>
+<li className=""><a className="md:hover:text-earth-orange-bright transition-colors" href="#">Về chúng tôi</a></li>
+<li className=""><a className="md:hover:text-earth-orange-bright transition-colors" href="#">Dịch vụ</a></li>
+<li className=""><a className="md:hover:text-earth-orange-bright transition-colors" href="#">Liên hệ</a></li>
 </ul>
 </div>
 <div className="space-y-6">
 <h4 className="font-bold text-headline-md">Hỗ trợ</h4>
 <ul className="space-y-4 opacity-70">
-<li className=""><a className="hover:text-earth-orange-bright transition-colors" href="#">Câu hỏi thường gặp</a></li>
-<li className=""><a className="hover:text-earth-orange-bright transition-colors" href="#">Chính sách bảo mật</a></li>
-<li className=""><a className="hover:text-earth-orange-bright transition-colors" href="#">Điều khoản sử dụng</a></li>
-<li className=""><a className="hover:text-earth-orange-bright transition-colors" href="#">Tuyển dụng</a></li>
+<li className=""><a className="md:hover:text-earth-orange-bright transition-colors" href="#">Câu hỏi thường gặp</a></li>
+<li className=""><a className="md:hover:text-earth-orange-bright transition-colors" href="#">Chính sách bảo mật</a></li>
+<li className=""><a className="md:hover:text-earth-orange-bright transition-colors" href="#">Điều khoản sử dụng</a></li>
+<li className=""><a className="md:hover:text-earth-orange-bright transition-colors" href="#">Tuyển dụng</a></li>
 </ul>
 </div>
 <div className="space-y-6">
