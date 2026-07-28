@@ -10,6 +10,7 @@ function App() {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
     var rellax = new Rellax('.rellax', {
@@ -1391,9 +1392,9 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
         </button>
 
         {/* Contact Speed Dial */}
-        <div className="relative group">
+        <div className="relative">
           {/* Expanded Buttons */}
-          <div className="absolute bottom-full left-1/2 -translate-x-1/2 pb-4 flex flex-col gap-3 items-center opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
+          <div className={`absolute bottom-full left-1/2 -translate-x-1/2 pb-4 flex flex-col gap-3 items-center transition-all duration-300 ${isContactOpen ? 'opacity-100 translate-y-0 visible pointer-events-auto' : 'opacity-0 translate-y-4 invisible pointer-events-none'}`}>
             {/* Zalo Button */}
             <a href={siteInfo.zalo} target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0068FF] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer relative group/zalo">
               <span className="text-white font-bold text-[13px]">Zalo</span>
@@ -1412,9 +1413,12 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
           </div>
           
           {/* Main Toggle Button */}
-          <button className="w-14 h-14 bg-earth-orange-bright rounded-full flex items-center justify-center shadow-xl text-white hover:bg-earth-orange-bright/90 transition-all shadow-earth-orange-bright/30 relative z-10">
-            <span className="material-symbols-outlined text-2xl group-hover:scale-0 transition-transform absolute duration-300">forum</span>
-            <span className="material-symbols-outlined text-2xl scale-0 group-hover:scale-100 transition-transform absolute duration-300">close</span>
+          <button 
+            onClick={() => setIsContactOpen(!isContactOpen)}
+            className="w-14 h-14 bg-earth-orange-bright rounded-full flex items-center justify-center shadow-xl text-white hover:bg-earth-orange-bright/90 transition-all shadow-earth-orange-bright/30 relative z-10"
+          >
+            <span className={`material-symbols-outlined text-2xl absolute duration-300 transition-transform ${isContactOpen ? 'scale-0' : 'scale-100'}`}>forum</span>
+            <span className={`material-symbols-outlined text-2xl absolute duration-300 transition-transform ${isContactOpen ? 'scale-100' : 'scale-0'}`}>close</span>
           </button>
         </div>
 
