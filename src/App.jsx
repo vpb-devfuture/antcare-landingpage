@@ -1232,7 +1232,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 {/*  Story Hero Section  */}
 <div className="relative min-h-[70vh] flex items-center pt-20">
 <div className="absolute inset-0 z-0">
-<img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLseh4k9S6S0RzFU4oTCoKsZXQWx2owZzwE_1jos4sVsqrLcZn-1aA7mQ67-YDa40m36lD1LxTyVTsPdS_DcRT16kENzjCic0JEO2cCQnLuaTc-qB1wTNkxiYkC_r86NiqpBdt2GpPM1RX4FoZyOEp78sGPo65RvTQDwau29kGNGvRZ7293A8fzJ4OQxdAvkzMP32UzE2p1FbXE7yANxJiyaG7LNT9Fjq1Mp63qzfAkniqdeSi04xjSmSYG9" />
+<img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7dy6eTQV4-Y52YwCi93PxlfXTiqQUOOaHavw7SqqmdKKd2l3VV8K-W-7fX4EYUTob5AU2hW5khTcgVtr64Z5XYFHaFTGbYInoapacFK3LAjG1vIKvqjYse_BjGGVZiUFQ1yeoaILrnr4Gci1vMx2AJRjcoiCuBYLSpnFKzZRvUFAELKXAhw3kDwY_uBGdUFsAmNo5KDeyKWC9zfaqH1LgGklteTMe5_mb4JhBIJMtRi5faKpfC9bENwogoi2ZCM1I11YPPD3BHWcg" />
 <div className="absolute inset-0 bg-gradient-to-r from-plum-deep/80 via-plum-deep/40 to-transparent"></div>
 </div>
 <div className="relative z-10 max-w-container-max mx-auto px-gutter-desktop w-full">
