@@ -154,7 +154,7 @@ function App() {
 <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto animate-fade-in-up delay-200 font-medium text-lg md:text-xl">{t("hero.subtitle")}</p>
 <div className="flex flex-col items-center gap-4 animate-fade-in-up delay-300 pt-4">
 <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full">
-<a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg shadow-xl shadow-earth-orange-bright/30 hover:shadow-2xl hover:shadow-earth-orange-bright/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 h-14 md:h-16 w-full md:w-72" href="#lien-he-gia-dinh"><span className="material-symbols-outlined">chat</span> {t("hero.btnConsult")}</a>
+<a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white px-5 md:px-8 py-2.5 md:py-4 rounded-full font-bold text-[15px] md:text-lg shadow-md md:shadow-xl shadow-earth-orange-bright/30 hover:shadow-2xl hover:shadow-earth-orange-bright/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 h-12 md:h-16 w-full max-w-[260px] md:max-w-none md:w-72 mx-auto md:mx-0" href="#lien-he-gia-dinh"><span className="material-symbols-outlined">chat</span> {t("hero.btnConsult")}</a>
 <a className="bg-white text-primary border-2 border-primary/10 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg shadow-xl hover:shadow-2xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 flex flex-row items-center justify-center gap-3 h-14 md:h-16 w-full md:w-72 group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}><span className="material-symbols-outlined group-hover:animate-bounce">call</span> <span className="">{siteInfo.hotline}</span></a>
 </div>
 </div>
@@ -1057,7 +1057,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <input className="w-full bg-white border-none rounded-xl pl-12 pr-6 py-4 focus:ring-2 focus:ring-primary transition-all" placeholder="Nhập địa chỉ hoặc khu vực" type="text" />
 </div>
 </div>
-<button className="bg-earth-orange-bright text-white py-4 px-12 rounded-full font-bold text-lg hover:bg-earth-orange-dark transition-all shadow-lg w-full md:w-auto" type="submit">{t("hero.btnConsult")}</button>
+<button className="bg-earth-orange-bright text-white py-3 md:py-4 px-8 md:px-12 rounded-full font-bold text-[15px] md:text-lg hover:bg-earth-orange-dark transition-all shadow-md md:shadow-lg w-full max-w-[260px] md:max-w-none md:w-auto mx-auto" type="submit">{t("hero.btnConsult")}</button>
 </form>
 </div>
 </div>
@@ -1110,7 +1110,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <input className="w-full bg-white border-none rounded-xl pl-12 pr-6 py-4 focus:ring-2 focus:ring-primary transition-all" placeholder="Chia sẻ thêm về kinh nghiệm của bạn" type="text" />
 </div>
 </div>
-<button className="bg-earth-orange-bright text-white py-4 px-12 rounded-full font-bold text-lg hover:bg-earth-orange-dark transition-all shadow-lg w-full md:w-auto" type="submit">Gửi thông tin hợp tác</button>
+<button className="bg-earth-orange-bright text-white py-3 md:py-4 px-8 md:px-12 rounded-full font-bold text-[15px] md:text-lg hover:bg-earth-orange-dark transition-all shadow-md md:shadow-lg w-full max-w-[260px] md:max-w-none md:w-auto mx-auto" type="submit">Gửi thông tin hợp tác</button>
 </form>
 </div>
 </div>
