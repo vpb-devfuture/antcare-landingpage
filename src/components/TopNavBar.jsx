@@ -80,21 +80,21 @@ const TopNavBar = () => {
           <div className="flex flex-col py-2">
             {menu.map(item => (
               <div key={item.id} className="flex flex-col">
-                <a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" href={item.path} dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} />
+                <a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" href={item.path} dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} onClick={() => setIsMobileMenuOpen(false)} />
                 {item.children && (
                   <div className="flex flex-col bg-surface-lavender/30 pl-4">
                     {item.children.map(child => (
-                      <a key={child.id} className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30" href={child.path} dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} />
+                      <a key={child.id} className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30" href={child.path} dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} onClick={() => setIsMobileMenuOpen(false)} />
                     ))}
                   </div>
                 )}
               </div>
             ))}
             <div className="flex items-center gap-3 px-4 py-3 border-t border-border-muted mt-1">
-              <button onClick={() => i18n.changeLanguage("vi")} className="flex items-center gap-2 text-sm font-bold text-primary hover:text-earth-orange-bright transition-colors bg-earth-orange-bright/10 px-4 py-2 rounded-lg">
+              <button onClick={() => { i18n.changeLanguage("vi"); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 text-sm font-bold text-primary hover:text-earth-orange-bright transition-colors bg-earth-orange-bright/10 px-4 py-2 rounded-lg">
                 <img src="/images/vn-w20.png" srcSet="/images/vn-w40.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
               </button>
-              <button onClick={() => i18n.changeLanguage("en")} className="flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors px-4 py-2 rounded-lg hover:bg-plum-deep/5">
+              <button onClick={() => { i18n.changeLanguage("en"); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors px-4 py-2 rounded-lg hover:bg-plum-deep/5">
                 <img src="/images/gb-w20.png" srcSet="/images/gb-w40.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
               </button>
             </div>

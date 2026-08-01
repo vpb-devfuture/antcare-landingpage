@@ -6,14 +6,16 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 }
 
-body {
+body, #root {
   font-family: "Be Vietnam Pro", sans-serif;
   color: #171512;
   background-color: #FEFCFB;
   overflow-x: hidden;
+  width: 100%;
 }
 
 .material-symbols-outlined {
