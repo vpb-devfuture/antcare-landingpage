@@ -5,15 +5,14 @@
     "service_transport": "Đưa đón khám bệnh",
     "service_education": "Giáo dục lão hóa chủ động",
     "service_maid": "Giúp việc tại nhà",
+    "service_process": "Quy trình hoạt động của ANT – Kiến chăm tổ",
     "recruitment": "Tuyển dụng",
     "recruit_register": "Đăng ký",
     "recruit_benefits": "Quyền lợi hợp tác",
     "about": "Về chúng tôi",
     "about_wish": "Tâm nguyện của chúng tôi",
-    "about_story": "Câu chuyện của <span class=\"text-primary-container\">AN</span><span class=\"text-earth-orange-bright\">T</span> - Kiến chăm tổ",
-    "about_values": "Giá trị cốt lõi",
+    "about_story": "Câu chuyện của ANT – Kiến chăm tổ",
     "contact": "Liên hệ",
-    "activities": "Hoạt động",
     "news": "Tin tức"
   },
   "hero": {

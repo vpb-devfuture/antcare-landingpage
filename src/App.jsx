@@ -176,16 +176,16 @@ function App() {
 <div className="max-w-4xl mx-auto space-y-6 -mt-16">
 <div className="relative inline-block animate-fade-in-up delay-100">
 <div className="relative inline-block md:ml-24">
-<div className="absolute -left-48 top-1/2 -translate-y-1/2 w-48 h-auto z-20 hidden lg:block">
+<div className="absolute -left-32 md:-left-40 top-1/2 -translate-y-1/2 w-32 md:w-40 h-auto z-20 hidden lg:block">
     <div className="rellax" data-rellax-speed="1.5" data-rellax-percentage="0.5"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApw4T544FToEBVmG4WwxGIhSxFG8tTxsURGlciOwHahHmuiaHC-C73IRc2bPil2_56l4ZL4bM66ikP4UeWJvP1NCXZyEFgY3R1Es8dQWTzNO1jYKJqb1-e7gWAXIsBRyYVaHGpBPPWwaBQOlLZAvfDIhl-sGE_lyEo6LjSs9LIXikI_lGLp4vp_Yb09BDnwTwX8GL5NmIypnZtxNXFuY0MSyvg2MJWaTVEhllCJ3NHa17ZKIh9Q8DeVJviKNJuhKnSavcic9AlaMNX" alt="247care Mascot" className="w-full h-auto object-contain" /></div>
-</div><h1 className="font-display-lg text-plum-deep leading-tight px-4 text-4xl relative inline-block" style={{'lineHeight': '1.1'}}><span className="absolute -left-2 top-0 text-primary-container font-serif leading-none text-3xl md:text-4xl">“</span><div className="flex flex-col items-center gap-2"><span className="block text-headline-lg font-bold text-primary-container mb-1">{t("hero.title1")}</span><div className="flex items-center gap-4"><span className="font-bold tracking-tighter text-5xl md:text-6xl text-earth-orange-bright leading-none mt-2">KIẾN</span><div className="text-left flex flex-col justify-center leading-tight text-primary-container"><span className="block text-headline-lg font-bold text-primary-container mb-1">{t("hero.title2")}</span><span className="block text-headline-lg font-bold text-primary-container">{t("hero.title3")}<span className="text-primary-container font-serif ml-1 leading-none text-3xl md:text-4xl">”</span></span></div></div></div></h1>
+</div><h1 className="font-display-lg text-plum-deep leading-tight px-4 text-2xl md:text-3xl relative inline-block" style={{'lineHeight': '1.2'}}><span className="absolute -left-4 top-0 text-primary-container font-serif leading-none text-2xl md:text-3xl">“</span><div className="flex flex-col items-center gap-1"><span className="block text-xl md:text-2xl font-bold text-primary-container mb-1">{t("hero.title1")}</span><div className="flex items-center gap-3"><span className="font-bold tracking-tighter text-4xl md:text-5xl text-earth-orange-bright leading-none mt-1">KIẾN</span><div className="text-left flex flex-col justify-center leading-tight text-primary-container"><span className="block text-xl md:text-2xl font-bold text-primary-container mb-0.5">{t("hero.title2")}</span><span className="block text-xl md:text-2xl font-bold text-primary-container">{t("hero.title3")}<span className="text-primary-container font-serif ml-1 leading-none text-2xl md:text-3xl">”</span></span></div></div></div></h1>
 </div>
 </div>
-<p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto animate-fade-in-up delay-200 font-medium text-lg md:text-xl">{t("hero.subtitle")}</p>
-<div className="flex flex-col items-center gap-4 animate-fade-in-up delay-300 pt-4">
-<div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full">
-<a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white px-5 md:px-8 py-2.5 md:py-4 rounded-full font-bold text-[15px] md:text-lg shadow-md md:shadow-xl shadow-earth-orange-bright/30 hover:shadow-2xl hover:shadow-earth-orange-bright/50 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 md:gap-3 h-12 md:h-16 w-full max-w-[260px] md:max-w-none md:w-72 mx-auto md:mx-0" href="#lien-he-gia-dinh"><span className="material-symbols-outlined">chat</span> {t("hero.btnConsult")}</a>
-<a className="bg-white text-primary border-2 border-primary/10 px-5 md:px-8 py-2.5 md:py-4 rounded-full font-bold text-[15px] md:text-lg shadow-md md:shadow-xl hover:shadow-2xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 flex flex-row items-center justify-center gap-2 md:gap-3 h-12 md:h-16 w-full max-w-[260px] md:max-w-none md:w-72 mx-auto md:mx-0 group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}><span className="material-symbols-outlined group-hover:animate-bounce">call</span> <span className="">{siteInfo.hotline}</span></a>
+<p className="text-body-md text-on-surface-variant max-w-xl mx-auto animate-fade-in-up delay-200 font-medium text-base md:text-lg">{t("hero.subtitle")}</p>
+<div className="flex flex-col items-center gap-4 animate-fade-in-up delay-300 pt-3">
+<div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 w-full">
+<a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-bold text-[14px] md:text-[15px] shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 h-10 md:h-12 w-full sm:w-[260px] whitespace-nowrap mx-auto md:mx-0" href="#lien-he-gia-dinh"><span className="material-symbols-outlined text-[18px]">chat</span> {t("hero.btnConsult")}</a>
+<a className="bg-white text-primary border-2 border-primary/10 px-6 md:px-8 py-2 md:py-3 rounded-full font-bold text-[14px] md:text-[15px] shadow-md hover:shadow-xl hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300 flex flex-row items-center justify-center gap-2 h-10 md:h-12 w-full sm:w-[260px] whitespace-nowrap mx-auto md:mx-0 group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}><span className="material-symbols-outlined text-[18px] group-hover:animate-bounce">call</span> <span>{siteInfo.hotline}</span></a>
 </div>
 </div>
 </div>
@@ -266,7 +266,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 </section>
 {/*  3. Expert Section (Góc nhìn Chuyên gia)  */}
 {/*  4. Services Grid Section (Giải pháp chăm sóc sức khỏe toàn diện)  */}
-<section className="py-12 md:py-24">
+<section className="py-12 md:py-24 scroll-mt-24" id="giai-phap-cham-soc">
 <div className="max-w-container-max mx-auto px-gutter-desktop">
 <div className="flex flex-col items-center text-center mb-12 gap-4">
 <div className="max-w-2xl reveal">
@@ -832,7 +832,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 </div>
 </section>
 {/*  Connect Sections (Dành cho đối tác & Tuyển dụng)  */}
-<section className="py-12 md:py-24 bg-surface-lavender/30 border-t border-surface-lavender">
+<section className="py-12 md:py-24 bg-surface-lavender/30 border-t border-surface-lavender scroll-mt-24" id="danh-cho-doi-tac-tuyen-dung">
 <div className="max-w-container-max mx-auto px-gutter-desktop">
 <div className="bg-white rounded-3xl shadow-md p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center">
 <div className="md:w-1/2 space-y-8">
@@ -885,7 +885,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 </div>
 </section>
 {/*  Quyen loi doi tac Section  */}
-<section className="py-12 md:py-24 bg-white scroll-mt-24" id="quyen-loi-doi-tac">
+<section className="py-12 md:py-24 bg-white scroll-mt-24" id="hop-tac-cung-ant">
 <div className="max-w-container-max mx-auto px-gutter-desktop">
 <div className="text-center mb-20 flex flex-col items-center">
 <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-label-md uppercase tracking-widest mb-6">
@@ -996,7 +996,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 </div>
 </section>
 {/*  Our Story Section  */}
-<section className="relative" id="our-story">
+<section className="relative scroll-mt-24" id="cau-chuyen-cua-chung-toi">
 {/*  Story Hero Section  */}
 <div className="relative min-h-[70vh] flex items-center pt-20">
 <div className="absolute inset-0 z-0">
@@ -1014,7 +1014,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 </div>
 </div>
 {/*  Story Details Section  */}
-<div className="py-12 md:py-24 bg-surface-mist">
+<div className="py-12 md:py-24 bg-surface-mist scroll-mt-24" id="cau-chuyen-cua-ant">
 <div className="max-w-container-max mx-auto px-gutter-desktop">
 <div className="grid md:grid-cols-2 gap-16 items-center">
 <div className="relative">
@@ -1034,7 +1034,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 </div>
 </div>
 {/*  Core Values Section  */}
-<div className="py-24 bg-white relative overflow-hidden" id="mission-vision-values">
+<div className="py-24 bg-white relative overflow-hidden scroll-mt-24" id="quy-trinh-hoat-dong">
 <div className="absolute top-0 right-0 w-1/3 h-full bg-surface-container-low/50 -skew-x-12 translate-x-20"></div>
 <div className="max-w-container-max mx-auto px-gutter-desktop relative z-10">
 <div className="text-center max-w-3xl mx-auto mb-16">
@@ -1048,7 +1048,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 </div>
 </div>
 </section>
-<section className="py-12 md:py-24 bg-surface-mist" id="contact-info-section">
+<section className="py-12 md:py-24 bg-surface-mist scroll-mt-24" id="thong-tin-lien-he">
 <div className="max-w-container-max mx-auto px-gutter-desktop">
 <div className="text-center mb-12">
 <h2 className="font-display-lg text-display-lg font-bold text-plum-deep">Thông tin liên hệ</h2>
