@@ -83,7 +83,7 @@ function App() {
 {/* Logo */}
 <div className="flex-shrink-0">
 <a href="#" className="flex items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity">
-    <img alt="247care logo" className="h-10 md:h-12 w-auto object-contain mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3huPMIwhMqL1ilgAL_VFIW3xNg7zIjm2bGRcYUHuQHBgw61lQL1bUlp1OIqwP0AssxFT1AlBpOVONs0TIUlBnTktoAWG-tqXjH_gSj2x8QDQ8aZSbceQA4zzPBH5NhQdWmgHGKOyS4drUuzli7iRX20NYX64KrJ-G7Iil0AcpQokCZ8LnC-vVtJOApgh91A8d4yD2k33Vr88v1YUll1-iwleHebsZfewszEUDXmc2TQOhqKv6airinqD-_Bakd5gjDHuiiBEvh4hm" />
+    <img alt="247care logo" className="h-10 md:h-12 w-auto object-contain mix-blend-multiply" src="/images/logo.png" />
 </a>
 </div>
 
@@ -116,15 +116,15 @@ function App() {
 <div className="h-5 w-px bg-border-muted"></div>
 <div className="relative group">
 <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border-muted text-sm font-medium text-plum-deep hover:border-plum-deep/30 hover:bg-plum-deep/5 transition-all">
-<img src={i18n.language === 'en' ? 'https://flagcdn.com/w20/gb.png' : 'https://flagcdn.com/w20/vn.png'} srcSet={i18n.language === 'en' ? 'https://flagcdn.com/w40/gb.png 2x' : 'https://flagcdn.com/w40/vn.png 2x'} alt={i18n.language === 'en' ? 'EN' : 'VN'} className="w-5 h-auto rounded-sm border border-border-muted/30" /> {i18n.language === 'en' ? 'EN' : 'VN'} <span className="text-[9px] opacity-50">▼</span>
+<img src={i18n.language === 'en' ? '/images/gb-w20.png' : '/images/vn-w20.png'} srcSet={i18n.language === 'en' ? '/images/gb-w40.png 2x' : '/images/vn-w40.png 2x'} alt={i18n.language === 'en' ? 'EN' : 'VN'} className="w-5 h-auto rounded-sm border border-border-muted/30" /> {i18n.language === 'en' ? 'EN' : 'VN'} <span className="text-[9px] opacity-50">▼</span>
 </button>
 <div className="absolute top-full right-0 mt-1 w-36 bg-white rounded-lg shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
 <div className="flex flex-col py-1">
 <button onClick={() => i18n.changeLanguage("vi")} className="flex items-center gap-2 px-4 py-2 text-sm text-primary font-bold hover:bg-earth-orange-bright/10 bg-earth-orange-bright/5 transition-colors text-left w-full">
-<img src="https://flagcdn.com/w20/vn.png" srcSet="https://flagcdn.com/w40/vn.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
+<img src="/images/vn-w20.png" srcSet="/images/vn-w40.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
 </button>
 <button onClick={() => i18n.changeLanguage("en")} className="flex items-center gap-2 px-4 py-2 text-sm text-on-surface-variant hover:text-primary hover:bg-earth-orange-bright/10 transition-colors text-left w-full">
-<img src="https://flagcdn.com/w20/gb.png" srcSet="https://flagcdn.com/w40/gb.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
+<img src="/images/gb-w20.png" srcSet="/images/gb-w40.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
 </button>
 </div>
 </div>
@@ -159,10 +159,10 @@ function App() {
   ))}
 <div className="flex items-center gap-3 px-4 py-3 border-t border-border-muted mt-1">
 <button onClick={() => i18n.changeLanguage("vi")} className="flex items-center gap-2 text-sm font-bold text-primary hover:text-earth-orange-bright transition-colors bg-earth-orange-bright/10 px-4 py-2 rounded-lg">
-<img src="https://flagcdn.com/w20/vn.png" srcSet="https://flagcdn.com/w40/vn.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
+<img src="/images/vn-w20.png" srcSet="/images/vn-w40.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
 </button>
 <button onClick={() => i18n.changeLanguage("en")} className="flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors px-4 py-2 rounded-lg hover:bg-plum-deep/5">
-<img src="https://flagcdn.com/w20/gb.png" srcSet="https://flagcdn.com/w40/gb.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
+<img src="/images/gb-w20.png" srcSet="/images/gb-w40.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
 </button>
 </div>
 </div>
@@ -170,14 +170,14 @@ function App() {
 </div>
 </nav>
 {/*  1. Hero Section  */}
-<section className="relative overflow-hidden flex items-center justify-center min-h-screen pt-12 pb-24 bg-fixed bg-center bg-cover" style={{'backgroundImage': 'url(\'https://lh3.googleusercontent.com/aida-public/AB6AXuDGsLdeLRFOVTn9Uw-vq3uWJvrPkh7q9-uv2ja-euUYsbwJjjTT86v3ELatj4TusydfBGUhNzNoDQA_i2AlzqewsvLuHAhny37v15XvvW-bn7Abb2BtGfImHu9gZAqe1cnMlka4YfB00fROYN8F3gx47bNqSVOU-s8lPGBbrJ_Pw6pz1R3HMC-FqESbd9w0CSKWRTjxGbrR1WYixyjk9ypqurxG-OzC3Zna0eYooJJUydzSZszJWiHFEw\')'}}>
+<section className="relative overflow-hidden flex items-center justify-center min-h-screen pt-12 pb-24 bg-fixed bg-center bg-cover" style={{'backgroundImage': 'url(\'/images/hero-bg.jpg\')'}}>
 <div className="absolute inset-0 z-0 bg-gradient-to-br from-white/95 via-surface-mist/80 to-surface-lavender/95 backdrop-blur-[4px]"></div>
 <div className="max-w-container-max mx-auto px-gutter-desktop relative z-10 text-center flex flex-col items-center">
 <div className="max-w-4xl mx-auto space-y-6 -mt-16">
 <div className="relative inline-block animate-fade-in-up delay-100">
 <div className="relative inline-block md:ml-24">
 <div className="absolute -left-32 md:-left-40 top-1/2 -translate-y-1/2 w-32 md:w-40 h-auto z-20 hidden lg:block">
-    <div className="rellax" data-rellax-speed="1.5" data-rellax-percentage="0.5"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApw4T544FToEBVmG4WwxGIhSxFG8tTxsURGlciOwHahHmuiaHC-C73IRc2bPil2_56l4ZL4bM66ikP4UeWJvP1NCXZyEFgY3R1Es8dQWTzNO1jYKJqb1-e7gWAXIsBRyYVaHGpBPPWwaBQOlLZAvfDIhl-sGE_lyEo6LjSs9LIXikI_lGLp4vp_Yb09BDnwTwX8GL5NmIypnZtxNXFuY0MSyvg2MJWaTVEhllCJ3NHa17ZKIh9Q8DeVJviKNJuhKnSavcic9AlaMNX" alt="247care Mascot" className="w-full h-auto object-contain" /></div>
+    <div className="rellax" data-rellax-speed="1.5" data-rellax-percentage="0.5"><img src="/images/hero-mascot.png" alt="247care Mascot" className="w-full h-auto object-contain" /></div>
 </div><h1 className="font-display-lg text-plum-deep leading-tight px-4 text-2xl md:text-3xl relative inline-block" style={{'lineHeight': '1.2'}}><span className="absolute -left-4 top-0 text-primary-container font-serif leading-none text-2xl md:text-3xl">“</span><div className="flex flex-col items-center gap-1"><span className="block text-xl md:text-2xl font-bold text-primary-container mb-1">{t("hero.title1")}</span><div className="flex items-center gap-3"><span className="font-bold tracking-tighter text-4xl md:text-5xl text-earth-orange-bright leading-none mt-1">KIẾN</span><div className="text-left flex flex-col justify-center leading-tight text-primary-container"><span className="block text-xl md:text-2xl font-bold text-primary-container mb-0.5">{t("hero.title2")}</span><span className="block text-xl md:text-2xl font-bold text-primary-container">{t("hero.title3")}<span className="text-primary-container font-serif ml-1 leading-none text-2xl md:text-3xl">”</span></span></div></div></div></h1>
 </div>
 </div>
@@ -1000,7 +1000,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 {/*  Story Hero Section  */}
 <div className="relative min-h-[70vh] flex items-center pt-20">
 <div className="absolute inset-0 z-0">
-<img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7dy6eTQV4-Y52YwCi93PxlfXTiqQUOOaHavw7SqqmdKKd2l3VV8K-W-7fX4EYUTob5AU2hW5khTcgVtr64Z5XYFHaFTGbYInoapacFK3LAjG1vIKvqjYse_BjGGVZiUFQ1yeoaILrnr4Gci1vMx2AJRjcoiCuBYLSpnFKzZRvUFAELKXAhw3kDwY_uBGdUFsAmNo5KDeyKWC9zfaqH1LgGklteTMe5_mb4JhBIJMtRi5faKpfC9bENwogoi2ZCM1I11YPPD3BHWcg" />
+<img className="w-full h-full object-cover" src="/images/story-hero.jpg" />
 <div className="absolute inset-0 bg-gradient-to-r from-plum-deep/80 via-plum-deep/40 to-transparent"></div>
 </div>
 <div className="relative z-10 max-w-container-max mx-auto px-gutter-desktop w-full">
@@ -1019,7 +1019,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <div className="grid md:grid-cols-2 gap-16 items-center">
 <div className="relative">
 <div className="aspect-[4/5] rounded-lg overflow-hidden shadow-xl border-4 border-white flex items-center justify-center">
-<img alt="Tin nhắn quan tâm của con dành cho bố" className="w-full h-full object-contain bg-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVWIMJzq_3dLyQr81J5Go83MN_F231MsyolhKTRodtqkXMxoI7xw3om4Ydo_2yyEYH8vt6p-t1tUaEP_7NxjsbifWAQkbuOC0TYaixRPoKpaG4W1v90N83sj2-tT421c5x5Mr_VMt4H0R1JUYSSiiBbjPkawZDxbR5JwxJTzGeySD9g7AuZdhTJrbeGrvZ3XJwHsOPnB_TJgS0pGpFhPLXqaUgaHb8oryp9VwB3D4UeEAUqAA2n7jqvA" />
+<img alt="Tin nhắn quan tâm của con dành cho bố" className="w-full h-full object-contain bg-white" src="/images/story-detail.jpg" />
 </div>
 <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-earth-orange-bright rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
 </div>
@@ -1094,7 +1094,7 @@ Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outline
 <div className="space-y-6">
 <div className="flex items-center gap-4">
 <a href="#" className="flex items-center gap-3 cursor-pointer md:hover:opacity-90 transition-opacity">
-    <img alt="247care footer logo" className="h-20 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh50_3vCqlGCO7WIFt3ruzYqzt-lrcNbgIct-onlATuH0s-Q0Aj9I-V_nZc4cqxV6RczROAfO9pcSYRoFoRV34F9e0D-rQP1AHsAhjGSU8PSmngsNqEc3Q1VNapKTBCND7xkk5QdkYYvXpJ07muMjqBu5yUryM8qUfxyBR4HTZnx2nSO5uav7iM9KfWFGsUjEawPs4oJd9wHl-9b5iC_7w1ghFjjj1YLf6Od2u2Ju015JxmyrjgFuzS6xFMitmlCMyRPekHVDTmJ3l" />
+    <img alt="247care footer logo" className="h-20 w-auto object-contain" src="/images/footer-logo.png" />
 </a>
 </div>
 <p className="text-body-sm opacity-80 leading-relaxed">Chăm sóc sức khỏe tại nhà và già hóa năng động tiêu chuẩn quốc tế. Giữ trọn yêu thương cho gia đình bạn dù ở bất cứ đâu.</p>

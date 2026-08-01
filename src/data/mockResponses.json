@@ -28,14 +28,14 @@
       "name": "PGS.TS Nguyễn Văn Tuấn",
       "title": "Viện trưởng Viện Sức khỏe Tâm thần (Bệnh viện Bạch Mai)",
       "quote": "“Trong các giai đoạn phát triển của cuộc đời, tuổi già là thời điểm con người dễ trải qua cảm giác cô đơn sâu sắc nhất, là mối nguy âm thầm đối với sức khỏe tâm thần”",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuB7dy6eTQV4-Y52YwCi93PxlfXTiqQUOOaHavw7SqqmdKKd2l3VV8K-W-7fX4EYUTob5AU2hW5khTcgVtr64Z5XYFHaFTGbYInoapacFK3LAjG1vIKvqjYse_BjGGVZiUFQ1yeoaILrnr4Gci1vMx2AJRjcoiCuBYLSpnFKzZRvUFAELKXAhw3kDwY_uBGdUFsAmNo5KDeyKWC9zfaqH1LgGklteTMe5_mb4JhBIJMtRi5faKpfC9bENwogoi2ZCM1I11YPPD3BHWcg"
+      "image": "/images/story-hero.jpg"
     },
     {
       "id": 2,
       "name": "Điều dưỡng Trần Thị Lan",
       "title": "Chuyên viên Chăm sóc Chủ động",
       "quote": "“Rèn luyện trí não mỗi ngày là chìa khóa vàng để ngăn ngừa suy giảm trí nhớ.”",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDST-gV7UKds38ohCGqBpKbmXGlQqenc3z_IpxcFw0ArV8l2FUYu-w7XYR9hDm-xmIgpFTLE7V4RBZaiJrXZsDOgKHcOjDG4cTSiKvjjOxC30SE5rrUFSHzc-38te6Lgnb046mmtLfyfsDrxwJUgObMxCkqHy4-QjCMWUaFD13YBu22sJzKG0WUYA41vDCBLtHtR8O9twewVCER0A1IFnQqGjdAT9s8BOUM7UlPq65ytPKy9KShHYZj54kVwNJP5WknLXTn8yejzSP9"
+      "image": "/images/service-1.jpg"
     }
   ],
   "comprehensiveSolutions": [
@@ -43,7 +43,7 @@
       "id": 1,
       "title": "Trợ lý theo dõi sức khỏe",
       "description": "Đội ngũ chuyên môn hỗ trợ theo dõi các chỉ số sức khỏe, nhắc lịch thuốc và tư vấn dinh dưỡng hàng ngày.",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCNUMRrhRjYTCz4EWq1ZUUZwD4idg1QI1pat0pt2ts9eAPww8EPOzKptw31BWMYTUzUF02eBf-IjNZ-Wn6ATn2A_4_nCOJ6P5_bwEsTX3kxnci1rMpqJdPTl2vCYbLZ5HoxMx0_7UKS9xhkdwSCK__2cXTlPMX4l01EyVNm0nWDlr97JqxAfn_o5FZlLvzTaD4jR5iGXAhC5lTC07Ty2EUoa4fu8WF272iY8p1Xiq2gAMRtr8kHm5XQMQ",
+      "image": "/images/service-2.jpg",
       "icon": "monitor_heart",
       "features": [
         "Nhắc lịch uống thuốc và đo chỉ số sức khỏe",
@@ -55,7 +55,7 @@
       "id": 2,
       "title": "Đưa đón khám bệnh",
       "description": "Đội ngũ chuyên nghiệp hỗ trợ đưa đón và đồng hành cùng người già và trẻ em tới các cơ sở y tế an toàn, chu đáo.",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDk1zdBfzXOR5tbAybU011146MEhPy2bvwYiMJtqi4Nu6xM_ZzPwFQQnPKyg4wADaC1Ku6sVqXnVty7Y4UDrnkUvkLL0PdSAUQAcbWIgtEV-amxdeMqGUj4aSP2MX9IjtBN00dGq6VNT8Q7P6Q8kDYNtalPmGjZa40DVzbAoP-rG4XIs3WV1EWQUH50clGBwKBJ7cy_ES9ttCskmPu0FstTr0rNLjEcZi1BWbKrAUUAhQ_fq6j82Dly-Q",
+      "image": "/images/service-3.jpg",
       "icon": "medical_services",
       "features": [
         "Đặt lịch hẹn khám",
@@ -68,7 +68,7 @@
       "id": 3,
       "title": "Giáo dục lão hóa chủ động",
       "description": "Chương trình giúp người cao tuổi rèn luyện trí não, với các bài tập cải thiện thể chất và tinh thần để tận hưởng cuộc sống.",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBRZ_AQP2VC54qeJuIdTXUSeboHz78b_DXHzD7-YPNb3uCPRgB9XwVYAWNAISjRoIHkIMtd-7Gp_ACZyD1-K0Drbg3Z-XxU_vLTifV1dOEEYwmOUr5Hj0QZgZJH5vflYlaDzjjH1B6BGMMMR4HNElcJcLZwghqE2aQ-h--wPUjajwldwmQ7YkbGayq_IqGZwqxWQe1jjv25dtTaDU9muEXTm58mPo0x7TjBD3lYm4MKdTjylOwOrqkpgw",
+      "image": "/images/service-4.jpg",
       "icon": "psychology",
       "features": [
         "Bài tập tại nhà kết hợp hoạt động ngoài trời",
@@ -81,7 +81,7 @@
       "id": 4,
       "title": "Giúp việc tại nhà",
       "description": "Hỗ trợ các công việc gia đình, Hỗ trợ sinh hoạt và trò chuyện chia sẻ cùng người cao tuổi mỗi ngày.",
-      "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop",
+      "image": "/images/service-5.jpg",
       "icon": "home_repair_service",
       "features": [
         "Dịch vụ theo tiếng hàng ngày hoặc định kỳ",
