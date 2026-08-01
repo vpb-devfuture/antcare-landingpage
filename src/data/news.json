@@ -1,0 +1,62 @@
+{
+  "featured": {
+    "category": "Chăm sóc sức khỏe",
+    "title": "Giải pháp chăm sóc toàn diện cho người cao tuổi tại nhà năm 2024",
+    "description": "Chúng tôi hiểu rằng sự an tâm của gia đình là điều quan trọng nhất. Khám phá các tiêu chuẩn mới trong dịch vụ điều dưỡng tại gia với đội ngũ chuyên gia tận tâm từ ANTcare.",
+    "image": "/images/img_a2f8a4f4.jpg",
+    "author": {
+      "name": "BS. Nguyễn Minh Anh",
+      "image": "/images/img_4da68015.jpg"
+    }
+  },
+  "list": [
+    {
+      "id": 1,
+      "category": "Hoạt động",
+      "date": "15 Tháng 5, 2024",
+      "title": "Lợi ích của các hoạt động xã hội đối với tâm lý người già",
+      "description": "Kết nối cộng đồng giúp cải thiện đáng kể tình trạng suy giảm trí nhớ và nâng cao chất lượng sống...",
+      "image": "/images/img_90de0724.jpg"
+    },
+    {
+      "id": 2,
+      "category": "Công nghệ",
+      "date": "10 Tháng 5, 2024",
+      "title": "Ứng dụng AI trong việc giám sát sức khỏe từ xa",
+      "description": "Công nghệ mới cho phép bác sĩ theo dõi các chỉ số quan trọng của bệnh nhân theo thời gian thực...",
+      "image": "/images/img_468caa80.jpg"
+    },
+    {
+      "id": 3,
+      "category": "Dinh dưỡng",
+      "date": "05 Tháng 5, 2024",
+      "title": "Chế độ ăn uống vàng cho người cao tuổi vào mùa hè",
+      "description": "Những loại thực phẩm giúp thanh nhiệt và tăng cường sức đề kháng trong những ngày nắng nóng...",
+      "image": "/images/img_de854950.jpg"
+    },
+    {
+      "id": 4,
+      "category": "Cẩm nang",
+      "date": "01 Tháng 5, 2024",
+      "title": "Cách xử lý các tình huống khẩn cấp tại nhà cho người bệnh",
+      "description": "Hướng dẫn chi tiết từng bước cho người thân cách nhận biết và phản ứng kịp thời khi có sự cố...",
+      "image": "/images/img_1c0b774f.jpg"
+    },
+    {
+      "id": 5,
+      "category": "Tin tức",
+      "date": "28 Tháng 4, 2024",
+      "title": "ANTcare khai trương chi nhánh mới tại Quận 2",
+      "description": "Mở rộng mạng lưới phục vụ để mang dịch vụ chăm sóc cao cấp đến gần hơn với cư dân khu vực...",
+      "image": "/images/img_5a27296f.jpg"
+    },
+    {
+      "id": 6,
+      "category": "Sức khỏe",
+      "date": "20 Tháng 4, 2024",
+      "title": "Sức mạnh của liệu pháp âm nhạc trong Alzheimer",
+      "description": "Âm nhạc không chỉ là giải trí, đó là chìa khóa mở cánh cửa ký ức và xoa dịu tâm hồn người bệnh...",
+      "image": "/images/img_c2b21b3b.jpg"
+    }
+  ]
+}

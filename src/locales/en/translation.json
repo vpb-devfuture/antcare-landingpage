@@ -1,25 +1,26 @@
-{
-  "menu": {
-    "services": "Services",
-    "service_tracking": "Health tracking assistant",
-    "service_transport": "Medical transportation",
-    "service_education": "Active aging education",
-    "service_maid": "Home maid",
-    "service_process": "ANT Operation Process",
-    "recruitment": "Recruitment",
-    "recruit_register": "Register",
-    "recruit_benefits": "Partner benefits",
-    "about": "About Us",
-    "about_wish": "Our Wish",
-    "about_story": "Story of ANT",
-    "contact": "Contact",
-    "news": "News"
-  },
-  "hero": {
-    "title1": "You can't always be with your family,",
-    "title2": "will always be there to keep",
-    "title3": "love for you",
-    "subtitle": "International standard healthcare assistant for your family",
-    "btnConsult": "Get free consultation"
-  }
+﻿{
+    "menu":  {
+                 "services":  "Services",
+                 "service_tracking":  "Health tracking assistant",
+                 "service_transport":  "Medical transportation",
+                 "service_education":  "Active aging education",
+                 "service_maid":  "Home maid",
+                 "service_process":  "ANT Operation Process",
+                 "recruitment":  "Recruitment",
+                 "recruit_register":  "Register",
+                 "recruit_benefits":  "Partner benefits",
+                 "about":  "About Us",
+                 "about_wish":  "Our Wish",
+                 "about_story":  "Story of ANT",
+                 "contact":  "Contact",
+                 "news":  "News",
+                 "activities":  "Activities"
+             },
+    "hero":  {
+                 "title1":  "You can\u0027t always be with your family,",
+                 "title2":  "will always be there to keep",
+                 "title3":  "love for you",
+                 "subtitle":  "International standard healthcare assistant for your family",
+                 "btnConsult":  "Get free consultation"
+             }
 }

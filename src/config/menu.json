@@ -3,37 +3,42 @@
     "id": "services",
     "i18nKey": "menu.services",
     "children": [
-      { "id": "service_tracking", "path": "#giai-phap-cham-soc", "i18nKey": "menu.service_tracking" },
-      { "id": "service_transport", "path": "#giai-phap-cham-soc", "i18nKey": "menu.service_transport" },
-      { "id": "service_education", "path": "#giai-phap-cham-soc", "i18nKey": "menu.service_education" },
-      { "id": "service_maid", "path": "#giai-phap-cham-soc", "i18nKey": "menu.service_maid" },
-      { "id": "service_process", "path": "#quy-trinh-hoat-dong", "i18nKey": "menu.service_process" }
+      { "id": "service_tracking", "path": "/#giai-phap-cham-soc", "i18nKey": "menu.service_tracking" },
+      { "id": "service_transport", "path": "/#giai-phap-cham-soc", "i18nKey": "menu.service_transport" },
+      { "id": "service_education", "path": "/#giai-phap-cham-soc", "i18nKey": "menu.service_education" },
+      { "id": "service_maid", "path": "/#giai-phap-cham-soc", "i18nKey": "menu.service_maid" },
+      { "id": "service_process", "path": "/#quy-trinh-hoat-dong", "i18nKey": "menu.service_process" }
     ]
   },
   {
     "id": "recruitment",
     "i18nKey": "menu.recruitment",
     "children": [
-      { "id": "recruit_register", "path": "#danh-cho-doi-tac-tuyen-dung", "i18nKey": "menu.recruit_register" },
-      { "id": "recruit_benefits", "path": "#hop-tac-cung-ant", "i18nKey": "menu.recruit_benefits" }
+      { "id": "recruit_register", "path": "/#danh-cho-doi-tac-tuyen-dung", "i18nKey": "menu.recruit_register" },
+      { "id": "recruit_benefits", "path": "/#hop-tac-cung-ant", "i18nKey": "menu.recruit_benefits" }
     ]
   },
   {
     "id": "about",
     "i18nKey": "menu.about",
     "children": [
-      { "id": "about_wish", "path": "#cau-chuyen-cua-chung-toi", "i18nKey": "menu.about_wish" },
-      { "id": "about_story", "path": "#cau-chuyen-cua-ant", "i18nKey": "menu.about_story" }
+      { "id": "about_wish", "path": "/#cau-chuyen-cua-chung-toi", "i18nKey": "menu.about_wish" },
+      { "id": "about_story", "path": "/#cau-chuyen-cua-ant", "i18nKey": "menu.about_story" }
     ]
   },
   {
     "id": "contact",
-    "path": "#thong-tin-lien-he",
+    "path": "/#thong-tin-lien-he",
     "i18nKey": "menu.contact"
   },
   {
+    "id": "activities",
+    "path": "/activities",
+    "i18nKey": "menu.activities"
+  },
+  {
     "id": "news",
-    "path": "#tin-tuc-noi-bat",
+    "path": "/news",
     "i18nKey": "menu.news"
   }
 ]

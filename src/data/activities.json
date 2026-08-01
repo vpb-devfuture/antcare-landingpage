@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "size": "large_left",
+    "image": "/images/img_2ef327dc.jpg",
+    "category": "Y tế Cộng đồng",
+    "title": "Chương trình khám sức khỏe miễn phí cho người cao tuổi tại Quận 1",
+    "description": "Sự kiện quy mô lớn với sự tham gia của đội ngũ y bác sĩ hàng đầu, mang lại cơ hội tầm soát bệnh lý miễn phí cho hơn 300 người cao tuổi.",
+    "date": "25 Tháng 10, 2024"
+  },
+  {
+    "id": 2,
+    "size": "small",
+    "image": "/images/img_23489654.jpg",
+    "category": "Workshop",
+    "title": "Đào tạo kỹ năng chăm sóc lão hóa cho cộng đồng",
+    "description": "Cung cấp kiến thức cơ bản về chăm sóc người cao tuổi tại nhà cho gia đình.",
+    "date": "Đã hoàn thành"
+  },
+  {
+    "id": 3,
+    "size": "small",
+    "image": "/images/img_fdccd103.jpg",
+    "category": "Thiện nguyện",
+    "title": "Chương trình thiện nguyện: Tết ấm cho người già neo đơn",
+    "description": "Mang niềm vui và sự ấm áp đến với những hoàn cảnh khó khăn trong dịp Tết Giáp Thìn.",
+    "date": "Tháng 01, 2024"
+  },
+  {
+    "id": 4,
+    "size": "large_right",
+    "image": "/images/img_e3dd1867.jpg",
+    "category": "Hợp tác chiến lược",
+    "title": "Hợp tác chiến lược với Bệnh viện Bạch Mai về đào tạo chuyên môn",
+    "description": "Nâng cao năng lực đội ngũ điều dưỡng thông qua các chương trình đào tạo chuyên sâu và trao đổi kinh nghiệm định kỳ.",
+    "date": "20 Tháng 9, 2024"
+  }
+]
