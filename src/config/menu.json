@@ -31,11 +31,7 @@
     "path": "/#thong-tin-lien-he",
     "i18nKey": "menu.contact"
   },
-  {
-    "id": "activities",
-    "path": "/activities",
-    "i18nKey": "menu.activities"
-  },
+
   {
     "id": "news",
     "path": "/news",

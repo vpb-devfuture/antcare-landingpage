@@ -64,7 +64,7 @@ const LandingPage = () => {
 <div className="max-w-4xl mx-auto space-y-6 -mt-16">
 <div className="relative inline-block animate-fade-in-up delay-100">
 <div className="relative inline-block md:ml-24">
-<div className="absolute -left-32 md:-left-40 top-1/2 -translate-y-1/2 w-32 md:w-40 h-auto z-20 hidden lg:block">
+<div className="absolute -left-24 md:-left-32 top-1/2 -translate-y-1/2 w-24 md:w-32 h-auto z-20 hidden lg:block">
     <div className="rellax" data-rellax-speed="1.5" data-rellax-percentage="0.5"><img src="/images/hero-mascot.png" alt="247care Mascot" className="w-full h-auto object-contain" /></div>
 </div><h1 className="font-display-lg text-plum-deep leading-tight px-4 text-2xl md:text-3xl relative inline-block" style={{'lineHeight': '1.2'}}><span className="absolute -left-4 top-0 text-primary-container font-serif leading-none text-2xl md:text-3xl">“</span><div className="flex flex-col items-center gap-1"><span className="block text-xl md:text-2xl font-bold text-primary-container mb-1">{t("hero.title1")}</span><div className="flex items-center gap-3"><span className="font-bold tracking-tighter text-4xl md:text-5xl text-earth-orange-bright leading-none mt-1">KIẾN</span><div className="text-left flex flex-col justify-center leading-tight text-primary-container"><span className="block text-xl md:text-2xl font-bold text-primary-container mb-0.5">{t("hero.title2")}</span><span className="block text-xl md:text-2xl font-bold text-primary-container">{t("hero.title3")}<span className="text-primary-container font-serif ml-1 leading-none text-2xl md:text-3xl">”</span></span></div></div></div></h1>
 </div>
