@@ -59,7 +59,7 @@ const LandingPage = () => {
     <>
       {/*  1. Hero Section  */}
 <section className="relative overflow-hidden flex items-center justify-center min-h-screen pt-12 pb-24 bg-fixed bg-center bg-cover" style={{'backgroundImage': 'url(\'/images/hero-bg.jpg\')'}}>
-<div className="absolute inset-0 z-0 bg-gradient-to-br from-white/95 via-surface-mist/80 to-surface-lavender/95 backdrop-blur-[4px]"></div>
+<div className="absolute inset-0 z-0 bg-gradient-to-br from-white/50 via-surface-mist/40 to-surface-lavender/50 backdrop-blur-[2px]"></div>
 <div className="max-w-container-max mx-auto px-gutter-desktop relative z-10 text-center flex flex-col items-center">
 <div className="max-w-4xl mx-auto space-y-6 -mt-16">
 <div className="relative inline-block animate-fade-in-up delay-100">
