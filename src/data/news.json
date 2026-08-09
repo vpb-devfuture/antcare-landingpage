@@ -7,7 +7,9 @@
     "author": {
       "name": "BS. Nguyễn Minh Anh",
       "image": "/images/img_4da68015.jpg"
-    }
+    },
+    "id": 0,
+    "content": "\n  <p>Nội dung chi tiết của bài viết được hiển thị tại đây. Đây là một đoạn nội dung giả định (mockup content) để bạn có thể xem trước thiết kế của trang chi tiết tin tức.</p>\n  <h3>Tiêu đề phụ 1</h3>\n  <p>Thêm các đoạn văn bản dài để kiểm tra độ giãn dòng, font chữ và các cấu trúc khác trên trang.</p>\n  <img src=\"/images/img_c2b21b3b.jpg\" alt=\"mock image\" style=\"width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 1rem 0;\" />\n  <p>Kết thúc bài viết.</p>\n"
   },
   "list": [
     {
@@ -16,7 +18,8 @@
       "date": "15 Tháng 5, 2024",
       "title": "Lợi ích của các hoạt động xã hội đối với tâm lý người già",
       "description": "Kết nối cộng đồng giúp cải thiện đáng kể tình trạng suy giảm trí nhớ và nâng cao chất lượng sống...",
-      "image": "/images/img_90de0724.jpg"
+      "image": "/images/img_90de0724.jpg",
+      "content": "\n  <p>Nội dung chi tiết của bài viết được hiển thị tại đây. Đây là một đoạn nội dung giả định (mockup content) để bạn có thể xem trước thiết kế của trang chi tiết tin tức.</p>\n  <h3>Tiêu đề phụ 1</h3>\n  <p>Thêm các đoạn văn bản dài để kiểm tra độ giãn dòng, font chữ và các cấu trúc khác trên trang.</p>\n  <img src=\"/images/img_c2b21b3b.jpg\" alt=\"mock image\" style=\"width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 1rem 0;\" />\n  <p>Kết thúc bài viết.</p>\n"
     },
     {
       "id": 2,
@@ -24,7 +27,8 @@
       "date": "10 Tháng 5, 2024",
       "title": "Ứng dụng AI trong việc giám sát sức khỏe từ xa",
       "description": "Công nghệ mới cho phép bác sĩ theo dõi các chỉ số quan trọng của bệnh nhân theo thời gian thực...",
-      "image": "/images/img_468caa80.jpg"
+      "image": "/images/img_468caa80.jpg",
+      "content": "\n  <p>Nội dung chi tiết của bài viết được hiển thị tại đây. Đây là một đoạn nội dung giả định (mockup content) để bạn có thể xem trước thiết kế của trang chi tiết tin tức.</p>\n  <h3>Tiêu đề phụ 1</h3>\n  <p>Thêm các đoạn văn bản dài để kiểm tra độ giãn dòng, font chữ và các cấu trúc khác trên trang.</p>\n  <img src=\"/images/img_c2b21b3b.jpg\" alt=\"mock image\" style=\"width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 1rem 0;\" />\n  <p>Kết thúc bài viết.</p>\n"
     },
     {
       "id": 3,
@@ -32,7 +36,8 @@
       "date": "05 Tháng 5, 2024",
       "title": "Chế độ ăn uống vàng cho người cao tuổi vào mùa hè",
       "description": "Những loại thực phẩm giúp thanh nhiệt và tăng cường sức đề kháng trong những ngày nắng nóng...",
-      "image": "/images/img_de854950.jpg"
+      "image": "/images/img_de854950.jpg",
+      "content": "\n  <p>Nội dung chi tiết của bài viết được hiển thị tại đây. Đây là một đoạn nội dung giả định (mockup content) để bạn có thể xem trước thiết kế của trang chi tiết tin tức.</p>\n  <h3>Tiêu đề phụ 1</h3>\n  <p>Thêm các đoạn văn bản dài để kiểm tra độ giãn dòng, font chữ và các cấu trúc khác trên trang.</p>\n  <img src=\"/images/img_c2b21b3b.jpg\" alt=\"mock image\" style=\"width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 1rem 0;\" />\n  <p>Kết thúc bài viết.</p>\n"
     },
     {
       "id": 4,
@@ -40,7 +45,8 @@
       "date": "01 Tháng 5, 2024",
       "title": "Cách xử lý các tình huống khẩn cấp tại nhà cho người bệnh",
       "description": "Hướng dẫn chi tiết từng bước cho người thân cách nhận biết và phản ứng kịp thời khi có sự cố...",
-      "image": "/images/img_1c0b774f.jpg"
+      "image": "/images/img_1c0b774f.jpg",
+      "content": "\n  <p>Nội dung chi tiết của bài viết được hiển thị tại đây. Đây là một đoạn nội dung giả định (mockup content) để bạn có thể xem trước thiết kế của trang chi tiết tin tức.</p>\n  <h3>Tiêu đề phụ 1</h3>\n  <p>Thêm các đoạn văn bản dài để kiểm tra độ giãn dòng, font chữ và các cấu trúc khác trên trang.</p>\n  <img src=\"/images/img_c2b21b3b.jpg\" alt=\"mock image\" style=\"width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 1rem 0;\" />\n  <p>Kết thúc bài viết.</p>\n"
     },
     {
       "id": 5,
@@ -48,7 +54,8 @@
       "date": "28 Tháng 4, 2024",
       "title": "ANTcare khai trương chi nhánh mới tại Quận 2",
       "description": "Mở rộng mạng lưới phục vụ để mang dịch vụ chăm sóc cao cấp đến gần hơn với cư dân khu vực...",
-      "image": "/images/img_5a27296f.jpg"
+      "image": "/images/img_5a27296f.jpg",
+      "content": "\n  <p>Nội dung chi tiết của bài viết được hiển thị tại đây. Đây là một đoạn nội dung giả định (mockup content) để bạn có thể xem trước thiết kế của trang chi tiết tin tức.</p>\n  <h3>Tiêu đề phụ 1</h3>\n  <p>Thêm các đoạn văn bản dài để kiểm tra độ giãn dòng, font chữ và các cấu trúc khác trên trang.</p>\n  <img src=\"/images/img_c2b21b3b.jpg\" alt=\"mock image\" style=\"width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 1rem 0;\" />\n  <p>Kết thúc bài viết.</p>\n"
     },
     {
       "id": 6,
@@ -56,7 +63,8 @@
       "date": "20 Tháng 4, 2024",
       "title": "Sức mạnh của liệu pháp âm nhạc trong Alzheimer",
       "description": "Âm nhạc không chỉ là giải trí, đó là chìa khóa mở cánh cửa ký ức và xoa dịu tâm hồn người bệnh...",
-      "image": "/images/img_c2b21b3b.jpg"
+      "image": "/images/img_c2b21b3b.jpg",
+      "content": "\n  <p>Nội dung chi tiết của bài viết được hiển thị tại đây. Đây là một đoạn nội dung giả định (mockup content) để bạn có thể xem trước thiết kế của trang chi tiết tin tức.</p>\n  <h3>Tiêu đề phụ 1</h3>\n  <p>Thêm các đoạn văn bản dài để kiểm tra độ giãn dòng, font chữ và các cấu trúc khác trên trang.</p>\n  <img src=\"/images/img_c2b21b3b.jpg\" alt=\"mock image\" style=\"width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin: 1rem 0;\" />\n  <p>Kết thúc bài viết.</p>\n"
     }
   ]
 }

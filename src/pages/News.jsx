@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import newsData from '../data/news.json';
 
 const News = () => {
@@ -51,9 +52,9 @@ const News = () => {
                     </div>
                   </div>
                 )}
-                <a className="inline-flex items-center gap-2 text-earth-orange-bright font-bold hover:gap-4 transition-all" href="#">
+                <Link className="inline-flex items-center gap-2 text-earth-orange-bright font-bold hover:gap-4 transition-all" to="/news/0">
                   Đọc bài viết <span className="material-symbols-outlined">arrow_forward</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -84,9 +85,9 @@ const News = () => {
                   <p className="text-on-surface-variant font-body-sm line-clamp-2 mb-6">
                     {article.description}
                   </p>
-                  <a className="mt-auto inline-flex items-center gap-1 text-primary font-bold hover:text-earth-orange-bright transition-colors" href="#">
+                  <Link className="mt-auto inline-flex items-center gap-1 text-primary font-bold hover:text-earth-orange-bright transition-colors" to={`/news/${article.id}`}>
                     Đọc thêm <span className="material-symbols-outlined text-sm">arrow_right_alt</span>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}

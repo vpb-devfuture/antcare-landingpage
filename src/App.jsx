@@ -6,6 +6,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfUse from './pages/TermsOfUse';
 import Activities from './pages/Activities';
 import News from './pages/News';
+import NewsDetail from './pages/NewsDetail';
 
 function App() {
   const { hash, pathname } = useLocation();
@@ -31,6 +32,7 @@ function App() {
         <Route path="terms-of-use" element={<TermsOfUse />} />
         <Route path="activities" element={<Activities />} />
         <Route path="news" element={<News />} />
+        <Route path="news/:id" element={<NewsDetail />} />
       </Route>
     </Routes>
   );
