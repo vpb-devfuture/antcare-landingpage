@@ -27,7 +27,7 @@ const Activities = () => {
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-plum-deep/80 via-plum-deep/40 to-transparent"></div>
         </div>
-        <div className="relative z-10 px-4 md:px-gutter-desktop max-w-container-max mx-auto w-full h-full flex flex-col items-center justify-center">
+        <div className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1240px] mx-auto w-full h-full flex flex-col items-center justify-center">
           <div className="max-w-4xl space-y-6 flex flex-col items-center text-center">
             <h1 className="font-display-lg text-4xl md:text-5xl lg:text-6xl text-white leading-tight font-bold drop-shadow-lg">
               Hành trình lan tỏa yêu thương &amp; Chăm sóc cộng đồng
@@ -40,7 +40,7 @@ const Activities = () => {
       </section>
 
       {/* List Section */}
-      <section className="py-section-padding px-4 md:px-margin-desktop max-w-container-max mx-auto">
+      <section className="py-section-padding px-4 md:px-margin-desktop max-w-[1240px] mx-auto">
         <div className="flex justify-between items-end mb-12">
           <div className="space-y-2">
             <h2 className="font-headline-lg text-3xl md:text-headline-lg text-plum-deep">Danh sách hoạt động</h2>

@@ -72,11 +72,11 @@ export default {
                     },
                     "spacing": {
                         "margin-mobile": "20px",
-                        "container-max": "1280px",
+                        "container-max": "1240px",
                         "base": "8px",
-                        "margin-desktop": "40px",
-                        "gutter-desktop": "24px",
-                        "section-padding": "96px",
+                        "margin-desktop": "64px",
+                        "gutter-desktop": "36px",
+                        "section-padding": "80px",
                         "gutter-mobile": "16px"
                     },
                     "fontFamily": {

@@ -13,12 +13,17 @@ function App() {
 
   useEffect(() => {
     if (hash) {
-      setTimeout(() => {
+      let attempts = 0;
+      const scrollToHash = () => {
         const element = document.querySelector(hash);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
+        } else if (attempts < 25) {
+          attempts++;
+          setTimeout(scrollToHash, 100);
         }
-      }, 100);
+      };
+      setTimeout(scrollToHash, 150);
     } else {
       window.scrollTo(0, 0);
     }

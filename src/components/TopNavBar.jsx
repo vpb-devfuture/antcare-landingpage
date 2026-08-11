@@ -14,7 +14,7 @@ const TopNavBar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-plum-deep/5 text-plum-deep transition-all duration-300">
-      <div className="max-w-container-max mx-auto px-4 md:px-gutter-desktop w-full">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 w-full">
         {/* Single row: Logo | Nav links | Hotline + Language */}
         <div className="flex items-center justify-between h-16 md:h-[68px]">
           {/* Logo */}
