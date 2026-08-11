@@ -1,10 +1,10 @@
-﻿{
+{
     "menu":  {
                  "services":  "Services",
-                 "service_tracking":  "Health tracking assistant",
-                 "service_transport":  "Medical transportation",
-                 "service_education":  "Active aging education",
-                 "service_maid":  "Home maid",
+                 "service_tracking":  "Health assistant",
+                 "service_transport":  "Medical companionship",
+                 "service_education":  "Peace of mind at home",
+                 "service_maid":  "Medical care services",
                  "service_process":  "ANT Operation Process",
                  "recruitment":  "Recruitment",
                  "recruit_register":  "Register",

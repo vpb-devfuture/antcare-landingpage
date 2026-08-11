@@ -52,13 +52,19 @@ const FloatingActions = () => {
         </div>
         
         {/* Main Toggle Button */}
-        <button 
-          onClick={() => setIsContactOpen(!isContactOpen)}
-          className="w-14 h-14 bg-earth-orange-bright rounded-full flex items-center justify-center shadow-xl text-white md:hover:bg-earth-orange-bright/90 active:scale-95 transition-all shadow-earth-orange-bright/30 relative z-10"
-        >
-          <span className={`material-symbols-outlined text-2xl absolute duration-300 transition-transform ${isContactOpen ? 'scale-0' : 'scale-100'}`}>forum</span>
-          <span className={`material-symbols-outlined text-2xl absolute duration-300 transition-transform ${isContactOpen ? 'scale-100' : 'scale-0'}`}>close</span>
-        </button>
+        <div className="relative">
+          {!isContactOpen && (
+            <span className="absolute inset-0 rounded-full bg-earth-orange-bright/60 animate-ping pointer-events-none"></span>
+          )}
+          <button 
+            onClick={() => setIsContactOpen(!isContactOpen)}
+            className="w-14 h-14 bg-earth-orange-bright rounded-full flex items-center justify-center shadow-xl text-white md:hover:bg-earth-orange-bright/90 active:scale-95 transition-all shadow-earth-orange-bright/40 relative z-10"
+            aria-label="Mở hỗ trợ tư vấn"
+          >
+            <span className={`material-symbols-outlined text-2xl absolute duration-300 transition-transform ${isContactOpen ? 'scale-0' : 'scale-100 animate-pulse'}`}>forum</span>
+            <span className={`material-symbols-outlined text-2xl absolute duration-300 transition-transform ${isContactOpen ? 'scale-100' : 'scale-0'}`}>close</span>
+          </button>
+        </div>
       </div>
     </div>
   );

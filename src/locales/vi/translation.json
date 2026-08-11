@@ -1,10 +1,10 @@
 {
   "menu": {
     "services": "Dịch vụ",
-    "service_tracking": "Trợ lý theo dõi sức khỏe",
-    "service_transport": "Đưa đón khám bệnh",
-    "service_education": "Giáo dục lão hóa chủ động",
-    "service_maid": "Giúp việc tại nhà",
+    "service_tracking": "Trợ lý sức khỏe",
+    "service_transport": "Đồng hành khám bệnh",
+    "service_education": "An tâm nhà cửa",
+    "service_maid": "Dịch vụ chăm sóc y tế",
     "service_process": "Quy trình hoạt động của ANT – Kiến chăm tổ",
     "recruitment": "Tuyển dụng",
     "recruit_register": "Đăng ký",

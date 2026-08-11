@@ -28,128 +28,210 @@
       "name": "PGS.TS Nguyễn Văn Tuấn",
       "title": "Viện trưởng Viện Sức khỏe Tâm thần (Bệnh viện Bạch Mai)",
       "quote": "“Trong các giai đoạn phát triển của cuộc đời, tuổi già là thời điểm con người dễ trải qua cảm giác cô đơn sâu sắc nhất, là mối nguy âm thầm đối với sức khỏe tâm thần”",
-      "image": "/images/story-hero.jpg"
+      "image": "/images/dr-tuan.png"
     },
     {
       "id": 2,
-      "name": "Điều dưỡng Trần Thị Lan",
+      "name": "Điều dưỡng Nguyễn Kim Thanh",
       "title": "Chuyên viên Chăm sóc Chủ động",
       "quote": "“Rèn luyện trí não mỗi ngày là chìa khóa vàng để ngăn ngừa suy giảm trí nhớ.”",
-      "image": "/images/service-1.jpg"
+      "image": "/images/nurse-lan.jpg"
     }
   ],
+  "whyAntcare": {
+    "title": "Tại sao là Antcare ?",
+    "quote": "“Chúng tôi tin rằng, sức khỏe không nên chỉ được chăm sóc khi đã có bệnh”",
+    "image": "/images/why-antcare.jpg",
+    "comparison": [
+      {
+        "id": 1,
+        "icon": "monitor_heart",
+        "feature": "Kiểm tra các thông số sức khỏe cơ bản tại nhà",
+        "antcare": true,
+        "others": true
+      },
+      {
+        "id": 2,
+        "icon": "smartphone",
+        "feature": "Theo dõi, so sánh các chỉ số trên App",
+        "antcare": true,
+        "others": false
+      },
+      {
+        "id": 3,
+        "icon": "accessibility_new",
+        "feature": "Các bài tập vận động dành riêng cho người cao tuổi",
+        "antcare": true,
+        "others": false
+      },
+      {
+        "id": 4,
+        "icon": "psychology",
+        "feature": "Các bài tập rèn luyện trí não dành riêng cho người cao tuổi",
+        "antcare": true,
+        "others": false
+      },
+      {
+        "id": 5,
+        "icon": "medication",
+        "feature": "Nhắc uống thuốc hàng ngày",
+        "antcare": true,
+        "others": false
+      },
+      {
+        "id": 6,
+        "icon": "directions_car",
+        "feature": "Đưa đón khám bệnh tận nơi",
+        "antcare": true,
+        "others": true
+      },
+      {
+        "id": 7,
+        "icon": "assignment_turned_in",
+        "feature": "Theo dõi, kiểm tra sức khỏe Ông/ Bà trước và sau khám",
+        "antcare": true,
+        "others": false
+      },
+      {
+        "id": 8,
+        "icon": "chat_bubble",
+        "feature": "Trò chuyện cùng ông bà và kết nối với gia đình",
+        "antcare": true,
+        "others": false
+      },
+      {
+        "id": 9,
+        "icon": "cleaning_services",
+        "feature": "Dọn dẹp và hỗ trợ sinh hoạt hàng ngày",
+        "antcare": true,
+        "others": false
+      },
+      {
+        "id": 10,
+        "icon": "verified_user",
+        "feature": "Kiểm tra và thông báo, xử lý các rủi ro nhà cửa cho người lớn tuổi",
+        "antcare": true,
+        "others": false
+      }
+    ]
+  },
   "comprehensiveSolutions": [
     {
       "id": 1,
-      "title": "Trợ lý theo dõi sức khỏe",
-      "description": "Đội ngũ chuyên môn hỗ trợ theo dõi các chỉ số sức khỏe, nhắc lịch thuốc và tư vấn dinh dưỡng hàng ngày.",
-      "image": "/images/service-2.jpg",
+      "title": "Trợ lý sức khỏe",
+      "description": "Kế thừa chương trình Senior Fitness của Mỹ, và Active Ageing của Singapore, đội ngũ chuyên nghiệp được đào tạo, đến nhà, kiểm tra, rèn luyện cùng ông, bà và kết nối qua App công nghệ tới gia đình",
+      "image": "/images/service-4.jpg",
       "icon": "monitor_heart",
       "features": [
-        "Nhắc lịch uống thuốc và đo chỉ số sức khỏe",
-        "Theo dõi sát sao tình trạng sức khỏe hàng ngày",
-        "Báo cáo định kỳ cho người thân qua ứng dụng"
+        "Kiểm tra chỉ số sinh tồn: Huyết áp, nhịp tim, SpO2, đường huyết..",
+        "Bài tập vận động thể chất",
+        "Bài tập Rèn luyện trí não",
+        "Nhắc nhở uống thuốc hàng ngày",
+        "Trò chuyện và trải nghiệm mới mỗi tuần",
+        "Báo cáo qua App"
       ]
     },
     {
       "id": 2,
-      "title": "Đưa đón khám bệnh",
-      "description": "Đội ngũ chuyên nghiệp hỗ trợ đưa đón và đồng hành cùng người già và trẻ em tới các cơ sở y tế an toàn, chu đáo.",
+      "title": "Đồng hành khám bệnh",
+      "description": "Đội ngũ chuyên nghiệp đồng hành cùng người già và trẻ em tới các cơ sở y tế an toàn, chu đáo.",
       "image": "/images/service-3.jpg",
       "icon": "medical_services",
       "features": [
-        "Đặt lịch hẹn khám",
-        "Đồng hành suốt cả quá trình khám",
-        "Dịch vụ chăm người ốm tại viện",
-        "Báo cáo kết quả khám chữa bệnh cho gia đình"
+        "Đặt lịch khám trước",
+        "Kiểm tra chỉ số sức khỏe trước khi đi",
+        "Đưa đón tận nơi",
+        "Đồng hành trong suốt quá trình khám",
+        "Thông tin khám được cập nhật đủ trên App"
       ]
     },
     {
       "id": 3,
-      "title": "Giáo dục lão hóa chủ động",
-      "description": "Chương trình giúp người cao tuổi rèn luyện trí não, với các bài tập cải thiện thể chất và tinh thần để tận hưởng cuộc sống.",
-      "image": "/images/service-4.jpg",
-      "icon": "psychology",
+      "title": "An tâm nhà cửa",
+      "description": "Kiểm tra rủi ro nhà cửa không an toàn cho người cao tuổi. Hỗ trợ các công việc gia đình và trò chuyện chia sẻ cùng người cao tuổi mỗi ngày",
+      "image": "/images/service-5.jpg",
+      "icon": "home_repair_service",
       "features": [
-        "Bài tập tại nhà kết hợp hoạt động ngoài trời",
-        "Kiểm tra sức khỏe trước mỗi buổi học",
-        "bài tập cải thiện thể chất và tinh thần",
-        "Kết hợp các kiến thức về công nghệ số"
+        "Kiểm tra an toàn nhà cửa cho người lớn tuổi",
+        "Xử lý, dọn dẹp các nguy cơ không an toàn trong khả năng",
+        "Dọn dẹp hoặc hỗ trợ nội trợ theo yêu cầu gia đình",
+        "Báo cáo phát sinh qua App cho chủ nhà"
       ]
     },
     {
       "id": 4,
-      "title": "Giúp việc tại nhà",
-      "description": "Hỗ trợ các công việc gia đình, Hỗ trợ sinh hoạt và trò chuyện chia sẻ cùng người cao tuổi mỗi ngày.",
-      "image": "/images/service-5.jpg",
-      "icon": "home_repair_service",
+      "title": "Dịch vụ chăm sóc y tế",
+      "description": "Nền tảng ANTCARE sẽ kết nối gia đình với các nhân viên y tế có kinh nghiệm, được đào tạo bài bản để hỗ trợ và đồng hành cùng gia đình khi người thân bị bệnh, hồi phục sau bệnh",
+      "image": "/images/service-2.jpg",
+      "icon": "medical_services",
       "features": [
-        "Dịch vụ theo tiếng hàng ngày hoặc định kỳ",
-        "Chăm sóc nội trợ tại nhà",
-        "Kiểm tra sức khỏe mỗi ngày thăm nom",
-        "Hỗ trợ sinh hoạt và trò chuyện chia sẻ cùng"
+        "Chăm sóc người ốm tại nhà",
+        "Chăm sóc người ốm tại bệnh viện",
+        "Tập phục hồi chức năng"
       ]
     }
   ],
   "careServiceDetails": [
     {
       "id": 1,
-      "title": "Trợ lý theo dõi sức khỏe",
+      "title": "Trợ lý sức khỏe",
       "icon": "monitor_heart",
       "color": "primary",
       "bgClass": "bg-primary/5",
       "target": "Người cao tuổi cần theo dõi sức khỏe định kỳ, người có bệnh nền.",
       "goal": "Kiểm soát tốt các chỉ số sức khỏe, duy trì thói quen uống thuốc đúng giờ.",
       "details": [
-        "Nhắc uống thuốc và gọi điện hàng ngày",
-        "Theo dõi lịch sử thể trạng qua app",
-        "Kiểm tra sức khỏe khi đến thăm khám"
+        "Kiểm tra chỉ số sinh tồn: Huyết áp, nhịp tim, SpO2, đường huyết..",
+        "Bài tập vận động thể chất",
+        "Bài tập Rèn luyện trí não",
+        "Nhắc nhở uống thuốc hàng ngày",
+        "Trò chuyện và trải nghiệm mới mỗi tuần",
+        "Báo cáo qua App"
       ]
     },
     {
       "id": 2,
-      "title": "Đưa đón khám bệnh",
+      "title": "Đồng hành khám bệnh",
       "icon": "directions_car",
       "color": "primary",
       "bgClass": "bg-primary/5",
       "target": "Người cao tuổi, trẻ em cần đi khám chuyên khoa/ tái khám tại bệnh viện.",
       "goal": "An toàn y tế, giảm bớt gánh nặng thời gian cho người thân.",
       "details": [
-        "Đưa đón tận nhà 2 chiều",
-        "Đặt lịch khám trước theo yêu cầu",
-        "Đồng hành khám bệnh cùng",
-        "Ghi chú thông tin khám bệnh",
-        "Dịch vụ chăm người ốm tại bệnh viện"
+        "Đặt lịch khám trước",
+        "Kiểm tra chỉ số sức khỏe trước khi đi",
+        "Đưa đón tận nơi",
+        "Đồng hành trong suốt quá trình khám",
+        "Thông tin khám được cập nhật đủ trên App"
       ]
     },
     {
       "id": 3,
-      "title": "Giáo dục lão hóa",
-      "icon": "self_improvement",
-      "color": "primary",
-      "bgClass": "bg-primary/5",
-      "target": "Người cao tuổi muốn duy trì sự minh mẫn & vận động.",
-      "goal": "Phòng ngừa sa sút trí tuệ, cải thiện thể lực & tinh thần.",
-      "details": [
-        "Chương trình rèn luyện trí não",
-        "Duy trì thể chất tại nhà",
-        "Hướng dẫn sử dụng công nghệ",
-        "Hoạt động trải nghiệm ngoài trời"
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Giúp việc tại nhà",
+      "title": "An tâm nhà cửa",
       "icon": "cleaning_services",
       "color": "primary",
       "bgClass": "bg-primary/5",
       "target": "Người già neo đơn hoặc cần hỗ trợ sinh hoạt hàng ngày.",
       "goal": "Đảm bảo dinh dưỡng, vệ sinh và có người bầu bạn.",
       "details": [
-        "Hỗ trợ các công việc gia đình",
-        "Trò chuyện và chia sẻ với người cao tuổi",
-        "Dịch vụ linh hoạt theo khung giờ",
-        "Kiểm tra sức khỏe cơ bản hàng ngày"
+        "Kiểm tra an toàn nhà cửa cho người lớn tuổi",
+        "Xử lý, dọn dẹp các nguy cơ không an toàn trong khả năng",
+        "Dọn dẹp hoặc hỗ trợ nội trợ theo yêu cầu gia đình",
+        "Báo cáo phát sinh qua App cho chủ nhà"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Dịch vụ chăm sóc y tế",
+      "icon": "medical_services",
+      "color": "primary",
+      "bgClass": "bg-primary/5",
+      "target": "Người cao tuổi bị bệnh hoặc cần phục hồi sau bệnh.",
+      "goal": "Hồi phục và ổn định sức khỏe.",
+      "details": [
+        "Chăm sóc người ốm tại nhà",
+        "Chăm sóc người ốm tại bệnh viện",
+        "Tập phục hồi chức năng"
       ]
     }
   ],
@@ -157,47 +239,58 @@
     {
       "id": 1,
       "name": "Gói Quan Tâm",
-      "price": "790.000",
+      "price": "990.000",
       "unit": "đồng/tháng",
+      "dailyPrice": "chỉ 33.000đ/ngày",
       "highlight": false,
-      "bonus": "25.000 đồng/ngày",
+      "suitability": "Phù hợp nếu ba mẹ vẫn còn chủ động trong sinh hoạt",
+      "frequency": "2 lần / tháng",
       "features": [
-        "Nhắc uống thuốc hàng ngày và gọi điện chăm sóc 2 lần/ tuần",
-        "Thăm nhà và kiểm tra sức khỏe 1 lần/tháng",
-        "Báo cáo qua app cho chủ nhà"
+        "Thăm nhà & kiểm tra chỉ số sinh tồn: Huyết áp, nhịp tim, nhiệt độ, SpO2 (2 lần/tháng)",
+        "Rèn luyện thể chất & trí não (Chuẩn Senior Fitness Mỹ & Active Ageing Singapore)",
+        "Tâm sự & trải nghiệm công nghệ mới cùng ông bà",
+        "Nhắn tin nhắc nhở uống thuốc mỗi ngày",
+        "Báo cáo & gửi thông tin cập nhật cho gia đình"
       ]
     },
     {
       "id": 2,
-      "name": "Gói Chăm sóc",
-      "price": "1.490.000",
+      "name": "Gói Chăm Sóc",
+      "price": "1.750.000",
       "unit": "đồng/tháng",
       "highlight": true,
       "tag": "Phổ biến",
+      "suitability": "Phù hợp nếu ba mẹ có bệnh nền cần theo dõi",
+      "frequency": "4 lần / tháng",
       "features": [
-        "Nhắc uống thuốc hàng ngày và gọi điện chăm sóc hàng ngày",
-        "Thăm nhà và kiểm tra sức khỏe 2 lần/tháng",
-        "Báo cáo qua app cho chủ nhà"
+        "Thăm nhà & kiểm tra chỉ số sinh tồn: Huyết áp, nhịp tim, nhiệt độ, SpO2 (4 lần/tháng)",
+        "Rèn luyện thể chất & trí não (Chuẩn Senior Fitness Mỹ & Active Ageing Singapore)",
+        "Tâm sự & trải nghiệm công nghệ mới cùng ông bà",
+        "Nhắn tin nhắc nhở uống thuốc mỗi ngày",
+        "Báo cáo & gửi thông tin cập nhật cho gia đình"
       ]
     },
     {
       "id": 3,
-      "name": "Gói Yêu thương",
-      "price": "2.490.000",
+      "name": "Gói Yêu Thương",
+      "price": "3.190.000",
       "unit": "đồng/tháng",
       "highlight": false,
+      "suitability": "Phù hợp nếu ba mẹ cần nhiều sự đồng hành hơn mỗi ngày",
+      "frequency": "8 lần / tháng",
       "features": [
-        "Nhắc uống thuốc hàng ngày và gọi điện chăm sóc hàng ngày",
-        "Thăm nhà và kiểm tra sức khỏe 4 lần/ tháng",
-        "Đưa cụ đi dạo phố, trải nghiệm dịch vụ cộng đồng 1 lần/tháng",
-        "Báo cáo qua app cho chủ nhà"
+        "Thăm nhà & kiểm tra sinh tồn: Huyết áp, nhịp tim, nhiệt độ, SpO2 + Đặc biệt kiểm tra đường huyết (8 lần/tháng)",
+        "Rèn luyện thể chất & trí não (Chuẩn Senior Fitness Mỹ & Active Ageing Singapore)",
+        "Tâm sự & trải nghiệm công nghệ mới cùng ông bà",
+        "Nhắn tin nhắc nhở uống thuốc mỗi ngày",
+        "Báo cáo & gửi thông tin cập nhật cho gia đình"
       ]
     }
   ],
   "medicalPackages": [
     {
       "id": 1,
-      "title": "Đưa đón khám bệnh",
+      "title": "Đồng hành khám bệnh",
       "icon": "medical_services"
     },
     {
@@ -207,19 +300,19 @@
     },
     {
       "id": 3,
-      "title": "Giúp việc tại nhà",
+      "title": "Dịch vụ chăm sóc y tế",
       "icon": "home_health"
     },
     {
       "id": 4,
-      "title": "Giáo dục lão khoa",
+      "title": "An tâm nhà cửa",
       "icon": "psychology"
     }
   ],
   "medicalPackagePricing": [
     {
       "id": 1,
-      "category": "Đưa đón khám bệnh",
+      "category": "Đồng hành khám bệnh",
       "categoryColor": "text-earth-orange-bright",
       "title": "Đưa đi khám",
       "singlePackage": [
@@ -238,7 +331,7 @@
     },
     {
       "id": 2,
-      "category": "Đưa đón khám bệnh",
+      "category": "Đồng hành khám bệnh",
       "categoryColor": "text-earth-orange-bright",
       "title": "Trông người ốm tại bệnh viện",
       "singlePackage": [

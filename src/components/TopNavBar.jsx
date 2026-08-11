@@ -8,15 +8,19 @@ const TopNavBar = () => {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <nav className="sticky top-0 z-50 bg-surface-mist shadow-sm text-plum-deep">
+    <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-plum-deep/5 text-plum-deep transition-all duration-300">
       <div className="max-w-container-max mx-auto px-4 md:px-gutter-desktop w-full">
         {/* Single row: Logo | Nav links | Hotline + Language */}
         <div className="flex items-center justify-between h-16 md:h-[68px]">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity">
-              <img alt="247care logo" className="h-10 md:h-12 w-auto object-contain mix-blend-multiply" src="/images/logo.png" />
+            <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity">
+              <img alt="ANTCARE logo" className="h-10 md:h-12 w-auto object-contain" src="/images/logo.png" />
             </Link>
           </div>
 
@@ -42,9 +46,9 @@ const TopNavBar = () => {
 
           {/* Desktop: Hotline + Language (right) */}
           <div className="hidden md:flex items-center gap-3 flex-shrink-0">
-            <a className="flex items-center gap-2 px-4 py-2 border border-plum-deep/20 rounded-full hover:bg-plum-deep/5 transition-colors group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
-              <span className="material-symbols-outlined text-plum-deep text-[20px] group-hover:scale-110 transition-transform">call</span>
-              <span className="text-[15px] font-bold text-plum-deep">{siteInfo.hotline}</span>
+            <a className="flex items-center gap-2 px-4 py-2 border border-plum-deep/20 rounded-full text-plum-deep hover:bg-plum-deep hover:text-white hover:border-plum-deep transition-all duration-300 shadow-sm hover:shadow-md group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
+              <span className="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">call</span>
+              <span className="text-[15px] font-bold">{siteInfo.hotline}</span>
             </a>
             <div className="h-5 w-px bg-border-muted"></div>
             <div className="relative group">
@@ -66,7 +70,7 @@ const TopNavBar = () => {
 
           {/* Mobile: Compact hotline + hamburger */}
           <div className="flex md:hidden items-center gap-2">
-            <a className="flex items-center gap-1.5 px-3 py-1.5 border border-plum-deep/20 rounded-full text-plum-deep text-sm font-bold" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
+            <a className="flex items-center gap-1.5 px-3 py-1.5 border border-plum-deep/20 rounded-full text-plum-deep hover:bg-plum-deep hover:text-white hover:border-plum-deep transition-all text-sm font-bold active:bg-plum-deep active:text-white" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
               <span className="material-symbols-outlined" style={{fontSize: "16px"}}>call</span> {siteInfo.hotline}
             </a>
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 rounded-full hover:bg-plum-deep/10 transition-colors" aria-label="Mở menu">

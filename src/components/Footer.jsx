@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-container-max mx-auto px-gutter-desktop grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         <div className="space-y-6">
           <div className="flex items-center gap-4">
-            <Link to="/" className="flex items-center gap-3 cursor-pointer md:hover:opacity-90 transition-opacity">
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 cursor-pointer md:hover:opacity-90 transition-opacity">
                 <img alt="247care footer logo" className="h-20 w-auto object-contain" src="/images/footer-logo.png" />
             </Link>
           </div>
