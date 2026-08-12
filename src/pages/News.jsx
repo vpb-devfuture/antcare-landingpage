@@ -7,22 +7,17 @@ const News = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const allArticles = [
+  const rawArticles = [
     ...(newsData.featured ? [newsData.featured] : []),
     ...(newsData.list || [])
   ];
 
-  // Carousel articles for top left hero banner
+  // Sort all articles in descending order of ID (newest articles first on page 1)
+  const allArticles = [...rawArticles].sort((a, b) => (b.id || 0) - (a.id || 0));
+
+  // Carousel articles for top left hero banner (Default to latest, manual slide only)
   const carouselArticles = allArticles.slice(0, 4);
   const [activeSlide, setActiveSlide] = useState(0);
-
-  // Auto advance carousel every 6 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveSlide(prev => (prev + 1) % carouselArticles.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [carouselArticles.length]);
 
   const handlePrevSlide = (e) => {
     e.preventDefault();
@@ -36,7 +31,7 @@ const News = () => {
     setActiveSlide(prev => (prev + 1) % carouselArticles.length);
   };
 
-  // Top Right 3 Stacked Cards
+  // Top Right 3 Stacked Cards (3 next newest articles)
   const topRightArticles = allArticles.slice(1, 4);
 
   // Category filtering for archive list below
@@ -66,75 +61,68 @@ const News = () => {
     <div className="bg-white min-h-screen py-6 sm:py-8 md:py-10">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
         
-        {/* TOP HERO SECTION: Left Big Banner Carousel + Right 3 Stacked Cards (Purple Theme) */}
+        {/* TOP HERO SECTION: Left Big Banner + Right 3 Stacked Cards (Clean White Theme) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch mb-10 md:mb-14">
           
-          {/* Left Large Hero Carousel (7 Columns) */}
-          <div className="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-sm group min-h-[380px] sm:min-h-[440px] md:min-h-[480px] flex flex-col justify-end bg-plum-deep">
+          {/* Left Large Hero Banner (7 Columns - Title Overlayed Directly on Image) */}
+          <div className="lg:col-span-7 relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-md transition-all group aspect-[16/9] sm:aspect-[1.9/1] bg-slate-900 flex flex-col justify-end">
             <img 
               src={currentHeroArticle.image} 
               alt={currentHeroArticle.title} 
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+              className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700"
             />
             
-            {/* Purple dark gradient overlay at bottom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-plum-deep/95 via-plum-deep/50 to-transparent"></div>
+            {/* Subtle dark gradient overlay at bottom for high legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent z-10 pointer-events-none"></div>
 
             {/* Left Carousel Arrow Button */}
             <button 
               onClick={handlePrevSlide}
               aria-label="Previous slide"
-              className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-9 sm:w-10 h-12 sm:h-14 bg-plum-deep/60 hover:bg-plum-deep/90 backdrop-blur-md rounded-xl flex items-center justify-center text-white transition-all shadow-md active:scale-95 cursor-pointer border border-white/10"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 bg-black/40 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all shadow-md active:scale-95 cursor-pointer border border-white/20"
             >
-              <span className="material-symbols-outlined text-2xl">chevron_left</span>
+              <span className="material-symbols-outlined text-xl">chevron_left</span>
             </button>
 
             {/* Right Carousel Arrow Button */}
             <button 
               onClick={handleNextSlide}
               aria-label="Next slide"
-              className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-9 sm:w-10 h-12 sm:h-14 bg-plum-deep/60 hover:bg-plum-deep/90 backdrop-blur-md rounded-xl flex items-center justify-center text-white transition-all shadow-md active:scale-95 cursor-pointer border border-white/10"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 bg-black/40 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all shadow-md active:scale-95 cursor-pointer border border-white/20"
             >
-              <span className="material-symbols-outlined text-2xl">chevron_right</span>
+              <span className="material-symbols-outlined text-xl">chevron_right</span>
             </button>
 
             {/* Slide indicators top right */}
-            <div className="absolute top-4 right-4 z-20 flex gap-1.5 bg-plum-deep/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+            <div className="absolute top-3 right-3 z-30 flex gap-1.5 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
               {carouselArticles.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveSlide(idx)}
-                  className={`h-2 rounded-full transition-all cursor-pointer ${idx === activeSlide ? 'w-6 bg-earth-orange-bright' : 'w-2 bg-white/60 hover:bg-white'}`}
+                  className={`h-1.5 rounded-full transition-all cursor-pointer ${idx === activeSlide ? 'w-5 bg-earth-orange-bright' : 'w-1.5 bg-white/60 hover:bg-white'}`}
                 />
               ))}
             </div>
 
-            {/* Bottom Overlay Title & Date */}
-            <div className="relative z-10 p-5 sm:p-7 md:p-8">
+            {/* Title Overlay Directly on Image (No date, no category tag) */}
+            <div className="relative z-20 p-4 sm:p-5 md:p-6">
               <Link to={`/news/${currentHeroArticle.slug || currentHeroArticle.id}`} className="block group/link">
-                <span className="inline-block px-3.5 py-1 bg-earth-orange-bright backdrop-blur-md text-white text-xs font-bold rounded-full mb-3 shadow-xs">
-                  {currentHeroArticle.category}
-                </span>
-                <h1 className="text-xl sm:text-2xl md:text-[26px] font-extrabold text-white leading-snug mb-2.5 line-clamp-2 group-hover/link:text-earth-orange-bright transition-colors">
+                <h1 className="text-base sm:text-lg md:text-xl font-bold text-white leading-snug line-clamp-2 group-hover/link:text-earth-orange-bright transition-colors drop-shadow-sm">
                   {currentHeroArticle.title}
                 </h1>
               </Link>
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-surface-lavender font-medium">
-                <span className="material-symbols-outlined text-sm text-earth-orange-bright">calendar_today</span>
-                <span>{currentHeroArticle.date}</span>
-              </div>
             </div>
           </div>
 
-          {/* Right Stacked 3 Cards (5 Columns - Soft Purple Lavender Theme) */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-3.5 sm:gap-4">
+          {/* Right Stacked 3 Cards (5 Columns - Rectangular Images) */}
+          <div className="lg:col-span-5 flex flex-col justify-start gap-3 sm:gap-3.5">
             {topRightArticles.map((item) => (
               <Link
                 key={item.id}
                 to={`/news/${item.slug || item.id}`}
-                className="bg-surface-mist hover:bg-surface-container border border-surface-lavender rounded-3xl p-3.5 sm:p-4 flex items-center gap-3.5 sm:gap-4 transition-all duration-300 group shadow-2xs hover:shadow-sm flex-1"
+                className="bg-white hover:bg-slate-50/90 border border-slate-200/90 rounded-2xl p-3 sm:p-3.5 flex items-center gap-3 sm:gap-3.5 transition-all duration-300 group shadow-2xs hover:shadow-md"
               >
-                <div className="w-28 sm:w-32 h-20 sm:h-24 rounded-2xl overflow-hidden shrink-0 shadow-xs border border-white">
+                <div className="w-24 sm:w-28 h-16 sm:h-20 rounded-md overflow-hidden shrink-0 shadow-2xs border border-slate-100">
                   <img 
                     src={item.image} 
                     alt={item.title} 
@@ -142,10 +130,10 @@ const News = () => {
                   />
                 </div>
                 <div className="flex-1 min-w-0 flex flex-col justify-center">
-                  <h3 className="font-bold text-xs sm:text-sm md:text-[14.5px] text-plum-deep group-hover:text-earth-orange-bright leading-snug line-clamp-2 mb-2 sm:mb-2.5 transition-colors">
+                  <h3 className="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-earth-orange-bright leading-snug line-clamp-2 mb-1.5 transition-colors">
                     {item.title}
                   </h3>
-                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-plum-light font-medium">
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-500 font-medium">
                     <span className="material-symbols-outlined text-xs text-earth-orange-bright">calendar_today</span>
                     <span>{item.date}</span>
                   </div>
@@ -156,15 +144,15 @@ const News = () => {
 
         </div>
 
-        {/* ALL ARTICLES ARCHIVE WITH CATEGORY TABS (Purple Theme) */}
-        <section className="pt-6 border-t border-surface-lavender/80 scroll-mt-24" id="tat-ca-bai-viet">
+        {/* ALL ARTICLES ARCHIVE WITH CATEGORY TABS (Clean White Theme) */}
+        <section className="pt-6 border-t border-slate-200 scroll-mt-24" id="tat-ca-bai-viet">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-plum-deep mb-1">Tất cả bài viết</h2>
-              <p className="text-sm text-on-surface-variant">Khám phá thông tin dinh dưỡng &amp; chăm sóc sức khỏe cho người cao tuổi từ ANTCARE</p>
+              <h2 className="text-2xl font-bold text-slate-800 mb-1">Tất cả bài viết</h2>
+              <p className="text-sm text-slate-600">Khám phá thông tin dinh dưỡng &amp; chăm sóc sức khỏe cho người cao tuổi từ ANTCARE</p>
             </div>
             
-            {/* Category Filter Tabs in Purple Palette */}
+            {/* Category Filter Tabs in Clean White Palette */}
             <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
                 <button
@@ -173,7 +161,7 @@ const News = () => {
                   className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                     selectedCategory === cat
                       ? 'bg-primary text-white shadow-xs'
-                      : 'bg-surface-mist text-plum-deep hover:bg-surface-lavender'
+                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                 >
                   {cat}
@@ -184,7 +172,7 @@ const News = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {paginatedArchive.map((article) => (
-              <article key={article.id} className="flex flex-col bg-surface-mist rounded-2xl overflow-hidden shadow-2xs hover:shadow-md transition-all group duration-300 border border-surface-lavender">
+              <article key={article.id} className="flex flex-col bg-white rounded-2xl overflow-hidden shadow-2xs hover:shadow-md transition-all group duration-300 border border-slate-200/90">
                 <Link to={`/news/${article.slug || article.id}`} className="h-48 sm:h-52 overflow-hidden block cursor-pointer">
                   <img src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </Link>

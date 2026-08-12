@@ -38,7 +38,7 @@ const Footer = () => {
             <li><a className="md:hover:text-earth-orange-bright transition-colors" href="#">Câu hỏi thường gặp</a></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/privacy-policy">Chính sách bảo mật</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/terms-of-use">Điều khoản sử dụng</Link></li>
-            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/#danh-cho-doi-tac-tuyen-dung">Tuyển dụng</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/recruitment">Tuyển dụng &amp; Hợp tác</Link></li>
           </ul>
         </div>
 

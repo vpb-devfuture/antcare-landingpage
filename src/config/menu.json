@@ -12,10 +12,11 @@
   },
   {
     "id": "recruitment",
+    "path": "/recruitment",
     "i18nKey": "menu.recruitment",
     "children": [
-      { "id": "recruit_register", "path": "/#danh-cho-doi-tac-tuyen-dung", "i18nKey": "menu.recruit_register" },
-      { "id": "recruit_benefits", "path": "/#hop-tac-cung-ant", "i18nKey": "menu.recruit_benefits" }
+      { "id": "recruit_register", "path": "/recruitment#danh-cho-doi-tac-tuyen-dung", "i18nKey": "menu.recruit_register" },
+      { "id": "recruit_benefits", "path": "/recruitment#hop-tac-cung-ant", "i18nKey": "menu.recruit_benefits" }
     ]
   },
   {
