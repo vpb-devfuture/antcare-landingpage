@@ -73,26 +73,26 @@ const LandingPage = () => {
   return (
     <>
       {/*  1. Hero Section  */}
-<section className="relative overflow-hidden min-h-[80vh] md:min-h-screen flex items-center justify-start pt-10 pb-20 md:pt-14 md:pb-24">
-<img src="/images/hero-bg.jpg" alt="Hero background" className="absolute inset-0 w-full h-full object-cover object-left sm:object-center z-0 pointer-events-none" />
+<section className="relative overflow-hidden min-h-[85vh] sm:min-h-[80vh] md:min-h-screen flex flex-col justify-start sm:justify-center items-center sm:items-start pt-4 sm:pt-10 pb-16 sm:pb-20 md:pt-14 md:pb-24">
+<img src="/images/hero-bg.jpg" alt="Hero background" className="absolute inset-0 w-full h-full object-cover object-[50%_75%] sm:object-center z-0 pointer-events-none" />
 <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 w-full relative z-10">
-<div className="w-full max-w-[460px] sm:max-w-[480px] lg:max-w-[500px] mx-auto lg:mr-auto text-center flex flex-col items-center animate-fade-in-up transform translate-x-0 lg:-translate-x-[58px]">
+<div className="w-full max-w-[360px] sm:max-w-[480px] lg:max-w-[500px] mx-auto lg:mr-auto text-center flex flex-col items-center animate-fade-in-up transform translate-x-0 lg:-translate-x-[58px] bg-white/85 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-4 sm:p-0 rounded-2xl border border-white/60 sm:border-none shadow-sm sm:shadow-none mt-2 sm:mt-0">
   {/* Group: Logo & Slogan paired tightly */}
-  <div className="flex flex-col items-center justify-center gap-1 mb-4 sm:mb-5 text-center w-full">
-    <img src="/images/hero-logo-text.png" alt="ANTCARE logo" className="w-[150px] sm:w-[180px] md:w-[215px] lg:w-[240px] h-auto object-contain drop-shadow-sm mx-auto my-1" />
-    <h1 className="font-semibold text-slate-500 text-[18px] sm:text-[21px] md:text-[24px] lg:text-[26px] tracking-tight whitespace-nowrap text-center mt-1 w-full">
+  <div className="flex flex-col items-center justify-center gap-1 mb-2.5 sm:mb-5 text-center w-full">
+    <img src="/images/hero-logo-text.png" alt="ANTCARE logo" className="w-[130px] sm:w-[180px] md:w-[215px] lg:w-[240px] h-auto object-contain drop-shadow-sm mx-auto my-0.5" />
+    <h1 className="font-semibold text-slate-600 sm:text-slate-500 text-[15px] sm:text-[21px] md:text-[24px] lg:text-[26px] tracking-tight whitespace-nowrap text-center mt-0.5 w-full">
       Để ba mẹ tuổi già vui khỏe, an tâm
     </h1>
   </div>
 
-  {/* CTA Buttons (Compact & Centered on Mobile) */}
-  <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 w-full mt-5 sm:mt-7">
-    <a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white rounded-full font-bold text-[13px] sm:text-[13.5px] shadow-lg hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-1.5 h-10 sm:h-[42px] w-[220px] sm:w-[185px] whitespace-nowrap mx-auto cursor-pointer" href="#lien-he-gia-dinh">
-      <span className="material-symbols-outlined text-[18px]">chat</span>
+  {/* CTA Buttons (Compact & Unobtrusive on Mobile) */}
+  <div className="flex flex-row items-center justify-center gap-2 sm:gap-2.5 w-full mt-2 sm:mt-7">
+    <a className="bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white rounded-full font-bold text-[11.5px] sm:text-[13.5px] shadow-md hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-1 h-9 sm:h-[42px] px-3 sm:w-[185px] whitespace-nowrap cursor-pointer" href="#lien-he-gia-dinh">
+      <span className="material-symbols-outlined text-[16px] sm:text-[18px]">chat</span>
       <span>{t("hero.btnConsult")}</span>
     </a>
-    <a className="bg-white text-plum-deep border-2 border-plum-deep/15 rounded-full font-bold text-[13px] sm:text-[13.5px] shadow-md hover:shadow-xl hover:bg-plum-deep hover:text-white hover:border-plum-deep hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-1.5 h-10 sm:h-[42px] w-[220px] sm:w-[185px] whitespace-nowrap mx-auto group cursor-pointer" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
-      <span className="material-symbols-outlined text-[18px] text-earth-orange-bright group-hover:text-white group-hover:animate-bounce">call</span>
+    <a className="bg-white text-plum-deep border border-plum-deep/20 sm:border-2 sm:border-plum-deep/15 rounded-full font-bold text-[11.5px] sm:text-[13.5px] shadow-sm hover:shadow-xl hover:bg-plum-deep hover:text-white hover:border-plum-deep hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-1 h-9 sm:h-[42px] px-3 sm:w-[185px] whitespace-nowrap group cursor-pointer" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
+      <span className="material-symbols-outlined text-[16px] sm:text-[18px] text-earth-orange-bright group-hover:text-white group-hover:animate-bounce">call</span>
       <span>{siteInfo.hotline}</span>
     </a>
   </div>
