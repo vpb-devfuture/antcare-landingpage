@@ -24,7 +24,7 @@ const AnnouncementBar = () => {
   };
 
   return (
-    <div className="relative w-full bg-[#FDF8F3] text-[#3D1A47] text-xs sm:text-sm py-2 px-3 z-40 select-none border-b border-[#E86A17]/15 shadow-2xs overflow-hidden group">
+    <div className="relative w-full bg-[#FDF8F3] text-[#3D1A47] text-xs py-2 px-3 z-40 select-none border-b border-[#E86A17]/15 shadow-2xs overflow-hidden group">
       <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-3 relative">
         
         {/* Left Badge: Vietnam Airlines style Golden Lotus SVG Icon + Normal weight badge text */}
@@ -49,7 +49,7 @@ const AnnouncementBar = () => {
           >
             {/* Repeated Stream with Red Price & Red Expiry, No Duplicate CTA Inside */}
             {[1, 2, 3].map((idx) => (
-              <div key={idx} className="flex items-center gap-2.5 shrink-0 text-xs sm:text-sm">
+              <div key={idx} className="flex items-center gap-2.5 shrink-0 text-xs">
                 
                 {/* Main Narrative Text */}
                 <span className="font-normal text-[#3D1A47]">
