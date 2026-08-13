@@ -7,15 +7,16 @@ const News = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const rawArticles = [
-    ...(newsData.featured ? [newsData.featured] : []),
-    ...(newsData.list || [])
-  ];
+  // Fixed featured article (Trào Lưu Chụp Ảnh Mùa Thu Hà Nội)
+  const featuredArticle = newsData.featured;
 
-  // Sort all articles in descending order of ID (newest articles first on page 1)
-  const allArticles = [...rawArticles].sort((a, b) => (b.id || 0) - (a.id || 0));
+  // List articles sorted descending by ID (newest first)
+  const listArticles = [...(newsData.list || [])].sort((a, b) => (b.id || 0) - (a.id || 0));
 
-  // Carousel articles for top left hero banner (Default to latest, manual slide only)
+  // allArticles puts fixed featured article at index 0, followed by list articles
+  const allArticles = [featuredArticle, ...listArticles.filter(item => item.id !== featuredArticle.id)];
+
+  // Carousel articles for top left hero banner (Default slide 0 is fixed featured article)
   const carouselArticles = allArticles.slice(0, 4);
   const [activeSlide, setActiveSlide] = useState(0);
 
