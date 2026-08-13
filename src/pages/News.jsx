@@ -37,7 +37,7 @@ const News = () => {
 
   // Category filtering for archive list below
   const [selectedCategory, setSelectedCategory] = useState('Tất cả');
-  const categories = ['Tất cả', 'Sữa', 'Chăm sóc sức khỏe', 'Tin tức'];
+  const categories = ['Tất cả', 'Tri ân khách hàng', 'Chăm sóc sức khỏe', 'Sữa', 'Tin tức'];
 
   // Pagination state (Max 12 articles / page)
   const ITEMS_PER_PAGE = 12;
