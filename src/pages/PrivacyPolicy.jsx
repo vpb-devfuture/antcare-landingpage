@@ -215,7 +215,7 @@ const PrivacyPolicy = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 text-xs sm:text-sm font-bold text-plum-deep">
                 <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-earth-orange-bright text-base">mail</span> support@antcare.vn</span>
-                <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-earth-orange-bright text-base">call</span> 1900 123 456</span>
+                <span className="flex items-center gap-1.5"><span className="material-symbols-outlined text-earth-orange-bright text-base">call</span> 0969 032 360</span>
               </div>
             </div>
           </section>
