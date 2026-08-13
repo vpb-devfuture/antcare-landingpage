@@ -61,9 +61,8 @@ const AnnouncementBar = () => {
                   chỉ từ 299k/buổi
                 </span>
 
-                {/* Deadline (RED COLOR) */}
-                <span className="font-bold text-[#DC2626]">
-                  · Hạn: {promoConfig.endDate}
+                <span className="font-normal text-[#3D1A47]">
+                  · Quà tặng thiệp viết tay &amp; hoa tươi tri ân.
                 </span>
                 
                 <span className="text-plum-deep/30 font-light mx-2">✦</span>
