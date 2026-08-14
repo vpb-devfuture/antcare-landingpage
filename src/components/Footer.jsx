@@ -16,9 +16,9 @@ const Footer = () => {
             "Bạn không thể ở bên gia đình mọi lúc mọi nơi, Kiến sẽ luôn ở bên để giữ trọn yêu thương cùng bạn"
           </p>
           <div className="flex gap-2.5 pt-1">
-            <a className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/80 md:hover:bg-earth-orange-bright md:hover:text-white transition-colors" href="#"><span className="material-symbols-outlined text-base">public</span></a>
-            <a className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/80 md:hover:bg-earth-orange-bright md:hover:text-white transition-colors" href="#"><span className="material-symbols-outlined text-base">alternate_email</span></a>
-            <a className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/80 md:hover:bg-earth-orange-bright md:hover:text-white transition-colors" href="#"><span className="material-symbols-outlined text-base">share</span></a>
+            <a className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/80 md:hover:bg-earth-orange-bright md:hover:text-white transition-colors" href={siteInfo.facebookPage} target="_blank" rel="noreferrer" title="Fanpage Facebook"><span className="material-symbols-outlined text-base">public</span></a>
+            <a className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/80 md:hover:bg-earth-orange-bright md:hover:text-white transition-colors" href={siteInfo.facebook} target="_blank" rel="noreferrer" title="Chat qua Messenger"><span className="material-symbols-outlined text-base">chat</span></a>
+            <a className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/80 md:hover:bg-earth-orange-bright md:hover:text-white transition-colors" href={siteInfo.zalo} target="_blank" rel="noreferrer" title="Chat qua Zalo"><span className="material-symbols-outlined text-base">share</span></a>
           </div>
         </div>
 
