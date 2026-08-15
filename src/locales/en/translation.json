@@ -1,26 +1,91 @@
 {
-    "menu":  {
-                 "services":  "Services",
-                 "service_tracking":  "Health assistant",
-                 "service_transport":  "Medical companionship",
-                 "service_education":  "Peace of mind at home",
-                 "service_maid":  "Medical care services",
-                 "service_process":  "ANT Operation Process",
-                 "recruitment":  "Recruitment",
-                 "recruit_register":  "Register",
-                 "recruit_benefits":  "Partner benefits",
-                 "about":  "About Us",
-                 "about_wish":  "Our Wish",
-                 "about_story":  "Story of ANT",
-                 "contact":  "Contact",
-                 "news":  "News",
-                 "activities":  "Activities"
-             },
-    "hero":  {
-                 "title1":  "You can\u0027t always be with your family,",
-                 "title2":  "will always be there to keep",
-                 "title3":  "love for you",
-                 "subtitle":  "International standard healthcare assistant for your family",
-                 "btnConsult":  "Get free consultation"
-             }
+  "menu": {
+    "services": "Services",
+    "service_tracking": "Health Assistant",
+    "service_transport": "Medical Companionship",
+    "service_education": "Peace of Mind at Home",
+    "service_maid": "Medical Care Services",
+    "service_process": "ANT Operation Process",
+    "recruitment": "Careers",
+    "recruit_register": "Job Application",
+    "recruit_benefits": "Partner Benefits",
+    "about": "About Us",
+    "about_wish": "Our Mission",
+    "about_story": "Story of ANT",
+    "contact": "Contact",
+    "news": "News",
+    "activities": "Activities"
+  },
+  "announcement": {
+    "badge": "Vu Lan Filial Piety Season",
+    "text": "Honoring Parents — Special home elderly care experience package from only 299,000 VND/session. Handwritten gift card & fresh flowers included.",
+    "cta": "Register Now"
+  },
+  "hero": {
+    "title1": "You can't always be with your family,",
+    "title2": "will always be there to preserve",
+    "title3": "love on your behalf",
+    "subtitle": "International standard healthcare assistant for your family",
+    "btnConsult": "Get Free Consultation",
+    "btnPackages": "Explore Packages",
+    "stat1_num": "500+",
+    "stat1_label": "Families Trust Us",
+    "stat2_num": "15,000+",
+    "stat2_label": "Safe Care Hours",
+    "stat3_num": "98%",
+    "stat3_label": "Customer Satisfaction"
+  },
+  "solutions": {
+    "badge": "COMPREHENSIVE SOLUTIONS",
+    "title": "Care & Companionship Solutions for Seniors",
+    "subtitle": "ANTCARE delivers high-quality home healthcare and emotional companionship right at home.",
+    "card1_title": "Home Health Assistant",
+    "card1_desc": "Monitoring vital signs, managing medication schedules, and guiding mild recovery exercises.",
+    "card2_title": "Hospital Companionship",
+    "card2_desc": "Transporting, assisting hospital procedures, recording doctor instructions, and reporting to family.",
+    "card3_title": "Electronic Health Profile",
+    "card3_desc": "Continuous recording of health metrics with periodic digital reports for remote family tracking.",
+    "card4_title": "Family Training & Guidance",
+    "card4_desc": "Guiding home care skills, fall prevention techniques, and emergency response procedures for families."
+  },
+  "whyUs": {
+    "badge": "WHY CHOOSE ANTCARE",
+    "title": "Why Hundreds of Families Trust ANTCARE?",
+    "reason1_title": "100% Professionally Trained Staff",
+    "reason1_desc": "Our Health Assistants (Ants) undergo rigorous first aid certification and elderly communication training.",
+    "reason2_title": "Transparent Care Workflow",
+    "reason2_desc": "Detailed reports after every home visit via Zalo/App, ensuring complete peace of mind for family members.",
+    "reason3_title": "Devoted Like Family Members",
+    "reason3_desc": "Listening, chatting, understanding psychology, and accompanying elderly parents like biological family."
+  },
+  "process": {
+    "badge": "COLLABORATION PROCESS",
+    "title": "Simple & Fast 4-Step Process",
+    "step1_title": "1. Survey & Consultation",
+    "step1_desc": "Listening to needs and evaluating the senior's health condition and daily living routines.",
+    "step2_title": "2. Personalized Care Plan",
+    "step2_desc": "Designing a tailored care roadmap suited for each individual elder and family condition.",
+    "step3_title": "3. Assistant Assignment",
+    "step3_desc": "Selecting the ideal Health Assistant matching personality, expertise, and living area.",
+    "step4_title": "4. Companionship & Reporting",
+    "step4_desc": "Conducting weekly care visits and sending direct health metric reports to family."
+  },
+  "contactForm": {
+    "title": "Register for Free Consultation",
+    "subtitle": "Leave your information, and ANTCARE specialists will contact you promptly to advise the best care plan.",
+    "namePlaceholder": "Your Full Name",
+    "phonePlaceholder": "Contact Phone Number",
+    "locationPlaceholder": "City / Province or District",
+    "healthPlaceholder": "Health status of senior (optional)",
+    "submitBtn": "Submit Consultation Request",
+    "successMsg": "Thank you! ANTCARE has received your information and will contact you shortly.",
+    "errorMsg": "Please fill in all 3 required fields (Name, Phone, Location)."
+  },
+  "footer": {
+    "slogan": "You can't always be with your family, ANT will always be there to preserve love for you",
+    "quickLinks": "Quick Links",
+    "servicesTitle": "ANTCARE Services",
+    "contactTitle": "Contact Information",
+    "copyright": "© 2026 ANTCARE. All rights reserved."
+  }
 }

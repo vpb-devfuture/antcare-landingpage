@@ -5,9 +5,9 @@
     "service_transport": "Đồng hành khám bệnh",
     "service_education": "An tâm nhà cửa",
     "service_maid": "Dịch vụ chăm sóc y tế",
-    "service_process": "Quy trình hoạt động của ANT – Kiến chăm tổ",
+    "service_process": "Quy trình hoạt động của ANT",
     "recruitment": "Tuyển dụng",
-    "recruit_register": "Đăng ký",
+    "recruit_register": "Đăng ký tuyển dụng",
     "recruit_benefits": "Quyền lợi hợp tác",
     "about": "Về chúng tôi",
     "about_wish": "Tâm nguyện của chúng tôi",
@@ -16,11 +16,76 @@
     "news": "Tin tức",
     "activities": "Hoạt động"
   },
+  "announcement": {
+    "badge": "Mùa Lễ Vu Lan Báo Hiếu",
+    "text": "Tri ân Đấng Sinh Thành — Ưu đãi đặc biệt dịch vụ chăm sóc người cao tuổi tại nhà chỉ từ 299k/buổi. Quà tặng thiệp viết tay & hoa tươi tri ân.",
+    "cta": "Đăng ký ngay"
+  },
   "hero": {
     "title1": "Bạn không thể ở bên gia đình mọi lúc mọi nơi,",
     "title2": "sẽ luôn bên cạnh để giữ trọn",
     "title3": "yêu thương thay bạn",
     "subtitle": "Trợ lý chăm sóc sức khỏe tiêu chuẩn quốc tế cho gia đình bạn",
-    "btnConsult": "Nhận tư vấn miễn phí"
+    "btnConsult": "Nhận tư vấn miễn phí",
+    "btnPackages": "Xem các gói dịch vụ",
+    "stat1_num": "500+",
+    "stat1_label": "Gia đình tin tưởng",
+    "stat2_num": "15.000+",
+    "stat2_label": "Giờ chăm sóc an toàn",
+    "stat3_num": "98%",
+    "stat3_label": "Khách hàng hài lòng"
+  },
+  "solutions": {
+    "badge": "GIẢI PHÁP TOÀN DIỆN",
+    "title": "Giải Pháp Chăm Sóc & Đồng Hành Cùng Người Cao Tuổi",
+    "subtitle": "ANTCARE mang đến giải pháp chăm sóc y tế và hỗ trợ đời sống tinh thần chất lượng cao ngay tại nhà.",
+    "card1_title": "Trợ Lý Sức Khỏe Tại Nhà",
+    "card1_desc": "Theo dõi các chỉ số sinh hiệu, quản lý thuốc, hỗ trợ luyện tập phục hồi và vận động nhẹ nhàng.",
+    "card2_title": "Đồng Hành Khám Bệnh",
+    "card2_desc": "Đưa đón, hỗ trợ làm thủ tục tại bệnh viện, ghi nhận dặn dò của bác sĩ và báo cáo gia đình.",
+    "card3_title": "Hồ Sơ Sức Khỏe Điện Tử",
+    "card3_desc": "Lưu trữ chỉ số sức khỏe liên tục, cập nhật báo cáo định kỳ cho con cháu theo dõi từ xa.",
+    "card4_title": "Đào Tạo & Hướng Dẫn Gia Đình",
+    "card4_desc": "Hướng dẫn kỹ năng chăm sóc, phòng chống té ngã và xử trí tình huống khẩn cấp cho người nhà."
+  },
+  "whyUs": {
+    "badge": "TẠI SAO CHỌN ANTCARE",
+    "title": "Vì Sao Hàng Trăm Gia Đình Lựa Chọn ANTCARE?",
+    "reason1_title": "100% Nhân Viên Được Đào Tạo Chuẩn",
+    "reason1_desc": "Đội ngũ Trợ lý sức khỏe (Kiến) được tập huấn bài bản về chuyên môn sơ cấp cứu và giao tiếp người cao tuổi.",
+    "reason2_title": "Quy Trình Chăm Sóc Minh Bạch",
+    "reason2_desc": "Báo cáo chi tiết sau mỗi buổi thăm nhà qua Zalo/App, giúp con cháu dù ở xa vẫn an tâm tuyệt đối.",
+    "reason3_title": "Tận Tâm Như Người Trong Nhà",
+    "reason3_desc": "Lắng nghe, trò chuyện, thấu hiểu tâm lý và đồng hành cùng các bác như con cháu ruột thịt."
+  },
+  "process": {
+    "badge": "QUY TRÌNH HỢP TÁC",
+    "title": "Quy Trình 4 Bước Đơn Giản & Nhanh Chóng",
+    "step1_title": "1. Khảo sát & Tư vấn",
+    "step1_desc": "Lắng nghe nhu cầu, tìm hiểu tình trạng sức khỏe và sinh hoạt của người cao tuổi.",
+    "step2_title": "2. Lập kế hoạch cá nhân",
+    "step2_desc": "Xây dựng lộ trình chăm sóc riêng biệt phù hợp với từng cụ và điều kiện gia đình.",
+    "step3_title": "3. Phân công Trợ lý (Kiến)",
+    "step3_desc": "Lựa chọn Trợ lý sức khỏe phù hợp tính cách, chuyên môn và khu vực sinh sống.",
+    "step4_title": "4. Đồng hành & Báo cáo",
+    "step4_desc": "Thực hiện chăm sóc hàng tuần và gửi báo cáo theo dõi chỉ số trực tiếp cho gia đình."
+  },
+  "contactForm": {
+    "title": "Đăng Ký Nhận Tư Vấn Miễn Phí",
+    "subtitle": "Để lại thông tin, chuyên viên ANTCARE sẽ liên hệ tư vấn lộ trình phù hợp nhất cho gia đình bạn.",
+    "namePlaceholder": "Họ và tên của bạn",
+    "phonePlaceholder": "Số điện thoại liên hệ",
+    "locationPlaceholder": "Tỉnh/Thành phố hoặc Quận/Huyện",
+    "healthPlaceholder": "Tình trạng sức khỏe người thân (không bắt buộc)",
+    "submitBtn": "Gửi Đăng Ký Tư Vấn",
+    "successMsg": "Cảm ơn bạn! ANTCARE đã nhận thông tin và sẽ liên hệ tư vấn ngay.",
+    "errorMsg": "Khách hàng lưu ý cần nhập đủ 3 dòng thông tin nhé ạ"
+  },
+  "footer": {
+    "slogan": "Bạn không thể ở bên gia đình mọi lúc mọi nơi, Kiến sẽ luôn ở bên để giữ trọn yêu thương cùng bạn",
+    "quickLinks": "Liên kết nhanh",
+    "servicesTitle": "Dịch vụ của ANTCARE",
+    "contactTitle": "Thông tin liên hệ",
+    "copyright": "© 2026 ANTCARE. Tất cả quyền được bảo lưu."
   }
 }

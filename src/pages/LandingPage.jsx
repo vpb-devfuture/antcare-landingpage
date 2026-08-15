@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useAppTranslation } from '../utils/i18nHelper';
 import { Link } from 'react-router-dom';
 import Rellax from 'rellax';
 import siteInfo from '../config/siteInfo.json';
 import { getLandingPageData } from '../services/apiService';
 
 const LandingPage = () => {
-  const { t } = useTranslation();
+  const { t, isEn, tr } = useAppTranslation();
   const [pageData, setPageData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [consultForm, setConsultForm] = useState({ name: '', phone: '', location: '' });
@@ -102,7 +102,7 @@ const LandingPage = () => {
                 className="w-[140px] h-auto object-contain drop-shadow-xs mx-auto mb-1.5" 
               />
               <h1 className="font-semibold text-slate-600 text-[15.5px] tracking-tight text-center mb-4">
-                Để ba mẹ tuổi già vui khỏe, an tâm
+                {tr("Để ba mẹ tuổi già vui khỏe, an tâm", "For aging parents to live healthy, happy & peaceful")}
               </h1>
 
               {/* Mobile Buttons */}
@@ -131,7 +131,7 @@ const LandingPage = () => {
             <div className="flex flex-col items-center justify-center gap-1 mb-5 text-center w-full">
               <img src="/images/hero-logo-text.png" alt="ANTCARE logo" className="w-[180px] md:w-[215px] lg:w-[240px] h-auto object-contain drop-shadow-sm mx-auto my-1" />
               <h1 className="font-semibold text-slate-500 text-[21px] md:text-[24px] lg:text-[26px] tracking-tight whitespace-nowrap text-center mt-1 w-full">
-                Để ba mẹ tuổi già vui khỏe, an tâm
+                {tr("Để ba mẹ tuổi già vui khỏe, an tâm", "For aging parents to live healthy, happy & peaceful")}
               </h1>
             </div>
 
@@ -156,23 +156,23 @@ const LandingPage = () => {
 <div className="bg-white p-6 rounded-2xl shadow-md border-b-4 border-earth-orange-bright flex flex-col gap-2">
 <div className="flex items-center gap-3 mb-1">
 <span className="material-symbols-outlined text-3xl text-primary">translate</span>
-<h3 className="font-headline-md font-bold text-base md:text-lg">Trợ lý song ngữ Việt/Anh</h3>
+<h3 className="font-headline-md font-bold text-base md:text-lg">{tr("Trợ lý song ngữ Việt/Anh", "Bilingual VI/EN Assistant")}</h3>
 </div>
-<p className="text-sm text-on-surface-variant leading-relaxed">Đội ngũ trợ lý sức khỏe chuyên nghiệp, hỗ trợ cả khách hàng người Việt, và người nước ngoài sinh sống tại Việt Nam.</p>
+<p className="text-sm text-on-surface-variant leading-relaxed">{tr("Đội ngũ trợ lý sức khỏe chuyên nghiệp, hỗ trợ cả khách hàng người Việt, và người nước ngoài sinh sống tại Việt Nam.", "Professional healthcare assistant team supporting both Vietnamese clients and expats living in Vietnam.")}</p>
 </div>
 <div className="bg-white p-6 rounded-2xl shadow-md border-b-4 border-primary flex flex-col gap-2">
 <div className="flex items-center gap-3 mb-1">
 <span className="material-symbols-outlined text-3xl text-primary">home_health</span>
-<h3 className="font-headline-md font-bold text-base md:text-lg">Tại Nhà &amp; Bệnh viện</h3>
+<h3 className="font-headline-md font-bold text-base md:text-lg">{tr("Tại Nhà & Bệnh viện", "At Home & Hospital")}</h3>
 </div>
-<p className="text-sm text-on-surface-variant leading-relaxed">Đồng hành liên tục dù người thân của bạn đang nghỉ ngơi tại nhà hay đang điều trị tại cơ sở y tế.</p>
+<p className="text-sm text-on-surface-variant leading-relaxed">{tr("Đồng hành liên tục dù người thân của bạn đang nghỉ ngơi tại nhà hay đang điều trị tại cơ sở y tế.", "Continuous companionship whether your loved one is resting at home or receiving medical care.")}</p>
 </div>
 <div className="bg-white p-6 rounded-2xl shadow-md border-b-4 border-earth-orange-bright flex flex-col gap-2">
 <div className="flex items-center gap-3 mb-1">
 <span className="material-symbols-outlined text-3xl text-primary">schedule</span>
-<h3 className="font-headline-md font-bold text-base md:text-lg">Đồng hành 24/7</h3>
+<h3 className="font-headline-md font-bold text-base md:text-lg">{tr("Đồng hành 24/7", "24/7 Companionship")}</h3>
 </div>
-<p className="text-sm text-on-surface-variant leading-relaxed">Đồng hành quan sát sức khỏe ba mẹ, kết nối cùng công nghệ để gia đình luôn yên tâm và tin tưởng.</p>
+<p className="text-sm text-on-surface-variant leading-relaxed">{tr("Đồng hành quan sát sức khỏe ba mẹ, kết nối cùng công nghệ để gia đình luôn yên tâm và tin tưởng.", "Observing parents' health, powered by technology so families always feel confident and peaceful.")}</p>
 </div>
 </div>
 </div>
@@ -185,8 +185,8 @@ const LandingPage = () => {
 
 <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 relative z-10">
 <div className="text-center mb-12 reveal rellax" data-rellax-speed="0.5">
-<span className="font-bold text-base md:text-xl uppercase tracking-wider text-earth-orange-bright">Dành cho những người thân yêu của gia đình bạn</span>
-<h2 className="font-bold text-plum-deep mt-3 text-2xl md:text-3xl lg:text-4xl">Có phải gia đình bạn cũng ở trong hoàn cảnh này?</h2>
+<span className="font-bold text-base md:text-xl uppercase tracking-wider text-earth-orange-bright">{tr("Dành cho những người thân yêu của gia đình bạn", "For Your Beloved Family Members")}</span>
+<h2 className="font-bold text-plum-deep mt-3 text-2xl md:text-3xl lg:text-4xl">{tr("Có phải gia đình bạn cũng ở trong hoàn cảnh này?", "Is Your Family Facing These Situations?")}</h2>
 </div>
 <div className="grid md:grid-cols-3 gap-5 lg:gap-7 mb-12">
 {pageData?.situations.map((item) => (
@@ -244,7 +244,7 @@ const LandingPage = () => {
           {/* Title & Sparkle Heart Icon */}
           <div className="flex items-center gap-2.5 mb-2">
             <h2 className="font-bold text-[#32133B] text-2xl sm:text-3xl md:text-[34px] tracking-tight">
-              Tại sao là{" "}
+              {tr("Tại sao là", "Why Choose")}{" "}
               <span className="text-[#68259E] font-extrabold">AN</span>
               <span className="text-[#E86A17] font-extrabold">T</span>
               <span className="text-[#68259E] font-extrabold">CARE</span> ?
@@ -258,7 +258,7 @@ const LandingPage = () => {
           {/* Quote Block */}
           <div className="border-l-[3.5px] border-[#E86A17] pl-3.5 py-1.5 my-3 bg-[#E86A17]/5 rounded-r-lg">
             <p className="text-[#E86A17] font-semibold italic text-xs sm:text-sm md:text-[15.5px] leading-relaxed">
-              {pageData?.whyAntcare?.quote}
+              {tr(pageData?.whyAntcare?.quote, "Because parents deserve the most devoted, safe, and professional care right at home.")}
             </p>
           </div>
 
@@ -268,12 +268,12 @@ const LandingPage = () => {
               <table className="w-full text-left border-collapse min-w-[540px]">
                 <thead>
                   <tr className="border-b border-slate-200">
-                    <th className="pb-2.5 text-xs sm:text-sm font-semibold text-slate-400 w-[54%] px-2">Tiêu chí chăm sóc</th>
+                    <th className="pb-2.5 text-xs sm:text-sm font-semibold text-slate-400 w-[54%] px-2">{tr("Tiêu chí chăm sóc", "Care Criteria")}</th>
                     <th className="pb-2.5 text-center text-xs sm:text-sm font-extrabold text-[#68259E] uppercase tracking-wider w-[23%] px-3">
                       <span className="px-3 py-1 bg-[#68259E]/10 rounded-full inline-block">ANTCARE</span>
                     </th>
                     <th className="pb-2.5 text-center text-xs sm:text-sm font-bold text-slate-500 w-[23%] px-3">
-                      Bên khác
+                      {tr("Bên khác", "Others")}
                     </th>
                   </tr>
                 </thead>
