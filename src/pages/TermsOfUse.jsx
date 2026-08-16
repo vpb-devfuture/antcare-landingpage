@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import { useAppTranslation } from '../utils/i18nHelper';
 
 const TermsOfUse = () => {
+  const { tr } = useAppTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -11,9 +13,9 @@ const TermsOfUse = () => {
       <div className="max-w-[1060px] mx-auto px-4 md:px-6 mb-6">
         <div className="bg-white rounded-2xl p-5 sm:p-7 border border-surface-lavender shadow-sm relative overflow-hidden">
           <div className="relative z-10 max-w-2xl">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-plum-deep mb-2">Điều khoản sử dụng</h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-plum-deep mb-2">{tr("Điều khoản sử dụng", "Terms of Use")}</h1>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-              Vui lòng đọc kỹ các điều khoản này trước khi sử dụng nền tảng <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span>care để đảm bảo quyền lợi của bạn.
+              {tr("Vui lòng đọc kỹ các điều khoản này trước khi sử dụng nền tảng", "Please read these terms carefully before using the platform")} <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span>care {tr("để đảm bảo quyền lợi của bạn.", "to ensure your rights.")}
             </p>
           </div>
           <div className="absolute right-2 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none transform -rotate-12">
@@ -27,19 +29,19 @@ const TermsOfUse = () => {
         <aside className="hidden lg:block lg:col-span-3">
           <div className="sticky top-24 p-4 sm:p-5 bg-white rounded-xl shadow-sm border border-surface-lavender">
             <h3 className="text-xs font-bold text-plum-deep mb-3 flex items-center gap-1.5 uppercase tracking-wider">
-              <span className="material-symbols-outlined text-base text-primary">toc</span> Mục lục
+              <span className="material-symbols-outlined text-base text-primary">toc</span> {tr("Mục lục", "Table of Contents")}
             </h3>
             <nav className="space-y-0.5 text-xs">
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-a">A. Quan hệ hợp đồng</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-b">B. Các dịch vụ</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-c">C. Sử dụng dịch vụ / Tài khoản</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-d">D. Thanh toán</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-e">E. Miễn trừ bảo đảm</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-f">F. Giới hạn trách nhiệm</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-g">G. Bồi thường</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-h">H. Các quy định khác</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-i">I. Chính sách hoàn tiền</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-k">K. Xử lý khiếu nại</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-a">{tr("A. Quan hệ hợp đồng", "A. Contractual Relationship")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-b">{tr("B. Các dịch vụ", "B. Our Services")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-c">{tr("C. Sử dụng dịch vụ / Tài khoản", "C. Service & Account Usage")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-d">{tr("D. Thanh toán", "D. Payments & Billing")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-e">{tr("E. Miễn trừ bảo đảm", "E. Disclaimer of Warranties")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-f">{tr("F. Giới hạn trách nhiệm", "F. Limitation of Liability")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-g">{tr("G. Bồi thường", "G. Indemnification")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-h">{tr("H. Các quy định khác", "H. Miscellaneous Terms")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-i">{tr("I. Chính sách hoàn tiền", "I. Refund Policy")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#section-k">{tr("K. Xử lý khiếu nại", "K. Dispute Resolution")}</a>
             </nav>
           </div>
         </aside>

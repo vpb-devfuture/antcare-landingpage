@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useAppTranslation } from '../utils/i18nHelper';
 import activitiesData from '../data/activities.json';
 
 const Activities = () => {
+  const { tr } = useAppTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -30,10 +32,10 @@ const Activities = () => {
         <div className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-12 max-w-[1240px] mx-auto w-full h-full flex flex-col items-center justify-center">
           <div className="max-w-4xl space-y-6 flex flex-col items-center text-center">
             <h1 className="font-display-lg text-4xl md:text-5xl lg:text-6xl text-white leading-tight font-bold drop-shadow-lg">
-              Hành trình lan tỏa yêu thương &amp; Chăm sóc cộng đồng
+              {tr("Hành trình lan tỏa yêu thương & Chăm sóc cộng đồng", "A Journey Spreading Love & Community Care")}
             </h1>
             <p className="text-white/95 font-body-lg text-lg md:text-xl max-w-2xl drop-shadow-md">
-              Tại 247care, chúng tôi không chỉ cung cấp dịch vụ y tế mà còn xây dựng một hệ sinh thái chăm sóc nhân văn, nơi mỗi cá nhân đều cảm nhận được sự ấm áp và tôn trọng.
+              {tr("Tại ANTcare, chúng tôi không chỉ cung cấp dịch vụ y tế mà còn xây dựng một hệ sinh thái chăm sóc nhân văn, nơi mỗi cá nhân đều cảm nhận được sự ấm áp và tôn trọng.", "At ANTcare, we build a humanistic care ecosystem where every individual feels warmth and respect.")}
             </p>
           </div>
         </div>
@@ -43,8 +45,8 @@ const Activities = () => {
       <section className="py-section-padding px-4 md:px-margin-desktop max-w-[1240px] mx-auto">
         <div className="flex justify-between items-end mb-12">
           <div className="space-y-2">
-            <h2 className="font-headline-lg text-3xl md:text-headline-lg text-plum-deep">Danh sách hoạt động</h2>
-            <p className="text-on-surface-variant font-body-md text-body-md">Cập nhật những chương trình cộng đồng mới nhất từ 247care.</p>
+            <h2 className="font-headline-lg text-3xl md:text-headline-lg text-plum-deep">{tr("Danh sách hoạt động", "Activity List")}</h2>
+            <p className="text-on-surface-variant font-body-md text-body-md">{tr("Cập nhật những chương trình cộng đồng mới nhất từ ANTcare.", "Update on the latest community programs from ANTcare.")}</p>
           </div>
           <div className="hidden md:flex gap-4">
             <button 

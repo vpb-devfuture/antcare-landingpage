@@ -12,6 +12,56 @@ export const useAppTranslation = () => {
   return { t, i18n, isEn, tr, lang: i18n.language };
 };
 
+export const getCategoryLabel = (cat, isEn) => {
+  if (!isEn) return cat;
+  const map = {
+    'Tất cả': 'All',
+    'An toàn nhà ở': 'Home Safety',
+    'An toàn tại nhà': 'Home Safety',
+    'Tri ân khách hàng': 'Customer Appreciation',
+    'Chăm sóc sức khỏe': 'Healthcare',
+    'Sữa': 'Nutrition & Milk',
+    'Tin tức': 'News & Updates'
+  };
+  return map[cat] || cat;
+};
+
+export const translateArticle = (article, isEn) => {
+  if (!article || !isEn) return article;
+
+  const translated = JSON.parse(JSON.stringify(article));
+
+  translated.category = getCategoryLabel(translated.category, true);
+
+  // Translation maps for articles by ID or slug
+  const enArticles = {
+    'nghi-ngo-dot-quy-o-nguoi-cao-tuoi-nhung-viec-khong-nen-lam': {
+      title: "Suspecting Stroke in Seniors: 5 Things You Must NEVER Do While Waiting for Ambulance",
+      description: "Pricking fingertips, scraping skin, drinking sugar water — these common actions can cost an elder their life during a stroke. Here is what to do and avoid."
+    },
+    'phong-chong-te-nga-cho-nguoi-cao-tuoi-tai-nha': {
+      title: "Elderly Fall Prevention at Home: 7 Crucial Guidelines for Families",
+      description: "Falls are the leading cause of injury in seniors. Learn how to audit your home environment and train balance for aging parents."
+    },
+    'trao-luu-chup-anh-mua-thu-ha-noi': {
+      title: "Hanoi Autumn Photo Trend & Senior Health Care in Seasonal Changes",
+      description: "Capturing beautiful Hanoi autumn moments while protecting aging parents from seasonal flu and respiratory risks."
+    },
+    'chuc-mung-ngay-quoc-te-phu-nu': {
+      title: "Celebrating International Women's Day with ANTCARE Health Gifts",
+      description: "Expressing deep gratitude to mothers and grandmothers with home healthcare companion packages."
+    }
+  };
+
+  const key = translated.slug || translated.id;
+  if (enArticles[key]) {
+    translated.title = enArticles[key].title;
+    translated.description = enArticles[key].description;
+  }
+
+  return translated;
+};
+
 export const translatePageData = (data, isEn) => {
   if (!data || !isEn) return data;
 

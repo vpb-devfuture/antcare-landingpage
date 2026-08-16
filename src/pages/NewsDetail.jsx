@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useAppTranslation, translateArticle, getCategoryLabel } from '../utils/i18nHelper';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import newsData from '../data/news.json';
 
 const NewsDetail = () => {
+  const { tr, isEn } = useAppTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const numericId = parseInt(id, 10);
@@ -20,7 +22,8 @@ const NewsDetail = () => {
     ...(newsData.list || [])
   ];
 
-  let article = allArticlesList.find(item => item.slug === id || item.id === numericId);
+  let rawArticle = allArticlesList.find(item => item.slug === id || item.id === numericId);
+  let article = translateArticle(rawArticle, isEn);
 
   // Update document.title and meta description dynamically for SEO Meta Title & Meta Description matching H1 & P
   useEffect(() => {
@@ -110,12 +113,12 @@ const NewsDetail = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-surface-mist px-4">
         <h1 className="text-4xl font-display-lg text-plum-deep mb-4">404</h1>
-        <p className="text-on-surface-variant mb-8 text-lg">Không tìm thấy bài viết này.</p>
+        <p className="text-on-surface-variant mb-8 text-lg">{tr("Không tìm thấy bài viết này.", "Article not found.")}</p>
         <button 
           onClick={() => navigate('/news')}
           className="bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-plum-deep transition-colors"
         >
-          Quay lại trang Tin tức
+          {tr("Quay lại trang Tin tức", "Return to News")}
         </button>
       </div>
     );
@@ -207,11 +210,11 @@ const NewsDetail = () => {
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-plum-deep hover:text-earth-orange-bright transition-colors group"
             >
               <span className="material-symbols-outlined text-lg group-hover:-translate-x-0.5 transition-transform font-bold">arrow_back</span>
-              <span>Trở về Tin tức</span>
+              <span>{tr("Trở về Tin tức", "Back to News")}</span>
             </Link>
             <span className="text-surface-lavender">•</span>
             <span className="px-3 py-0.5 rounded-full bg-earth-orange-bright/10 text-earth-orange-bright font-bold text-xs">
-              {article.category}
+              {getCategoryLabel(article.category, isEn)}
             </span>
           </div>
 

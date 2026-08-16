@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import { useAppTranslation } from '../utils/i18nHelper';
 
 const PrivacyPolicy = () => {
+  const { tr } = useAppTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -11,9 +13,9 @@ const PrivacyPolicy = () => {
       <div className="max-w-[1060px] mx-auto px-4 md:px-6 mb-6">
         <div className="bg-white rounded-2xl p-5 sm:p-7 border border-surface-lavender shadow-sm relative overflow-hidden">
           <div className="relative z-10 max-w-2xl">
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-plum-deep mb-2">Chính sách bảo mật</h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-plum-deep mb-2">{tr("Chính sách bảo mật", "Privacy Policy")}</h1>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-              Vui lòng đọc kỹ chính sách này để hiểu rõ cách <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span>care thu thập, sử dụng và bảo vệ thông tin của bạn.
+              {tr("Vui lòng đọc kỹ chính sách này để hiểu rõ cách", "Please read this policy carefully to understand how")} <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span>care {tr("thu thập, sử dụng và bảo vệ thông tin của bạn.", "collects, uses, and protects your information.")}
             </p>
           </div>
           <div className="absolute right-2 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none transform -rotate-12">
@@ -28,19 +30,19 @@ const PrivacyPolicy = () => {
         <aside className="hidden lg:block lg:col-span-3">
           <div className="sticky top-24 p-4 sm:p-5 bg-white rounded-xl shadow-sm border border-surface-lavender">
             <h3 className="text-xs font-bold text-plum-deep mb-3 flex items-center gap-1.5 uppercase tracking-wider">
-              <span className="material-symbols-outlined text-base text-primary">toc</span> Mục lục
+              <span className="material-symbols-outlined text-base text-primary">toc</span> {tr("Mục lục", "Table of Contents")}
             </h3>
             <nav className="space-y-0.5 text-xs">
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#cam-ket">1. Cam kết bảo mật</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#dinh-nghia">2. Thông tin cá nhân</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#thu-thap">3. Thu thập &amp; Mục đích</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#su-dung">4. Cách sử dụng</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#tiet-lo">5. Tiết lộ bên thứ ba</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#luu-tru">6. Lưu trữ &amp; Bảo mật</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#quyen-han">7. Quyền của Người dùng</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#cookies">8. Cookies</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#lien-he">9. Liên hệ</a>
-              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#thay-doi">10. Thay đổi chính sách</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#cam-ket">{tr("1. Cam kết bảo mật", "1. Privacy Commitment")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#dinh-nghia">{tr("2. Thông tin cá nhân", "2. Personal Data")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#thu-thap">{tr("3. Thu thập & Mục đích", "3. Collection & Purpose")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#su-dung">{tr("4. Cách sử dụng", "4. How We Use Data")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#tiet-lo">{tr("5. Tiết lộ bên thứ ba", "5. Third-Party Disclosure")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#luu-tru">{tr("6. Lưu trữ & Bảo mật", "6. Storage & Security")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#quyen-han">{tr("7. Quyền của Người dùng", "7. User Rights")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#cookies">{tr("8. Cookies", "8. Cookies")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#lien-he">{tr("9. Liên hệ", "9. Contact Us")}</a>
+              <a className="block py-1.5 px-2.5 text-on-surface-variant hover:text-earth-orange-bright hover:bg-surface-mist rounded-md transition-colors" href="#thay-doi">{tr("10. Thay đổi chính sách", "10. Policy Changes")}</a>
             </nav>
           </div>
         </aside>
@@ -62,7 +64,7 @@ const PrivacyPolicy = () => {
           <hr className="border-surface-lavender/60"/>
 
           <section className="scroll-mt-24" id="dinh-nghia">
-            <h2 className="text-base sm:text-lg md:text-xl font-bold text-plum-deep mb-3">2. Thông tin cá nhân là gì?</h2>
+            <h2 className="text-base sm:text-lg md:text-xl font-bold text-plum-deep mb-3">{tr("2. Thông tin cá nhân", "2. Personal Data")} là gì?</h2>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
               Thông tin cá nhân được hiểu là bất kỳ dữ liệu nào có thể được sử dụng để xác định danh tính một cá nhân cụ thể, bao gồm nhưng không giới hạn ở tên, địa chỉ, số điện thoại, địa chỉ email, thông tin y tế, và các dữ liệu định danh sinh trắc học hoặc kỹ thuật số khác.
             </p>
@@ -110,7 +112,7 @@ const PrivacyPolicy = () => {
           <hr className="border-surface-lavender/60"/>
 
           <section className="scroll-mt-24" id="su-dung">
-            <h2 className="text-base sm:text-lg md:text-xl font-bold text-plum-deep mb-3">4. Cách sử dụng thông tin</h2>
+            <h2 className="text-base sm:text-lg md:text-xl font-bold text-plum-deep mb-3">{tr("4. Cách sử dụng", "4. How We Use Data")} thông tin</h2>
             <ul className="space-y-2 text-xs sm:text-sm text-on-surface-variant">
               <li className="flex items-start gap-2.5">
                 <div className="mt-0.5 w-4 h-4 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
@@ -175,7 +177,7 @@ const PrivacyPolicy = () => {
           <hr className="border-surface-lavender/60"/>
 
           <section className="scroll-mt-24" id="quyen-han">
-            <h2 className="text-base sm:text-lg md:text-xl font-bold text-plum-deep mb-3">7. Quyền của Người dùng</h2>
+            <h2 className="text-base sm:text-lg md:text-xl font-bold text-plum-deep mb-3">{tr("7. Quyền của Người dùng", "7. User Rights")}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
               <div className="flex items-center justify-between p-3 border border-surface-lavender rounded-lg bg-surface-mist/40 hover:bg-surface-mist transition-colors group">
                 <span className="font-semibold text-plum-deep">Quyền được thông tin và truy cập</span>
@@ -209,7 +211,7 @@ const PrivacyPolicy = () => {
 
           <section className="scroll-mt-24" id="lien-he">
             <div className="p-5 bg-surface-mist rounded-xl border border-dashed border-primary">
-              <h2 className="text-base sm:text-lg font-bold text-plum-deep mb-2">9. Liên hệ</h2>
+              <h2 className="text-base sm:text-lg font-bold text-plum-deep mb-2">{tr("9. Liên hệ", "9. Contact Us")}</h2>
               <p className="text-xs sm:text-sm text-on-surface-variant mb-3">
                 Nếu bạn có bất kỳ câu hỏi hoặc khiếu nại nào liên quan đến chính sách này, vui lòng liên hệ Bộ phận Bảo vệ Dữ liệu của chúng tôi:
               </p>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAppTranslation } from '../utils/i18nHelper';
+import { useAppTranslation, translateArticle } from '../utils/i18nHelper';
 import { Link } from 'react-router-dom';
 import newsData from '../data/news.json';
 
@@ -16,7 +16,8 @@ const News = () => {
   const listArticles = [...(newsData.list || [])].sort((a, b) => (b.id || 0) - (a.id || 0));
 
   // allArticles puts fixed featured article at index 0, followed by list articles
-  const allArticles = [featuredArticle, ...listArticles.filter(item => item.id !== featuredArticle.id)];
+  const rawAllArticles = [featuredArticle, ...listArticles.filter(item => item.id !== featuredArticle.id)];
+  const allArticles = rawAllArticles.map(item => translateArticle(item, isEn));
 
   // Carousel articles for top left hero banner (Default slide 0 is fixed featured article)
   const carouselArticles = allArticles.slice(0, 4);
