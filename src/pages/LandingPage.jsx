@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAppTranslation } from '../utils/i18nHelper';
+import { useAppTranslation, translatePageData } from '../utils/i18nHelper';
 import { Link } from 'react-router-dom';
 import Rellax from 'rellax';
 import siteInfo from '../config/siteInfo.json';
@@ -189,7 +189,7 @@ const LandingPage = () => {
 <h2 className="font-bold text-plum-deep mt-3 text-2xl md:text-3xl lg:text-4xl">{tr("Có phải gia đình bạn cũng ở trong hoàn cảnh này?", "Is Your Family Facing These Situations?")}</h2>
 </div>
 <div className="grid md:grid-cols-3 gap-5 lg:gap-7 mb-12">
-{pageData?.situations.map((item) => (
+{activePageData?.situations.map((item) => (
   <div key={item.id} className="flex flex-col p-6 rounded-2xl bg-white border border-surface-lavender/80 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
     <div className="flex items-center gap-2.5 mb-3">
       <span className={`w-8 h-8 shrink-0 rounded-full ${item.color} text-white flex items-center justify-center font-bold text-xs shadow-sm`}>
@@ -207,7 +207,7 @@ const LandingPage = () => {
 ))}
 </div>
 <div className="grid md:grid-cols-2 gap-8 md:gap-12 pt-10 md:pt-14 border-t border-plum-deep/10">
-{pageData?.medicalShares.map((expert, idx) => (
+{activePageData?.medicalShares.map((expert, idx) => (
   <div key={expert.id} className="flex items-start gap-6">
     <div className="w-24 h-24 shrink-0 rounded-full overflow-hidden border-4 border-white shadow-lg">
       <img alt={expert.name} className="w-full h-full object-cover object-center" src={expert.image} />
@@ -258,7 +258,7 @@ const LandingPage = () => {
           {/* Quote Block */}
           <div className="border-l-[3.5px] border-[#E86A17] pl-3.5 py-1.5 my-3 bg-[#E86A17]/5 rounded-r-lg">
             <p className="text-[#E86A17] font-semibold italic text-xs sm:text-sm md:text-[15.5px] leading-relaxed">
-              {tr(pageData?.whyAntcare?.quote, "Because parents deserve the most devoted, safe, and professional care right at home.")}
+              {tr(activePageData?.whyAntcare?.quote, "Because parents deserve the most devoted, safe, and professional care right at home.")}
             </p>
           </div>
 
@@ -278,7 +278,7 @@ const LandingPage = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {pageData?.whyAntcare?.comparison?.map((row) => (
+                  {activePageData?.whyAntcare?.comparison?.map((row) => (
                     <tr key={row.id} className="hover:bg-purple-50/40 transition-colors">
                       <td className="py-1.5 sm:py-2 px-2 flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-700">
                         <span className="material-symbols-outlined text-[#68259E] text-[16px] sm:text-[18px] shrink-0">
@@ -329,16 +329,16 @@ const LandingPage = () => {
   <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
     <div className="flex flex-col items-center text-center mb-8 gap-1">
       <div className="max-w-3xl reveal">
-        <h2 className="font-bold text-plum-deep text-2xl md:text-3xl lg:text-4xl tracking-tight">Giải pháp Chăm sóc Sức khỏe Toàn diện</h2>
+        <h2 className="font-bold text-plum-deep text-2xl md:text-3xl lg:text-4xl tracking-tight">{tr("Giải pháp Chăm sóc Sức khỏe Toàn diện", "Comprehensive Healthcare Solutions")}</h2>
         <p className="text-xs sm:text-sm md:text-base text-on-surface-variant mt-1.5 font-medium">
-          Dịch vụ chăm sóc cá nhân hóa theo nhu cầu riêng biệt của mỗi gia đình <span className="italic opacity-80">(Hỗ trợ song ngữ Việt - Anh)</span>
+          {tr("Dịch vụ chăm sóc cá nhân hóa theo nhu cầu riêng biệt của mỗi gia đình", "Personalized care services tailored to each family's unique needs")} <span className="italic opacity-80">{tr("(Hỗ trợ song ngữ Việt - Anh)", "(Bilingual VI - EN Support)")}</span>
         </p>
       </div>
     </div>
 
     {/* 4-Column Card Grid - Roomy Spacing */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
-      {pageData?.comprehensiveSolutions?.map((service) => (
+      {activePageData?.comprehensiveSolutions?.map((service) => (
         <div key={service.id} className="group cursor-pointer bg-white border border-surface-lavender/80 rounded-2xl p-4 sm:p-5 flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full reveal">
           <div className="aspect-[16/11] rounded-2xl overflow-hidden mb-3.5 relative shrink-0">
             <img alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={service.image} />
@@ -359,7 +359,7 @@ const LandingPage = () => {
             </ul>
             <div className="mt-auto text-center pt-1">
               <button className="py-2 px-5 rounded-full border border-earth-orange-bright text-earth-orange-bright font-bold hover:bg-earth-orange-bright hover:text-white transition-all text-xs sm:text-sm w-full">
-                Bảng giá dịch vụ
+                {tr("Bảng giá dịch vụ", "Service Pricing")}
               </button>
             </div>
           </div>
@@ -373,8 +373,8 @@ const LandingPage = () => {
 <section className="py-8 md:py-12 bg-surface-mist">
   <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
     <div className="text-center mb-8 reveal">
-      <h2 className="font-bold text-plum-deep text-2xl md:text-3xl lg:text-4xl">Chi tiết Dịch vụ Chăm sóc</h2>
-      <p className="text-xs sm:text-sm md:text-base text-on-surface-variant mt-1.5 font-medium">So sánh chi tiết các giải pháp để tìm ra lựa chọn tối ưu cho người thân của bạn</p>
+      <h2 className="font-bold text-plum-deep text-2xl md:text-3xl lg:text-4xl">{tr("Chi tiết Dịch vụ Chăm sóc", "Care Service Details")}</h2>
+      <p className="text-xs sm:text-sm md:text-base text-on-surface-variant mt-1.5 font-medium">{tr("So sánh chi tiết các giải pháp để tìm ra lựa chọn tối ưu cho người thân của bạn", "Detailed comparison of solutions to find the optimal choice for your loved ones")}</p>
     </div>
     
     <div className="hidden md:block w-full overflow-x-auto rounded-2xl border border-surface-lavender shadow-xl bg-white reveal delay-100">
@@ -382,7 +382,7 @@ const LandingPage = () => {
         <thead>
           <tr className="bg-primary text-white">
             <th className="py-3.5 px-4 md:py-4 md:px-5 font-bold text-sm md:text-base border-r border-white/10 w-[16%] text-center sticky-col bg-primary">Nội dung</th>
-            {pageData?.careServiceDetails.map(service => (
+            {activePageData?.careServiceDetails.map(service => (
               <th key={service.id} className="py-3.5 px-4 md:py-4 md:px-5 font-bold text-sm md:text-base border-r border-white/10 w-[21%] text-center">{service.title}</th>
             ))}
           </tr>
@@ -390,19 +390,19 @@ const LandingPage = () => {
         <tbody className="text-on-surface text-xs sm:text-sm md:text-[14px]">
           <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
             <td className="py-3.5 px-4 md:px-5 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Đối tượng</td>
-            {pageData?.careServiceDetails.map(service => (
+            {activePageData?.careServiceDetails.map(service => (
               <td key={service.id} className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-plum-deep leading-relaxed font-medium">{service.target}</td>
             ))}
           </tr>
           <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
             <td className="py-3.5 px-4 md:px-5 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Mục tiêu</td>
-            {pageData?.careServiceDetails.map(service => (
+            {activePageData?.careServiceDetails.map(service => (
               <td key={service.id} className="py-3.5 px-4 md:px-5 border-r border-surface-lavender leading-relaxed font-medium">{service.goal}</td>
             ))}
           </tr>
           <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
             <td className="py-3.5 px-4 md:px-5 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Chi tiết dịch vụ</td>
-            {pageData?.careServiceDetails.map(service => (
+            {activePageData?.careServiceDetails.map(service => (
               <td key={service.id} className="py-3.5 px-4 md:px-5 border-r border-surface-lavender leading-relaxed text-plum-deep">
                 <ul className="list-disc ml-4 space-y-1.5">
                   {service.details.map((detail, idx) => (
@@ -429,7 +429,7 @@ const LandingPage = () => {
 
 {/*  Mobile Card View for Service Comparison (Visible only on mobile)  */}
 <div className="md:hidden space-y-6 reveal delay-200 mt-6">
-{pageData?.careServiceDetails.map(service => (
+{activePageData?.careServiceDetails.map(service => (
 <div key={service.id} className="bg-white rounded-2xl shadow-xl border border-surface-lavender overflow-hidden relative">
   <div className={`${service.bgClass} p-5 border-b border-surface-lavender flex items-center gap-4`}>
     <div className={`w-12 h-12 rounded-full bg-${service.color} flex items-center justify-center shrink-0 shadow-md`}>
@@ -497,7 +497,7 @@ const LandingPage = () => {
 
         {/* Sleek Tier Cards */}
         <div className="flex flex-col gap-2.5 mb-3">
-          {pageData?.healthMonitorPackages?.map(pkg => (
+          {activePageData?.healthMonitorPackages?.map(pkg => (
             <div key={pkg.id} className={`${pkg.highlight ? 'bg-[#F3E8FF] text-plum-deep border-purple-300 shadow-lg' : 'bg-white text-on-surface border-surface-lavender shadow-md'} p-3 sm:p-4 rounded-xl border relative cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl`}>
               {pkg.tag && (
                 <div className="absolute -top-2.5 right-3 bg-earth-orange-bright text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase shadow-sm">
@@ -537,7 +537,7 @@ const LandingPage = () => {
         {/* Unified Activity List */}
         <div className="bg-[#F3E8FF] text-plum-deep rounded-xl border border-purple-300 p-4 flex-grow shadow-md cursor-pointer transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
           <span className="text-xs sm:text-sm font-bold text-earth-orange-dark uppercase tracking-wider block mb-2">
-            Các hoạt động bao gồm trong gói:
+            {tr("Các hoạt động bao gồm trong gói:", "Activities included in package:")}
           </span>
           <ul className="space-y-1.5 text-xs sm:text-sm text-plum-deep">
             <li className="flex items-start gap-2 leading-relaxed">
@@ -577,7 +577,7 @@ const LandingPage = () => {
           <p className="text-xs sm:text-sm text-white/90 mb-3 font-medium">Bao gồm các dịch vụ chuyên sâu hỗ trợ sức khỏe toàn diện:</p>
           
           <div className="grid grid-cols-2 gap-3 mb-4">
-            {pageData?.medicalPackages.map(medPkg => (
+            {activePageData?.medicalPackages.map(medPkg => (
               <div key={medPkg.id} className="bg-white p-3 rounded-xl text-center border border-white/20 shadow-sm flex flex-col items-center justify-center h-20 sm:h-22 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:scale-[1.02]">
                 <span className="material-symbols-outlined text-primary text-xl mb-1">{medPkg.icon}</span>
                 <span className="text-xs sm:text-sm font-bold text-plum-deep leading-tight">{medPkg.title}</span>
@@ -586,7 +586,7 @@ const LandingPage = () => {
           </div>
 
           <div className="mt-auto pt-1">
-            <p className="text-xs italic opacity-80 mb-3 text-center">Chi tiết giá vui lòng tham khảo Bảng giá dịch vụ chi tiết bên dưới.</p>
+            <p className="text-xs italic opacity-80 mb-3 text-center">Chi tiết giá vui lòng tham khảo {tr("Bảng giá dịch vụ", "Service Pricing")} chi tiết bên dưới.</p>
             <a 
               href="#bang-gia-chi-tiet"
               onClick={(e) => {
@@ -598,7 +598,7 @@ const LandingPage = () => {
               }}
               className="w-full py-2.5 rounded-full bg-earth-orange-bright text-white text-xs sm:text-sm font-bold hover:bg-earth-orange-dark transition-all flex items-center justify-center gap-1.5 shadow-md cursor-pointer text-center block"
             >
-              Xem bảng giá chi tiết <span className="material-symbols-outlined text-sm">arrow_downward</span>
+              {tr("Xem bảng giá chi tiết", "View Detailed Pricing")} <span className="material-symbols-outlined text-sm">arrow_downward</span>
             </a>
           </div>
         </div>
@@ -611,13 +611,13 @@ const LandingPage = () => {
 <section className="py-8 md:py-12 bg-surface-mist scroll-mt-24" id="bang-gia-chi-tiet">
   <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
     <div className="flex flex-col items-center mb-6 text-center reveal">
-      <h2 className="font-bold text-plum-deep uppercase tracking-wide text-lg sm:text-xl md:text-2xl">BẢNG GIÁ CHI TIẾT GÓI DỊCH VỤ Y TẾ</h2>
-      <p className="text-xs sm:text-sm md:text-base text-on-surface-variant mt-1.5 font-medium">Bảng giá công khai, minh bạch dành cho khách hàng mới và thành viên ANTCARE</p>
+      <h2 className="font-bold text-plum-deep uppercase tracking-wide text-lg sm:text-xl md:text-2xl">{tr("BẢNG GIÁ CHI TIẾT GÓI DỊCH VỤ Y TẾ", "DETAILED MEDICAL SERVICE PRICING")}</h2>
+      <p className="text-xs sm:text-sm md:text-base text-on-surface-variant mt-1.5 font-medium">{tr("Bảng giá công khai, minh bạch dành cho khách hàng mới và thành viên ANTCARE", "Transparent pricing for new clients and ANTCARE members")}</p>
     </div>
 
     <div className="relative overflow-hidden rounded-2xl border border-surface-lavender shadow-xl bg-white reveal delay-100">
       <div className="hidden sm:flex justify-end px-6 py-2.5 bg-surface-container-low border-b border-surface-lavender/60">
-        <span className="text-xs sm:text-sm text-on-surface-variant font-medium italic opacity-80">Đơn vị tính: VNĐ</span>
+        <span className="text-xs sm:text-sm text-on-surface-variant font-medium italic opacity-80">{tr("Đơn vị tính: VNĐ", "Currency: VND")}</span>
       </div>
 
       {/* Desktop HTML Table View */}
@@ -625,82 +625,82 @@ const LandingPage = () => {
         <table className="w-full text-left border-collapse min-w-[960px]">
           <thead>
             <tr className="bg-plum-deep text-white text-sm md:text-base">
-              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold border-r border-white/10 text-center w-[22%] sticky-col bg-plum-deep">Nhóm Dịch Vụ</th>
-              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold border-r border-white/10 text-center w-[26%]">Tên Dịch Vụ</th>
-              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold border-r border-white/10 text-center w-[16%]">Ghi chú</th>
-              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold border-r border-white/10 text-center w-[18%] whitespace-nowrap">Giá Khách Mới</th>
-              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold text-center w-[18%] whitespace-nowrap bg-earth-orange-bright/90">Giá Thành Viên</th>
+              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold border-r border-white/10 text-center w-[22%] sticky-col bg-plum-deep">{tr("Nhóm Dịch Vụ", "Service Group")}</th>
+              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold border-r border-white/10 text-center w-[26%]">{tr("Tên Dịch Vụ", "Service Name")}</th>
+              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold border-r border-white/10 text-center w-[16%]">{tr("Ghi chú", "Notes")}</th>
+              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold border-r border-white/10 text-center w-[18%] whitespace-nowrap">{tr("Giá Khách Mới", "New Client Price")}</th>
+              <th className="py-2.5 px-3.5 md:py-3 md:px-4 font-bold text-center w-[18%] whitespace-nowrap bg-earth-orange-bright/90">{tr("Giá Thành Viên", "Member Price")}</th>
             </tr>
           </thead>
           <tbody className="text-on-surface text-xs sm:text-sm md:text-[13.5px]">
-            {/*  Group 1: Gói An Tâm Nhà Cửa  */}
+            {/*  Group 1: {tr("Gói An Tâm Nhà Cửa", "Peace of Mind Home Care")}  */}
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
               <td rowSpan={3} className="py-2 px-3.5 md:py-2.5 md:px-4 font-bold text-plum-deep text-center bg-surface-container-low border-r border-b border-surface-lavender align-middle text-sm md:text-base">
-                Gói An Tâm Nhà Cửa
+                {tr("Gói An Tâm Nhà Cửa", "Peace of Mind Home Care")}
               </td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">Gói lẻ</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">4 tiếng/ ca</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Gói lẻ", "Single Session")}</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("4 tiếng/ ca", "4 hours / session")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">540.000</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">490.000</td>
             </tr>
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">Gói tháng</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">4 ca/ tháng</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Gói tháng", "Monthly Package")}</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("4 ca/ tháng", "4 sessions / month")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right text-on-surface-variant/40">—</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">1.960.000</td>
             </tr>
             <tr className="border-b-2 border-surface-lavender/80 hover:bg-surface-mist/50 transition-colors">
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">Trọn gói chăm sóc</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Trọn gói chăm sóc", "Full Care Bundle")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">4 ca nhà cửa + 4 ca Sức khỏe</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right text-on-surface-variant/40">—</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">3.750.000</td>
             </tr>
 
-            {/*  Group 2: Gói Đồng Hành Khám Bệnh  */}
+            {/*  Group 2: {tr("Gói Đồng Hành Khám Bệnh", "Hospital Companionship Package")}  */}
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
               <td rowSpan={4} className="py-2 px-3.5 md:py-2.5 md:px-4 font-bold text-plum-deep text-center bg-surface-container-low border-r border-b border-surface-lavender align-middle text-sm md:text-base">
-                Gói Đồng Hành Khám Bệnh
+                {tr("Gói Đồng Hành Khám Bệnh", "Hospital Companionship Package")}
               </td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">Khám bệnh (≤ 4 giờ)</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Khám bệnh (≤ 4 giờ)", "Medical Checkup (≤ 4 hrs)")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">4 giờ</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">490.000</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">490.000</td>
             </tr>
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">Khám bệnh (≤ 6 giờ)</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Khám bệnh (≤ 6 giờ)", "Medical Checkup (≤ 6 hrs)")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">6 giờ</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">690.000</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">600.000</td>
             </tr>
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">Khám bệnh (≤ 8 giờ)</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Khám bệnh (≤ 8 giờ)", "Medical Checkup (≤ 8 hrs)")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">8 giờ</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">790.000</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">690.000</td>
             </tr>
             <tr className="border-b-2 border-surface-lavender/80 hover:bg-surface-mist/50 transition-colors">
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">Vượt giờ</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">Mỗi giờ</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Vượt giờ", "Overtime")}</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("Mỗi giờ", "Per hour")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">100.000</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">100.000</td>
             </tr>
 
-            {/*  Group 3: Dịch vụ Khác  */}
+            {/*  Group 3: {tr("Dịch vụ Khác", "Other Services")}  */}
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
               <td rowSpan={2} className="py-2 px-3.5 md:py-2.5 md:px-4 font-bold text-plum-deep text-center bg-surface-container-low border-r border-surface-lavender align-middle text-sm md:text-base">
-                Dịch vụ Khác
+                {tr("Dịch vụ Khác", "Other Services")}
               </td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">Chăm sóc người ốm tại nhà/ bệnh viện</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Chăm sóc người ốm tại nhà/ bệnh viện", "In-home / Hospital sick care")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant text-center text-on-surface-variant/40">—</td>
               <td colSpan={2} className="py-1.5 px-3.5 md:py-2 md:px-4 text-center font-bold text-earth-orange-bright bg-earth-orange-bright/5 text-sm md:text-base">
-                từ 650.000 đ/ngày
+                {tr("từ 650.000 đ/ngày", "from 650,000 VND / day")}
               </td>
             </tr>
             <tr className="hover:bg-surface-mist/50 transition-colors">
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">Tập phục hồi chức năng</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Tập phục hồi chức năng", "Rehabilitation therapy")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant text-center text-on-surface-variant/40">—</td>
               <td colSpan={2} className="py-1.5 px-3.5 md:py-2 md:px-4 text-center font-bold text-earth-orange-bright bg-earth-orange-bright/5 text-sm md:text-base">
-                từ 700.000 đ/ca
+                {tr("từ 700.000 đ/ca", "from 700,000 VND / session")}
               </td>
             </tr>
           </tbody>
@@ -713,13 +713,13 @@ const LandingPage = () => {
         <div className="bg-white rounded-xl border border-surface-lavender shadow-md overflow-hidden">
           <div className="bg-primary/10 p-3 border-b border-primary/20 flex items-center gap-2">
             <span className="material-symbols-outlined text-primary text-lg">cleaning_services</span>
-            <h3 className="font-bold text-plum-deep text-sm">Gói An Tâm Nhà Cửa</h3>
+            <h3 className="font-bold text-plum-deep text-sm">{tr("Gói An Tâm Nhà Cửa", "Peace of Mind Home Care")}</h3>
           </div>
           <div className="p-3 space-y-2.5 text-xs">
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
               <div>
-                <span className="font-bold text-plum-deep block">Gói lẻ</span>
-                <span className="text-[11px] text-on-surface-variant">4 tiếng/ ca</span>
+                <span className="font-bold text-plum-deep block">{tr("Gói lẻ", "Single Session")}</span>
+                <span className="text-[11px] text-on-surface-variant">{tr("4 tiếng/ ca", "4 hours / session")}</span>
               </div>
               <div className="text-right">
                 <span className="text-[11px] text-on-surface-variant line-through block">540.000đ</span>
@@ -728,8 +728,8 @@ const LandingPage = () => {
             </div>
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
               <div>
-                <span className="font-bold text-plum-deep block">Gói tháng</span>
-                <span className="text-[11px] text-on-surface-variant">4 ca/ tháng</span>
+                <span className="font-bold text-plum-deep block">{tr("Gói tháng", "Monthly Package")}</span>
+                <span className="text-[11px] text-on-surface-variant">{tr("4 ca/ tháng", "4 sessions / month")}</span>
               </div>
               <div className="text-right">
                 <span className="font-bold text-earth-orange-bright">1.960.000đ</span>
@@ -737,7 +737,7 @@ const LandingPage = () => {
             </div>
             <div className="flex justify-between items-center">
               <div>
-                <span className="font-bold text-plum-deep block">Trọn gói chăm sóc</span>
+                <span className="font-bold text-plum-deep block">{tr("Trọn gói chăm sóc", "Full Care Bundle")}</span>
                 <span className="text-[11px] text-on-surface-variant">4 ca nhà cửa + 4 ca Sức khỏe</span>
               </div>
               <div className="text-right">
@@ -751,12 +751,12 @@ const LandingPage = () => {
         <div className="bg-white rounded-xl border border-surface-lavender shadow-md overflow-hidden">
           <div className="bg-primary/10 p-3 border-b border-primary/20 flex items-center gap-2">
             <span className="material-symbols-outlined text-primary text-lg">directions_car</span>
-            <h3 className="font-bold text-plum-deep text-sm">Gói Đồng Hành Khám Bệnh</h3>
+            <h3 className="font-bold text-plum-deep text-sm">{tr("Gói Đồng Hành Khám Bệnh", "Hospital Companionship Package")}</h3>
           </div>
           <div className="p-3 space-y-2.5 text-xs">
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
               <div>
-                <span className="font-bold text-plum-deep block">Khám bệnh (≤ 4 giờ)</span>
+                <span className="font-bold text-plum-deep block">{tr("Khám bệnh (≤ 4 giờ)", "Medical Checkup (≤ 4 hrs)")}</span>
                 <span className="text-[11px] text-on-surface-variant">4 giờ</span>
               </div>
               <div className="text-right">
@@ -765,7 +765,7 @@ const LandingPage = () => {
             </div>
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
               <div>
-                <span className="font-bold text-plum-deep block">Khám bệnh (≤ 6 giờ)</span>
+                <span className="font-bold text-plum-deep block">{tr("Khám bệnh (≤ 6 giờ)", "Medical Checkup (≤ 6 hrs)")}</span>
                 <span className="text-[11px] text-on-surface-variant">6 giờ</span>
               </div>
               <div className="text-right">
@@ -775,7 +775,7 @@ const LandingPage = () => {
             </div>
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
               <div>
-                <span className="font-bold text-plum-deep block">Khám bệnh (≤ 8 giờ)</span>
+                <span className="font-bold text-plum-deep block">{tr("Khám bệnh (≤ 8 giờ)", "Medical Checkup (≤ 8 hrs)")}</span>
                 <span className="text-[11px] text-on-surface-variant">8 giờ</span>
               </div>
               <div className="text-right">
@@ -785,8 +785,8 @@ const LandingPage = () => {
             </div>
             <div className="flex justify-between items-center">
               <div>
-                <span className="font-bold text-plum-deep block">Vượt giờ</span>
-                <span className="text-[11px] text-on-surface-variant">Mỗi giờ</span>
+                <span className="font-bold text-plum-deep block">{tr("Vượt giờ", "Overtime")}</span>
+                <span className="text-[11px] text-on-surface-variant">{tr("Mỗi giờ", "Per hour")}</span>
               </div>
               <div className="text-right">
                 <span className="font-bold text-earth-orange-bright">100.000đ</span>
@@ -799,16 +799,16 @@ const LandingPage = () => {
         <div className="bg-white rounded-xl border border-surface-lavender shadow-md overflow-hidden">
           <div className="bg-primary/10 p-3 border-b border-primary/20 flex items-center gap-2">
             <span className="material-symbols-outlined text-primary text-lg">medical_services</span>
-            <h3 className="font-bold text-plum-deep text-sm">Dịch vụ Khác</h3>
+            <h3 className="font-bold text-plum-deep text-sm">{tr("Dịch vụ Khác", "Other Services")}</h3>
           </div>
           <div className="p-3 space-y-2.5 text-xs">
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
-              <span className="font-bold text-plum-deep">Chăm sóc người ốm tại nhà/ bệnh viện</span>
-              <span className="font-bold text-earth-orange-bright">từ 650.000đ/ngày</span>
+              <span className="font-bold text-plum-deep">{tr("Chăm sóc người ốm tại nhà/ bệnh viện", "In-home / Hospital sick care")}</span>
+              <span className="font-bold text-earth-orange-bright">{tr("từ 650.000đ/ngày", "from 650,000 VND / day")}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="font-bold text-plum-deep">Tập phục hồi chức năng</span>
-              <span className="font-bold text-earth-orange-bright">từ 700.000đ/ca</span>
+              <span className="font-bold text-plum-deep">{tr("Tập phục hồi chức năng", "Rehabilitation therapy")}</span>
+              <span className="font-bold text-earth-orange-bright">{tr("từ 700.000đ/ca", "from 700,000 VND / session")}</span>
             </div>
           </div>
         </div>
@@ -817,35 +817,35 @@ const LandingPage = () => {
     <p className="mt-4 text-xs text-on-surface-variant italic text-center">* Lưu ý: Trường hợp có sử dụng nhân viên biết tiếng Anh tính thêm phí theo thỏa thuận</p>
   </div>
 </section>
-{/*  Connect Sections (Dành cho khách hàng)  */}
+{/*  Connect Sections ({tr("Dành cho khách hàng", "For Customers")})  */}
 <section className="py-8 md:py-12 bg-plum-deep" id="lien-he-gia-dinh">
 <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
 <div className="bg-white rounded-3xl shadow-md p-6 md:p-10 flex flex-col md:flex-row gap-8 lg:gap-12 items-center">
 <div className="md:w-1/2 space-y-5">
-<h3 className="text-primary font-bold text-lg md:text-2xl mb-1">Kết nối cùng chúng tôi <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ</h3>
-<div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-1 bg-earth-orange-bright text-white"><span className="material-symbols-outlined text-[16px]">person</span> Dành cho khách hàng</div>
+<h3 className="text-primary font-bold text-lg md:text-2xl mb-1">{tr("Kết nối cùng chúng tôi", "Connect With Us")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ</h3>
+<div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-1 bg-earth-orange-bright text-white"><span className="material-symbols-outlined text-[16px]">person</span> {tr("Dành cho khách hàng", "For Customers")}</div>
 <h2 className="font-bold text-plum-deep leading-tight text-xl md:text-2xl lg:text-3xl"><span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ luôn sẵn sàng đồng hành cùng để giữ trọn {t("hero.title3")}</h2>
 <p className="text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">Hãy chia sẻ cùng <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ bạn nhé, bạn muốn gọi điện thoại ngay qua hotline <a className="text-earth-orange-bright font-bold hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a> hay để lại thông tin liên hệ.</p>
 <div className="space-y-3 pt-2">
 <div className="flex items-center gap-3">
 <div className="w-9 h-9 rounded-full bg-earth-orange-bright/10 flex items-center justify-center shrink-0"><span className="material-symbols-outlined text-earth-orange-bright text-lg">schedule</span></div>
-<p className="text-xs sm:text-sm md:text-base font-medium text-plum-deep">Chúng tôi sẽ liên hệ lại ngay trong 4 tiếng.</p>
+<p className="text-xs sm:text-sm md:text-base font-medium text-plum-deep">{tr("Chúng tôi sẽ liên hệ lại ngay trong 4 tiếng.", "We will contact you within 4 hours.")}</p>
 </div>
 <div className="flex items-center gap-3">
 <div className="w-9 h-9 rounded-full bg-earth-orange-bright/10 flex items-center justify-center shrink-0"><span className="material-symbols-outlined text-earth-orange-bright text-lg">lock</span></div>
-<p className="text-xs sm:text-sm md:text-base font-medium text-plum-deep">Thông tin sẽ được bảo mật theo chính sách cam kết của <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ.</p>
+<p className="text-xs sm:text-sm md:text-base font-medium text-plum-deep">{tr("Thông tin sẽ được bảo mật theo chính sách cam kết của", "Information is secured according to the privacy policy of")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ.</p>
 </div>
 </div>
 </div>
 <div className="md:w-1/2 w-full bg-surface-mist p-6 sm:p-8 rounded-2xl border border-surface-lavender">
 <form onSubmit={handleConsultSubmit} className="space-y-4">
 <div>
-<label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1.5">Họ và tên</label>
+<label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1.5">{tr("Họ và tên", "Full Name")}</label>
 <div className="relative">
 <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-60 text-base">person</span>
 <input 
   className="w-full bg-white border border-surface-lavender rounded-xl pl-10 pr-4 py-2.5 sm:py-3 focus:ring-2 focus:ring-primary transition-all text-xs sm:text-sm text-plum-deep" 
-  placeholder="Nhập họ và tên của bạn" 
+  placeholder={tr("Nhập họ và tên của bạn", "Enter your full name")} 
   type="text" 
   value={consultForm.name}
   onChange={(e) => {
@@ -856,7 +856,7 @@ const LandingPage = () => {
 </div>
 </div>
 <div>
-<label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1.5">Số điện thoại</label>
+<label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1.5">{tr("Số điện thoại", "Phone Number")}</label>
 <div className="relative">
 <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-60 text-base">call</span>
 <input 
@@ -872,12 +872,12 @@ const LandingPage = () => {
 </div>
 </div>
 <div>
-<label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1.5">Người cần hỗ trợ đang sinh sống tại</label>
+<label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1.5">{tr("Người cần hỗ trợ đang sinh sống tại", "Senior location / address")}</label>
 <div className="relative">
 <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-60 text-base">location_on</span>
 <input 
   className="w-full bg-white border border-surface-lavender rounded-xl pl-10 pr-4 py-2.5 sm:py-3 focus:ring-2 focus:ring-primary transition-all text-xs sm:text-sm text-plum-deep" 
-  placeholder="Nhập địa chỉ hoặc khu vực" 
+  placeholder={tr("Nhập địa chỉ hoặc khu vực", "Enter address or city/district")} 
   type="text" 
   value={consultForm.location}
   onChange={(e) => {
@@ -914,12 +914,12 @@ const LandingPage = () => {
 {/*  Story Hero Section  */}
 <div className="relative min-h-[380px] sm:min-h-[440px] md:min-h-[480px] flex items-center py-10 sm:py-14 overflow-hidden bg-[#DCCEFB]">
 <div className="absolute inset-0 z-0 flex justify-end">
-<img className="w-auto h-full object-contain object-right" src="/images/story-hero.jpg" alt="Tâm nguyện từ trái tim người sáng lập" />
+<img className="w-auto h-full object-contain object-right" src="/images/story-hero.jpg" alt={tr("Tâm nguyện từ trái tim người sáng lập", "A Wish From The Founder's Heart")} />
 </div>
 <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 w-full">
 <div className="max-w-xl">
-<span className="inline-block px-3.5 py-1 bg-earth-orange-bright text-white font-bold text-xs sm:text-sm mb-3.5 shadow-md rounded-full">Câu chuyện của chúng tôi</span>
-<h1 className="text-2xl md:text-3xl lg:text-4xl mb-3 leading-snug font-bold text-plum-light drop-shadow-sm">Tâm nguyện từ trái tim</h1>
+<span className="inline-block px-3.5 py-1 bg-earth-orange-bright text-white font-bold text-xs sm:text-sm mb-3.5 shadow-md rounded-full">{tr("Câu chuyện của chúng tôi", "Our Story")}</span>
+<h1 className="text-2xl md:text-3xl lg:text-4xl mb-3 leading-snug font-bold text-plum-light drop-shadow-sm">{tr("Tâm nguyện từ trái tim", "A Wish From The Heart")}</h1>
 <p className="text-xs sm:text-sm md:text-base text-plum-deep/90 max-w-lg leading-relaxed font-semibold mb-3">
     Sứ mệnh kết nối tình yêu của con cái và sức khỏe của cha mẹ, mang đến sự an tâm tuyệt đối khi khoảng cách địa lý không còn là rào cản.
 </p>
@@ -971,7 +971,7 @@ const LandingPage = () => {
 <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest mb-3">
 <span className="material-symbols-outlined text-[18px]">stars</span> Core Values
 </div>
-<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-plum-deep mb-2">Quy trình hoạt động của <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span></h2>
+<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-plum-deep mb-2">{tr("Quy trình hoạt động của", "Operation Process of")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span></h2>
 <p className="text-on-surface-variant text-xs sm:text-sm md:text-base">Mọi hoạt động tại <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ đều được xây dựng trên nền tảng của sự chân thành và tiêu chuẩn y tế khắt khe.</p>
 </div>
 <div className="w-full space-y-6">
@@ -1005,11 +1005,11 @@ const LandingPage = () => {
 </div>
 </section>
 
-{/*  Thông tin liên hệ Section  */}
+{/*  {tr("Thông tin liên hệ", "Contact Information")} Section  */}
 <section className="py-8 md:py-12 bg-surface-mist scroll-mt-24" id="thong-tin-lien-he">
 <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
 <div className="text-center mb-6">
-<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-plum-deep">Thông tin liên hệ</h2>
+<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-plum-deep">{tr("Thông tin liên hệ", "Contact Information")}</h2>
 <div className="w-16 h-1 bg-earth-orange-bright rounded-full mx-auto mt-2"></div>
 </div>
 <div className="max-w-2xl mx-auto bg-white p-6 sm:p-8 rounded-3xl border border-surface-lavender shadow-md">
@@ -1017,14 +1017,14 @@ const LandingPage = () => {
 <div className="flex items-start gap-3.5">
 <span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">corporate_fare</span>
 <div>
-<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">Văn phòng đại diện tại Hà Nội</p>
-<p className="font-bold text-plum-deep">Văn phòng đại diện tại Hà Nội</p>
+<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Văn phòng đại diện tại Hà Nội", "Hanoi Representative Office")}</p>
+<p className="font-bold text-plum-deep">{tr("Văn phòng đại diện tại Hà Nội", "Hanoi Representative Office")}</p>
 </div>
 </div>
 <div className="flex items-start gap-3.5">
 <span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">call</span>
 <div>
-<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">Số điện thoại</p>
+<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Số điện thoại", "Phone Number")}</p>
 <a className="font-bold text-earth-orange-bright md:hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a>
 </div>
 </div>
@@ -1038,8 +1038,8 @@ const LandingPage = () => {
 <div className="flex items-start gap-3.5">
 <span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">location_on</span>
 <div>
-<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">Địa chỉ</p>
-<p className="font-bold text-plum-deep leading-relaxed">Tầng 12, Tòa nhà Innovation, Công viên phần mềm Quang Trung, Quận 12, TP. Hồ Chí Minh</p>
+<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Địa chỉ", "Address")}</p>
+<p className="font-bold text-plum-deep leading-relaxed">{tr("Tầng 12, Tòa nhà Innovation, Công viên phần mềm Quang Trung, Quận 12, TP. Hồ Chí Minh", "12th Floor, Innovation Building, Quang Trung Software City, District 12, Ho Chi Minh City")}</p>
 </div>
 </div>
 </div>

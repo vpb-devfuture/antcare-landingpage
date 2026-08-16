@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useAppTranslation } from '../utils/i18nHelper';
 import { Link } from 'react-router-dom';
 import newsData from '../data/news.json';
 
 const News = () => {
+  const { t, isEn, tr } = useAppTranslation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -38,6 +40,11 @@ const News = () => {
   // Category filtering for archive list below
   const [selectedCategory, setSelectedCategory] = useState('Tất cả');
   const categories = ['Tất cả', 'An toàn nhà ở', 'Tri ân khách hàng', 'Chăm sóc sức khỏe', 'Sữa', 'Tin tức'];
+  const getCategoryLabel = (cat) => {
+    if (!isEn) return cat;
+    const map = { 'Tất cả': 'All', 'An toàn nhà ở': 'Home Safety', 'Tri ân khách hàng': 'Customer Appreciation', 'Chăm sóc sức khỏe': 'Healthcare', 'Sữa': 'Nutrition & Milk', 'Tin tức': 'News & Updates' };
+    return map[cat] || cat;
+  };
 
   // Pagination state (Max 12 articles / page)
   const ITEMS_PER_PAGE = 12;
@@ -149,7 +156,7 @@ const News = () => {
         <section className="pt-6 border-t border-slate-200 scroll-mt-24" id="tat-ca-bai-viet">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-slate-800 mb-1">Tất cả bài viết</h2>
+              <h2 className="text-2xl font-bold text-slate-800 mb-1">{tr("Tất cả bài viết", "All Articles")}</h2>
               <p className="text-sm text-slate-600">Khám phá thông tin dinh dưỡng &amp; chăm sóc sức khỏe cho người cao tuổi từ ANTCARE</p>
             </div>
             
@@ -157,7 +164,7 @@ const News = () => {
             <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
                 <button
-                  key={cat}
+                  key={getCategoryLabel(cat)}
                   onClick={() => handleCategoryChange(cat)}
                   className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                     selectedCategory === cat
@@ -165,7 +172,7 @@ const News = () => {
                       : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                 >
-                  {cat}
+                  {getCategoryLabel(cat)}
                 </button>
               ))}
             </div>
@@ -209,7 +216,7 @@ const News = () => {
                   }
                 }}
                 disabled={currentPage === 1}
-                aria-label="Trang trước"
+                aria-label={`${tr("Trang", "Page")} trước`}
                 className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all cursor-pointer ${
                   currentPage === 1 
                     ? 'bg-surface-mist text-slate-300 cursor-not-allowed' 
@@ -244,7 +251,7 @@ const News = () => {
                   }
                 }}
                 disabled={currentPage === totalPages}
-                aria-label="Trang sau"
+                aria-label={`${tr("Trang", "Page")} sau`}
                 className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all cursor-pointer ${
                   currentPage === totalPages 
                     ? 'bg-surface-mist text-slate-300 cursor-not-allowed' 
