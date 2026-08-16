@@ -30,10 +30,8 @@ export const translateArticle = (article, isEn) => {
   if (!article || !isEn) return article;
 
   const translated = JSON.parse(JSON.stringify(article));
-
   translated.category = getCategoryLabel(translated.category, true);
 
-  // Translation maps for articles by ID or slug
   const enArticles = {
     'nghi-ngo-dot-quy-o-nguoi-cao-tuoi-nhung-viec-khong-nen-lam': {
       title: "Suspecting Stroke in Seniors: 5 Things You Must NEVER Do While Waiting for Ambulance",
@@ -137,127 +135,202 @@ export const translatePageData = (data, isEn) => {
     }
   }
 
-  // 4. Services
-  if (translated.services) {
-    const enServices = [
+  // 4. Comprehensive Solutions (Section 4 Cards shown in screenshot!)
+  if (translated.comprehensiveSolutions) {
+    const enSolutions = [
       {
-        title: "Home Health Assistant",
-        subtitle: "Periodic health metric tracking & physical exercise at home",
-        description: "Vital signs measurement, medication box management, active ageing exercises, and post-session Zalo reports."
+        title: "Health Assistant",
+        description: "Adopting US Senior Fitness & Singapore Active Ageing standards, our professional team visits your home for vital checks, physical/brain exercises, and updates family via App.",
+        features: [
+          "Vital signs check: Blood pressure, heart rate, SpO2, blood sugar...",
+          "Physical exercises",
+          "Brain training exercises",
+          "Daily medication reminders",
+          "Weekly conversations & new experiences",
+          "App report updates"
+        ]
       },
       {
-        title: "Hospital Companionship",
-        subtitle: "Door-to-door medical escort & hospital procedure assistance",
-        description: "Home pick-up, hospital procedure assistance, doctor note recording, and direct family reporting."
+        title: "Medical Escort & Companionship",
+        description: "Professional team escorting seniors and children to medical facilities safely and attentively.",
+        features: [
+          "Pre-booking medical appointments",
+          "Pre-departure health check",
+          "Door-to-door transportation",
+          "Companionship throughout checkup",
+          "Complete checkup reports via App"
+        ]
       },
       {
-        title: "Electronic Health Profile",
-        subtitle: "24/7 digital health monitoring for remote family members",
-        description: "Continuous health metric storage, monthly trend analysis, and remote family access."
+        title: "Home Safety & Care",
+        description: "Auditing home safety risks for seniors. Assisting household chores and sharing daily warm conversations.",
+        features: [
+          "Elderly home safety inspection",
+          "Clearing safety hazards within scope",
+          "Housekeeping or cooking support per request",
+          "App notifications for house owners"
+        ]
       },
       {
-        title: "Family Training & Guidance",
-        subtitle: "Fall prevention & home emergency response skills for families",
-        description: "15-point home safety audit, stroke first aid training, and senior ergonomics guidance."
+        title: "Medical Care Services",
+        description: "ANTCARE platform connects families with experienced medical staff, systematically trained to support loved ones during illness or recovery.",
+        features: [
+          "In-home sick care",
+          "In-hospital sick care",
+          "Rehabilitation exercises"
+        ]
       }
     ];
-    translated.services.forEach((item, idx) => {
-      if (enServices[idx]) {
-        item.title = enServices[idx].title;
-        item.subtitle = enServices[idx].subtitle;
-        item.description = enServices[idx].description;
+
+    translated.comprehensiveSolutions.forEach((item, idx) => {
+      if (enSolutions[idx]) {
+        item.title = enSolutions[idx].title;
+        item.description = enSolutions[idx].description;
+        item.features = enSolutions[idx].features;
       }
     });
   }
 
-  // 5. Care Processes
-  if (translated.careProcesses) {
-    const enProcesses = [
+  // 5. Care Service Details (Section 5 Comparison Table)
+  if (translated.careServiceDetails) {
+    const enDetails = [
       {
-        step: "01",
-        title: "Survey & Consultation",
-        description: "Listening to family needs and evaluating the senior's health condition and living routines."
+        title: "Health Assistant",
+        target: "Seniors needing periodic health monitoring, or those with chronic conditions.",
+        goal: "Effective health metric control, maintaining timely medication routines.",
+        details: [
+          "Vital signs check: Blood pressure, heart rate, SpO2, blood sugar...",
+          "Physical exercises",
+          "Brain training exercises",
+          "Daily medication reminders",
+          "Weekly conversations & new experiences",
+          "App report updates"
+        ]
       },
       {
-        step: "02",
-        title: "Personalized Care Plan",
-        description: "Building a tailored care roadmap suited for each individual elder and family condition."
+        title: "Medical Escort & Companionship",
+        target: "Seniors & children needing specialist checkups or hospital follow-ups.",
+        goal: "Medical safety, reducing time burden for family members.",
+        details: [
+          "Pre-booking medical appointments",
+          "Pre-departure health check",
+          "Door-to-door transportation",
+          "Companionship throughout checkup",
+          "Complete checkup reports via App"
+        ]
       },
       {
-        step: "03",
-        title: "Assistant Matching",
-        description: "Selecting the ideal Health Assistant matching personality, expertise, and living area."
+        title: "Home Safety & Care",
+        target: "Solitary seniors or those needing daily living assistance.",
+        goal: "Ensuring nutrition, hygiene, and warm companionship.",
+        details: [
+          "Elderly home safety inspection",
+          "Clearing safety hazards within scope",
+          "Housekeeping or cooking support per request",
+          "App notifications for house owners"
+        ]
       },
       {
-        step: "04",
-        title: "Companionship & Reporting",
-        description: "Conducting weekly care visits and sending direct health metric reports to family."
+        title: "Medical Care Services",
+        target: "Seniors facing illness or recovering after hospital stay.",
+        goal: "Health recovery and stabilization.",
+        details: [
+          "In-home sick care",
+          "In-hospital sick care",
+          "Rehabilitation exercises"
+        ]
       }
     ];
-    translated.careProcesses.forEach((item, idx) => {
-      if (enProcesses[idx]) {
-        item.step = enProcesses[idx].step;
-        item.title = enProcesses[idx].title;
-        item.description = enProcesses[idx].description;
+
+    translated.careServiceDetails.forEach((item, idx) => {
+      if (enDetails[idx]) {
+        item.title = enDetails[idx].title;
+        item.target = enDetails[idx].target;
+        item.goal = enDetails[idx].goal;
+        item.details = enDetails[idx].details;
       }
     });
   }
 
-  // 6. Service Packages
-  if (translated.servicePackages) {
+  // 6. Health Monitor Packages
+  if (translated.healthMonitorPackages) {
     const enPackages = [
       {
-        name: "TOUCH Package",
-        tag: "Trial Package",
-        price: "299,000 VND / session",
-        description: "Great starting choice for families to experience ANTCARE's home care service.",
+        name: "CARE PACKAGE",
+        price: "990,000",
+        unit: "VND/month",
+        dailyPrice: "only 33,000 VND/day",
+        suitability: "Suitable if parents remain active in daily living",
+        frequency: "2 visits / month",
         features: [
-          "1 Home Health Assistant session (~80 mins)",
-          "5 basic health parameter checks",
-          "15-min Active Ageing exercise",
-          "Medication box check & expiry audit",
-          "Handwritten gift card & fresh flower",
-          "Post-session Zalo report to family"
+          "Home visit & vital signs check: BP, HR, Temp, SpO2 (2 times/month)",
+          "Physical & brain exercise (US Senior Fitness & Singapore Active Ageing)",
+          "Companionship & technology experience with seniors",
+          "Daily medication reminder messages",
+          "Health status reports to family"
         ]
       },
       {
-        name: "PEACE OF MIND Package",
-        tag: "Most Recommended",
-        price: "690,000 VND / session",
-        description: "Comprehensive home care with printed health profile & 15-point safety audit.",
+        name: "ATTENTION PACKAGE",
+        price: "1,750,000",
+        unit: "VND/month",
+        tag: "Popular",
+        suitability: "Suitable if parents have chronic conditions to monitor",
+        frequency: "4 visits / month",
         features: [
-          "All benefits included in TOUCH package",
-          "First color-printed health record for parents",
-          "15-point home safety & fall prevention audit",
-          "Weekly fridge A4 medication chart",
-          "Before & after session photo report"
+          "Home visit & vital signs check: BP, HR, Temp, SpO2 (4 times/month)",
+          "Physical & brain exercise (US Senior Fitness & Singapore Active Ageing)",
+          "Companionship & technology experience with seniors",
+          "Daily medication reminder messages",
+          "Health status reports to family"
         ]
       },
       {
-        name: "FULFILLMENT Package",
-        tag: "VIP Comprehensive",
-        price: "1,290,000 VND / session",
-        description: "Complete health monitoring & continuous follow-up consultation for family.",
+        name: "DEVOTION PACKAGE",
+        price: "3,190,000",
+        unit: "VND/month",
+        suitability: "Suitable if parents need more daily companionship",
+        frequency: "8 visits / month",
         features: [
-          "All benefits in PEACE OF MIND package",
-          "Second visit after 2 weeks to re-measure metrics",
-          "20-min phone consultation with family",
-          "Priority membership upgrade evaluation"
+          "Home visit & vital check: BP, HR, Temp, SpO2 + Blood Sugar test (8 times/month)",
+          "Physical & brain exercise (US Senior Fitness & Singapore Active Ageing)",
+          "Companionship & technology experience with seniors",
+          "Daily medication reminder messages",
+          "Health status reports to family"
         ]
       }
     ];
-    translated.servicePackages.forEach((item, idx) => {
+
+    translated.healthMonitorPackages.forEach((item, idx) => {
       if (enPackages[idx]) {
         item.name = enPackages[idx].name;
-        item.tag = enPackages[idx].tag;
         item.price = enPackages[idx].price;
-        item.description = enPackages[idx].description;
+        item.unit = enPackages[idx].unit;
+        if (enPackages[idx].dailyPrice) item.dailyPrice = enPackages[idx].dailyPrice;
+        if (enPackages[idx].tag) item.tag = enPackages[idx].tag;
+        item.suitability = enPackages[idx].suitability;
+        item.frequency = enPackages[idx].frequency;
         item.features = enPackages[idx].features;
       }
     });
   }
 
-  // 7. Founder Story
+  // 7. Medical Packages
+  if (translated.medicalPackages) {
+    const enMedPkgs = [
+      "Medical Escort",
+      "Hospital In-Patient Care",
+      "In-Home Sick Care",
+      "Home Safety & Care"
+    ];
+    translated.medicalPackages.forEach((item, idx) => {
+      if (enMedPkgs[idx]) {
+        item.title = enMedPkgs[idx];
+      }
+    });
+  }
+
+  // 8. Founder Story
   if (translated.founderStory) {
     translated.founderStory.title = "Story of ANT — Caring for the Nest";
     translated.founderStory.subtitle = "Dedicated to those who cared for us";
@@ -265,7 +338,7 @@ export const translatePageData = (data, isEn) => {
     translated.founderStory.content = "Just as ants diligently care for their nest, ANTCARE's team of Health Assistants accompanies your parents with patience, affection, and professional expertise every single week.";
   }
 
-  // 8. FAQ
+  // 9. FAQ
   if (translated.faq) {
     const enFaq = [
       {
