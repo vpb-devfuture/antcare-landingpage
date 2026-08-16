@@ -8,6 +8,7 @@ import { getLandingPageData } from '../services/apiService';
 const LandingPage = () => {
   const { t, isEn, tr } = useAppTranslation();
   const [pageData, setPageData] = useState(null);
+  const activePageData = translatePageData(pageData, isEn);
   const [isLoading, setIsLoading] = useState(true);
   const [consultForm, setConsultForm] = useState({ name: '', phone: '', location: '' });
   const [consultError, setConsultError] = useState('');
