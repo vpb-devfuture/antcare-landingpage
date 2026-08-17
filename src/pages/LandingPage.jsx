@@ -26,6 +26,7 @@ const LandingPage = () => {
   };
 
   useEffect(() => {
+    document.title = "Antcare -  Kiến chăm tổ";
     getLandingPageData().then(data => {
       setPageData(data);
       setIsLoading(false);
