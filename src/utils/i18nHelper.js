@@ -125,7 +125,9 @@ export const translatePageData = (data, isEn) => {
         "Daily medication reminders",
         "Door-to-door medical checkup transportation",
         "Pre and post-checkup health monitoring",
-        "Companionship & connecting with family"
+        "Companionship & connecting with family",
+        "Daily housekeeping & living support",
+        "Inspecting & managing home safety hazards for seniors"
       ];
       translated.whyAntcare.comparison.forEach((row, idx) => {
         if (enComparison[idx]) {

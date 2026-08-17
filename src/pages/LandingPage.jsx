@@ -926,7 +926,7 @@ const LandingPage = () => {
     {tr("Sứ mệnh kết nối tình yêu của con cái và sức khỏe của cha mẹ, mang đến sự an tâm tuyệt đối khi khoảng cách địa lý không còn là rào cản.", "Our mission connects children's love with parents' health, bringing complete peace of mind across geographic distance.")}
 </p>
 <p className="text-xs sm:text-sm md:text-[15px] text-plum-deep/95 max-w-xl leading-relaxed font-medium bg-white/40 backdrop-blur-xs p-3.5 sm:p-4 rounded-2xl border border-white/60 shadow-2xs mt-3">
-  <strong>ANTCARE</strong> là dịch vụ chăm sóc và đồng hành cùng người lớn tuổi tại nhà. Mỗi lần Kiến ghé thăm, chúng tôi theo dõi các chỉ số sức khỏe, nhắc uống thuốc, hỗ trợ sinh hoạt và cùng người lớn tuổi thực hiện các bài tập rèn luyện thể chất, trí não, trò chuyện và duy trì những hoạt động phù hợp mỗi ngày.
+  {tr("ANTCARE là dịch vụ chăm sóc và đồng hành cùng người lớn tuổi tại nhà. Mỗi lần Kiến ghé thăm, chúng tôi theo dõi các chỉ số sức khỏe, nhắc uống thuốc, hỗ trợ sinh hoạt và cùng người lớn tuổi thực hiện các bài tập rèn luyện thể chất, trí não, trò chuyện và duy trì những hoạt động phù hợp mỗi ngày.", "ANTCARE provides home care and companionship for seniors. During every visit, we monitor health metrics, remind medication, assist daily living, and guide physical & brain exercises, conversing and maintaining suitable daily activities.")}
 </p>
 </div>
 </div>
@@ -943,7 +943,7 @@ const LandingPage = () => {
 </div>
 <div className="space-y-4 text-on-surface-variant text-sm sm:text-base leading-relaxed font-normal">
 <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-plum-deep mb-3 leading-snug">
-  Câu chuyện của <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ
+  {tr("Câu chuyện của ANT - Kiến chăm tổ", "Story of ANT — Caring for the Nest")}
 </h2>
 <p className="text-justify leading-relaxed">
   {tr("Chúng tôi thấu hiểu nỗi lòng của những người con xa nhà, luôn đau đáu về sức khỏe của cha mẹ. Những dòng tin nhắn hỏi thăm vội vã giữa giờ làm, những lo âu khi không thể trực tiếp đưa bố mẹ đi khám bệnh chính là khởi nguồn cho sứ mệnh của ANTCARE.", "We deeply understand the hearts of children living far away, always caring for their parents' health. Hastily sent text messages during work and anxieties about not escorting parents to medical checkups sparked ANTCARE's mission.")}
