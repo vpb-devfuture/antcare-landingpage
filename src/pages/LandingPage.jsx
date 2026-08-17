@@ -515,7 +515,7 @@ const LandingPage = () => {
                 </div>
                 <div className="text-right shrink-0">
                   <span className="text-base sm:text-lg font-bold text-plum-deep">{pkg.price}</span>
-                  <span className="text-xs opacity-80 text-plum-deep"> đ/tháng</span>
+                  <span className="text-xs opacity-80 text-plum-deep"> {tr("đ/tháng", "VND / month")}</span>
                 </div>
               </div>
 
