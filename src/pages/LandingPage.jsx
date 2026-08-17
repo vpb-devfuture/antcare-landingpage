@@ -415,13 +415,13 @@ const LandingPage = () => {
             ))}
           </tr>
           <tr>
-            <td className="py-3.5 px-4 md:px-5 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Chất lượng &amp; Bảo mật</td>
+            <td className="py-3.5 px-4 md:px-5 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">{tr("Chất lượng & Bảo mật", "Quality & Security")}</td>
             <td className="font-medium text-plum-deep text-center p-0" colSpan="4">
               <div className="grid grid-cols-4 gap-0 w-full h-full">
-                <div className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-left leading-relaxed">Thông tin nhân viên minh bạch, theo dõi qua app &amp; bảo mật</div>
-                <div className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-left leading-relaxed">Thông tin nhân viên minh bạch, theo dõi qua app &amp; bảo mật</div>
-                <div className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-left leading-relaxed">Thông tin nhân viên minh bạch, theo dõi qua app &amp; bảo mật</div>
-                <div className="py-3.5 px-4 md:px-5 text-left leading-relaxed">Thông tin nhân viên minh bạch, theo dõi qua app &amp; bảo mật</div>
+                <div className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-left leading-relaxed">{tr("Thông tin nhân viên minh bạch, theo dõi qua app & bảo mật", "Transparent staff profiles, tracked via app & secure")}</div>
+                <div className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-left leading-relaxed">{tr("Thông tin nhân viên minh bạch, theo dõi qua app & bảo mật", "Transparent staff profiles, tracked via app & secure")}</div>
+                <div className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-left leading-relaxed">{tr("Thông tin nhân viên minh bạch, theo dõi qua app & bảo mật", "Transparent staff profiles, tracked via app & secure")}</div>
+                <div className="py-3.5 px-4 md:px-5 text-left leading-relaxed">{tr("Thông tin nhân viên minh bạch, theo dõi qua app & bảo mật", "Transparent staff profiles, tracked via app & secure")}</div>
               </div>
             </td>
           </tr>
@@ -470,7 +470,7 @@ const LandingPage = () => {
        <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified_user</span>
        <div>
          <span className="text-[11px] uppercase text-primary font-bold tracking-wider block mb-1">Chất lượng &amp; Bảo mật</span>
-         <p className="text-[12px] font-medium text-plum-deep leading-relaxed">Thông tin nhân viên minh bạch, được theo dõi qua app và bảo mật thông tin.</p>
+         <p className="text-[12px] font-medium text-plum-deep leading-relaxed">{tr("Thông tin nhân viên minh bạch, được theo dõi qua app và bảo mật thông tin.", "Transparent staff profiles, tracked via app & secure information.")}</p>
        </div>
     </div>
   </div>
@@ -484,7 +484,7 @@ const LandingPage = () => {
 <section className="bg-plum-deep py-8 md:py-12 text-white scroll-mt-20" id="goi-cham-soc-linh-hoat">
   <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
     <div className="text-center mb-6 reveal">
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-white">Gói Chăm sóc Linh hoạt</h2>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-white">{tr("Gói Chăm sóc Linh hoạt", "Flexible Care Packages")}</h2>
     </div>
 
     <div className="grid md:grid-cols-2 gap-5 lg:gap-8 items-stretch">
@@ -494,7 +494,7 @@ const LandingPage = () => {
           <div className="w-8 h-8 bg-earth-orange-bright rounded-full flex items-center justify-center shrink-0 shadow-md">
             <span className="material-symbols-outlined text-white text-lg">health_and_safety</span>
           </div>
-          <h3 className="text-lg font-bold text-white">Gói Trợ lý Sức khỏe</h3>
+          <h3 className="text-lg font-bold text-white">{tr("Gói Trợ lý Sức khỏe", "Health Assistant Packages")}</h3>
         </div>
 
         {/* Sleek Tier Cards */}
@@ -544,23 +544,23 @@ const LandingPage = () => {
           <ul className="space-y-1.5 text-xs sm:text-sm text-plum-deep">
             <li className="flex items-start gap-2 leading-relaxed">
               <span className="material-symbols-outlined text-earth-orange-bright text-[16px] shrink-0 mt-0.5">check_circle</span>
-              <span><strong>Thăm nhà &amp; Kiểm tra chỉ số sinh tồn:</strong> Huyết áp, nhịp tim, nhiệt độ, SpO2 <em>(Riêng gói Yêu Thương bổ sung kiểm tra Đường huyết)</em>.</span>
+              <span>{tr("Thăm nhà & Kiểm tra chỉ số sinh tồn: Huyết áp, nhịp tim, nhiệt độ, SpO2 (Riêng gói Yêu Thương bổ sung kiểm tra Đường huyết).", "Home Visit & Vital Check: BP, heart rate, temp, SpO2 (Devotion Package includes Blood Sugar check).")}</span>
             </li>
             <li className="flex items-start gap-2 leading-relaxed">
               <span className="material-symbols-outlined text-earth-orange-bright text-[16px] shrink-0 mt-0.5">check_circle</span>
-              <span><strong>Bài tập thể chất &amp; trí não:</strong> Theo đúng chuẩn Senior Fitness (Mỹ) &amp; Active Ageing (Singapore).</span>
+              <span>{tr("Bài tập thể chất & trí não: Theo đúng chuẩn Senior Fitness (Mỹ) & Active Ageing (Singapore).", "Physical & Brain Exercise: Adopting US Senior Fitness & Singapore Active Ageing standards.")}</span>
             </li>
             <li className="flex items-start gap-2 leading-relaxed">
               <span className="material-symbols-outlined text-earth-orange-bright text-[16px] shrink-0 mt-0.5">check_circle</span>
-              <span><strong>Tâm sự &amp; trải nghiệm công nghệ mới</strong> cùng ông bà.</span>
+              <span>{tr("Tâm sự & trải nghiệm công nghệ mới cùng ông bà.", "Companionship & new technology experiences with seniors.")}</span>
             </li>
             <li className="flex items-start gap-2 leading-relaxed">
               <span className="material-symbols-outlined text-earth-orange-bright text-[16px] shrink-0 mt-0.5">check_circle</span>
-              <span><strong>Nhắn tin nhắc nhở uống thuốc</strong> mỗi ngày.</span>
+              <span>{tr("Nhắn tin nhắc nhở uống thuốc mỗi ngày.", "Daily medication reminders.")}</span>
             </li>
             <li className="flex items-start gap-2 leading-relaxed">
               <span className="material-symbols-outlined text-earth-orange-bright text-[16px] shrink-0 mt-0.5">check_circle</span>
-              <span><strong>Báo cáo &amp; gửi thông tin cập nhật</strong> cho gia đình.</span>
+              <span>{tr("Báo cáo & gửi thông tin cập nhật cho gia đình.", "Reports & updates to family.")}</span>
             </li>
           </ul>
         </div>
@@ -572,11 +572,11 @@ const LandingPage = () => {
           <div className="w-8 h-8 bg-earth-orange-bright rounded-full flex items-center justify-center shrink-0 shadow-md">
             <span className="material-symbols-outlined text-white text-lg">medical_services</span>
           </div>
-          <h3 className="text-lg font-bold text-white">Gói Dịch vụ Y tế</h3>
+          <h3 className="text-lg font-bold text-white">{tr("Gói Dịch vụ Y tế", "Medical Care Packages")}</h3>
         </div>
 
         <div className="bg-white/10 rounded-2xl border border-white/15 p-4 sm:p-5 flex flex-col justify-between flex-grow shadow-md">
-          <p className="text-xs sm:text-sm text-white/90 mb-3 font-medium">Bao gồm các dịch vụ chuyên sâu hỗ trợ sức khỏe toàn diện:</p>
+          <p className="text-xs sm:text-sm text-white/90 mb-3 font-medium">{tr("Bao gồm các dịch vụ chuyên sâu hỗ trợ sức khỏe toàn diện:", "Includes specialized healthcare services:")}</p>
           
           <div className="grid grid-cols-2 gap-3 mb-4">
             {activePageData?.medicalPackages.map(medPkg => (
@@ -588,7 +588,7 @@ const LandingPage = () => {
           </div>
 
           <div className="mt-auto pt-1">
-            <p className="text-xs italic opacity-80 mb-3 text-center">Chi tiết giá vui lòng tham khảo {tr("Bảng giá dịch vụ", "Service Pricing")} chi tiết bên dưới.</p>
+            <p className="text-xs italic opacity-80 mb-3 text-center">{tr("Chi tiết giá vui lòng tham khảo Bảng giá dịch vụ chi tiết bên dưới.", "For detailed pricing, please refer to the Service Pricing section below.")}</p>
             <a 
               href="#bang-gia-chi-tiet"
               onClick={(e) => {
@@ -653,7 +653,7 @@ const LandingPage = () => {
             </tr>
             <tr className="border-b-2 border-surface-lavender/80 hover:bg-surface-mist/50 transition-colors">
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Trọn gói chăm sóc", "Full Care Bundle")}</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">4 ca nhà cửa + 4 ca Sức khỏe</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("4 ca nhà cửa + 4 ca Sức khỏe", "4 Home sessions + 4 Health sessions")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right text-on-surface-variant/40">—</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">3.750.000</td>
             </tr>
@@ -664,19 +664,19 @@ const LandingPage = () => {
                 {tr("Gói Đồng Hành Khám Bệnh", "Hospital Companionship Package")}
               </td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Khám bệnh (≤ 4 giờ)", "Medical Checkup (≤ 4 hrs)")}</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">4 giờ</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("4 giờ", "4 hours")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">490.000</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">490.000</td>
             </tr>
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Khám bệnh (≤ 6 giờ)", "Medical Checkup (≤ 6 hrs)")}</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">6 giờ</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("6 giờ", "6 hours")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">690.000</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">600.000</td>
             </tr>
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Khám bệnh (≤ 8 giờ)", "Medical Checkup (≤ 8 hrs)")}</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">8 giờ</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("8 giờ", "8 hours")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">790.000</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">690.000</td>
             </tr>
@@ -759,7 +759,7 @@ const LandingPage = () => {
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
               <div>
                 <span className="font-bold text-plum-deep block">{tr("Khám bệnh (≤ 4 giờ)", "Medical Checkup (≤ 4 hrs)")}</span>
-                <span className="text-[11px] text-on-surface-variant">4 giờ</span>
+                <span className="text-[11px] text-on-surface-variant">{tr("4 giờ", "4 hours")}</span>
               </div>
               <div className="text-right">
                 <span className="font-bold text-earth-orange-bright">490.000đ</span>
@@ -768,7 +768,7 @@ const LandingPage = () => {
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
               <div>
                 <span className="font-bold text-plum-deep block">{tr("Khám bệnh (≤ 6 giờ)", "Medical Checkup (≤ 6 hrs)")}</span>
-                <span className="text-[11px] text-on-surface-variant">6 giờ</span>
+                <span className="text-[11px] text-on-surface-variant">{tr("6 giờ", "6 hours")}</span>
               </div>
               <div className="text-right">
                 <span className="text-[11px] text-on-surface-variant line-through block">690.000đ</span>
@@ -778,7 +778,7 @@ const LandingPage = () => {
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
               <div>
                 <span className="font-bold text-plum-deep block">{tr("Khám bệnh (≤ 8 giờ)", "Medical Checkup (≤ 8 hrs)")}</span>
-                <span className="text-[11px] text-on-surface-variant">8 giờ</span>
+                <span className="text-[11px] text-on-surface-variant">{tr("8 giờ", "8 hours")}</span>
               </div>
               <div className="text-right">
                 <span className="text-[11px] text-on-surface-variant line-through block">790.000đ</span>
@@ -816,7 +816,7 @@ const LandingPage = () => {
         </div>
       </div>
     </div>
-    <p className="mt-4 text-xs text-on-surface-variant italic text-center">* Lưu ý: Trường hợp có sử dụng nhân viên biết tiếng Anh tính thêm phí theo thỏa thuận</p>
+    <p className="mt-4 text-xs text-on-surface-variant italic text-center">{tr("* Lưu ý: Trường hợp có sử dụng nhân viên biết tiếng Anh tính thêm phí theo thỏa thuận", "* Note: Extra fee applies if bilingual English staff is requested.")}</p>
   </div>
 </section>
 {/*  Connect Sections ({tr("Dành cho khách hàng", "For Customers")})  */}
@@ -826,8 +826,8 @@ const LandingPage = () => {
 <div className="md:w-1/2 space-y-5">
 <h3 className="text-primary font-bold text-lg md:text-2xl mb-1">{tr("Kết nối cùng chúng tôi", "Connect With Us")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ</h3>
 <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-1 bg-earth-orange-bright text-white"><span className="material-symbols-outlined text-[16px]">person</span> {tr("Dành cho khách hàng", "For Customers")}</div>
-<h2 className="font-bold text-plum-deep leading-tight text-xl md:text-2xl lg:text-3xl"><span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ luôn sẵn sàng đồng hành cùng để giữ trọn {t("hero.title3")}</h2>
-<p className="text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">Hãy chia sẻ cùng <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ bạn nhé, bạn muốn gọi điện thoại ngay qua hotline <a className="text-earth-orange-bright font-bold hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a> hay để lại thông tin liên hệ.</p>
+<h2 className="font-bold text-plum-deep leading-tight text-xl md:text-2xl lg:text-3xl">{tr("ANT - Kiến chăm tổ luôn sẵn sàng đồng hành cùng để giữ trọn yêu thương thay bạn", "ANT - Nest Care is always ready to accompany you to preserve love on your behalf")}</h2>
+<p className="text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">{tr("Hãy chia sẻ cùng ANT - Kiến chăm tổ bạn nhé, bạn muốn gọi điện thoại ngay qua hotline 0969 032 360 hay để lại thông tin liên hệ.", "Please share with ANTCARE, feel free to call our hotline 0969 032 360 directly or leave your contact details below.")}</p>
 <div className="space-y-3 pt-2">
 <div className="flex items-center gap-3">
 <div className="w-9 h-9 rounded-full bg-earth-orange-bright/10 flex items-center justify-center shrink-0"><span className="material-symbols-outlined text-earth-orange-bright text-lg">schedule</span></div>
@@ -900,7 +900,7 @@ const LandingPage = () => {
 {consultSuccess && (
   <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs sm:text-sm font-semibold p-3 rounded-xl flex items-center gap-2 shadow-sm">
     <span className="material-symbols-outlined text-sm shrink-0 text-emerald-600">check_circle</span>
-    <span>Cảm ơn bạn! ANTCARE đã ghi nhận và sẽ liên hệ lại trong 4 tiếng.</span>
+    <span>{tr("Cảm ơn bạn! ANTCARE đã ghi nhận và sẽ liên hệ lại trong 4 tiếng.", "Thank you! ANTCARE has received your request and will contact you within 4 hours.")}</span>
   </div>
 )}
 
@@ -923,7 +923,7 @@ const LandingPage = () => {
 <span className="inline-block px-3.5 py-1 bg-earth-orange-bright text-white font-bold text-xs sm:text-sm mb-3.5 shadow-md rounded-full">{tr("Câu chuyện của chúng tôi", "Our Story")}</span>
 <h1 className="text-2xl md:text-3xl lg:text-4xl mb-3 leading-snug font-bold text-plum-light drop-shadow-sm">{tr("Tâm nguyện từ trái tim", "A Wish From The Heart")}</h1>
 <p className="text-xs sm:text-sm md:text-base text-plum-deep/90 max-w-lg leading-relaxed font-semibold mb-3">
-    Sứ mệnh kết nối tình yêu của con cái và sức khỏe của cha mẹ, mang đến sự an tâm tuyệt đối khi khoảng cách địa lý không còn là rào cản.
+    {tr("Sứ mệnh kết nối tình yêu của con cái và sức khỏe của cha mẹ, mang đến sự an tâm tuyệt đối khi khoảng cách địa lý không còn là rào cản.", "Our mission connects children's love with parents' health, bringing complete peace of mind across geographic distance.")}
 </p>
 <p className="text-xs sm:text-sm md:text-[15px] text-plum-deep/95 max-w-xl leading-relaxed font-medium bg-white/40 backdrop-blur-xs p-3.5 sm:p-4 rounded-2xl border border-white/60 shadow-2xs mt-3">
   <strong>ANTCARE</strong> là dịch vụ chăm sóc và đồng hành cùng người lớn tuổi tại nhà. Mỗi lần Kiến ghé thăm, chúng tôi theo dõi các chỉ số sức khỏe, nhắc uống thuốc, hỗ trợ sinh hoạt và cùng người lớn tuổi thực hiện các bài tập rèn luyện thể chất, trí não, trò chuyện và duy trì những hoạt động phù hợp mỗi ngày.
@@ -946,18 +946,18 @@ const LandingPage = () => {
   Câu chuyện của <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ
 </h2>
 <p className="text-justify leading-relaxed">
-  Chúng tôi thấu hiểu nỗi lòng của những người con xa nhà, luôn đau đáu về sức khỏe của cha mẹ. Những dòng tin nhắn hỏi thăm vội vã giữa giờ làm, những lo âu khi không thể trực tiếp đưa bố mẹ đi khám bệnh chính là khởi nguồn cho sứ mệnh của <span className="text-primary font-bold">AN</span><span className="text-earth-orange-bright font-bold">T</span> - Kiến chăm tổ.
+  {tr("Chúng tôi thấu hiểu nỗi lòng của những người con xa nhà, luôn đau đáu về sức khỏe của cha mẹ. Những dòng tin nhắn hỏi thăm vội vã giữa giờ làm, những lo âu khi không thể trực tiếp đưa bố mẹ đi khám bệnh chính là khởi nguồn cho sứ mệnh của ANTCARE.", "We deeply understand the hearts of children living far away, always caring for their parents' health. Hastily sent text messages during work and anxieties about not escorting parents to medical checkups sparked ANTCARE's mission.")}
 </p>
 <p className="text-justify leading-relaxed">
-  Có những lúc cha mẹ ốm đau nhưng chẳng nỡ gọi con vì sợ con lo, sợ con bận. Có những khi người con ngồi giữa văn phòng hiện đại nhưng lòng quặn thắt vì không thể tự tay đưa cha mẹ đi khám bệnh định kỳ.
+  {tr("Có những lúc cha mẹ ốm đau nhưng chẳng nỡ gọi con vì sợ con lo, sợ con bận. Có những khi người con ngồi giữa văn phòng hiện đại nhưng lòng quặn thắt vì không thể tự tay đưa cha mẹ đi khám bệnh định kỳ.", "Sometimes parents fall ill but hesitate to call their children out of worry. Sometimes children sit in modern offices, aching at heart for not being able to take their parents for checkups.")}
 </p>
 <div className="bg-white/90 p-4 sm:p-5 rounded-2xl border-l-4 border-earth-orange-bright shadow-xs my-3">
   <p className="italic text-plum-deep font-semibold text-sm sm:text-base md:text-[16.5px] leading-relaxed">
-    "Sự cô đơn của tuổi già và nỗi trăn trở của những người con xa xứ chính là nguồn cảm hứng để <span className="text-primary font-extrabold">AN</span><span className="text-earth-orange-bright font-extrabold">T</span> - Kiến chăm tổ ra đời."
+    "{tr("Sự cô đơn của tuổi già và nỗi trăn trở của những người con xa xứ chính là nguồn cảm hứng để ANTCARE ra đời.", "Old age loneliness and concerns of children living abroad inspired the creation of ANTCARE.")}"
   </p>
 </div>
 <p className="text-justify text-xs sm:text-sm md:text-base opacity-95 leading-relaxed">
-  Tại sao lại là ANT? Hình ảnh kiến thường gợi tới tính chất bầy đàn, luôn chăm chút về tổ. Do vậy, chúng tôi liên kết những 'bạn kiến' tận tâm thành một tổ kiến rộng lớn, để lan tỏa yêu thương và sự chăm sóc chu đáo đến từng gia đình Việt.
+  {tr("Tại sao lại là ANT? Hình ảnh kiến thường gợi tới tính chất bầy đàn, luôn chăm chút về tổ. Do vậy, chúng tôi liên kết những 'bạn kiến' tận tâm thành một tổ kiến rộng lớn, để lan tỏa yêu thương và sự chăm sóc chu đáo đến từng gia đình Việt.", "Why ANT? Ants signify diligence and caring for the nest. Thus, we connect dedicated Health Assistants into a large nest to spread love and thoughtful care to every family.")}
 </p>
 </div>
 </div>
@@ -974,33 +974,33 @@ const LandingPage = () => {
 <span className="material-symbols-outlined text-[18px]">stars</span> Core Values
 </div>
 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-plum-deep mb-2">{tr("Quy trình hoạt động của", "Operation Process of")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span></h2>
-<p className="text-on-surface-variant text-xs sm:text-sm md:text-base">Mọi hoạt động tại <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ đều được xây dựng trên nền tảng của sự chân thành và tiêu chuẩn y tế khắt khe.</p>
+<p className="text-on-surface-variant text-xs sm:text-sm md:text-base">{tr("Mọi hoạt động tại ANTCARE đều được xây dựng trên nền tảng của sự chân thành và tiêu chuẩn y tế khắt khe.", "All activities at ANTCARE are built on sincerity and rigorous medical standards.")}</p>
 </div>
 <div className="w-full space-y-6">
 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 relative">
 <div className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 bg-white/90 hover:bg-white rounded-2xl border border-surface-lavender/80 shadow-2xs hover:shadow-md transition-all duration-300 group min-h-[110px]">
-  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">Bước 01</span>
-  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">Khách hàng liên hệ</p>
+  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">{tr("Bước 01", "Step 01")}</span>
+  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">{tr("Khách hàng liên hệ", "Client Contact")}</p>
 </div>
 <div className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 bg-white/90 hover:bg-white rounded-2xl border border-surface-lavender/80 shadow-2xs hover:shadow-md transition-all duration-300 group min-h-[110px]">
-  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">Bước 02</span>
-  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug"><span className="text-primary font-medium">AN</span><span className="text-earth-orange-bright font-medium">T</span> kết nối</p>
+  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">{tr("Bước 02", "Step 02")}</span>
+  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">{tr("ANT kết nối", "ANT Connection")}</p>
 </div>
 <div className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 bg-white/90 hover:bg-white rounded-2xl border border-surface-lavender/80 shadow-2xs hover:shadow-md transition-all duration-300 group min-h-[110px]">
-  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">Bước 03</span>
-  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">Khách hàng đặt cọc dịch vụ, <span className="text-primary font-medium">AN</span><span className="text-earth-orange-bright font-medium">T</span> giữ thanh toán</p>
+  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">{tr("Bước 03", "Step 03")}</span>
+  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">{tr("Khách hàng đặt cọc dịch vụ, ANT giữ thanh toán", "Client Deposit & Payment Escrow")}</p>
 </div>
 <div className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 bg-earth-orange-bright/5 hover:bg-earth-orange-bright/10 rounded-2xl border border-earth-orange-bright/30 shadow-2xs hover:shadow-md transition-all duration-300 group min-h-[110px]">
-  <span className="text-[11px] font-bold text-earth-orange-bright tracking-widest uppercase mb-1.5">Bước 04</span>
-  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug"><span className="text-earth-orange-bright font-medium">Kiến</span> chăm sóc</p>
+  <span className="text-[11px] font-bold text-earth-orange-bright tracking-widest uppercase mb-1.5">{tr("Bước 04", "Step 04")}</span>
+  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">{tr("Kiến chăm sóc", "Health Assistant Care Visit")}</p>
 </div>
 <div className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 bg-white/90 hover:bg-white rounded-2xl border border-surface-lavender/80 shadow-2xs hover:shadow-md transition-all duration-300 group min-h-[110px]">
-  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">Bước 05</span>
-  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">Khách hàng đánh giá</p>
+  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">{tr("Bước 05", "Step 05")}</span>
+  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">{tr("Khách hàng đánh giá", "Client Feedback")}</p>
 </div>
 <div className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 bg-white/90 hover:bg-white rounded-2xl border border-surface-lavender/80 shadow-2xs hover:shadow-md transition-all duration-300 group min-h-[110px]">
-  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">Bước 06</span>
-  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug"><span className="text-primary font-medium">AN</span><span className="text-earth-orange-bright font-medium">T</span> thanh toán cho <span className="text-earth-orange-bright font-medium">Kiến</span></p>
+  <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">{tr("Bước 06", "Step 06")}</span>
+  <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">{tr("ANT thanh toán cho Kiến", "Payment Settlement to Assistant")}</p>
 </div>
 </div>
 </div>
