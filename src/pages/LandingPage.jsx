@@ -1041,7 +1041,7 @@ const LandingPage = () => {
 <span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">location_on</span>
 <div>
 <p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Địa chỉ", "Address")}</p>
-<p className="font-bold text-plum-deep leading-relaxed">{tr("Tầng 12, Tòa nhà Innovation, Công viên phần mềm Quang Trung, Quận 12, TP. Hồ Chí Minh", "12th Floor, Innovation Building, Quang Trung Software City, District 12, Ho Chi Minh City")}</p>
+<p className="font-bold text-plum-deep leading-relaxed">{tr("Tòa Rox Tower, 138 Hồ Tùng Mậu, Phú Diễn, Hà Nội", "Rox Tower Building, 138 Ho Tung Mau, Phu Dien, Ha Noi")}</p>
 </div>
 </div>
 </div>

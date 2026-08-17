@@ -51,15 +51,15 @@ const Footer = () => {
           <p className="text-xs sm:text-sm text-white/75 leading-relaxed">
             {isEn ? (
               <>
-                12th Floor, Innovation Building,<br />
-                Quang Trung Software City,<br />
-                District 12, Ho Chi Minh City
+                Rox Tower Building,<br />
+                138 Ho Tung Mau, Phu Dien,<br />
+                Ha Noi
               </>
             ) : (
               <>
-                Tầng 12, Tòa nhà Innovation,<br />
-                Công viên phần mềm Quang Trung,<br />
-                Quận 12, TP. Hồ Chí Minh
+                Tòa Rox Tower,<br />
+                138 Hồ Tùng Mậu, Phú Diễn,<br />
+                Hà Nội
               </>
             )}
           </p>
