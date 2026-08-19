@@ -19,77 +19,6 @@ const Footer = () => {
           <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-normal italic">
             "{isEn ? 'You can\'t always be with your family, ANT will always be there to preserve love for you' : 'Bạn không thể ở bên gia đình mọi lúc mọi nơi, Kiến sẽ luôn ở bên để giữ trọn yêu thương cùng bạn'}"
           </p>
-          <div className="pt-1">
-            <span className="text-[11px] uppercase tracking-wider text-white/60 font-semibold block mb-2">
-              {isEn ? 'Social Channels' : 'Kênh truyền thông'}
-            </span>
-            <div className="flex items-center gap-2.5 flex-wrap">
-              {/* Facebook Fanpage */}
-              <a 
-                className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white/90 hover:bg-[#1877F2] hover:border-[#1877F2] hover:scale-110 transition-all duration-300 shadow-xs" 
-                href={siteInfo.facebookPage} 
-                target="_blank" 
-                rel="noreferrer" 
-                title="Fanpage Facebook ANTCARE"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-
-              {/* TikTok */}
-              <a 
-                className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white/90 hover:bg-black hover:border-white/40 hover:scale-110 transition-all duration-300 shadow-xs" 
-                href={siteInfo.tiktok} 
-                target="_blank" 
-                rel="noreferrer" 
-                title="Kênh TikTok ANTCARE"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V5.86a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 12a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.54V6.78a4.85 4.85 0 0 1-1.27-.09z"/>
-                </svg>
-              </a>
-
-              {/* YouTube */}
-              <a 
-                className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white/90 hover:bg-[#FF0000] hover:border-[#FF0000] hover:scale-110 transition-all duration-300 shadow-xs" 
-                href={siteInfo.youtube} 
-                target="_blank" 
-                rel="noreferrer" 
-                title="Kênh YouTube ANTCARE"
-              >
-                <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </a>
-
-              {/* Zalo */}
-              <a 
-                className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white/90 hover:bg-[#0068FF] hover:border-[#0068FF] hover:scale-110 transition-all duration-300 shadow-xs" 
-                href={siteInfo.zalo} 
-                target="_blank" 
-                rel="noreferrer" 
-                title="Tư vấn qua Zalo"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2C6.477 2 2 6.075 2 11.1c0 2.875 1.45 5.438 3.738 7.15A.75.75 0 0 1 6 18.84v2.41a.75.75 0 0 0 1.2.6l2.75-2.06a.75.75 0 0 1 .45-.15c.53.05 1.06.08 1.6.08 5.523 0 10-4.075 10-9.1S17.523 2 12 2zm-4.75 6.5h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1 0-1.5zm0 3h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5zm0 3h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1 0-1.5z"/>
-                </svg>
-              </a>
-
-              {/* Messenger */}
-              <a 
-                className="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white/90 hover:bg-[#0084FF] hover:border-[#0084FF] hover:scale-110 transition-all duration-300 shadow-xs" 
-                href={siteInfo.facebook} 
-                target="_blank" 
-                rel="noreferrer" 
-                title="Chat qua Messenger"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.91 1.442 5.508 3.705 7.214.195.147.315.378.315.62v2.302c0 .484.526.786.945.544l2.584-1.492c.162-.093.351-.129.535-.1 1.25.203 2.535.312 3.916.312 5.523 0 10-4.145 10-9.258S17.523 2 12 2zm1.093 12.146l-2.613-2.787a.75.75 0 0 0-1.077 0l-3.52 3.753c-.352.376-.891-.07-.63-.526l3.96-6.91a.75.75 0 0 1 1.077 0l2.613 2.787a.75.75 0 0 0 1.077 0l3.52-3.753c.352-.376.891.07.63.526l-3.96 6.91a.75.75 0 0 1-1.077 0z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
         </div>
 
         <div className="space-y-3">
@@ -132,6 +61,88 @@ const Footer = () => {
           <p className="font-bold text-earth-orange-bright text-xs sm:text-sm pt-0.5">
             Hotline: <a href={`tel:${siteInfo.hotline.replace(/ /g, "")}`} className="hover:underline">{siteInfo.hotline}</a>
           </p>
+        </div>
+      </div>
+
+      {/* Prominent Centered Social Media Section */}
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 my-5 pt-6 border-t border-white/10">
+        <div className="flex flex-col items-center justify-center text-center space-y-3">
+          <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-earth-orange-bright flex items-center gap-2">
+            <span className="material-symbols-outlined text-lg">share</span>
+            {isEn ? 'Official Social Channels' : 'Kênh Truyền Thông Chính Thức'}
+          </span>
+          <p className="text-xs text-white/70 max-w-md">
+            {isEn 
+              ? 'Follow ANTCARE on social platforms to update latest senior healthcare news and tips'
+              : 'Theo dõi ANTCARE trên các nền tảng mạng xã hội để cập nhật tin tức và kiến thức chăm sóc người cao tuổi mới nhất'
+            }
+          </p>
+          <div className="flex items-center justify-center gap-3.5 pt-1 flex-wrap">
+            {/* Facebook Fanpage */}
+            <a 
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/90 hover:bg-[#1877F2] hover:border-[#1877F2] hover:scale-110 transition-all duration-300 shadow-md group" 
+              href={siteInfo.facebookPage} 
+              target="_blank" 
+              rel="noreferrer" 
+              title="Fanpage Facebook ANTCARE"
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+
+            {/* TikTok */}
+            <a 
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/90 hover:bg-black hover:border-white/50 hover:scale-110 transition-all duration-300 shadow-md group" 
+              href={siteInfo.tiktok} 
+              target="_blank" 
+              rel="noreferrer" 
+              title="Kênh TikTok ANTCARE"
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V5.86a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 12a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.54V6.78a4.85 4.85 0 0 1-1.27-.09z"/>
+              </svg>
+            </a>
+
+            {/* YouTube */}
+            <a 
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/90 hover:bg-[#FF0000] hover:border-[#FF0000] hover:scale-110 transition-all duration-300 shadow-md group" 
+              href={siteInfo.youtube} 
+              target="_blank" 
+              rel="noreferrer" 
+              title="Kênh YouTube ANTCARE"
+            >
+              <svg className="w-5.5 h-5.5 fill-current" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+
+            {/* Zalo */}
+            <a 
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/90 hover:bg-[#0068FF] hover:border-[#0068FF] hover:scale-110 transition-all duration-300 shadow-md group" 
+              href={siteInfo.zalo} 
+              target="_blank" 
+              rel="noreferrer" 
+              title="Tư vấn qua Zalo"
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.075 2 11.1c0 2.875 1.45 5.438 3.738 7.15A.75.75 0 0 1 6 18.84v2.41a.75.75 0 0 0 1.2.6l2.75-2.06a.75.75 0 0 1 .45-.15c.53.05 1.06.08 1.6.08 5.523 0 10-4.075 10-9.1S17.523 2 12 2zm-4.75 6.5h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1 0-1.5zm0 3h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5zm0 3h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1 0-1.5z"/>
+              </svg>
+            </a>
+
+            {/* Messenger */}
+            <a 
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/90 hover:bg-[#0084FF] hover:border-[#0084FF] hover:scale-110 transition-all duration-300 shadow-md group" 
+              href={siteInfo.facebook} 
+              target="_blank" 
+              rel="noreferrer" 
+              title="Chat qua Messenger"
+            >
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.91 1.442 5.508 3.705 7.214.195.147.315.378.315.62v2.302c0 .484.526.786.945.544l2.584-1.492c.162-.093.351-.129.535-.1 1.25.203 2.535.312 3.916.312 5.523 0 10-4.145 10-9.258S17.523 2 12 2zm1.093 12.146l-2.613-2.787a.75.75 0 0 0-1.077 0l-3.52 3.753c-.352.376-.891-.07-.63-.526l3.96-6.91a.75.75 0 0 1 1.077 0l2.613 2.787a.75.75 0 0 0 1.077 0l3.52-3.753c.352-.376.891.07.63.526l-3.96 6.91a.75.75 0 0 1-1.077 0z"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 
