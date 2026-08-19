@@ -39,8 +39,21 @@ const NewsDetail = () => {
         document.head.appendChild(metaDesc);
       }
       metaDesc.content = article.description || '';
+
+      // Update Open Graph tags for Facebook & Zalo sharing preview
+      let ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.content = `${cleanTitle} | ANTCARE`;
+
+      let ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.content = article.description || '';
+
+      let ogImg = document.querySelector('meta[property="og:image"]');
+      if (ogImg && article.image) {
+        const fullImgUrl = article.image.startsWith('http') ? article.image : `https://antcare-landingpage.vercel.app${article.image}`;
+        ogImg.content = fullImgUrl;
+      }
     }
-  }, [article?.id, article?.title, article?.description]);
+  }, [article?.id, article?.title, article?.description, article?.image]);
 
   // Ensure all images inside article content have SEO-optimized ALT attributes
   useEffect(() => {
