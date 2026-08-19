@@ -23,6 +23,9 @@ const LandingPage = () => {
     }
     setConsultError('');
     setConsultSuccess(true);
+    if (window.fbq) {
+      window.fbq('track', 'Lead');
+    }
   };
 
   useEffect(() => {
