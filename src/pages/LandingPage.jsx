@@ -273,7 +273,7 @@ const LandingPage = () => {
               <table className="w-full text-left border-collapse min-w-[540px]">
                 <thead>
                   <tr className="border-b border-slate-200">
-                    <th className="pb-2.5 text-xs sm:text-sm font-semibold text-slate-600 w-[54%] px-2">{tr("Với 60 phút/ buổi đồng hành cùng ông bà, Kiến sẽ:", "With 60 mins/session accompanying grandparents, ANT will:")}</th>
+                    <th className="pb-2.5 text-xs sm:text-sm font-bold text-red-600 w-[54%] px-2">{tr("Với 60 phút/ buổi đồng hành cùng ông bà, Kiến sẽ hỗ trợ:", "With 60 mins/session accompanying grandparents, ANT will support:")}</th>
                     <th className="pb-2.5 text-center text-xs sm:text-sm font-extrabold text-[#68259E] uppercase tracking-wider w-[23%] px-3">
                       <span className="px-3 py-1 bg-[#68259E]/10 rounded-full inline-block">ANTCARE</span>
                     </th>
