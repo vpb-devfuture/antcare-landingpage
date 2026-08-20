@@ -238,7 +238,7 @@ const LandingPage = () => {
 </section>
 {/*  3. Expert Section (Góc nhìn Chuyên gia)  */}
 
-{/*  3.5. Why Antcare Section (Tại sao là Antcare ?)  */}
+{/*  3.5. Why Antcare Section (Tại sao chọn Antcare ?)  */}
 <section className="py-10 md:py-16 bg-[#F9F6F3] relative overflow-hidden" id="tai-sao-la-antcare">
   <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
     <div className="w-full bg-white/95 backdrop-blur-md rounded-3xl border border-plum-deep/10 shadow-xl p-6 sm:p-8 lg:p-10 reveal">
@@ -249,7 +249,7 @@ const LandingPage = () => {
           {/* Title & Sparkle Heart Icon */}
           <div className="flex items-center gap-2.5 mb-2">
             <h2 className="font-bold text-[#32133B] text-2xl sm:text-3xl md:text-[34px] tracking-tight">
-              {tr("Tại sao là", "Why Choose")}{" "}
+              {tr("Tại sao chọn", "Why Choose")}{" "}
               <span className="text-[#68259E] font-extrabold">AN</span>
               <span className="text-[#E86A17] font-extrabold">T</span>
               <span className="text-[#68259E] font-extrabold">CARE</span> ?
