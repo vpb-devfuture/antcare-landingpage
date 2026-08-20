@@ -12,6 +12,23 @@ const TopNavBar = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavClick = (e, path) => {
+    if (path && path.includes('#')) {
+      const [basePath, hashPart] = path.split('#');
+      const targetHash = `#${hashPart}`;
+      const currentPath = window.location.pathname;
+
+      if ((basePath === '/' || basePath === '') && currentPath === '/') {
+        const targetElement = document.querySelector(targetHash);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', path);
+        }
+      }
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-plum-deep/5 text-plum-deep transition-all duration-300">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 w-full">
@@ -34,13 +51,25 @@ const TopNavBar = () => {
                 <div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-2xl shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
                   <div className="flex flex-col py-2">
                     {item.children.map(child => (
-                      <a key={child.id} className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" href={child.path} dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} />
+                      <a 
+                        key={child.id} 
+                        className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" 
+                        href={child.path} 
+                        onClick={(e) => handleNavClick(e, child.path)}
+                        dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} 
+                      />
                     ))}
                   </div>
                 </div>
               </div>
             ) : (
-              <a key={item.id} className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium" href={item.path} dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} />
+              <a 
+                key={item.id} 
+                className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium" 
+                href={item.path} 
+                onClick={(e) => handleNavClick(e, item.path)}
+                dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} 
+              />
             ))}
           </div>
 
@@ -84,11 +113,22 @@ const TopNavBar = () => {
           <div className="flex flex-col py-2">
             {menu.map(item => (
               <div key={item.id} className="flex flex-col">
-                <a className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" href={item.path} dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} onClick={() => setIsMobileMenuOpen(false)} />
+                <a 
+                  className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" 
+                  href={item.path} 
+                  dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} 
+                  onClick={(e) => { handleNavClick(e, item.path); setIsMobileMenuOpen(false); }} 
+                />
                 {item.children && (
                   <div className="flex flex-col bg-surface-lavender/30 pl-4">
                     {item.children.map(child => (
-                      <a key={child.id} className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30" href={child.path} dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} onClick={() => setIsMobileMenuOpen(false)} />
+                      <a 
+                        key={child.id} 
+                        className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30" 
+                        href={child.path} 
+                        dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} 
+                        onClick={(e) => { handleNavClick(e, child.path); setIsMobileMenuOpen(false); }} 
+                      />
                     ))}
                   </div>
                 )}
