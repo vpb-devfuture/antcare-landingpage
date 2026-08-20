@@ -22,7 +22,7 @@ const Recruitment = () => {
     setPartnerError('');
     setPartnerSubmitted(true);
 
-    trackEvent('generate_lead', {
+    trackEvent('recruitment_lead', {
       form_name: 'recruitment_partner',
       customer_name: partnerForm.name,
       customer_phone: partnerForm.phone,

@@ -34,6 +34,8 @@ export const trackEvent = (eventName, eventParams = {}) => {
   if (window.fbq) {
     if (eventName === 'generate_lead') {
       window.fbq('track', 'Lead', eventParams);
+    } else if (eventName === 'recruitment_lead') {
+      window.fbq('trackCustom', 'RecruitmentLead', eventParams);
     } else if (eventName === 'click_hotline') {
       window.fbq('trackCustom', 'ClickHotline', eventParams);
     } else if (eventName === 'click_zalo') {
