@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Rellax from 'rellax';
 import siteInfo from '../config/siteInfo.json';
 import { getLandingPageData } from '../services/apiService';
+import { trackEvent } from '../utils/analytics';
 
 const LandingPage = () => {
   const { t, isEn, tr } = useAppTranslation();
@@ -13,8 +14,9 @@ const LandingPage = () => {
   const [consultForm, setConsultForm] = useState({ name: '', phone: '', location: '' });
   const [consultError, setConsultError] = useState('');
   const [consultSuccess, setConsultSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleConsultSubmit = (e) => {
+  const handleConsultSubmit = async (e) => {
     e.preventDefault();
     if (!consultForm.name.trim() || !consultForm.phone.trim() || !consultForm.location.trim()) {
       setConsultError('Khách hàng lưu ý cần nhập đủ 3 dòng thông tin nhé ạ');
@@ -23,9 +25,30 @@ const LandingPage = () => {
     }
     setConsultError('');
     setConsultSuccess(true);
-    if (window.fbq) {
-      window.fbq('track', 'Lead');
+    
+    // Track conversion event for Meta Pixel & Google Analytics / GTM
+    trackEvent('generate_lead', {
+      form_name: 'consultation',
+      customer_name: consultForm.name,
+      customer_phone: consultForm.phone,
+      customer_location: consultForm.location
+    });
+
+    try {
+      const formData = new FormData(e.target);
+      await fetch('https://formsubmit.co/ajax/support@antcare.vn', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+    } catch (err) {
+      console.error('FormSubmit consult submit error:', err);
     }
+
+    setTimeout(() => {
+      setConsultForm({ name: '', phone: '', location: '' });
+      setConsultSuccess(false);
+    }, 5000);
   };
 
   useEffect(() => {
@@ -851,7 +874,23 @@ const LandingPage = () => {
 </div>
 </div>
 <div className="md:w-1/2 w-full bg-surface-mist p-6 sm:p-8 rounded-2xl border border-surface-lavender">
-<form onSubmit={handleConsultSubmit} className="space-y-4">
+<iframe name="antcare_form_iframe" id="antcare_form_iframe" style={{ display: 'none' }}></iframe>
+<form 
+  action="https://formsubmit.co/support@antcare.vn" 
+  method="POST" 
+  target="antcare_form_iframe"
+  onSubmit={handleConsultSubmit} 
+  className="space-y-4"
+>
+<input type="hidden" name="_subject" value={`🔔 [ANTCARE] Khách đăng ký tư vấn: ${consultForm.name} - ${consultForm.phone}`} />
+<input type="hidden" name="Loại yêu cầu" value="Khách hàng" />
+<input type="hidden" name="Họ và tên khách hàng" value={consultForm.name} />
+<input type="hidden" name="Số điện thoại" value={consultForm.phone} />
+<input type="hidden" name="Địa chỉ / Khu vực" value={consultForm.location} />
+<input type="hidden" name="Thời gian đăng ký" value={new Date().toLocaleString('vi-VN')} />
+<input type="hidden" name="_captcha" value="false" />
+<input type="hidden" name="_template" value="table" />
+
 <div>
 <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1.5">{tr("Họ và tên", "Full Name")}</label>
 <div className="relative">
@@ -909,13 +948,35 @@ const LandingPage = () => {
 )}
 
 {consultSuccess && (
-  <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs sm:text-sm font-semibold p-3 rounded-xl flex items-center gap-2 shadow-sm">
-    <span className="material-symbols-outlined text-sm shrink-0 text-emerald-600">check_circle</span>
-    <span>{tr("Cảm ơn bạn! ANTCARE đã ghi nhận và sẽ liên hệ lại trong 4 tiếng.", "Thank you! ANTCARE has received your request and will contact you within 4 hours.")}</span>
+  <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-medium p-4 rounded-xl flex flex-col gap-2.5 shadow-sm">
+    <div className="flex items-center gap-2 font-bold text-emerald-700 text-sm sm:text-base">
+      <span className="material-symbols-outlined text-lg shrink-0 text-emerald-600">check_circle</span>
+      <span>{tr("Đã gửi thông tin tư vấn thành công!", "Consultation request sent successfully!")}</span>
+    </div>
+    <p className="text-emerald-700/90 text-xs sm:text-sm leading-relaxed">
+      {tr("Thông tin của bạn đã được gửi tới email CSKH của ANTCARE (support@antcare.vn). Đội ngũ sẽ liên hệ hỗ trợ trong thời gian sớm nhất.", "Your info has been sent to ANTCARE's email (support@antcare.vn). Our team will contact you shortly.")}
+    </p>
+    <div className="flex flex-wrap items-center gap-2 mt-1">
+      <a 
+        href="https://zalo.me/0969032360" 
+        target="_blank" 
+        rel="noreferrer"
+        onClick={() => trackEvent('click_zalo', { source: 'consult_form_success' })}
+        className="inline-flex items-center justify-center gap-2 bg-[#0068FF] hover:bg-[#0052cc] text-white font-bold px-4 py-2 rounded-lg text-xs sm:text-sm transition-all shadow-sm cursor-pointer"
+      >
+        <span className="material-symbols-outlined text-base">chat</span>
+        <span>{tr("Hoặc Chat Zalo 0969 032 360", "Or Chat via Zalo 0969 032 360")}</span>
+      </a>
+    </div>
   </div>
 )}
 
-<button className="bg-earth-orange-bright text-white py-3 px-8 rounded-full font-bold text-xs sm:text-sm hover:bg-earth-orange-dark transition-all shadow-md w-full max-w-[240px] md:max-w-none md:w-auto mx-auto block cursor-pointer" type="submit">{t("hero.btnConsult")}</button>
+<button 
+  className="bg-earth-orange-bright text-white py-3 px-8 rounded-full font-bold text-xs sm:text-sm hover:bg-earth-orange-dark disabled:opacity-60 transition-all shadow-md w-full max-w-[240px] md:max-w-none md:w-auto mx-auto flex items-center justify-center gap-2 cursor-pointer" 
+  type="submit"
+>
+  {t("hero.btnConsult")}
+</button>
 </form>
 </div>
 </div>

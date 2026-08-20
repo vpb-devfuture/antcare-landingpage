@@ -1,21 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import { useAppTranslation } from '../utils/i18nHelper';
-import siteInfo from '../config/siteInfo.json';
+import { trackEvent } from '../utils/analytics';
 
 const Recruitment = () => {
-  const { t, isEn, tr } = useAppTranslation();
+  const { tr } = useAppTranslation();
+  const [partnerForm, setPartnerForm] = useState({ name: '', phone: '', location: '', note: '' });
+  const [partnerError, setPartnerError] = useState('');
   const [partnerSubmitted, setPartnerSubmitted] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handlePartnerSubmit = (e) => {
+  const handlePartnerSubmit = async (e) => {
     e.preventDefault();
-    setPartnerSubmitted(true);
-    setTimeout(() => {
+    if (!partnerForm.name.trim() || !partnerForm.phone.trim() || !partnerForm.location.trim()) {
+      setPartnerError(tr('Vui lòng điền đủ Họ và tên, Số điện thoại và Nơi ở nhé ạ', 'Please fill in your Name, Phone and Location'));
       setPartnerSubmitted(false);
-    }, 6000);
+      return;
+    }
+    setPartnerError('');
+    setPartnerSubmitted(true);
+
+    trackEvent('generate_lead', {
+      form_name: 'recruitment_partner',
+      customer_name: partnerForm.name,
+      customer_phone: partnerForm.phone,
+      customer_location: partnerForm.location
+    });
+
+    try {
+      const formData = new FormData(e.target);
+      await fetch('https://formsubmit.co/ajax/support@antcare.vn', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+    } catch (err) {
+      console.error('FormSubmit recruitment submit error:', err);
+    }
+
+    setTimeout(() => {
+      setPartnerForm({ name: '', phone: '', location: '', note: '' });
+      setPartnerSubmitted(false);
+    }, 5000);
   };
 
   return (
@@ -76,45 +104,105 @@ const Recruitment = () => {
 
             {/* Registration Form */}
             <div className="md:w-1/2 w-full bg-white p-5 sm:p-7 rounded-2xl border border-surface-lavender shadow-sm">
-              <form className="space-y-3.5" onSubmit={handlePartnerSubmit}>
+              <iframe name="antcare_recruitment_iframe" id="antcare_recruitment_iframe" style={{ display: 'none' }}></iframe>
+              <form 
+                action="https://formsubmit.co/support@antcare.vn" 
+                method="POST" 
+                target="antcare_recruitment_iframe"
+                onSubmit={handlePartnerSubmit} 
+                className="space-y-3.5"
+              >
+                <input type="hidden" name="_subject" value={`🔔 [ANTCARE] Đăng ký Tuyển dụng & Hợp tác: ${partnerForm.name} - ${partnerForm.phone}`} />
+                <input type="hidden" name="Loại yêu cầu" value="Tuyển dụng" />
+                <input type="hidden" name="Họ và tên hoặc Tên tổ chức / Trung tâm" value={partnerForm.name} />
+                <input type="hidden" name="Số điện thoại" value={partnerForm.phone} />
+                <input type="hidden" name="Nơi ở hiện tại" value={partnerForm.location} />
+                <input type="hidden" name="Kinh nghiệm / Ghi chú" value={partnerForm.note || 'Không có'} />
+                <input type="hidden" name="Thời gian đăng ký" value={new Date().toLocaleString('vi-VN')} />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1">Họ và tên hoặc Tên tổ chức/ trung tâm</label>
+                  <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1">{tr("Họ và tên hoặc Tên tổ chức/ trung tâm", "Full name or Organization name")}</label>
                   <div className="relative">
                     <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-60 text-base">person</span>
-                    <input required className="w-full bg-slate-50 border border-surface-lavender rounded-xl pl-10 pr-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all text-xs sm:text-sm text-plum-deep" placeholder="Nhập họ và tên của bạn" type="text" />
+                    <input 
+                      className="w-full bg-slate-50 border border-surface-lavender rounded-xl pl-10 pr-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all text-xs sm:text-sm text-plum-deep" 
+                      placeholder={tr("Nhập họ và tên của bạn", "Enter your full name")} 
+                      type="text" 
+                      value={partnerForm.name}
+                      onChange={(e) => {
+                        setPartnerForm({ ...partnerForm, name: e.target.value });
+                        if (partnerError) setPartnerError('');
+                      }}
+                    />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1">Số điện thoại</label>
+                  <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1">{tr("Số điện thoại", "Phone number")}</label>
                   <div className="relative">
                     <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-60 text-base">call</span>
-                    <input required className="w-full bg-slate-50 border border-surface-lavender rounded-xl pl-10 pr-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all text-xs sm:text-sm text-plum-deep" placeholder="0xxx xxx xxx" type="tel" />
+                    <input 
+                      className="w-full bg-slate-50 border border-surface-lavender rounded-xl pl-10 pr-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all text-xs sm:text-sm text-plum-deep" 
+                      placeholder="0xxx xxx xxx" 
+                      type="tel" 
+                      value={partnerForm.phone}
+                      onChange={(e) => {
+                        setPartnerForm({ ...partnerForm, phone: e.target.value });
+                        if (partnerError) setPartnerError('');
+                      }}
+                    />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1">Nơi ở hiện tại của bạn</label>
+                  <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1">{tr("Nơi ở hiện tại của bạn", "Current location")}</label>
                   <div className="relative">
                     <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-60 text-base">location_on</span>
-                    <input required className="w-full bg-slate-50 border border-surface-lavender rounded-xl pl-10 pr-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all text-xs sm:text-sm text-plum-deep" placeholder="Nhập địa chỉ hoặc khu vực" type="text" />
+                    <input 
+                      className="w-full bg-slate-50 border border-surface-lavender rounded-xl pl-10 pr-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all text-xs sm:text-sm text-plum-deep" 
+                      placeholder={tr("Nhập địa chỉ hoặc khu vực", "Enter address or district")} 
+                      type="text" 
+                      value={partnerForm.location}
+                      onChange={(e) => {
+                        setPartnerForm({ ...partnerForm, location: e.target.value });
+                        if (partnerError) setPartnerError('');
+                      }}
+                    />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1">Kinh nghiệm/Ghi chú</label>
+                  <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1">{tr("Kinh nghiệm/Ghi chú", "Experience / Notes")}</label>
                   <div className="relative">
                     <span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-60 text-base">edit_note</span>
-                    <input className="w-full bg-slate-50 border border-surface-lavender rounded-xl pl-10 pr-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all text-xs sm:text-sm text-plum-deep" placeholder="Chia sẻ thêm về kinh nghiệm của bạn" type="text" />
+                    <input 
+                      className="w-full bg-slate-50 border border-surface-lavender rounded-xl pl-10 pr-4 py-2 sm:py-2.5 focus:ring-2 focus:ring-primary focus:bg-white transition-all text-xs sm:text-sm text-plum-deep" 
+                      placeholder={tr("Chia sẻ thêm về kinh nghiệm của bạn", "Share your experience or notes")} 
+                      type="text" 
+                      value={partnerForm.note}
+                      onChange={(e) => {
+                        setPartnerForm({ ...partnerForm, note: e.target.value });
+                        if (partnerError) setPartnerError('');
+                      }}
+                    />
                   </div>
                 </div>
 
+                {partnerError && (
+                  <div className="bg-red-50 border border-red-200 text-red-600 text-xs font-semibold p-2.5 rounded-xl flex items-center gap-2 animate-pulse shadow-sm">
+                    <span className="material-symbols-outlined text-sm shrink-0">error</span>
+                    <span>{partnerError}</span>
+                  </div>
+                )}
+
                 {partnerSubmitted && (
-                  <div className="p-2.5 bg-green-50 border border-green-200 text-green-700 rounded-xl text-xs flex items-center gap-2 animate-fadeIn">
-                    <span className="material-symbols-outlined text-green-600 text-base">check_circle</span>
-                    <span>Cảm ơn bạn! ANTCARE đã ghi nhận và sẽ liên hệ lại trong vòng 24-48 giờ làm việc.</span>
+                  <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-xs sm:text-sm flex items-center gap-2 animate-fadeIn shadow-sm font-medium">
+                    <span className="material-symbols-outlined text-emerald-600 text-base shrink-0">check_circle</span>
+                    <span>{tr("Cảm ơn bạn! ANTCARE đã ghi nhận và sẽ liên hệ lại trong vòng 24-48 giờ làm việc.", "Thank you! ANTCARE has recorded your information and will contact you within 24-48 business hours.")}</span>
                   </div>
                 )}
 
                 <button className="bg-earth-orange-bright text-white py-2.5 px-6 rounded-full font-bold text-xs sm:text-sm hover:bg-earth-orange-dark transition-all shadow-md w-full cursor-pointer" type="submit">
-                  Gửi thông tin hợp tác
+                  {tr("Gửi thông tin hợp tác", "Submit Partnership Request")}
                 </button>
               </form>
             </div>

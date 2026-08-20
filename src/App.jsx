@@ -8,11 +8,13 @@ import Activities from './pages/Activities';
 import News from './pages/News';
 import NewsDetail from './pages/NewsDetail';
 import Recruitment from './pages/Recruitment';
+import { trackPageView } from './utils/analytics';
 
 function App() {
   const { hash, pathname } = useLocation();
 
   useEffect(() => {
+    trackPageView(pathname);
     if (hash) {
       let attempts = 0;
       const scrollToHash = () => {
