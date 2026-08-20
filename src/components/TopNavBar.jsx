@@ -75,7 +75,7 @@ const TopNavBar = () => {
 
           {/* Desktop: Hotline + Language (right) */}
           <div className="hidden md:flex items-center gap-3 flex-shrink-0">
-            <a className="flex items-center gap-2 px-4 py-2 border border-plum-deep/20 rounded-full text-plum-deep hover:bg-plum-deep hover:text-white hover:border-plum-deep transition-all duration-300 shadow-sm hover:shadow-md group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
+            <a className="flex items-center gap-2 px-4 py-2 border border-[#68259E]/30 rounded-full text-plum-deep hover:bg-[#68259E]/10 hover:text-[#68259E] hover:border-[#68259E]/50 transition-all duration-300 shadow-sm hover:shadow-md group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
               <span className="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">call</span>
               <span className="text-[15px] font-bold">{siteInfo.hotline}</span>
             </a>
@@ -99,7 +99,7 @@ const TopNavBar = () => {
 
           {/* Mobile: Compact hotline + hamburger */}
           <div className="flex md:hidden items-center gap-2">
-            <a className="flex items-center gap-1.5 px-3 py-1.5 border border-plum-deep/20 rounded-full text-plum-deep hover:bg-plum-deep hover:text-white hover:border-plum-deep transition-all text-sm font-bold active:bg-plum-deep active:text-white" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
+            <a className="flex items-center gap-1.5 px-3 py-1.5 border border-[#68259E]/30 rounded-full text-plum-deep hover:bg-[#68259E]/10 hover:text-[#68259E] hover:border-[#68259E]/50 transition-all text-sm font-bold active:bg-[#68259E]/20" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
               <span className="material-symbols-outlined" style={{fontSize: "16px"}}>call</span> {siteInfo.hotline}
             </a>
             <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 rounded-full hover:bg-plum-deep/10 transition-colors" aria-label="Mở menu">
