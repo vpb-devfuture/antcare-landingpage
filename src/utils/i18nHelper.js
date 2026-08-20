@@ -120,7 +120,7 @@ export const translatePageData = (data, isEn) => {
       const enComparison = [
         "Basic health parameter checks at home",
         "Tracking & comparing health metrics via App",
-        "Physical recovery exercises tailored for seniors",
+        "Exercises for stroke, fall, and mobility decline prevention for seniors",
         "Brain training exercises tailored for seniors",
         "Daily medication reminders",
         "Door-to-door medical checkup transportation",
