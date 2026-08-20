@@ -30,18 +30,23 @@ export const trackEvent = (eventName, eventParams = {}) => {
     ...eventParams
   });
 
-  // 2. Meta Pixel custom mapping
+  // 2. Meta Pixel mapping (Dataset ID: 1692777472851360)
   if (window.fbq) {
     if (eventName === 'generate_lead') {
-      window.fbq('track', 'Lead', eventParams);
+      // Form Khách hàng -> Meta Standard Event Lead
+      window.fbq('track', 'Lead', { form_name: 'consultation' });
     } else if (eventName === 'recruitment_lead') {
-      window.fbq('trackCustom', 'RecruitmentLead', eventParams);
+      // Form Tuyển dụng / Hợp tác -> Custom Event RecruitmentLead (Không bắn Lead)
+      window.fbq('trackCustom', 'RecruitmentLead', { form_name: 'recruitment_partner' });
     } else if (eventName === 'click_hotline') {
-      window.fbq('trackCustom', 'ClickHotline', eventParams);
+      // Nút gọi Hotline -> Meta Standard Event Contact (Ngừng bắn ClickHotline)
+      window.fbq('track', 'Contact', { channel: 'hotline' });
     } else if (eventName === 'click_zalo') {
-      window.fbq('trackCustom', 'ClickZalo', eventParams);
+      // Nút Chat Zalo -> Meta Standard Event Contact (Ngừng bắn ClickZalo)
+      window.fbq('track', 'Contact', { channel: 'zalo' });
     } else if (eventName === 'click_messenger') {
-      window.fbq('trackCustom', 'ClickMessenger', eventParams);
+      // Nút Chat Facebook Messenger -> Meta Standard Event Contact (Ngừng bắn ClickMessenger)
+      window.fbq('track', 'Contact', { channel: 'messenger' });
     } else {
       window.fbq('trackCustom', eventName, eventParams);
     }

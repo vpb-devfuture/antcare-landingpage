@@ -28,10 +28,7 @@ const LandingPage = () => {
     
     // Track conversion event for Meta Pixel & Google Analytics / GTM
     trackEvent('generate_lead', {
-      form_name: 'consultation',
-      customer_name: consultForm.name,
-      customer_phone: consultForm.phone,
-      customer_location: consultForm.location
+      form_name: 'consultation'
     });
 
     try {

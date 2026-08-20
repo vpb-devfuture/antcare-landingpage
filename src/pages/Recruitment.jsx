@@ -23,10 +23,7 @@ const Recruitment = () => {
     setPartnerSubmitted(true);
 
     trackEvent('recruitment_lead', {
-      form_name: 'recruitment_partner',
-      customer_name: partnerForm.name,
-      customer_phone: partnerForm.phone,
-      customer_location: partnerForm.location
+      form_name: 'recruitment_partner'
     });
 
     try {
