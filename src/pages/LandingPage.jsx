@@ -289,7 +289,12 @@ const LandingPage = () => {
                         <span className="material-symbols-outlined text-[#68259E] text-[16px] sm:text-[18px] shrink-0">
                           {row.icon}
                         </span>
-                        <span className="leading-snug">{row.feature}</span>
+                        <span className="leading-snug">
+                          {row.feature}
+                          {(row.id === 6 || row.id === 9 || row.feature?.includes("Đưa đón khám bệnh") || row.feature?.includes("Dọn dẹp và hỗ trợ")) && (
+                            <span className="text-slate-400 font-normal ml-0.5 select-none">*</span>
+                          )}
+                        </span>
                       </td>
                       <td className="py-1.5 sm:py-2 text-center font-bold text-sm sm:text-base px-3">
                         {row.antcare ? (
@@ -313,8 +318,8 @@ const LandingPage = () => {
           </div>
         </div>
 
-        {/* Right Column: High-Res Original Photo */}
-        <div className="lg:col-span-5 flex items-center justify-center">
+        {/* Right Column: High-Res Original Photo + Footer Note */}
+        <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center">
           <div className="relative w-full max-w-[460px] lg:max-w-none rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border-2 border-white">
             <img
               src="/images/why-antcare.jpg"
@@ -322,6 +327,9 @@ const LandingPage = () => {
               className="w-full h-auto max-h-[520px] lg:max-h-[580px] object-cover object-center"
             />
           </div>
+          <p className="text-[11px] sm:text-xs text-slate-500 italic text-right w-full mt-2.5 px-1 font-normal leading-normal">
+            {tr("* Dịch vụ mua riêng theo gói Đồng hành khám bệnh và An tâm nhà cửa.", "* Services purchased separately under Medical Companionship and Peace of Mind at Home packages.")}
+          </p>
         </div>
 
       </div>
