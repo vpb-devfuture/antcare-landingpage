@@ -123,7 +123,7 @@ export const translatePageData = (data, isEn) => {
         "Exercises for stroke, fall, and mobility decline prevention for seniors",
         "Brain training exercises tailored for seniors",
         "Daily medication reminders",
-        "Door-to-door medical checkup transportation",
+        "Door-to-door medical checkup transportation, always using Airtag for safe positioning",
         "Pre and post-checkup health monitoring",
         "Companionship & connecting with family",
         "Daily housekeeping & living support",
@@ -160,6 +160,7 @@ export const translatePageData = (data, isEn) => {
           "Pre-departure health check",
           "Door-to-door transportation",
           "Companionship throughout checkup",
+          "Always use Airtag positioning to ensure the safety of grandparents",
           "Complete checkup reports via App"
         ]
       },
@@ -218,6 +219,7 @@ export const translatePageData = (data, isEn) => {
           "Pre-departure health check",
           "Door-to-door transportation",
           "Companionship throughout checkup",
+          "Always use Airtag positioning to ensure the safety of grandparents",
           "Complete checkup reports via App"
         ]
       },

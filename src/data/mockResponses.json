@@ -81,9 +81,9 @@
       {
         "id": 6,
         "icon": "directions_car",
-        "feature": "Đưa đón khám bệnh tận nơi",
+        "feature": "Đưa đón khám bệnh tận nơi, luôn sử dụng airtag định vị an toàn",
         "antcare": true,
-        "others": true
+        "others": false
       },
       {
         "id": 7,
@@ -142,6 +142,7 @@
         "Kiểm tra chỉ số sức khỏe trước khi đi",
         "Đưa đón tận nơi",
         "Đồng hành trong suốt quá trình khám",
+        "Luôn sử dụng Airtag định vị để đảm bảo an toàn ông bà",
         "Thông tin khám được cập nhật đủ trên App"
       ]
     },
@@ -202,6 +203,7 @@
         "Kiểm tra chỉ số sức khỏe trước khi đi",
         "Đưa đón tận nơi",
         "Đồng hành trong suốt quá trình khám",
+        "Luôn sử dụng Airtag định vị để đảm bảo an toàn ông bà",
         "Thông tin khám được cập nhật đủ trên App"
       ]
     },
