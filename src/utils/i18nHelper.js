@@ -119,7 +119,7 @@ export const translatePageData = (data, isEn) => {
     if (translated.whyAntcare.comparison) {
       const enComparison = [
         "Basic health parameter checks at home",
-        "Tracking & comparing health metrics via App",
+        "Tracking & comparing health metrics via App and reporting to family",
         "Exercises for stroke, fall, and mobility decline prevention for seniors",
         "Brain training exercises tailored for seniors",
         "Daily medication reminders",
