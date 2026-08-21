@@ -49,7 +49,7 @@ const FloatingActions = () => {
         {/* Expanded Buttons */}
         <div className={`absolute bottom-full left-1/2 -translate-x-1/2 pb-4 flex flex-col gap-3 items-center transition-all duration-300 ${isContactOpen ? 'opacity-100 translate-y-0 visible pointer-events-auto' : 'opacity-0 translate-y-4 invisible pointer-events-none'}`}>
           {/* Zalo Button */}
-          <a onClick={() => trackEvent('click_zalo')} href={siteInfo.zalo} target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0068FF] rounded-full flex items-center justify-center shadow-lg md:hover:scale-110 active:scale-95 transition-transform cursor-pointer relative group/zalo">
+          <a onClick={() => trackEvent('click_zalo', { location: 'floating_action' })} href={siteInfo.zalo} target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0068FF] rounded-full flex items-center justify-center shadow-lg md:hover:scale-110 active:scale-95 transition-transform cursor-pointer relative group/zalo">
             <span className="text-white font-bold text-[13px]">Zalo</span>
             <div className="absolute right-full mr-4 bg-white px-3 py-1.5 rounded-lg shadow-md text-sm text-gray-800 font-medium opacity-0 invisible group-hover/zalo:opacity-100 group-hover/zalo:visible transition-all whitespace-nowrap border border-gray-100 hidden md:block">
               {isEn ? 'Chat via Zalo' : 'Chat qua Zalo'}
@@ -57,7 +57,7 @@ const FloatingActions = () => {
           </a>
 
           {/* Facebook Button */}
-          <a onClick={() => trackEvent('click_messenger')} href={siteInfo.facebook} target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0866FF] rounded-full flex items-center justify-center shadow-lg md:hover:scale-110 active:scale-95 transition-transform cursor-pointer relative group/fb">
+          <a onClick={() => trackEvent('click_messenger', { location: 'floating_action' })} href={siteInfo.facebook} target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#0866FF] rounded-full flex items-center justify-center shadow-lg md:hover:scale-110 active:scale-95 transition-transform cursor-pointer relative group/fb">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
             <div className="absolute right-full mr-4 bg-white px-3 py-1.5 rounded-lg shadow-md text-sm text-gray-800 font-medium opacity-0 invisible group-hover/fb:opacity-100 group-hover/fb:visible transition-all whitespace-nowrap border border-gray-100 hidden md:block">
               {isEn ? 'Chat via Messenger' : 'Chat qua Messenger'}

@@ -68,9 +68,19 @@
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('set', 'autoConfig', false, '1692777472851360');
       fbq('init', '1692777472851360');
-      fbq('track', 'PageView');
     </script>
     <!-- End Meta Pixel Code -->
+    <!-- Google Tag (gtag.js) - Google Analytics 4 (ID: G-DNZ9GL9GCZ) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNZ9GL9GCZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-DNZ9GL9GCZ', {
+        send_page_view: false
+      });
+    </script>
   </head>
   <body>
     <noscript><img height="1" width="1" style="display:none"

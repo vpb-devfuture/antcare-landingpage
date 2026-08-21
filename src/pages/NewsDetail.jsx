@@ -112,6 +112,30 @@ const NewsDetail = () => {
     return () => clearTimeout(timer);
   }, [article?.id, article?.content]);
 
+  // Add link click event handler for injected HTML content
+  useEffect(() => {
+    const container = contentRef.current;
+    if (!container) return;
+
+    const handleLinkClick = (e) => {
+      const anchor = e.target.closest('a');
+      if (anchor) {
+        const href = anchor.getAttribute('href');
+        if (href && (href.startsWith('/news/') || href.startsWith('/'))) {
+          e.preventDefault();
+          e.stopPropagation();
+          navigate(href);
+          window.scrollTo(0, 0);
+        }
+      }
+    };
+
+    container.addEventListener('click', handleLinkClick);
+    return () => {
+      container.removeEventListener('click', handleLinkClick);
+    };
+  }, [navigate, id, article?.content]);
+
   const scrollToHeading = (headingId) => {
     const el = document.getElementById(headingId);
     if (el) {
@@ -184,30 +208,6 @@ const NewsDetail = () => {
       }
     ]
   };
-
-  // Add link click event handler for injected HTML content
-  useEffect(() => {
-    const container = contentRef.current;
-    if (!container) return;
-
-    const handleLinkClick = (e) => {
-      const anchor = e.target.closest('a');
-      if (anchor) {
-        const href = anchor.getAttribute('href');
-        if (href && (href.startsWith('/news/') || href.startsWith('/'))) {
-          e.preventDefault();
-          e.stopPropagation();
-          navigate(href);
-          window.scrollTo(0, 0);
-        }
-      }
-    };
-
-    container.addEventListener('click', handleLinkClick);
-    return () => {
-      container.removeEventListener('click', handleLinkClick);
-    };
-  }, [navigate, id, article?.content]);
 
   return (
     <div className="pt-0 bg-surface-mist min-h-screen pb-16">

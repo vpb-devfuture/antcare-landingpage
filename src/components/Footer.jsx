@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import siteInfo from '../config/siteInfo.json';
+import { trackEvent } from '../utils/analytics';
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
@@ -59,7 +60,7 @@ const Footer = () => {
             )}
           </p>
           <p className="font-bold text-earth-orange-bright text-xs sm:text-sm pt-0.5">
-            Hotline: <a href={`tel:${siteInfo.hotline.replace(/ /g, "")}`} className="hover:underline">{siteInfo.hotline}</a>
+            Hotline: <a onClick={() => trackEvent('click_hotline', { location: 'footer' })} href={`tel:${siteInfo.hotline.replace(/ /g, "")}`} className="hover:underline">{siteInfo.hotline}</a>
           </p>
         </div>
       </div>
@@ -108,6 +109,7 @@ const Footer = () => {
 
           {/* Zalo */}
           <a 
+            onClick={() => trackEvent('click_zalo', { location: 'footer' })}
             className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/90 hover:bg-[#0068FF] hover:border-[#0068FF] hover:scale-110 transition-all duration-300 shadow-md" 
             href={siteInfo.zalo} 
             target="_blank" 
@@ -121,6 +123,7 @@ const Footer = () => {
 
           {/* Messenger */}
           <a 
+            onClick={() => trackEvent('click_messenger', { location: 'footer' })}
             className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white/90 hover:bg-[#0084FF] hover:border-[#0084FF] hover:scale-110 transition-all duration-300 shadow-md" 
             href={siteInfo.facebook} 
             target="_blank" 

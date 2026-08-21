@@ -14,7 +14,16 @@ export const trackPageView = (path) => {
     page_title: document.title
   });
 
-  // 2. Meta Pixel
+  // 2. Google Analytics 4 (gtag)
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'page_view', {
+      page_path: path,
+      page_location: window.location.href,
+      page_title: document.title
+    });
+  }
+
+  // 3. Meta Pixel
   if (window.fbq) {
     window.fbq('track', 'PageView');
   }
@@ -30,7 +39,12 @@ export const trackEvent = (eventName, eventParams = {}) => {
     ...eventParams
   });
 
-  // 2. Meta Pixel mapping (Dataset ID: 1692777472851360)
+  // 2. Google Analytics 4 (gtag)
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', eventName, eventParams);
+  }
+
+  // 3. Meta Pixel mapping (Dataset ID: 1692777472851360)
   if (window.fbq) {
     if (eventName === 'generate_lead') {
       // Form Khách hàng -> Meta Standard Event Lead

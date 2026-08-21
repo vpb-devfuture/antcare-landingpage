@@ -140,6 +140,7 @@ const LandingPage = () => {
                   <span>{t("hero.btnConsult")}</span>
                 </a>
                 <a 
+                  onClick={() => trackEvent('click_hotline', { location: 'hero_mobile' })}
                   className="bg-white text-plum-deep border-2 border-plum-deep/20 rounded-full font-bold text-[13px] shadow-xs hover:bg-plum-deep hover:text-white transition-all flex items-center justify-center gap-2 h-10 w-full group cursor-pointer" 
                   href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}
                 >
@@ -166,7 +167,7 @@ const LandingPage = () => {
                 <span className="material-symbols-outlined text-[18px]">chat</span>
                 <span>{t("hero.btnConsult")}</span>
               </a>
-              <a className="bg-white text-plum-deep border-2 border-plum-deep/15 rounded-full font-bold text-[13.5px] shadow-md hover:shadow-xl hover:bg-plum-deep hover:text-white hover:border-plum-deep hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-1.5 h-[42px] w-[185px] whitespace-nowrap group cursor-pointer" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
+              <a onClick={() => trackEvent('click_hotline', { location: 'hero_desktop' })} className="bg-white text-plum-deep border-2 border-plum-deep/15 rounded-full font-bold text-[13.5px] shadow-md hover:shadow-xl hover:bg-plum-deep hover:text-white hover:border-plum-deep hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-1.5 h-[42px] w-[185px] whitespace-nowrap group cursor-pointer" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
                 <span className="material-symbols-outlined text-[18px] text-earth-orange-bright group-hover:text-white group-hover:animate-bounce">call</span>
                 <span>{siteInfo.hotline}</span>
               </a>
@@ -1096,7 +1097,7 @@ const LandingPage = () => {
 <span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">call</span>
 <div>
 <p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Số điện thoại", "Phone Number")}</p>
-<a className="font-bold text-earth-orange-bright md:hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a>
+<a onClick={() => trackEvent('click_hotline', { location: 'contact_section' })} className="font-bold text-earth-orange-bright md:hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a>
 </div>
 </div>
 <div className="flex items-start gap-3.5">

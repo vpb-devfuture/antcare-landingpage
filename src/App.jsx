@@ -14,7 +14,7 @@ function App() {
   const { hash, pathname } = useLocation();
 
   useEffect(() => {
-    trackPageView(pathname);
+    trackPageView(pathname + hash);
     if (hash) {
       let attempts = 0;
       const scrollToHash = () => {
