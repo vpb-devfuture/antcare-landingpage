@@ -28,6 +28,8 @@ const Footer = () => {
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/">{isEn ? 'Home' : 'Trang chủ'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/#cau-chuyen-cua-ant">{isEn ? 'About Us' : 'Về chúng tôi'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/#giai-phap-cham-soc">{isEn ? 'Services' : 'Dịch vụ'}</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/news">{isEn ? 'News' : 'Tin tức'}</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/activities">{isEn ? 'Activities' : 'Hoạt động'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/#thong-tin-lien-he">{isEn ? 'Contact' : 'Liên hệ'}</Link></li>
           </ul>
         </div>

@@ -38,5 +38,10 @@
     "id": "news",
     "path": "/news",
     "i18nKey": "menu.news"
+  },
+  {
+    "id": "activities",
+    "path": "/activities",
+    "i18nKey": "menu.activities"
   }
 ]

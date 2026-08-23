@@ -25,21 +25,35 @@ const LandingPage = () => {
     }
     setConsultError('');
     setConsultSuccess(true);
+    setIsSubmitting(true);
     
     // Track conversion event for Meta Pixel & Google Analytics / GTM
     trackEvent('generate_lead', {
       form_name: 'consultation'
     });
 
+    const googleSheetUrl = siteInfo.googleSheetConsultUrl || import.meta.env.VITE_GOOGLE_SHEET_CONSULT_URL;
+
     try {
-      const formData = new FormData(e.target);
-      await fetch('https://formsubmit.co/ajax/support@antcare.vn', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
-      });
+      // Gửi dữ liệu duy nhất về Google Sheets
+      if (googleSheetUrl) {
+        const payload = new URLSearchParams();
+        payload.append('name', consultForm.name);
+        payload.append('phone', consultForm.phone);
+        payload.append('location', consultForm.location);
+        payload.append('timestamp', new Date().toLocaleString('vi-VN'));
+
+        await fetch(googleSheetUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: payload.toString()
+        });
+      }
     } catch (err) {
-      console.error('FormSubmit consult submit error:', err);
+      console.error('Submit consult error:', err);
+    } finally {
+      setIsSubmitting(false);
     }
 
     setTimeout(() => {
@@ -872,22 +886,10 @@ const LandingPage = () => {
 </div>
 </div>
 <div className="md:w-1/2 w-full bg-surface-mist p-6 sm:p-8 rounded-2xl border border-surface-lavender">
-<iframe name="antcare_form_iframe" id="antcare_form_iframe" style={{ display: 'none' }}></iframe>
 <form 
-  action="https://formsubmit.co/support@antcare.vn" 
-  method="POST" 
-  target="antcare_form_iframe"
   onSubmit={handleConsultSubmit} 
   className="space-y-4"
 >
-<input type="hidden" name="_subject" value={`🔔 [ANTCARE] Khách đăng ký tư vấn: ${consultForm.name} - ${consultForm.phone}`} />
-<input type="hidden" name="Loại yêu cầu" value="Khách hàng" />
-<input type="hidden" name="Họ và tên khách hàng" value={consultForm.name} />
-<input type="hidden" name="Số điện thoại" value={consultForm.phone} />
-<input type="hidden" name="Địa chỉ / Khu vực" value={consultForm.location} />
-<input type="hidden" name="Thời gian đăng ký" value={new Date().toLocaleString('vi-VN')} />
-<input type="hidden" name="_captcha" value="false" />
-<input type="hidden" name="_template" value="table" />
 
 <div>
 <label className="block text-xs sm:text-sm font-bold text-plum-deep mb-1.5">{tr("Họ và tên", "Full Name")}</label>
@@ -952,7 +954,7 @@ const LandingPage = () => {
       <span>{tr("Đã gửi thông tin tư vấn thành công!", "Consultation request sent successfully!")}</span>
     </div>
     <p className="text-emerald-700/90 text-xs sm:text-sm leading-relaxed">
-      {tr("Thông tin của bạn đã được gửi tới email CSKH của ANTCARE (support@antcare.vn). Đội ngũ sẽ liên hệ hỗ trợ trong thời gian sớm nhất.", "Your info has been sent to ANTCARE's email (support@antcare.vn). Our team will contact you shortly.")}
+      {tr("Thông tin tư vấn của bạn đã được hệ thống ghi nhận thành công! Đội ngũ tư vấn của ANTCARE sẽ liên hệ lại với bạn trong thời gian sớm nhất.", "Your consultation request has been recorded successfully! ANTCARE team will contact you shortly.")}
     </p>
     <div className="flex flex-wrap items-center gap-2 mt-1">
       <a 

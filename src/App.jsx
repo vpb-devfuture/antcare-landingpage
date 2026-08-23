@@ -8,10 +8,18 @@ import Activities from './pages/Activities';
 import News from './pages/News';
 import NewsDetail from './pages/NewsDetail';
 import Recruitment from './pages/Recruitment';
-import { trackPageView } from './utils/analytics';
+import { trackPageView, initClarity } from './utils/analytics';
+import siteInfo from './config/siteInfo.json';
 
 function App() {
   const { hash, pathname } = useLocation();
+
+  useEffect(() => {
+    const clarityId = siteInfo.clarityId || import.meta.env.VITE_CLARITY_ID;
+    if (clarityId) {
+      initClarity(clarityId);
+    }
+  }, []);
 
   useEffect(() => {
     trackPageView(pathname + hash);
@@ -39,6 +47,7 @@ function App() {
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-use" element={<TermsOfUse />} />
         <Route path="activities" element={<Activities />} />
+        <Route path="activities/:id" element={<NewsDetail />} />
         <Route path="news" element={<News />} />
         <Route path="news/:id" element={<NewsDetail />} />
         <Route path="recruitment" element={<Recruitment />} />

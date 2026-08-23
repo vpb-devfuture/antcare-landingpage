@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useAppTranslation, translateArticle, getCategoryLabel } from '../utils/i18nHelper';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import newsData from '../data/news.json';
+import activitiesData from '../data/activities.json';
 
 const NewsDetail = () => {
   const { tr, isEn } = useAppTranslation();
@@ -19,7 +20,8 @@ const NewsDetail = () => {
 
   const allArticlesList = [
     ...(newsData.featured ? [newsData.featured] : []),
-    ...(newsData.list || [])
+    ...(newsData.list || []),
+    ...(activitiesData || [])
   ];
 
   let rawArticle = allArticlesList.find(item => item.slug === id || item.id === numericId);
