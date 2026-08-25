@@ -986,29 +986,8 @@ const LandingPage = () => {
 </div>
 </section>
 
-{/*  Our Story Section  */}
-<section className="relative scroll-mt-24" id="cau-chuyen-cua-chung-toi">
-{/*  Story Hero Section  */}
-<div className="relative min-h-[380px] sm:min-h-[440px] md:min-h-[480px] flex items-center py-10 sm:py-14 overflow-hidden bg-[#DCCEFB]">
-<div className="absolute inset-0 z-0 flex justify-end">
-<img className="w-auto h-full object-contain object-right" src="/images/story-hero.jpg" alt={tr("Tâm nguyện từ trái tim người sáng lập", "A Wish From The Founder's Heart")} />
-</div>
-<div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 w-full">
-<div className="max-w-xl">
-<span className="inline-block px-3.5 py-1 bg-earth-orange-bright text-white font-bold text-xs sm:text-sm mb-3.5 shadow-md rounded-full">{tr("Câu chuyện của chúng tôi", "Our Story")}</span>
-<h1 className="text-2xl md:text-3xl lg:text-4xl mb-3 leading-snug font-bold text-plum-light drop-shadow-sm">{tr("Tâm nguyện từ trái tim", "A Wish From The Heart")}</h1>
-<p className="text-xs sm:text-sm md:text-base text-plum-deep/90 max-w-lg leading-relaxed font-semibold mb-3">
-    {tr("Sứ mệnh kết nối tình yêu của con cái và sức khỏe của cha mẹ, mang đến sự an tâm tuyệt đối khi khoảng cách địa lý không còn là rào cản.", "Our mission connects children's love with parents' health, bringing complete peace of mind across geographic distance.")}
-</p>
-<p className="text-xs sm:text-sm md:text-[15px] text-plum-deep/95 max-w-xl leading-relaxed font-medium bg-white/40 backdrop-blur-xs p-3.5 sm:p-4 rounded-2xl border border-white/60 shadow-2xs mt-3">
-  {tr("ANTCARE - Kiến chăm tổ - Dịch vụ trợ lý chăm sóc sức khỏe tại nhà và đồng hành khám bệnh cùng người cao tuổi. Mỗi lần Kiến ghé thăm, chúng tôi theo dõi các chỉ số sức khỏe, nhắc uống thuốc, hỗ trợ sinh hoạt và cùng người lớn tuổi thực hiện các bài tập rèn luyện thể chất, trí não, trò chuyện và duy trì những hoạt động phù hợp mỗi ngày.", "ANTCARE - Kiến chăm tổ - Home Healthcare Assistant & Medical Companion Service for Seniors. During every visit, we monitor health metrics, remind medication, assist daily living, and guide physical & brain exercises, conversing and maintaining suitable daily activities.")}
-</p>
-</div>
-</div>
-</div>
-
 {/*  Story Details Section  */}
-<div className="py-8 md:py-12 bg-surface-mist scroll-mt-24" id="cau-chuyen-cua-ant">
+<section className="py-8 md:py-12 bg-surface-mist scroll-mt-24" id="cau-chuyen-cua-ant">
 <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
 <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
 <div className="relative flex justify-center md:justify-start">
@@ -1024,7 +1003,7 @@ const LandingPage = () => {
   {tr("Chúng tôi thấu hiểu nỗi lòng của những người con xa nhà, luôn đau đáu về sức khỏe của cha mẹ. Những dòng tin nhắn hỏi thăm vội vã giữa giờ làm, những lo âu khi không thể trực tiếp đưa bố mẹ đi khám bệnh chính là khởi nguồn cho sứ mệnh của ANTCARE - Kiến chăm tổ.", "We deeply understand the hearts of children living far away, always caring for their parents' health. Hastily sent text messages during work and anxieties about not escorting parents to medical checkups sparked ANTCARE's mission.")}
 </p>
 <p className="text-justify leading-relaxed">
-  {tr("Có những lúc cha mẹ ốm đau nhưng chẳng nỡ gọi con vì sợ con lo, sợ con bận. Có những khi người con ngồi giữa văn phòng hiện đại nhưng lòng quặn thắt vì không thể tự tay đưa cha mẹ đi khám bệnh định kỳ.", "Sometimes parents fall ill but hesitate to call their children out of worry. Sometimes children sit in modern offices, aching at heart for not being able to take their parents for checkups.")}
+  {tr("ANTCARE - Kiến chăm tổ - Dịch vụ trợ lý chăm sóc sức khỏe tại nhà và đồng hành khám bệnh cùng người cao tuổi.", "ANTCARE - Home Healthcare Assistant & Medical Companion Service for Seniors.")}
 </p>
 <div className="bg-white/90 p-4 sm:p-5 rounded-2xl border-l-4 border-earth-orange-bright shadow-xs my-3">
   <p className="italic text-plum-deep font-semibold text-sm sm:text-base md:text-[16.5px] leading-relaxed">
@@ -1034,7 +1013,6 @@ const LandingPage = () => {
 <p className="text-justify text-xs sm:text-sm md:text-base opacity-95 leading-relaxed">
   {tr("Tại sao lại là ANT? Hình ảnh kiến thường gợi tới tính chất bầy đàn, luôn chăm chút về tổ. Do vậy, chúng tôi liên kết những 'bạn kiến' tận tâm thành một tổ kiến rộng lớn, để lan tỏa yêu thương và sự chăm sóc chu đáo đến từng gia đình Việt.", "Why ANT? Ants signify diligence and caring for the nest. Thus, we connect dedicated Health Assistants into a large nest to spread love and thoughtful care to every family.")}
 </p>
-</div>
 </div>
 </div>
 </div>

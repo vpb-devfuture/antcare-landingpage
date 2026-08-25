@@ -22,9 +22,10 @@
   },
   {
     "id": "about",
+    "path": "/ve-antcare",
     "i18nKey": "menu.about",
     "children": [
-      { "id": "about_wish", "path": "/#cau-chuyen-cua-chung-toi", "i18nKey": "menu.about_wish" },
+      { "id": "about_main", "path": "/ve-antcare", "i18nKey": "menu.about_main" },
       { "id": "about_story", "path": "/#cau-chuyen-cua-ant", "i18nKey": "menu.about_story" }
     ]
   },

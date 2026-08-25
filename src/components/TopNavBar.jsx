@@ -30,6 +30,47 @@ const TopNavBar = () => {
     }
   };
 
+  const renderNavLink = (item, className, onClickExtra) => {
+    const path = item.path;
+    const i18nContent = <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} />;
+
+    if (!path) {
+      return (
+        <button className={className} onClick={onClickExtra}>
+          {i18nContent}
+        </button>
+      );
+    }
+
+    if (path.includes('#')) {
+      return (
+        <a
+          href={path}
+          className={className}
+          onClick={(e) => {
+            handleNavClick(e, path);
+            if (onClickExtra) onClickExtra(e);
+          }}
+        >
+          {i18nContent}
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        to={path}
+        className={className}
+        onClick={(e) => {
+          if (onClickExtra) onClickExtra(e);
+          window.scrollTo(0, 0);
+        }}
+      >
+        {i18nContent}
+      </Link>
+    );
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-plum-deep/5 text-plum-deep transition-all duration-300">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 w-full">
@@ -46,31 +87,61 @@ const TopNavBar = () => {
           <div className="hidden md:flex items-center gap-0.5">
             {menu.map(item => item.children ? (
               <div key={item.id} className="relative group">
-                <button className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium">
-                  <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} /> <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
-                </button>
+                {item.path ? (
+                  <Link
+                    to={item.path}
+                    className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
+                    <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} /> <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
+                  </Link>
+                ) : (
+                  <button className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium">
+                    <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} /> <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
+                  </button>
+                )}
                 <div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-2xl shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
                   <div className="flex flex-col py-2">
                     {item.children.map(child => (
-                      <a 
-                        key={child.id} 
-                        className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors" 
-                        href={child.path} 
-                        onClick={(e) => handleNavClick(e, child.path)}
-                        dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} 
-                      />
+                      child.path && !child.path.includes('#') ? (
+                        <Link
+                          key={child.id}
+                          to={child.path}
+                          className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors"
+                          onClick={() => window.scrollTo(0, 0)}
+                          dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }}
+                        />
+                      ) : (
+                        <a
+                          key={child.id}
+                          className="px-5 py-2.5 text-sm text-plum-deep hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors"
+                          href={child.path}
+                          onClick={(e) => handleNavClick(e, child.path)}
+                          dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }}
+                        />
+                      )
                     ))}
                   </div>
                 </div>
               </div>
             ) : (
-              <a 
-                key={item.id} 
-                className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium" 
-                href={item.path} 
-                onClick={(e) => handleNavClick(e, item.path)}
-                dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} 
-              />
+              item.path && !item.path.includes('#') ? (
+                <Link
+                  key={item.id}
+                  to={item.path}
+                  className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium"
+                  onClick={() => window.scrollTo(0, 0)}
+                  dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }}
+                />
+              ) : (
+                <a
+                  key={item.id}
+                  className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium"
+                  href={item.path}
+                  onClick={(e) => handleNavClick(e, item.path)}
+                  dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }}
+                />
+              )
             ))}
           </div>
 
@@ -114,22 +185,41 @@ const TopNavBar = () => {
           <div className="flex flex-col py-2">
             {menu.map(item => (
               <div key={item.id} className="flex flex-col">
-                <a 
-                  className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" 
-                  href={item.path} 
-                  dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} 
-                  onClick={(e) => { handleNavClick(e, item.path); setIsMobileMenuOpen(false); }} 
-                />
+                {item.path && !item.path.includes('#') ? (
+                  <Link
+                    className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50"
+                    to={item.path}
+                    dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }}
+                    onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}
+                  />
+                ) : (
+                  <a 
+                    className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" 
+                    href={item.path} 
+                    dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} 
+                    onClick={(e) => { handleNavClick(e, item.path); setIsMobileMenuOpen(false); }} 
+                  />
+                )}
                 {item.children && (
                   <div className="flex flex-col bg-surface-lavender/30 pl-4">
                     {item.children.map(child => (
-                      <a 
-                        key={child.id} 
-                        className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30" 
-                        href={child.path} 
-                        dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} 
-                        onClick={(e) => { handleNavClick(e, child.path); setIsMobileMenuOpen(false); }} 
-                      />
+                      child.path && !child.path.includes('#') ? (
+                        <Link
+                          key={child.id}
+                          className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30"
+                          to={child.path}
+                          dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }}
+                          onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}
+                        />
+                      ) : (
+                        <a 
+                          key={child.id} 
+                          className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30" 
+                          href={child.path} 
+                          dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} 
+                          onClick={(e) => { handleNavClick(e, child.path); setIsMobileMenuOpen(false); }} 
+                        />
+                      )
                     ))}
                   </div>
                 )}

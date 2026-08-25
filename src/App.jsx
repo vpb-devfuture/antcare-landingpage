@@ -8,6 +8,7 @@ import Activities from './pages/Activities';
 import News from './pages/News';
 import NewsDetail from './pages/NewsDetail';
 import Recruitment from './pages/Recruitment';
+import AboutUs from './pages/AboutUs';
 import { trackPageView, initClarity } from './utils/analytics';
 import siteInfo from './config/siteInfo.json';
 
@@ -61,6 +62,9 @@ function App() {
     } else if (cleanPath === '/privacy-policy') {
       document.title = "Chính sách bảo mật | ANTCARE - Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Chính sách bảo mật thông tin và quyền riêng tư của khách hàng tại ANTCARE.";
+    } else if (cleanPath === '/ve-antcare' || cleanPath === '/about') {
+      document.title = "Về ANTCARE | Trợ Lý Chăm Sóc Sức Khỏe Người Cao Tuổi Tại Nhà Hà Nội";
+      if (metaDesc) metaDesc.content = "ANTCARE là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội, với 4 dịch vụ: Trợ lý sức khỏe, Đồng hành khám bệnh, An tâm nhà cửa, Kết nối dịch vụ y tế.";
     } else if (cleanPath === '/terms-of-use') {
       document.title = "Điều khoản sử dụng | ANTCARE - Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Quy định và điều khoản sử dụng dịch vụ trợ lý chăm sóc sức khỏe ANTCARE.";
@@ -94,6 +98,8 @@ function App() {
         <Route path="news" element={<News />} />
         <Route path="news/:id" element={<NewsDetail />} />
         <Route path="recruitment" element={<Recruitment />} />
+        <Route path="ve-antcare" element={<AboutUs />} />
+        <Route path="about" element={<AboutUs />} />
       </Route>
     </Routes>
   );
