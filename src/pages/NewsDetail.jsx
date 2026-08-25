@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useAppTranslation, translateArticle, getCategoryLabel } from '../utils/i18nHelper';
+import { useAppTranslation, translateArticle, getCategoryLabel, sortArticlesByDate } from '../utils/i18nHelper';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import newsData from '../data/news.json';
 import activitiesData from '../data/activities.json';
@@ -24,7 +24,12 @@ const NewsDetail = () => {
     ...(activitiesData || [])
   ];
 
-  let rawArticle = allArticlesList.find(item => item.slug === id || item.id === numericId);
+  let rawArticle = allArticlesList.find(item => 
+    item.slug === id || 
+    item.id === numericId || 
+    item.oldSlug === id || 
+    (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(id))
+  );
   let article = translateArticle(rawArticle, isEn);
 
   // Update document.title and meta description dynamically for SEO Meta Title & Meta Description matching H1 & P
@@ -163,12 +168,13 @@ const NewsDetail = () => {
     );
   }
 
-  // Get all other articles for the right sidebar
-  const allArticles = [
+  // Get all other articles for the right sidebar sorted by date
+  const allArticles = sortArticlesByDate([
     ...(newsData.featured ? [newsData.featured] : []),
-    ...(newsData.list || [])
-  ];
-  const otherArticles = allArticles.filter(item => item.id !== numericId);
+    ...(newsData.list || []),
+    ...(activitiesData || [])
+  ]);
+  const otherArticles = allArticles.filter(item => item.id !== numericId && item.slug !== article.slug);
 
   const schemaMarkup = {
     "@context": "https://schema.org",
@@ -362,8 +368,8 @@ const NewsDetail = () => {
               <div className="space-y-3">
                 {otherArticles.map(item => (
                   <Link 
-                    to={`/news/${item.slug || item.id}`} 
-                    key={item.id}
+                    to={item.slug ? (activitiesData.some(a => a.slug === item.slug) ? `/activities/${item.slug}` : `/news/${item.slug}`) : `/news/${item.id}`} 
+                    key={`${item.category}-${item.slug || item.id}-${item.id}`}
                     className="flex gap-3 group items-center p-2 rounded-xl hover:bg-surface-mist transition-all duration-200 border border-transparent hover:border-surface-lavender/60"
                   >
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden shrink-0 shadow-sm border border-surface-lavender/50">

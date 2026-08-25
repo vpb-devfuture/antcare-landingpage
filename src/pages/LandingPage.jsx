@@ -296,9 +296,12 @@ const LandingPage = () => {
           </div>
 
           {/* Quote Block */}
-          <div className="border-l-[3.5px] border-[#E86A17] pl-3.5 py-1.5 my-3 bg-[#E86A17]/5 rounded-r-lg">
+          <div className="border-l-[3.5px] border-[#E86A17] pl-3.5 py-2 my-3 bg-[#E86A17]/5 rounded-r-lg">
             <p className="text-[#E86A17] font-semibold italic text-xs sm:text-sm md:text-[15.5px] leading-relaxed">
               {tr(activePageData?.whyAntcare?.quote, "Because parents deserve the most devoted, safe, and professional care right at home.")}
+            </p>
+            <p className="text-[#68259E] font-bold text-xs sm:text-sm md:text-[14.5px] mt-1.5 leading-snug">
+              {tr(activePageData?.whyAntcare?.subtitle, "ANTCARE - Home Healthcare Assistant & Medical Companion Service for Seniors")}
             </p>
           </div>
 

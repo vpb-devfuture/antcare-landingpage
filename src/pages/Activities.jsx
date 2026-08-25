@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAppTranslation } from '../utils/i18nHelper';
+import { useAppTranslation, sortArticlesByDate } from '../utils/i18nHelper';
 import { Link } from 'react-router-dom';
 import activitiesData from '../data/activities.json';
 
@@ -10,8 +10,8 @@ const Activities = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Sort activities descending by ID
-  const sortedActivities = [...(activitiesData || [])].sort((a, b) => (b.id || 0) - (a.id || 0));
+  // Sort activities strictly by date descending (newest date first)
+  const sortedActivities = sortArticlesByDate(activitiesData || []);
 
   // Top Carousel items (first 4 activities)
   const carouselActivities = sortedActivities.slice(0, 4);
@@ -77,14 +77,19 @@ const Activities = () => {
           
           {/* Left Large Hero Banner (7 Columns) */}
           <div className="lg:col-span-7 relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-md transition-all group aspect-[16/9] sm:aspect-[1.9/1] bg-slate-900 flex flex-col justify-end">
-            <img 
-              src={currentHeroArticle.image} 
-              alt={currentHeroArticle.title} 
-              className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700"
-            />
-            
-            {/* Dark gradient overlay for high legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent z-10 pointer-events-none"></div>
+            <Link 
+              to={`/activities/${currentHeroArticle.slug || currentHeroArticle.id}`} 
+              className="absolute inset-0 z-10 cursor-pointer block"
+              aria-label={currentHeroArticle.title}
+            >
+              <img 
+                src={currentHeroArticle.image} 
+                alt={currentHeroArticle.title} 
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700"
+              />
+              {/* Dark gradient overlay for high legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            </Link>
 
             {/* Left Carousel Arrow Button */}
             <button 
@@ -109,15 +114,15 @@ const Activities = () => {
               {carouselActivities.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setActiveSlide(idx)}
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveSlide(idx); }}
                   className={`h-1.5 rounded-full transition-all cursor-pointer ${idx === activeSlide ? 'w-5 bg-earth-orange-bright' : 'w-1.5 bg-white/60 hover:bg-white'}`}
                 />
               ))}
             </div>
 
             {/* Title Overlay Directly on Image */}
-            <div className="relative z-20 p-4 sm:p-5 md:p-6">
-              <Link to={`/activities/${currentHeroArticle.slug || currentHeroArticle.id}`} className="block group/link">
+            <div className="relative z-20 p-4 sm:p-5 md:p-6 pointer-events-none">
+              <Link to={`/activities/${currentHeroArticle.slug || currentHeroArticle.id}`} className="block group/link pointer-events-auto">
                 <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-white uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-earth-orange-bright mb-2">
                   {currentHeroArticle.category}
                 </div>

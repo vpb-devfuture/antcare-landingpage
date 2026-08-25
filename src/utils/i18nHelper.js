@@ -368,3 +368,30 @@ export const translatePageData = (data, isEn) => {
 
   return translated;
 };
+
+export const parseArticleDate = (dateStr) => {
+  if (!dateStr) return 0;
+  const viMatch = dateStr.match(/(\d{1,2})\s+Tháng\s+(\d{1,2}),?\s+(\d{4})/i);
+  if (viMatch) {
+    return new Date(parseInt(viMatch[3], 10), parseInt(viMatch[2], 10) - 1, parseInt(viMatch[1], 10)).getTime();
+  }
+  const slashMatch = dateStr.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if (slashMatch) {
+    return new Date(parseInt(slashMatch[3], 10), parseInt(slashMatch[2], 10) - 1, parseInt(slashMatch[1], 10)).getTime();
+  }
+  const t = Date.parse(dateStr);
+  return isNaN(t) ? 0 : t;
+};
+
+export const sortArticlesByDate = (articles) => {
+  if (!Array.isArray(articles)) return [];
+  return [...articles].sort((a, b) => {
+    const timeA = parseArticleDate(a.date);
+    const timeB = parseArticleDate(b.date);
+    if (timeB !== timeA) {
+      return timeB - timeA;
+    }
+    return (b.id || 0) - (a.id || 0);
+  });
+};
+

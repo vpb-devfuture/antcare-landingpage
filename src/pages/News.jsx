@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAppTranslation, translateArticle } from '../utils/i18nHelper';
+import { useAppTranslation, translateArticle, sortArticlesByDate } from '../utils/i18nHelper';
 import { Link } from 'react-router-dom';
 import newsData from '../data/news.json';
 
@@ -9,14 +9,14 @@ const News = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Fixed featured article (Trào Lưu Chụp Ảnh Mùa Thu Hà Nội)
-  const featuredArticle = newsData.featured;
+  // Sort list articles descending by date (newest first)
+  const sortedList = sortArticlesByDate(newsData.list || []);
 
-  // List articles sorted descending by ID (newest first)
-  const listArticles = [...(newsData.list || [])].sort((a, b) => (b.id || 0) - (a.id || 0));
-
-  // allArticles puts fixed featured article at index 0, followed by list articles
-  const rawAllArticles = [featuredArticle, ...listArticles.filter(item => item.id !== featuredArticle.id)];
+  // allArticles sorted strictly by date (newest first)
+  const rawAllArticles = sortArticlesByDate([
+    ...(newsData.featured ? [newsData.featured] : []),
+    ...sortedList.filter(item => item.id !== newsData.featured?.id)
+  ]);
   const allArticles = rawAllArticles.map(item => translateArticle(item, isEn));
 
   // Carousel articles for top left hero banner (Default slide 0 is fixed featured article)
@@ -75,14 +75,19 @@ const News = () => {
           
           {/* Left Large Hero Banner (7 Columns - Title Overlayed Directly on Image) */}
           <div className="lg:col-span-7 relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-md transition-all group aspect-[16/9] sm:aspect-[1.9/1] bg-slate-900 flex flex-col justify-end">
-            <img 
-              src={currentHeroArticle.image} 
-              alt={currentHeroArticle.title} 
-              className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700"
-            />
-            
-            {/* Subtle dark gradient overlay at bottom for high legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent z-10 pointer-events-none"></div>
+            <Link 
+              to={`/news/${currentHeroArticle.slug || currentHeroArticle.id}`} 
+              className="absolute inset-0 z-10 cursor-pointer block"
+              aria-label={currentHeroArticle.title}
+            >
+              <img 
+                src={currentHeroArticle.image} 
+                alt={currentHeroArticle.title} 
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700"
+              />
+              {/* Subtle dark gradient overlay at bottom for high legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+            </Link>
 
             {/* Left Carousel Arrow Button */}
             <button 
@@ -107,15 +112,15 @@ const News = () => {
               {carouselArticles.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setActiveSlide(idx)}
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveSlide(idx); }}
                   className={`h-1.5 rounded-full transition-all cursor-pointer ${idx === activeSlide ? 'w-5 bg-earth-orange-bright' : 'w-1.5 bg-white/60 hover:bg-white'}`}
                 />
               ))}
             </div>
 
             {/* Title Overlay Directly on Image (No date, no category tag) */}
-            <div className="relative z-20 p-4 sm:p-5 md:p-6">
-              <Link to={`/news/${currentHeroArticle.slug || currentHeroArticle.id}`} className="block group/link">
+            <div className="relative z-20 p-4 sm:p-5 md:p-6 pointer-events-none">
+              <Link to={`/news/${currentHeroArticle.slug || currentHeroArticle.id}`} className="block group/link pointer-events-auto">
                 <h1 className="text-base sm:text-lg md:text-xl font-bold text-white leading-snug line-clamp-2 group-hover/link:text-earth-orange-bright transition-colors drop-shadow-sm">
                   {currentHeroArticle.title}
                 </h1>

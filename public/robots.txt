@@ -1,4 +1,49 @@
+# Allow all search engine crawlers & AI bots
 User-agent: *
 Allow: /
 
+# Google Search Crawler
+User-agent: Googlebot
+Allow: /
+
+# Bing Search Crawler
+User-agent: Bingbot
+Allow: /
+
+# OpenAI / ChatGPT Crawlers & Training Bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude Bots
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: claude-web
+Allow: /
+
+# Perplexity AI Bot
+User-agent: PerplexityBot
+Allow: /
+
+# Google Gemini / AI Extended Crawler
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (Used by various AI models)
+User-agent: CCBot
+Allow: /
+
+# ByteDance / TikTok AI Crawler
+User-agent: Bytespider
+Allow: /
+
+# Apple AI & Siri Crawler
+User-agent: Applebot
+Allow: /
+
+# Sitemaps
+Sitemap: https://antcare.vn/sitemap.xml
 Sitemap: https://antcare-landingpage.vercel.app/sitemap.xml
