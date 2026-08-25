@@ -196,12 +196,21 @@ const NewsDetail = () => {
     "@graph": [
       {
         "@type": "NewsArticle",
-        "headline": article.title,
+        "headline": article.title ? article.title.replace(/\n/g, ' ') : '',
         "datePublished": "2026-08-11T09:00:00+07:00",
-        "description": article.description,
+        "description": article.description ? article.description.replace(/\n/g, ' ') : '',
+        "image": article.image ? (article.image.startsWith('http') ? article.image : `https://antcare.vn${article.image}`) : "https://antcare.vn/images/footer-logo.png",
         "author": {
           "@type": "Person",
           "name": article.author ? article.author.name : "Huyền Trang"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ANTCARE - Kiến chăm tổ",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://antcare.vn/images/footer-logo.png"
+          }
         }
       },
       {
