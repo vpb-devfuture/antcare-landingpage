@@ -56,11 +56,26 @@ const NewsDetail = () => {
 
       let ogImg = document.querySelector('meta[property="og:image"]');
       if (ogImg && article.image) {
-        const fullImgUrl = article.image.startsWith('http') ? article.image : `https://antcare-landingpage.vercel.app${article.image}`;
+        const fullImgUrl = article.image.startsWith('http') ? article.image : `https://antcare.vn${article.image}`;
         ogImg.content = fullImgUrl;
       }
+
+      // Update Canonical URL and Open Graph URL
+      const currentPath = window.location.pathname;
+      const canonicalUrl = `https://antcare.vn${currentPath}`;
+      
+      let canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (!canonicalLink) {
+        canonicalLink = document.createElement('link');
+        canonicalLink.rel = 'canonical';
+        document.head.appendChild(canonicalLink);
+      }
+      canonicalLink.href = canonicalUrl;
+
+      let ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.content = canonicalUrl;
     }
-  }, [article?.id, article?.title, article?.description, article?.image]);
+  }, [article?.id, article?.title, article?.description, article?.image, id]);
 
   // Ensure all images inside article content have SEO-optimized ALT attributes
   useEffect(() => {

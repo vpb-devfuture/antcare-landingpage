@@ -46,4 +46,4 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://antcare.vn/sitemap.xml
-Sitemap: https://antcare-landingpage.vercel.app/sitemap.xml
+
