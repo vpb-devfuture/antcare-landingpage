@@ -163,7 +163,7 @@ const News = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
               <h2 className="text-2xl font-bold text-slate-800 mb-1">{tr("Tất cả bài viết", "All Articles")}</h2>
-              <p className="text-sm text-slate-600">Khám phá thông tin dinh dưỡng &amp; chăm sóc sức khỏe cho người cao tuổi từ ANTCARE</p>
+              <p className="text-sm text-slate-600">Khám phá thông tin dinh dưỡng &amp; chăm sóc sức khỏe cho người cao tuổi từ ANTCARE - Kiến chăm tổ</p>
             </div>
             
             {/* Category Filter Tabs in Clean White Palette */}

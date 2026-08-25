@@ -36,7 +36,7 @@ const NewsDetail = () => {
   useEffect(() => {
     if (article) {
       const cleanTitle = article.title.replace(/\n/g, ' ');
-      document.title = `${cleanTitle} | ANTCARE`;
+      document.title = `${cleanTitle} | ANTCARE - Kiến chăm tổ`;
 
       // Update or create meta description tag in document head for SEO crawler
       let metaDesc = document.querySelector('meta[name="description"]');
@@ -49,7 +49,7 @@ const NewsDetail = () => {
 
       // Update Open Graph tags for Facebook & Zalo sharing preview
       let ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle) ogTitle.content = `${cleanTitle} | ANTCARE`;
+      if (ogTitle) ogTitle.content = `${cleanTitle} | ANTCARE - Kiến chăm tổ`;
 
       let ogDesc = document.querySelector('meta[property="og:description"]');
       if (ogDesc) ogDesc.content = article.description || '';
@@ -68,7 +68,7 @@ const NewsDetail = () => {
     const timer = setTimeout(() => {
       if (!contentRef.current) return;
       const imgs = contentRef.current.querySelectorAll('img');
-      const cleanTitle = article.title ? article.title.replace(/\n/g, ' ') : 'ANTCARE';
+      const cleanTitle = article.title ? article.title.replace(/\n/g, ' ') : 'ANTCARE - Kiến chăm tổ';
       imgs.forEach((img, idx) => {
         if (!img.alt || img.alt.trim() === '' || img.alt.toLowerCase() === 'mock image') {
           img.alt = `${cleanTitle} - Hình minh họa ${idx + 1}`;
@@ -283,7 +283,7 @@ const NewsDetail = () => {
                    </div>
                    <div>
                      <p className="font-bold text-sm text-plum-deep">{article.author.name}</p>
-                     <p className="text-on-surface-variant text-xs mt-0.5">{article.author.description || 'Nhân viên truyền thông Antcare'}</p>
+                     <p className="text-on-surface-variant text-xs mt-0.5">{article.author.description || 'Nhân viên truyền thông ANTCARE - Kiến chăm tổ'}</p>
                    </div>
                  </div>
                )}
@@ -303,7 +303,7 @@ const NewsDetail = () => {
             <div className="bg-white rounded-2xl p-5 shadow-sm border border-surface-lavender">
               <h3 className="font-bold text-sm sm:text-base text-plum-deep mb-3.5 pb-2.5 border-b border-surface-lavender flex items-center gap-2">
                 <span className="material-symbols-outlined text-primary text-lg">medical_services</span>
-                <span>Dịch vụ của ANTCARE</span>
+                <span>Dịch vụ của ANTCARE - Kiến chăm tổ</span>
               </h3>
               <div className="space-y-2 text-xs sm:text-sm">
                 <Link to="/#giai-phap-cham-soc" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">

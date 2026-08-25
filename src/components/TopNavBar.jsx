@@ -37,8 +37,8 @@ const TopNavBar = () => {
         <div className="flex items-center justify-between h-16 md:h-[68px]">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 cursor-pointer hover:opacity-90 transition-opacity">
-              <img alt="ANTCARE logo" className="h-10 md:h-12 w-auto object-contain" src="/images/logo.png" />
+            <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 cursor-pointer hover:opacity-95 transition-opacity">
+              <img alt="ANTCARE logo" className="h-[46px] md:h-[58px] w-auto object-contain py-0.5" src="/images/logo.png" />
             </Link>
           </div>
 

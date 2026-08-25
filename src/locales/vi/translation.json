@@ -6,13 +6,13 @@
     "service_education": "An tâm nhà cửa",
     "service_maid": "Dịch vụ chăm sóc y tế",
     "service_process": "Quy trình hoạt động của ANT",
-    "service_why_antcare": "Tại sao chọn Antcare",
+    "service_why_antcare": "Tại sao chọn ANTCARE - Kiến chăm tổ",
     "recruitment": "Tuyển dụng",
     "recruit_register": "Đăng ký tuyển dụng",
     "recruit_benefits": "Quyền lợi hợp tác",
     "about": "Về chúng tôi",
     "about_wish": "Tâm nguyện của chúng tôi",
-    "about_story": "Câu chuyện của ANT – Kiến chăm tổ",
+    "about_story": "Câu chuyện của ANTCARE - Kiến chăm tổ",
     "contact": "Liên hệ",
     "news": "Tin tức",
     "activities": "Hoạt động"
@@ -39,7 +39,7 @@
   "solutions": {
     "badge": "GIẢI PHÁP TOÀN DIỆN",
     "title": "Giải Pháp Chăm Sóc & Đồng Hành Cùng Người Cao Tuổi",
-    "subtitle": "ANTCARE mang đến giải pháp chăm sóc y tế và hỗ trợ đời sống tinh thần chất lượng cao ngay tại nhà.",
+    "subtitle": "ANTCARE - Kiến chăm tổ mang đến giải pháp chăm sóc y tế và hỗ trợ đời sống tinh thần chất lượng cao ngay tại nhà.",
     "card1_title": "Trợ Lý Sức Khỏe Tại Nhà",
     "card1_desc": "Theo dõi các chỉ số sinh hiệu, quản lý thuốc, hỗ trợ luyện tập phục hồi và vận động nhẹ nhàng.",
     "card2_title": "Đồng Hành Khám Bệnh",
@@ -50,8 +50,8 @@
     "card4_desc": "Hướng dẫn kỹ năng chăm sóc, phòng chống té ngã và xử trí tình huống khẩn cấp cho người nhà."
   },
   "whyUs": {
-    "badge": "TẠI SAO CHỌN ANTCARE",
-    "title": "Vì Sao Hàng Trăm Gia Đình Lựa Chọn ANTCARE?",
+    "badge": "TẠI SAO CHỌN ANTCARE - Kiến chăm tổ",
+    "title": "Vì Sao Hàng Trăm Gia Đình Lựa Chọn ANTCARE - Kiến chăm tổ?",
     "reason1_title": "100% Nhân Viên Được Đào Tạo Chuẩn",
     "reason1_desc": "Đội ngũ Trợ lý sức khỏe (Kiến) được tập huấn bài bản về chuyên môn sơ cấp cứu và giao tiếp người cao tuổi.",
     "reason2_title": "Quy Trình Chăm Sóc Minh Bạch",
@@ -73,19 +73,19 @@
   },
   "contactForm": {
     "title": "Đăng Ký Nhận Tư Vấn Miễn Phí",
-    "subtitle": "Để lại thông tin, chuyên viên ANTCARE sẽ liên hệ tư vấn lộ trình phù hợp nhất cho gia đình bạn.",
+    "subtitle": "Để lại thông tin, chuyên viên ANTCARE - Kiến chăm tổ sẽ liên hệ tư vấn lộ trình phù hợp nhất cho gia đình bạn.",
     "namePlaceholder": "Họ và tên của bạn",
     "phonePlaceholder": "Số điện thoại liên hệ",
     "locationPlaceholder": "Tỉnh/Thành phố hoặc Quận/Huyện",
     "healthPlaceholder": "Tình trạng sức khỏe người thân (không bắt buộc)",
     "submitBtn": "Gửi Đăng Ký Tư Vấn",
-    "successMsg": "Cảm ơn bạn! ANTCARE đã nhận thông tin và sẽ liên hệ tư vấn ngay.",
+    "successMsg": "Cảm ơn bạn! ANTCARE - Kiến chăm tổ đã nhận thông tin và sẽ liên hệ tư vấn ngay.",
     "errorMsg": "Khách hàng lưu ý cần nhập đủ 3 dòng thông tin nhé ạ"
   },
   "footer": {
     "slogan": "Bạn không thể ở bên gia đình mọi lúc mọi nơi, Kiến sẽ luôn ở bên để giữ trọn yêu thương cùng bạn",
     "quickLinks": "Liên kết nhanh",
-    "servicesTitle": "Dịch vụ của ANTCARE",
+    "servicesTitle": "Dịch vụ của ANTCARE - Kiến chăm tổ",
     "contactTitle": "Thông tin liên hệ",
     "copyright": "© 2026 ANTCARE. Tất cả quyền được bảo lưu."
   }

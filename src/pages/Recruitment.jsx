@@ -54,7 +54,7 @@ const Recruitment = () => {
             {tr("DÀNH CHO ĐỐI TÁC & TUYỂN DỤNG", "FOR PARTNERS & CAREERS")}
           </div>
           <h1 className="text-xl sm:text-2xl md:text-[26px] font-bold text-plum-deep mb-2 leading-snug">
-            {tr("Tuyển Dụng & Hợp Tác Cùng", "Careers & Partnership With")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến Chăm Tổ
+            {tr("Tuyển Dụng & Hợp Tác Cùng", "Careers & Partnership With")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ
           </h1>
           <p className="text-xs sm:text-sm text-on-surface-variant max-w-4xl mx-auto leading-relaxed font-medium">
             {tr("Hãy hợp tác cùng chúng tôi vì một tiêu chuẩn chăm sóc gia đình Việt hiện đại, uy tín và tận tâm.", "Partner with us to build a modern, prestigious, and devoted standard of family care.")}
@@ -66,7 +66,7 @@ const Recruitment = () => {
           <div className="flex flex-col md:flex-row gap-6 lg:gap-10 items-center">
             <div className="md:w-1/2 space-y-3">
               <h3 className="text-primary font-bold text-base md:text-xl mb-1">
-                {tr("Kết nối cùng chúng tôi", "Connect With Us")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ
+                {tr("Kết nối cùng chúng tôi", "Connect With Us")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ
               </h3>
               <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider mb-1 bg-earth-orange-bright text-white">
                 <span className="material-symbols-outlined text-[14px]">handshake</span> {tr("DÀNH CHO ĐỐI TÁC & TUYỂN DỤNG", "FOR PARTNERS & CAREERS")}
@@ -109,7 +109,7 @@ const Recruitment = () => {
                 onSubmit={handlePartnerSubmit} 
                 className="space-y-3.5"
               >
-                <input type="hidden" name="_subject" value={`🔔 [ANTCARE] Đăng ký Tuyển dụng & Hợp tác: ${partnerForm.name} - ${partnerForm.phone}`} />
+                <input type="hidden" name="_subject" value={`🔔 [ANTCARE - Kiến chăm tổ] Đăng ký Tuyển dụng & Hợp tác: ${partnerForm.name} - ${partnerForm.phone}`} />
                 <input type="hidden" name="Loại yêu cầu" value="Tuyển dụng" />
                 <input type="hidden" name="Họ và tên hoặc Tên tổ chức / Trung tâm" value={partnerForm.name} />
                 <input type="hidden" name="Số điện thoại" value={partnerForm.phone} />
@@ -194,7 +194,7 @@ const Recruitment = () => {
                 {partnerSubmitted && (
                   <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-xs sm:text-sm flex items-center gap-2 animate-fadeIn shadow-sm font-medium">
                     <span className="material-symbols-outlined text-emerald-600 text-base shrink-0">check_circle</span>
-                    <span>{tr("Cảm ơn bạn! ANTCARE đã ghi nhận và sẽ liên hệ lại trong vòng 24-48 giờ làm việc.", "Thank you! ANTCARE has recorded your information and will contact you within 24-48 business hours.")}</span>
+                    <span>{tr("Cảm ơn bạn! ANTCARE - Kiến chăm tổ đã ghi nhận và sẽ liên hệ lại trong vòng 24-48 giờ làm việc.", "Thank you! ANTCARE has recorded your information and will contact you within 24-48 business hours.")}</span>
                   </div>
                 )}
 
@@ -214,7 +214,7 @@ const Recruitment = () => {
               QUYỀN LỢI &amp; QUY TRÌNH
             </div>
             <h2 className="font-display-lg text-plum-deep text-xl md:text-2xl lg:text-3xl font-bold mb-1.5">
-              Hợp tác cùng <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ
+              Hợp tác cùng <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ
             </h2>
             <div className="w-14 h-1 bg-earth-orange-bright rounded-full mb-2.5"></div>
             <p className="text-xs sm:text-sm text-on-surface-variant max-w-xl">
@@ -273,7 +273,7 @@ const Recruitment = () => {
                     </div>
                     <div className="space-y-0.5">
                       <p className="text-xs sm:text-sm md:text-base font-bold text-plum-deep">Đào tạo chuyên sâu</p>
-                      <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">Được đào tạo và hỗ trợ chuyên môn liên tục trong suốt quá trình hợp tác cùng <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ.</p>
+                      <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">Được đào tạo và hỗ trợ chuyên môn liên tục trong suốt quá trình hợp tác cùng <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ.</p>
                     </div>
                   </div>
                 </div>
@@ -301,7 +301,7 @@ const Recruitment = () => {
                   <div className="relative z-10 w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shadow-md group-hover:scale-110 transition-transform shrink-0">2</div>
                   <div className="pt-0.5">
                     <h4 className="text-xs sm:text-sm md:text-base font-bold text-plum-deep mb-0.5">Kiểm tra thông tin</h4>
-                    <p className="text-xs sm:text-sm text-on-surface-variant"><span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ sẽ tiếp nhận, kiểm tra hồ sơ và liên hệ lại với bạn trong vòng 48h làm việc.</p>
+                    <p className="text-xs sm:text-sm text-on-surface-variant"><span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ sẽ tiếp nhận, kiểm tra hồ sơ và liên hệ lại với bạn trong vòng 48h làm việc.</p>
                   </div>
                 </div>
 

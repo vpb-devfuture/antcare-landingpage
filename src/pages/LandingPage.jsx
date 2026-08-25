@@ -663,7 +663,7 @@ const LandingPage = () => {
   <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
     <div className="flex flex-col items-center mb-6 text-center reveal">
       <h2 className="font-bold text-plum-deep uppercase tracking-wide text-lg sm:text-xl md:text-2xl">{tr("BẢNG GIÁ CHI TIẾT GÓI DỊCH VỤ Y TẾ", "DETAILED MEDICAL SERVICE PRICING")}</h2>
-      <p className="text-xs sm:text-sm md:text-base text-on-surface-variant mt-1.5 font-medium">{tr("Bảng giá công khai, minh bạch dành cho khách hàng mới và thành viên ANTCARE", "Transparent pricing for new clients and ANTCARE members")}</p>
+      <p className="text-xs sm:text-sm md:text-base text-on-surface-variant mt-1.5 font-medium">{tr("Bảng giá công khai, minh bạch dành cho khách hàng mới và thành viên ANTCARE - Kiến chăm tổ", "Transparent pricing for new clients and ANTCARE members")}</p>
     </div>
 
     <div className="relative overflow-hidden rounded-2xl border border-surface-lavender shadow-xl bg-white reveal delay-100">
@@ -873,10 +873,10 @@ const LandingPage = () => {
 <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
 <div className="bg-white rounded-3xl shadow-md p-6 md:p-10 flex flex-col md:flex-row gap-8 lg:gap-12 items-center">
 <div className="md:w-1/2 space-y-5">
-<h3 className="text-primary font-bold text-lg md:text-2xl mb-1">{tr("Kết nối cùng chúng tôi", "Connect With Us")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ</h3>
+<h3 className="text-primary font-bold text-lg md:text-2xl mb-1">{tr("Kết nối cùng chúng tôi", "Connect With Us")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ</h3>
 <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-1 bg-earth-orange-bright text-white"><span className="material-symbols-outlined text-[16px]">person</span> {tr("Dành cho khách hàng", "For Customers")}</div>
-<h2 className="font-bold text-plum-deep leading-tight text-xl md:text-2xl lg:text-3xl">{tr("ANT - Kiến chăm tổ luôn sẵn sàng đồng hành cùng để giữ trọn yêu thương thay bạn", "ANT - Nest Care is always ready to accompany you to preserve love on your behalf")}</h2>
-<p className="text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">{tr("Hãy chia sẻ cùng ANT - Kiến chăm tổ bạn nhé, bạn muốn gọi điện thoại ngay qua hotline 0969 032 360 hay để lại thông tin liên hệ.", "Please share with ANTCARE, feel free to call our hotline 0969 032 360 directly or leave your contact details below.")}</p>
+<h2 className="font-bold text-plum-deep leading-tight text-xl md:text-2xl lg:text-3xl">{tr("ANTCARE - Kiến chăm tổ luôn sẵn sàng đồng hành cùng để giữ trọn yêu thương thay bạn", "ANT - Nest Care is always ready to accompany you to preserve love on your behalf")}</h2>
+<p className="text-xs sm:text-sm md:text-base text-on-surface-variant leading-relaxed">{tr("Hãy chia sẻ cùng ANTCARE - Kiến chăm tổ bạn nhé, bạn muốn gọi điện thoại ngay qua hotline 0969 032 360 hay để lại thông tin liên hệ.", "Please share with ANTCARE - Kiến chăm tổ, feel free to call our hotline 0969 032 360 directly or leave your contact details below.")}</p>
 <div className="space-y-3 pt-2">
 <div className="flex items-center gap-3">
 <div className="w-9 h-9 rounded-full bg-earth-orange-bright/10 flex items-center justify-center shrink-0"><span className="material-symbols-outlined text-earth-orange-bright text-lg">schedule</span></div>
@@ -884,7 +884,7 @@ const LandingPage = () => {
 </div>
 <div className="flex items-center gap-3">
 <div className="w-9 h-9 rounded-full bg-earth-orange-bright/10 flex items-center justify-center shrink-0"><span className="material-symbols-outlined text-earth-orange-bright text-lg">lock</span></div>
-<p className="text-xs sm:text-sm md:text-base font-medium text-plum-deep">{tr("Thông tin sẽ được bảo mật theo chính sách cam kết của", "Information is secured according to the privacy policy of")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span> - Kiến chăm tổ.</p>
+<p className="text-xs sm:text-sm md:text-base font-medium text-plum-deep">{tr("Thông tin sẽ được bảo mật theo chính sách cam kết của", "Information is secured according to the privacy policy of")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ.</p>
 </div>
 </div>
 </div>
@@ -957,7 +957,7 @@ const LandingPage = () => {
       <span>{tr("Đã gửi thông tin tư vấn thành công!", "Consultation request sent successfully!")}</span>
     </div>
     <p className="text-emerald-700/90 text-xs sm:text-sm leading-relaxed">
-      {tr("Thông tin tư vấn của bạn đã được hệ thống ghi nhận thành công! Đội ngũ tư vấn của ANTCARE sẽ liên hệ lại với bạn trong thời gian sớm nhất.", "Your consultation request has been recorded successfully! ANTCARE team will contact you shortly.")}
+      {tr("Thông tin tư vấn của bạn đã được hệ thống ghi nhận thành công! Đội ngũ tư vấn của ANTCARE - Kiến chăm tổ sẽ liên hệ lại với bạn trong thời gian sớm nhất.", "Your consultation request has been recorded successfully! ANTCARE team will contact you shortly.")}
     </p>
     <div className="flex flex-wrap items-center gap-2 mt-1">
       <a 
@@ -1001,7 +1001,7 @@ const LandingPage = () => {
     {tr("Sứ mệnh kết nối tình yêu của con cái và sức khỏe của cha mẹ, mang đến sự an tâm tuyệt đối khi khoảng cách địa lý không còn là rào cản.", "Our mission connects children's love with parents' health, bringing complete peace of mind across geographic distance.")}
 </p>
 <p className="text-xs sm:text-sm md:text-[15px] text-plum-deep/95 max-w-xl leading-relaxed font-medium bg-white/40 backdrop-blur-xs p-3.5 sm:p-4 rounded-2xl border border-white/60 shadow-2xs mt-3">
-  {tr("ANTCARE là dịch vụ chăm sóc và đồng hành cùng người lớn tuổi tại nhà. Mỗi lần Kiến ghé thăm, chúng tôi theo dõi các chỉ số sức khỏe, nhắc uống thuốc, hỗ trợ sinh hoạt và cùng người lớn tuổi thực hiện các bài tập rèn luyện thể chất, trí não, trò chuyện và duy trì những hoạt động phù hợp mỗi ngày.", "ANTCARE provides home care and companionship for seniors. During every visit, we monitor health metrics, remind medication, assist daily living, and guide physical & brain exercises, conversing and maintaining suitable daily activities.")}
+  {tr("ANTCARE - Kiến chăm tổ - Dịch vụ trợ lý chăm sóc sức khỏe tại nhà và đồng hành khám bệnh cùng người cao tuổi. Mỗi lần Kiến ghé thăm, chúng tôi theo dõi các chỉ số sức khỏe, nhắc uống thuốc, hỗ trợ sinh hoạt và cùng người lớn tuổi thực hiện các bài tập rèn luyện thể chất, trí não, trò chuyện và duy trì những hoạt động phù hợp mỗi ngày.", "ANTCARE - Kiến chăm tổ - Home Healthcare Assistant & Medical Companion Service for Seniors. During every visit, we monitor health metrics, remind medication, assist daily living, and guide physical & brain exercises, conversing and maintaining suitable daily activities.")}
 </p>
 </div>
 </div>
@@ -1018,17 +1018,17 @@ const LandingPage = () => {
 </div>
 <div className="space-y-4 text-on-surface-variant text-sm sm:text-base leading-relaxed font-normal">
 <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-plum-deep mb-3 leading-snug">
-  {tr("Câu chuyện của ANT - Kiến chăm tổ", "Story of ANT — Caring for the Nest")}
+  {tr("Câu chuyện của ANTCARE - Kiến chăm tổ", "Story of ANT — Caring for the Nest")}
 </h2>
 <p className="text-justify leading-relaxed">
-  {tr("Chúng tôi thấu hiểu nỗi lòng của những người con xa nhà, luôn đau đáu về sức khỏe của cha mẹ. Những dòng tin nhắn hỏi thăm vội vã giữa giờ làm, những lo âu khi không thể trực tiếp đưa bố mẹ đi khám bệnh chính là khởi nguồn cho sứ mệnh của ANTCARE.", "We deeply understand the hearts of children living far away, always caring for their parents' health. Hastily sent text messages during work and anxieties about not escorting parents to medical checkups sparked ANTCARE's mission.")}
+  {tr("Chúng tôi thấu hiểu nỗi lòng của những người con xa nhà, luôn đau đáu về sức khỏe của cha mẹ. Những dòng tin nhắn hỏi thăm vội vã giữa giờ làm, những lo âu khi không thể trực tiếp đưa bố mẹ đi khám bệnh chính là khởi nguồn cho sứ mệnh của ANTCARE - Kiến chăm tổ.", "We deeply understand the hearts of children living far away, always caring for their parents' health. Hastily sent text messages during work and anxieties about not escorting parents to medical checkups sparked ANTCARE's mission.")}
 </p>
 <p className="text-justify leading-relaxed">
   {tr("Có những lúc cha mẹ ốm đau nhưng chẳng nỡ gọi con vì sợ con lo, sợ con bận. Có những khi người con ngồi giữa văn phòng hiện đại nhưng lòng quặn thắt vì không thể tự tay đưa cha mẹ đi khám bệnh định kỳ.", "Sometimes parents fall ill but hesitate to call their children out of worry. Sometimes children sit in modern offices, aching at heart for not being able to take their parents for checkups.")}
 </p>
 <div className="bg-white/90 p-4 sm:p-5 rounded-2xl border-l-4 border-earth-orange-bright shadow-xs my-3">
   <p className="italic text-plum-deep font-semibold text-sm sm:text-base md:text-[16.5px] leading-relaxed">
-    "{tr("Sự cô đơn của tuổi già và nỗi trăn trở của những người con xa xứ chính là nguồn cảm hứng để ANTCARE ra đời.", "Old age loneliness and concerns of children living abroad inspired the creation of ANTCARE.")}"
+    "{tr("Sự cô đơn của tuổi già và nỗi trăn trở của những người con xa xứ chính là nguồn cảm hứng để ANTCARE - Kiến chăm tổ ra đời.", "Old age loneliness and concerns of children living abroad inspired the creation of ANTCARE.")}"
   </p>
 </div>
 <p className="text-justify text-xs sm:text-sm md:text-base opacity-95 leading-relaxed">
@@ -1048,8 +1048,8 @@ const LandingPage = () => {
 <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest mb-3">
 <span className="material-symbols-outlined text-[18px]">stars</span> Core Values
 </div>
-<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-plum-deep mb-2">{tr("Quy trình hoạt động của", "Operation Process of")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span></h2>
-<p className="text-on-surface-variant text-xs sm:text-sm md:text-base">{tr("Mọi hoạt động tại ANTCARE đều được xây dựng trên nền tảng của sự chân thành và tiêu chuẩn y tế khắt khe.", "All activities at ANTCARE are built on sincerity and rigorous medical standards.")}</p>
+<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-plum-deep mb-2">{tr("Quy trình hoạt động của", "Operation Process of")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ</h2>
+<p className="text-on-surface-variant text-xs sm:text-sm md:text-base">{tr("Mọi hoạt động tại ANTCARE - Kiến chăm tổ đều được xây dựng trên nền tảng của sự chân thành và tiêu chuẩn y tế khắt khe.", "All activities at ANTCARE are built on sincerity and rigorous medical standards.")}</p>
 </div>
 <div className="w-full space-y-6">
 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 relative">

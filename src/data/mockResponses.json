@@ -39,9 +39,9 @@
     }
   ],
   "whyAntcare": {
-    "title": "Tại sao chọn Antcare ?",
+    "title": "Tại sao chọn ANTCARE - Kiến chăm tổ ?",
     "quote": "“Chúng tôi tin rằng, sức khỏe không nên chỉ được chăm sóc khi đã có bệnh”",
-    "subtitle": "ANTCARE - Dịch vụ trợ lý chăm sóc sức khỏe tại nhà và đồng hành khám bệnh cùng người cao tuổi",
+    "subtitle": "ANTCARE - Kiến chăm tổ - Dịch vụ trợ lý chăm sóc sức khỏe tại nhà và đồng hành khám bệnh cùng người cao tuổi",
     "image": "/images/why-antcare.jpg",
     "comparison": [
       {
@@ -163,7 +163,7 @@
     {
       "id": 4,
       "title": "Dịch vụ chăm sóc y tế",
-      "description": "Nền tảng ANTCARE sẽ kết nối gia đình với các nhân viên y tế có kinh nghiệm, được đào tạo bài bản để hỗ trợ và đồng hành cùng gia đình khi người thân bị bệnh, hồi phục sau bệnh",
+      "description": "Nền tảng ANTCARE - Kiến chăm tổ sẽ kết nối gia đình với các nhân viên y tế có kinh nghiệm, được đào tạo bài bản để hỗ trợ và đồng hành cùng gia đình khi người thân bị bệnh, hồi phục sau bệnh",
       "image": "/images/service-2.jpg",
       "icon": "medical_services",
       "features": [

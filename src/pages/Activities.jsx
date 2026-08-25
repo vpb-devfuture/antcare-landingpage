@@ -168,7 +168,7 @@ const Activities = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
               <h2 className="text-2xl font-bold text-slate-800 mb-1">{tr("Tất cả hoạt động", "All Activities")}</h2>
-              <p className="text-sm text-slate-600">{tr("Hành trình lan tỏa yêu thương & Chăm sóc cộng đồng từ ANTCARE", "A Journey Spreading Love & Community Care from ANTCARE")}</p>
+              <p className="text-sm text-slate-600">{tr("Hành trình lan tỏa yêu thương & Chăm sóc cộng đồng từ ANTCARE", "A Journey Spreading Love & Community Care from ANTCARE - Kiến chăm tổ")}</p>
             </div>
             
             {/* Category Filter Tabs */}

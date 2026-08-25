@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
           <div className="relative z-10 max-w-2xl">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-plum-deep mb-2">{tr("Chính sách bảo mật", "Privacy Policy")}</h1>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-              {tr("Vui lòng đọc kỹ chính sách này để hiểu rõ cách", "Please read this policy carefully to understand how")} <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span>care {tr("thu thập, sử dụng và bảo vệ thông tin của bạn.", "collects, uses, and protects your information.")}
+              {tr("Vui lòng đọc kỹ chính sách này để hiểu rõ cách", "Please read this policy carefully to understand how")} <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span><span className="text-primary-container font-semibold">CARE</span> - Kiến chăm tổ {tr("thu thập, sử dụng và bảo vệ thông tin của bạn.", "collects, uses, and protects your information.")}
             </p>
           </div>
           <div className="absolute right-2 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none transform -rotate-12">
@@ -53,10 +53,10 @@ const PrivacyPolicy = () => {
             <h2 className="text-base sm:text-lg md:text-xl font-bold text-plum-deep mb-3">1. Cam kết về bảo mật thông tin</h2>
             <div className="text-xs sm:text-sm text-on-surface-variant space-y-2 leading-relaxed">
               <p>
-                Tại <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span>care, chúng tôi hiểu rằng sự riêng tư của bạn là vô giá. Chúng tôi cam kết tuyệt đối trong việc bảo vệ dữ liệu cá nhân của người dùng, tuân thủ nghiêm ngặt các quy định của <span className="text-plum-deep font-bold">Pháp luật Việt Nam</span> về an toàn thông tin mạng và bảo vệ dữ liệu cá nhân.
+                Tại <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span><span className="text-primary-container font-semibold">CARE</span> - Kiến chăm tổ, chúng tôi hiểu rằng sự riêng tư của bạn là vô giá. Chúng tôi cam kết tuyệt đối trong việc bảo vệ dữ liệu cá nhân của người dùng, tuân thủ nghiêm ngặt các quy định của <span className="text-plum-deep font-bold">Pháp luật Việt Nam</span> về an toàn thông tin mạng và bảo vệ dữ liệu cá nhân.
               </p>
               <p>
-                Mỗi quy trình xử lý dữ liệu tại <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span>care đều được thiết kế để đảm bảo tính minh bạch, an toàn và tôn trọng quyền sở hữu thông tin của bạn.
+                Mỗi quy trình xử lý dữ liệu tại <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span><span className="text-primary-container font-semibold">CARE</span> - Kiến chăm tổ đều được thiết kế để đảm bảo tính minh bạch, an toàn và tôn trọng quyền sở hữu thông tin của bạn.
               </p>
             </div>
           </section>
@@ -74,7 +74,7 @@ const PrivacyPolicy = () => {
 
           <section className="scroll-mt-24" id="thu-thap">
             <h2 className="text-base sm:text-lg md:text-xl font-bold text-plum-deep mb-3">
-              3. Thông tin <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span>care thu thập và mục đích
+              3. Thông tin <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ thu thập và mục đích
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mt-4">
               <div className="p-4 bg-surface-mist rounded-xl border border-surface-lavender border-b-3 border-b-earth-orange-bright">
