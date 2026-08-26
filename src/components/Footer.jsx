@@ -39,7 +39,7 @@ const Footer = () => {
         <div className="space-y-3">
           <h4 className="font-bold text-sm sm:text-base text-white tracking-wide">{isEn ? 'Support' : 'Hỗ trợ'}</h4>
           <ul className="space-y-2 text-xs sm:text-sm text-white/75">
-            <li><a className="md:hover:text-earth-orange-bright transition-colors" href="#">{isEn ? 'FAQ' : 'Câu hỏi thường gặp'}</a></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/ve-antcare#faq">{isEn ? 'FAQ' : 'Câu hỏi thường gặp'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/privacy-policy">{isEn ? 'Privacy Policy' : 'Chính sách bảo mật'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/terms-of-use">{isEn ? 'Terms of Use' : 'Điều khoản sử dụng'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/recruitment">{isEn ? 'Careers & Partner' : 'Tuyển dụng & Hợp tác'}</Link></li>

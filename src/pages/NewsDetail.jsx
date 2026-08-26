@@ -202,7 +202,7 @@ const NewsDetail = () => {
         "image": article.image ? (article.image.startsWith('http') ? article.image : `https://antcare.vn${article.image}`) : "https://antcare.vn/images/footer-logo.png",
         "author": {
           "@type": "Person",
-          "name": article.author ? article.author.name : "Huyền Trang"
+          "name": article.author ? (typeof article.author === 'object' && article.author !== null ? (article.author.name || "Huyền Trang") : article.author) : "Huyền Trang"
         },
         "publisher": {
           "@type": "Organization",

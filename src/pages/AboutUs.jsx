@@ -182,39 +182,41 @@ const AboutUs = () => {
   ];
 
   return (
-    <main className="py-6 sm:py-10 md:py-14 bg-gradient-to-b from-[#fbf8fd] via-[#f7f3fb] to-[#fbf8fd] min-h-screen text-slate-700">
+    <main className="py-4 sm:py-6 md:py-8 bg-gradient-to-b from-[#fbf8fd] via-[#f7f3fb] to-[#fbf8fd] min-h-screen text-slate-700">
       
       {/* Header Banner - Soft & Refined */}
-      <div className="max-w-[1060px] mx-auto px-4 md:px-6 mb-8">
-        <div className="bg-gradient-to-br from-white via-white to-purple-50/40 rounded-3xl p-6 sm:p-10 border border-purple-100/70 shadow-sm relative overflow-hidden backdrop-blur-sm">
+      <div className="max-w-[1060px] mx-auto px-4 md:px-6 mb-5 sm:mb-6">
+        <div className="bg-gradient-to-br from-white via-white to-purple-50/40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7 border border-purple-100/70 shadow-sm relative overflow-hidden backdrop-blur-sm">
           {/* Subtle Ambient Background Accent */}
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="relative z-10 max-w-3xl space-y-3">
+          <div className="relative z-10 max-w-3xl space-y-2">
             {/* Breadcrumb Navigation */}
-            <nav className="flex items-center gap-2 text-xs sm:text-sm text-slate-500 mb-2">
+            <nav className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-500 mb-1">
               <a href="/" className="hover:text-earth-orange-bright transition-colors">{tr("Trang chủ", "Home")}</a>
               <span className="opacity-40">›</span>
               <span className="text-plum-deep font-semibold">{tr("Về ANTCARE - Kiến chăm tổ", "About ANTCARE")}</span>
             </nav>
 
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-primary/10 text-primary font-medium text-xs tracking-wide">
-              <span className="w-2 h-2 rounded-full bg-earth-orange-bright animate-pulse"></span>
-              {tr("Giới thiệu chính thức", "Official Introduction")}
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-primary/10 text-primary font-medium text-xs tracking-wide">
+                <span className="w-1.5 h-1.5 rounded-full bg-earth-orange-bright animate-pulse"></span>
+                {tr("Giới thiệu chính thức", "Official Introduction")}
+              </div>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-plum-deep leading-tight tracking-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-plum-deep leading-snug tracking-tight">
               Về <span className="text-primary">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary">CARE</span> - Kiến chăm tổ
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base text-slate-600 font-normal leading-normal">
               Trợ lý chăm sóc sức khỏe tiêu chuẩn và đồng hành cùng người cao tuổi tại nhà ở Hà Nội.
             </p>
           </div>
 
           <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none hidden sm:block">
-            <span className="material-symbols-outlined text-[160px] text-plum-deep">volunteer_activism</span>
+            <span className="material-symbols-outlined text-[130px] text-plum-deep">volunteer_activism</span>
           </div>
         </div>
       </div>

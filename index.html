@@ -19,43 +19,60 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "ANTCARE - Kiến chăm tổ",
-      "image": "https://antcare.vn/images/footer-logo.png",
-      "@id": "https://antcare.vn",
-      "url": "https://antcare.vn",
-      "telephone": "0969 032 360",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Tòa Rox Tower, 138 Hồ Tùng Mậu",
-        "addressLocality": "Phú Diễn, Quận Bắc Từ Liêm",
-        "addressRegion": "Hà Nội",
-        "addressCountry": "VN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 21.037,
-        "longitude": 105.772
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "07:00",
-        "closes": "21:00"
-      },
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61593117245344",
-        "https://www.tiktok.com/@antcare_group",
-        "https://www.youtube.com/@Ki%E1%BA%BFnch%C4%83mt%E1%BB%95"
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://antcare.vn/#organization",
+          "name": "ANTCARE - Kiến chăm tổ",
+          "alternateName": "ANTCARE",
+          "url": "https://antcare.vn",
+          "image": "https://antcare.vn/images/footer-logo.png",
+          "logo": "https://antcare.vn/images/footer-logo.png",
+          "telephone": "0969 032 360",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Tòa Rox Tower, 138 Hồ Tùng Mậu",
+            "addressLocality": "Phú Diễn, Quận Bắc Từ Liêm",
+            "addressRegion": "Hà Nội",
+            "addressCountry": "VN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 21.037,
+            "longitude": 105.772
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "07:00",
+              "closes": "21:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61593117245344",
+            "https://www.tiktok.com/@antcare_group",
+            "https://www.youtube.com/@Ki%E1%BA%BFnch%C4%83mt%E1%BB%95"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://antcare.vn/#website",
+          "url": "https://antcare.vn",
+          "name": "Antcare - Kiến chăm tổ",
+          "publisher": {
+            "@id": "https://antcare.vn/#organization"
+          }
+        }
       ]
     }
     </script>
