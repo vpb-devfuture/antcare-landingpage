@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "node scripts/submit-indexnow.js",
+    "indexnow": "node scripts/submit-indexnow.js",
     "lint": "oxlint",
     "preview": "vite preview"
   },
