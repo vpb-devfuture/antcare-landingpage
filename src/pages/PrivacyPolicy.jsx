@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
           <div className="relative z-10 max-w-2xl">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-plum-deep mb-2">{tr("Chính sách bảo mật", "Privacy Policy")}</h1>
             <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-              {tr("Vui lòng đọc kỹ chính sách này để hiểu rõ cách", "Please read this policy carefully to understand how")} <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span><span className="text-primary-container font-semibold">CARE</span> - Kiến chăm tổ {tr("thu thập, sử dụng và bảo vệ thông tin của bạn.", "collects, uses, and protects your information.")}
+              {tr("Vui lòng đọc kỹ chính sách này để hiểu rõ cách", "Please read this policy carefully to understand how")} <span className="text-primary-container font-semibold">AN</span><span className="text-earth-orange-bright font-semibold">T</span><span className="text-primary-container font-semibold">CARE</span> – Kiến chăm tổ {tr("thu thập, sử dụng và bảo vệ thông tin của bạn.", "collects, uses, and protects your information.")}
             </p>
           </div>
           <div className="absolute right-2 top-1/2 -translate-y-1/2 opacity-10 pointer-events-none transform -rotate-12">

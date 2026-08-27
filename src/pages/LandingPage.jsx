@@ -63,7 +63,7 @@ const LandingPage = () => {
   };
 
   useEffect(() => {
-    document.title = "Antcare -  Kiến chăm tổ";
+    document.title = "ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi tại nhà Hà Nội";
     getLandingPageData().then(data => {
       setPageData(data);
       setIsLoading(false);
@@ -137,8 +137,8 @@ const LandingPage = () => {
             <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm text-center flex flex-col items-center">
               <img 
                 src="/images/hero-logo-text.png" 
-                alt="ANTCARE logo" 
-                className="w-[140px] h-auto object-contain drop-shadow-xs mx-auto mb-1.5" 
+                alt="ANTCARE – Kiến chăm tổ – Chăm sóc người cao tuổi tại Hà Nội" 
+                className="w-[155px] sm:w-[175px] h-auto object-contain drop-shadow-xs mx-auto mb-1.5" 
               />
               <h1 className="font-semibold text-slate-600 text-[15.5px] tracking-tight text-center mb-4">
                 {tr("Để ba mẹ tuổi già vui khỏe, an tâm", "For aging parents to live healthy, happy & peaceful")}
@@ -169,7 +169,7 @@ const LandingPage = () => {
           <div className="hidden sm:flex w-full max-w-[480px] lg:max-w-[500px] mr-auto text-center flex-col items-center animate-fade-in-up transform translate-x-0 lg:-translate-x-[58px]">
             {/* Group: Logo & Slogan paired tightly */}
             <div className="flex flex-col items-center justify-center gap-1 mb-5 text-center w-full">
-              <img src="/images/hero-logo-text.png" alt="ANTCARE logo" className="w-[180px] md:w-[215px] lg:w-[240px] h-auto object-contain drop-shadow-sm mx-auto my-1" />
+              <img src="/images/hero-logo-text.png" alt="ANTCARE – Kiến chăm tổ – Chăm sóc người cao tuổi tại Hà Nội" className="w-[200px] md:w-[245px] lg:w-[270px] h-auto object-contain drop-shadow-sm mx-auto my-1" />
               <h1 className="font-semibold text-slate-500 text-[21px] md:text-[24px] lg:text-[26px] tracking-tight whitespace-nowrap text-center mt-1 w-full">
                 {tr("Để ba mẹ tuổi già vui khỏe, an tâm", "For aging parents to live healthy, happy & peaceful")}
               </h1>

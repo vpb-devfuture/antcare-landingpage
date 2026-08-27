@@ -54,7 +54,7 @@ const Recruitment = () => {
             {tr("DÀNH CHO ĐỐI TÁC & TUYỂN DỤNG", "FOR PARTNERS & CAREERS")}
           </div>
           <h1 className="text-xl sm:text-2xl md:text-[26px] font-bold text-plum-deep mb-2 leading-snug">
-            {tr("Tuyển Dụng & Hợp Tác Cùng", "Careers & Partnership With")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ
+            {tr("Tuyển Dụng & Hợp Tác Cùng", "Careers & Partnership With")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> – Kiến chăm tổ
           </h1>
           <p className="text-xs sm:text-sm text-on-surface-variant max-w-4xl mx-auto leading-relaxed font-medium">
             {tr("Hãy hợp tác cùng chúng tôi vì một tiêu chuẩn chăm sóc gia đình Việt hiện đại, uy tín và tận tâm.", "Partner with us to build a modern, prestigious, and devoted standard of family care.")}
@@ -66,7 +66,7 @@ const Recruitment = () => {
           <div className="flex flex-col md:flex-row gap-6 lg:gap-10 items-center">
             <div className="md:w-1/2 space-y-3">
               <h3 className="text-primary font-bold text-base md:text-xl mb-1">
-                {tr("Kết nối cùng chúng tôi", "Connect With Us")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span> - Kiến chăm tổ
+                {tr("Kết nối cùng chúng tôi", "Connect With Us")} <span className="text-primary-container">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary-container">CARE</span>
               </h3>
               <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider mb-1 bg-earth-orange-bright text-white">
                 <span className="material-symbols-outlined text-[14px]">handshake</span> {tr("DÀNH CHO ĐỐI TÁC & TUYỂN DỤNG", "FOR PARTNERS & CAREERS")}

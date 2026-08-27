@@ -6,6 +6,10 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
+# Google Image Crawler
+User-agent: Googlebot-Image
+Allow: /
+
 # Bing Search Crawler
 User-agent: Bingbot
 Allow: /

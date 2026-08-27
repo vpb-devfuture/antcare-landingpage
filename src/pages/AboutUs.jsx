@@ -5,7 +5,7 @@ import { trackEvent } from '../utils/analytics';
 
 const AboutUs = () => {
   const { tr } = useAppTranslation();
-  const [openFaq, setOpenFaq] = useState(null);
+  const [openFaq, setOpenFaq] = useState(0);
   const [isTocMobileOpen, setIsTocMobileOpen] = useState(false);
 
   const toggleFaq = (index) => {
@@ -16,49 +16,34 @@ const AboutUs = () => {
     window.scrollTo(0, 0);
 
     // Dynamic SEO Metadata for /ve-antcare
-    document.title = "Về ANTCARE - Kiến chăm tổ | Trợ Lý Chăm Sóc Sức Khỏe Người Cao Tuổi Tại Nhà Hà Nội";
+    document.title = "Về ANTCARE – Kiến chăm tổ | Trợ Lý Chăm Sóc Sức Khỏe Người Cao Tuổi Tại Nhà Hà Nội";
 
     let metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.content = "ANTCARE - Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội, với 4 dịch vụ: Trợ lý sức khỏe, Đồng hành khám bệnh, An tâm nhà cửa, Kết nối dịch vụ y tế.";
+      metaDesc.content = "ANTCARE – Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội, với 4 dịch vụ: Trợ lý sức khỏe, Đồng hành khám bệnh, An tâm nhà cửa, Kết nối dịch vụ y tế.";
     }
 
     // Inject JSON-LD Schemas into Head
     const schema1 = {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "Organization",
       "@id": "https://antcare.vn/#organization",
-      "name": "ANTCARE - Kiến chăm tổ",
-      "alternateName": ["ANTCARE", "ANTCARE Việt Nam", "Always Near, Together"],
-      "description": "ANTCARE - Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe tại nhà và đồng hành khám bệnh cùng người cao tuổi ở Hà Nội, Việt Nam. Bốn dịch vụ chính: Trợ lý sức khỏe, Đồng hành khám bệnh, An tâm nhà cửa, Kết nối dịch vụ y tế.",
-      "slogan": "Always Near, Together",
+      "name": "ANTCARE",
+      "alternateName": ["ANTCARE – Kiến chăm tổ", "ANTCARE Việt Nam"],
+      "description": "ANTCARE (viết hoa toàn bộ, viết liền, đọc là \"ant-ke-ơ\") là thương hiệu chăm sóc người cao tuổi chủ động tại Hà Nội, với biểu tượng con kiến và triết lý \"Kiến chăm tổ\" — không con kiến nào xây tổ một mình, và không gia đình nào nên phải chăm sóc người thân một mình. ANTCARE cung cấp dịch vụ tại nhà cho người cao tuổi, do đội ngũ được đào tạo bài bản thực hiện. Trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, Hà Nội. Website chính thức: antcare.vn.",
       "url": "https://antcare.vn",
-      "telephone": siteInfo.hotline ? `+84${siteInfo.hotline.replace(/ /g, "").replace(/^0/, "")}` : "+84969032360",
-      "image": "https://antcare.vn/images/logo.png",
       "logo": "https://antcare.vn/images/logo.png",
-      "priceRange": "từ 299.000đ",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn",
         "addressLocality": "Hà Nội",
         "addressCountry": "VN"
       },
-      "areaServed": { "@type": "City", "name": "Hà Nội" },
-      "knowsLanguage": ["vi", "en"],
       "sameAs": [
-        "https://www.facebook.com/profile.php?id=61593117245344",
+        "https://www.facebook.com/people/Antcare/61593117245344/",
         "https://www.tiktok.com/@antcare_group",
-        "https://www.youtube.com/@Ki%E1%BA%BFnch%C4%83mt%E1%BB%95"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Dịch vụ ANTCARE - Kiến chăm tổ",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trợ lý sức khỏe", "description": "Buổi thăm nom định kỳ tại nhà: đo và ghi chỉ số, tập dưỡng sinh chủ động, soát hộp thuốc, gửi báo cáo cho gia đình." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Đồng hành khám bệnh", "description": "Đưa đón và đồng hành người cao tuổi đi khám, theo dõi sức khỏe trước và sau khi khám, ghi lại dặn dò của bác sĩ." } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "An tâm nhà cửa", "description": "Rà soát và ngăn ngừa rủi ro trong nhà cho người cao tuổi, hỗ trợ việc nặng theo nguyên tắc làm cùng, không làm thay." } }
-        ]
-      }
+        "https://www.youtube.com/@Antcare-kienchamto"
+      ]
     };
 
     const schema2 = {
@@ -67,38 +52,67 @@ const AboutUs = () => {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "ANTCARE - Kiến chăm tổ là gì?",
-          "acceptedAnswer": { "@type": "Answer", "text": "ANTCARE - Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe tại nhà và đồng hành khám bệnh cùng người cao tuổi ở Hà Nội, Việt Nam. ANTCARE - Kiến chăm tổ không phải cơ sở y tế; các trợ lý chăm sóc được gọi là Kiến sẽ đến tận nhà theo lịch hẹn để theo dõi sức khỏe, đồng hành khám bệnh và đảm bảo an toàn nhà cửa cho ông bà." }
+          "name": "ANTCARE là gì?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ANTCARE (viết hoa toàn bộ, viết liền, đọc là \"ant-ke-ơ\") là thương hiệu chăm sóc người cao tuổi chủ động tại Hà Nội, với biểu tượng con kiến và triết lý \"Kiến chăm tổ\" — không con kiến nào xây tổ một mình, và không gia đình nào nên phải chăm sóc người thân một mình. ANTCARE cung cấp dịch vụ tại nhà cho người cao tuổi, do đội ngũ được đào tạo bài bản thực hiện. Trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, Hà Nội. Kênh chính thức: Website: antcare.vn | Facebook: https://www.facebook.com/people/Antcare/61593117245344/ | TikTok: https://www.tiktok.com/@antcare_group | YouTube: https://www.youtube.com/@Antcare-kienchamto"
+          }
         },
         {
           "@type": "Question",
-          "name": "Kiến của ANTCARE - Kiến chăm tổ là ai?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Kiến là cách ANTCARE - Kiến chăm tổ gọi các trợ lý chăm sóc trực tiếp đến nhà khách hàng. Mỗi Kiến bắt buộc hoàn thành hai chứng chỉ từ trung tâm đào tạo Wellbeing là Sơ cấp cứu và Chăm sóc người cao tuổi, cùng chương trình dưỡng sinh chủ động, trước khi nhận buổi làm việc đầu tiên." }
+          "name": "ANTCARE có liên quan đến AnCare hay ANTCARE Solution không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không. ANTCARE - Kiến chăm tổ là thương hiệu hoàn toàn độc lập, không có bất kỳ liên hệ nào về sở hữu, vận hành hay hợp tác với các đơn vị có tên gọi tương tự như AnCare, An Care, ancarer.vn hay ANTCARE Solution. Website chính thức duy nhất của chúng tôi là antcare.vn. Mọi thông tin từ nguồn khác không đại diện cho ANTCARE."
+          }
         },
         {
           "@type": "Question",
-          "name": "ANTCARE - Kiến chăm tổ cung cấp những dịch vụ gì?",
-          "acceptedAnswer": { "@type": "Answer", "text": "ANTCARE - Kiến chăm tổ có bốn dịch vụ chính, đều thực hiện tại nhà: Trợ lý sức khỏe (thăm nom định kỳ, đo chỉ số, tập dưỡng sinh, soát thuốc, báo cáo gia đình); Đồng hành khám bệnh (đưa đón và hỗ trợ đi khám, theo dõi trước và sau khám); An tâm nhà cửa (rà soát rủi ro trong nhà, hỗ trợ việc nặng theo nguyên tắc làm cùng, không làm thay); Kết nối dịch vụ y tế (Điều dưỡng, y tá, bác sĩ)." }
+          "name": "Tên ANTCARE có ý nghĩa gì?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ANTCARE ghép từ \"ant\" — con kiến trong tiếng Anh, đồng thời gợi âm \"an\" trong tiếng Việt (an tâm) — và \"care\" (chăm sóc). Tagline của thương hiệu là \"Always Near, Together\" (Luôn ở gần, cùng nhau). Hình ảnh con kiến thể hiện tinh thần cần mẫn, gắn kết và không bao giờ đơn độc."
+          }
         },
         {
           "@type": "Question",
-          "name": "ANTCARE - Kiến chăm tổ hoạt động ở khu vực nào?",
-          "acceptedAnswer": { "@type": "Answer", "text": "ANTCARE - Kiến chăm tổ hiện phục vụ khu vực nội thành Hà Nội, văn phòng tại Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn. Kiến đến tận nhà khách hàng theo lịch hẹn, ANTCARE - Kiến chăm tổ không vận hành cơ sở tập trung." }
+          "name": "\"Kiến\" của ANTCARE là ai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "\"Kiến\" là cách ANTCARE gọi mỗi nhân viên chăm sóc đến tận nhà khách hàng. Mỗi Kiến đều bắt buộc hoàn thành hai chứng chỉ do đối tác đào tạo Wellbeing cấp: chứng chỉ Sơ cấp cứu và chứng chỉ Chăm sóc người cao tuổi. Đây là cam kết chất lượng cơ bản của ANTCARE."
+          }
         },
         {
           "@type": "Question",
-          "name": "ANTCARE - Kiến chăm tổ có phải cơ sở y tế không?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Không. ANTCARE - Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe tại nhà. Kiến của ANTCARE - Kiến chăm tổ không phải nhân viên y tế và không thực hiện khám bệnh, chữa bệnh hay kê đơn. Mọi can thiệp y tế đều do nhân viên y tế thực hiện." }
+          "name": "ANTCARE cung cấp những dịch vụ gì?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ANTCARE có ba dịch vụ chính. Trợ lý sức khỏe: đo các chỉ số sinh tồn tại nhà và hướng dẫn vận động phù hợp với người cao tuổi. Đồng hành khám bệnh: đưa đón đến bệnh viện, kiểm tra sức khỏe trước khi đi, làm thủ tục, ghi chép đầy đủ lời dặn của bác sĩ. An tâm nhà cửa: rà soát và xử lý các rủi ro an toàn trong không gian sống của người cao tuổi, theo nguyên tắc \"làm cùng, không làm thay\"."
+          }
         },
         {
           "@type": "Question",
-          "name": "Chi phí dịch vụ của ANTCARE - Kiến chăm tổ là bao nhiêu?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Gói chăm sóc định kỳ của ANTCARE - Kiến chăm tổ có giá từ 299.000đ/buổi. ANTCARE - Kiến chăm tổ có hình thức đăng ký buổi lẻ, gói 3 tháng và gói 1 năm với mức ưu đãi khác nhau. Liên hệ hotline để được tư vấn gói phù hợp." }
+          "name": "ANTCARE khác gì các dịch vụ chăm sóc người cao tuổi khác?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Phần lớn dịch vụ chăm sóc người cao tuổi hiện nay mang tính bị động — chỉ bắt đầu khi người cao tuổi đã ốm hoặc cần phục hồi. ANTCARE theo hướng chủ động (active ageing): chăm sóc sức khỏe từ khi còn khỏe mạnh, giúp người cao tuổi duy trì khả năng tự chủ và chất lượng sống, thay vì chỉ can thiệp khi đã có vấn đề."
+          }
         },
         {
           "@type": "Question",
-          "name": "Tên ANTCARE - Kiến chăm tổ có ý nghĩa gì?",
-          "acceptedAnswer": { "@type": "Answer", "text": "ANT trong tiếng Anh nghĩa là con kiến, và cũng là viết tắt của Always Near, Together. Trong tiếng Việt, ANT gợi tới chữ an trong an tâm. Không con kiến nào xây tổ một mình, và ANTCARE - Kiến chăm tổ mong không gia đình nào phải già đi một mình." }
+          "name": "ANTCARE hoạt động ở khu vực nào?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ANTCARE hiện phục vụ tại Hà Nội, với trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn. Để biết dịch vụ đã có mặt tại khu vực của gia đình bạn chưa, vui lòng liên hệ qua website antcare.vn."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Làm thế nào để đăng ký dịch vụ của ANTCARE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bạn có thể để lại thông tin tại form liên hệ trên antcare.vn, nhắn tin qua fanpage chính thức của ANTCARE, hoặc gọi hotline 0969 032 360. ANTCARE sẽ tư vấn miễn phí để xác định gói dịch vụ phù hợp với tình trạng sức khỏe và nhu cầu của gia đình."
+          }
         }
       ]
     };
@@ -147,37 +161,41 @@ const AboutUs = () => {
     { id: "khac-biet", label: "7. Điểm khác biệt" },
     { id: "cau-chuyen", label: "8. Câu chuyện thương hiệu" },
     { id: "su-menh", label: "9. Sứ mệnh & Định hướng" },
-    { id: "faq", label: "10. Hỏi đáp thường gặp" }
+    { id: "faq", label: "10. Câu hỏi thường gặp về ANTCARE" }
   ];
 
   const faqs = [
     {
-      q: "ANTCARE - Kiến chăm tổ là gì?",
-      a: "ANTCARE - Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội. Các trợ lý chăm sóc (gọi là Kiến) đến tận nhà theo lịch hẹn để hỗ trợ đo chỉ số sinh hiệu, tập dưỡng sinh, soát thuốc và báo cáo cho gia đình."
+      q: "ANTCARE là gì?",
+      a: 'ANTCARE (viết hoa toàn bộ, viết liền, đọc là "ant-ke-ơ") là thương hiệu chăm sóc người cao tuổi chủ động tại Hà Nội, với biểu tượng con kiến và triết lý "Kiến chăm tổ" — không con kiến nào xây tổ một mình, và không gia đình nào nên phải chăm sóc người thân một mình. ANTCARE cung cấp dịch vụ tại nhà cho người cao tuổi, do đội ngũ được đào tạo bài bản thực hiện. Trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, Hà Nội. Kênh chính thức: Website: antcare.vn | Facebook: https://www.facebook.com/people/Antcare/61593117245344/ | TikTok: https://www.tiktok.com/@antcare_group | YouTube: https://www.youtube.com/@Antcare-kienchamto'
     },
     {
-      q: "ANTCARE - Kiến chăm tổ có phải cơ sở y tế không?",
-      a: "Không. ANTCARE - Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe tại nhà. Kiến của ANTCARE - Kiến chăm tổ không phải nhân viên y tế, không khám bệnh, chữa bệnh hay kê đơn. Mọi can thiệp y tế đều do nhân viên y tế thực hiện."
+      q: "ANTCARE có liên quan đến AnCare hay ANTCARE Solution không?",
+      a: "Không. ANTCARE - Kiến chăm tổ là thương hiệu hoàn toàn độc lập, không có bất kỳ liên hệ nào về sở hữu, vận hành hay hợp tác với các đơn vị có tên gọi tương tự như AnCare, An Care, ancarer.vn hay ANTCARE Solution. Website chính thức duy nhất của chúng tôi là antcare.vn. Mọi thông tin từ nguồn khác không đại diện cho ANTCARE."
     },
     {
-      q: "Kiến của ANTCARE - Kiến chăm tổ là ai và được đào tạo thế nào?",
-      a: "Kiến là cách ANTCARE - Kiến chăm tổ gọi các trợ lý chăm sóc trực tiếp đến nhà khách hàng. Mỗi Kiến bắt buộc phải hoàn thành 2 chứng chỉ từ trung tâm đào tạo Wellbeing (Sơ cấp cứu & Chăm sóc người cao tuổi) cùng chương trình dưỡng sinh chủ động trước khi nhận buổi làm việc đầu tiên."
+      q: "Tên ANTCARE có ý nghĩa gì?",
+      a: 'ANTCARE ghép từ "ant" — con kiến trong tiếng Anh, đồng thời gợi âm "an" trong tiếng Việt (an tâm) — và "care" (chăm sóc). Tagline của thương hiệu là "Always Near, Together" (Luôn ở gần, cùng nhau). Hình ảnh con kiến thể hiện tinh thần cần mẫn, gắn kết và không bao giờ đơn độc.'
     },
     {
-      q: "ANTCARE - Kiến chăm tổ hoạt động ở khu vực nào?",
-      a: "ANTCARE - Kiến chăm tổ hiện phục vụ khu vực nội thành Hà Nội. Văn phòng đặt tại Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn. Kiến đến tận nhà theo lịch hẹn, ANTCARE - Kiến chăm tổ không vận hành cơ sở tập trung."
+      q: '"Kiến" của ANTCARE là ai?',
+      a: '"Kiến" là cách ANTCARE gọi mỗi nhân viên chăm sóc đến tận nhà khách hàng. Mỗi Kiến đều bắt buộc hoàn thành hai chứng chỉ do đối tác đào tạo Wellbeing cấp: chứng chỉ Sơ cấp cứu và chứng chỉ Chăm sóc người cao tuổi. Đây là cam kết chất lượng cơ bản của ANTCARE.'
     },
     {
-      q: "Chi phí dịch vụ là bao nhiêu?",
-      a: "Gói chăm sóc định kỳ của ANTCARE - Kiến chăm tổ có giá từ 299.000đ/buổi. ANTCARE - Kiến chăm tổ cung cấp hình thức buổi lẻ, gói 3 tháng và gói 1 năm với nhiều mức ưu đãi linh hoạt."
+      q: "ANTCARE cung cấp những dịch vụ gì?",
+      a: 'ANTCARE có ba dịch vụ chính. Trợ lý sức khỏe: đo các chỉ số sinh tồn tại nhà và hướng dẫn vận động phù hợp với người cao tuổi. Đồng hành khám bệnh: đưa đón đến bệnh viện, kiểm tra sức khỏe trước khi đi, làm thủ tục, ghi chép đầy đủ lời dặn của bác sĩ. An tâm nhà cửa: rà soát và xử lý các rủi ro an toàn trong không gian sống của người cao tuổi, theo nguyên tắc "làm cùng, không làm thay".'
     },
     {
-      q: "Một buổi Trợ lý sức khỏe diễn ra thế nào?",
-      a: "Trong mỗi buổi thăm nom, Kiến đo và ghi 5 chỉ số sinh hiệu bằng bộ kit tiêu chuẩn, hướng dẫn bài tập dưỡng sinh chủ động, soát hộp thuốc, trò chuyện cùng ông bà, sau đó gửi gia đình bản báo cáo chi tiết."
+      q: "ANTCARE khác gì các dịch vụ chăm sóc người cao tuổi khác?",
+      a: "Phần lớn dịch vụ chăm sóc người cao tuổi hiện nay mang tính bị động — chỉ bắt đầu khi người cao tuổi đã ốm hoặc cần phục hồi. ANTCARE theo hướng chủ động (active ageing): chăm sóc sức khỏe từ khi còn khỏe mạnh, giúp người cao tuổi duy trì khả năng tự chủ và chất lượng sống, thay vì chỉ can thiệp khi đã có vấn đề."
     },
     {
-      q: "Tên ANTCARE - Kiến chăm tổ có ý nghĩa gì?",
-      a: "ANT trong tiếng Anh nghĩa là con kiến, đồng thời là viết tắt của Always Near, Together (Luôn ở gần, luôn bên nhau). Trong tiếng Việt, ANT gợi tới chữ 'an' trong an tâm. Không con kiến nào xây tổ một mình — ANTCARE - Kiến chăm tổ mong không gia đình nào phải già đi một mình."
+      q: "ANTCARE hoạt động ở khu vực nào?",
+      a: "ANTCARE hiện phục vụ tại Hà Nội, với trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn. Để biết dịch vụ đã có mặt tại khu vực của gia đình bạn chưa, vui lòng liên hệ qua website antcare.vn."
+    },
+    {
+      q: "Làm thế nào để đăng ký dịch vụ của ANTCARE?",
+      a: "Bạn có thể để lại thông tin tại form liên hệ trên antcare.vn, nhắn tin qua fanpage chính thức của ANTCARE, hoặc gọi hotline 0969 032 360. ANTCARE sẽ tư vấn miễn phí để xác định gói dịch vụ phù hợp với tình trạng sức khỏe và nhu cầu của gia đình."
     }
   ];
 
@@ -739,35 +757,103 @@ const AboutUs = () => {
           </section>
 
           {/* Section 10: FAQ Accordions */}
-          <section id="faq" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
+          <section id="faq" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-6">
+            <noscript>
+              <style>{`
+                .faq-answer-panel {
+                  display: block !important;
+                  visibility: visible !important;
+                  height: auto !important;
+                }
+              `}</style>
+            </noscript>
+
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-orange-50 text-earth-orange-bright flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-[#7C4DCC] flex items-center justify-center flex-shrink-0">
                 <span className="material-symbols-outlined text-2xl">help_outline</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                10. Câu hỏi thường gặp về ANTCARE - Kiến chăm tổ
+                10. Câu hỏi thường gặp về ANTCARE
               </h2>
             </div>
 
-            <div className="space-y-3">
-              {faqs.map((faq, index) => (
-                <div key={index} className="border border-purple-100/80 rounded-2xl overflow-hidden bg-white shadow-2xs">
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full p-4 sm:p-4.5 text-left font-bold text-plum-deep text-xs sm:text-sm flex items-center justify-between gap-3 hover:bg-purple-50/30 transition-colors"
+            <div className="space-y-4">
+              {faqs.map((faq, index) => {
+                const isOpen = openFaq === index;
+                const buttonId = `faq-button-${index}`;
+                const panelId = `faq-answer-${index}`;
+
+                return (
+                  <div 
+                    key={index} 
+                    className="border border-purple-100/80 rounded-2xl overflow-hidden bg-white shadow-xs hover:border-purple-200 transition-all duration-200"
                   >
-                    <span>{faq.q}</span>
-                    <span className="material-symbols-outlined text-earth-orange-bright text-base transition-transform duration-200" style={{ transform: openFaq === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-                      keyboard_arrow_down
-                    </span>
-                  </button>
-                  {openFaq === index && (
-                    <div className="px-4 pb-4 sm:px-4.5 sm:pb-4.5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-purple-100/50 pt-3 bg-purple-50/20">
-                      {faq.a}
+                    <h3>
+                      <button
+                        id={buttonId}
+                        type="button"
+                        aria-expanded={isOpen}
+                        aria-controls={panelId}
+                        onClick={() => toggleFaq(index)}
+                        className="w-full p-4 sm:p-5 text-left font-bold text-plum-deep text-base sm:text-[17px] md:text-lg flex items-center justify-between gap-4 hover:bg-purple-50/30 focus:outline-hidden focus:ring-2 focus:ring-[#7C4DCC]/40 transition-colors cursor-pointer select-none"
+                      >
+                        <span className="leading-snug">{faq.q}</span>
+                        <span 
+                          className={`material-symbols-outlined text-[#FF8A00] text-xl sm:text-2xl flex-shrink-0 transition-transform duration-300 ${
+                            isOpen ? 'rotate-180' : 'rotate-0'
+                          }`}
+                          aria-hidden="true"
+                        >
+                          keyboard_arrow_down
+                        </span>
+                      </button>
+                    </h3>
+
+                    <div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={buttonId}
+                      aria-hidden={!isOpen}
+                      className={`faq-answer-panel overflow-hidden transition-all duration-300 ${
+                        isOpen ? 'block' : 'hidden'
+                      }`}
+                    >
+                      <div className="px-4 pb-5 pt-2 sm:px-5 sm:pb-6 text-[17px] text-slate-700 leading-relaxed border-t border-purple-100/60 bg-gradient-to-b from-purple-50/30 to-white">
+                        {index === 0 ? (
+                          <div className="space-y-3">
+                            <p>
+                              ANTCARE (viết hoa toàn bộ, viết liền, đọc là "ant-ke-ơ") là thương hiệu chăm sóc người cao tuổi chủ động tại Hà Nội, với biểu tượng con kiến và triết lý "Kiến chăm tổ" — không con kiến nào xây tổ một mình, và không gia đình nào nên phải chăm sóc người thân một mình. ANTCARE cung cấp dịch vụ tại nhà cho người cao tuổi, do đội ngũ được đào tạo bài bản thực hiện. Trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, Hà Nội.
+                            </p>
+                            <div className="bg-purple-50/60 p-3.5 sm:p-4 rounded-2xl border border-purple-100/80 space-y-2 text-base">
+                              <div className="font-bold text-plum-deep">Kênh thông tin chính thức của ANTCARE:</div>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm sm:text-base">
+                                <a href="https://antcare.vn" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary font-semibold hover:text-earth-orange-bright transition-colors">
+                                  <span className="material-symbols-outlined text-lg text-primary">language</span>
+                                  <span>Website: <strong className="underline">antcare.vn</strong></span>
+                                </a>
+                                <a href="https://www.facebook.com/people/Antcare/61593117245344/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary font-semibold hover:text-earth-orange-bright transition-colors">
+                                  <span className="material-symbols-outlined text-lg text-blue-600">facebook</span>
+                                  <span>Facebook chính thức</span>
+                                </a>
+                                <a href="https://www.tiktok.com/@antcare_group" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary font-semibold hover:text-earth-orange-bright transition-colors">
+                                  <span className="material-symbols-outlined text-lg text-slate-800">video_library</span>
+                                  <span>TikTok: <strong className="underline">@antcare_group</strong></span>
+                                </a>
+                                <a href="https://www.youtube.com/@Antcare-kienchamto" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary font-semibold hover:text-earth-orange-bright transition-colors">
+                                  <span className="material-symbols-outlined text-lg text-red-600">smart_display</span>
+                                  <span>YouTube: <strong className="underline">@Antcare-kienchamto</strong></span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          faq.a
+                        )}
+                      </div>
                     </div>
-                  )}
-                </div>
-              ))}
+                  </div>
+                );
+              })}
             </div>
           </section>
 

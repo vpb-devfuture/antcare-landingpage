@@ -79,7 +79,7 @@ const TopNavBar = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 cursor-pointer hover:opacity-95 transition-opacity">
-              <img alt="ANTCARE logo" className="h-[46px] md:h-[58px] w-auto object-contain py-0.5" src="/images/logo.png" />
+              <img alt="ANTCARE – Kiến chăm tổ – Chăm sóc người cao tuổi tại Hà Nội" className="h-[46px] md:h-[58px] w-auto object-contain py-0.5" src="/images/logo.png" />
             </Link>
           </div>
 

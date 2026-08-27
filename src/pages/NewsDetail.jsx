@@ -36,7 +36,7 @@ const NewsDetail = () => {
   useEffect(() => {
     if (article) {
       const cleanTitle = article.title.replace(/\n/g, ' ');
-      document.title = `${cleanTitle} | ANTCARE - Kiến chăm tổ`;
+      document.title = `${cleanTitle} | ANTCARE – Kiến chăm tổ`;
 
       // Update or create meta description tag in document head for SEO crawler
       let metaDesc = document.querySelector('meta[name="description"]');
@@ -49,7 +49,7 @@ const NewsDetail = () => {
 
       // Update Open Graph tags for Facebook & Zalo sharing preview
       let ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle) ogTitle.content = `${cleanTitle} | ANTCARE - Kiến chăm tổ`;
+      if (ogTitle) ogTitle.content = `${cleanTitle} | ANTCARE – Kiến chăm tổ`;
 
       let ogDesc = document.querySelector('meta[property="og:description"]');
       if (ogDesc) ogDesc.content = article.description || '';
@@ -83,7 +83,7 @@ const NewsDetail = () => {
     const timer = setTimeout(() => {
       if (!contentRef.current) return;
       const imgs = contentRef.current.querySelectorAll('img');
-      const cleanTitle = article.title ? article.title.replace(/\n/g, ' ') : 'ANTCARE - Kiến chăm tổ';
+      const cleanTitle = article.title ? article.title.replace(/\n/g, ' ') : 'ANTCARE – Kiến chăm tổ';
       imgs.forEach((img, idx) => {
         if (!img.alt || img.alt.trim() === '' || img.alt.toLowerCase() === 'mock image') {
           img.alt = `${cleanTitle} - Hình minh họa ${idx + 1}`;
@@ -140,13 +140,20 @@ const NewsDetail = () => {
     if (!container) return;
 
     const handleLinkClick = (e) => {
-      const anchor = e.target.closest('a');
-      if (anchor) {
-        const href = anchor.getAttribute('href');
-        if (href && (href.startsWith('/news/') || href.startsWith('/'))) {
-          e.preventDefault();
-          e.stopPropagation();
-          navigate(href);
+      const target = e.target.closest('a');
+      if (!target) return;
+      const href = target.getAttribute('href');
+
+      if (href && href.startsWith('/')) {
+        e.preventDefault();
+        navigate(href);
+        const hash = href.split('#')[1];
+        if (hash) {
+          setTimeout(() => {
+            const el = document.getElementById(hash);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        } else {
           window.scrollTo(0, 0);
         }
       }
@@ -206,7 +213,8 @@ const NewsDetail = () => {
         },
         "publisher": {
           "@type": "Organization",
-          "name": "ANTCARE - Kiến chăm tổ",
+          "name": "ANTCARE",
+          "alternateName": ["ANTCARE – Kiến chăm tổ", "ANTCARE Việt Nam"],
           "logo": {
             "@type": "ImageObject",
             "url": "https://antcare.vn/images/footer-logo.png"

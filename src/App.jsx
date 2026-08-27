@@ -48,26 +48,26 @@ function App() {
     // Page titles & meta description updates for standard routes (NewsDetail updates its own)
     let metaDesc = document.querySelector('meta[name="description"]');
     if (cleanPath === '/') {
-      document.title = "Antcare -  Kiến chăm tổ";
-      if (metaDesc) metaDesc.content = "ANTCARE - Dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà chuẩn quốc tế. Hotline: 0969 032 360. Địa chỉ: Tòa Rox Tower, 138 Hồ Tùng Mậu, Hà Nội.";
+      document.title = "ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi tại nhà Hà Nội";
+      if (metaDesc) metaDesc.content = "ANTCARE – Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà chuẩn quốc tế. Hotline: 0969 032 360. Địa chỉ: Tòa Rox Tower, 138 Hồ Tùng Mậu, Hà Nội.";
     } else if (cleanPath === '/activities') {
-      document.title = "Hoạt động cộng đồng | ANTCARE - Kiến chăm tổ";
-      if (metaDesc) metaDesc.content = "Hành trình lan tỏa yêu thương, tập huấn sơ cấp cứu, y tế cộng đồng và các hoạt động xã hội của ANTCARE.";
+      document.title = "Hoạt động cộng đồng | ANTCARE – Kiến chăm tổ";
+      if (metaDesc) metaDesc.content = "Hành trình lan tỏa yêu thương, tập huấn sơ cấp cứu, y tế cộng đồng và các hoạt động xã hội của ANTCARE – Kiến chăm tổ.";
     } else if (cleanPath === '/news') {
-      document.title = "Tin tức & Y tế | ANTCARE - Kiến chăm tổ";
-      if (metaDesc) metaDesc.content = "Tin tức y tế, bài viết chia sẻ kiến thức chăm sóc sức khỏe tuổi già và đồng hành người cao tuổi từ ANTCARE.";
+      document.title = "Tin tức & Y tế | ANTCARE – Kiến chăm tổ";
+      if (metaDesc) metaDesc.content = "Tin tức y tế, bài viết chia sẻ kiến thức chăm sóc sức khỏe tuổi già và đồng hành người cao tuổi từ ANTCARE – Kiến chăm tổ.";
     } else if (cleanPath === '/recruitment') {
-      document.title = "Tuyển dụng | ANTCARE - Kiến chăm tổ";
-      if (metaDesc) metaDesc.content = "Cơ hội gia nhập đội ngũ Trợ lý sức khỏe & Điều dưỡng chăm sóc người cao tuổi tại ANTCARE - Kiến chăm tổ.";
+      document.title = "Tuyển dụng | ANTCARE – Kiến chăm tổ";
+      if (metaDesc) metaDesc.content = "Cơ hội gia nhập đội ngũ Trợ lý sức khỏe & Điều dưỡng chăm sóc người cao tuổi tại ANTCARE – Kiến chăm tổ.";
     } else if (cleanPath === '/privacy-policy') {
-      document.title = "Chính sách bảo mật | ANTCARE - Kiến chăm tổ";
-      if (metaDesc) metaDesc.content = "Chính sách bảo mật thông tin và quyền riêng tư của khách hàng tại ANTCARE.";
+      document.title = "Chính sách bảo mật | ANTCARE – Kiến chăm tổ";
+      if (metaDesc) metaDesc.content = "Chính sách bảo mật thông tin và quyền riêng tư của khách hàng tại ANTCARE – Kiến chăm tổ.";
     } else if (cleanPath === '/ve-antcare' || cleanPath === '/about') {
-      document.title = "Về ANTCARE | Trợ Lý Chăm Sóc Sức Khỏe Người Cao Tuổi Tại Nhà Hà Nội";
-      if (metaDesc) metaDesc.content = "ANTCARE là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội, với 4 dịch vụ: Trợ lý sức khỏe, Đồng hành khám bệnh, An tâm nhà cửa, Kết nối dịch vụ y tế.";
+      document.title = "Về ANTCARE – Kiến chăm tổ | Trợ Lý Chăm Sóc Sức Khỏe Người Cao Tuổi Tại Nhà Hà Nội";
+      if (metaDesc) metaDesc.content = "ANTCARE – Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội, với 4 dịch vụ: Trợ lý sức khỏe, Đồng hành khám bệnh, An tâm nhà cửa, Kết nối dịch vụ y tế.";
     } else if (cleanPath === '/terms-of-use') {
-      document.title = "Điều khoản sử dụng | ANTCARE - Kiến chăm tổ";
-      if (metaDesc) metaDesc.content = "Quy định và điều khoản sử dụng dịch vụ trợ lý chăm sóc sức khỏe ANTCARE.";
+      document.title = "Điều khoản sử dụng | ANTCARE – Kiến chăm tổ";
+      if (metaDesc) metaDesc.content = "Quy định và điều khoản sử dụng dịch vụ trợ lý chăm sóc sức khỏe ANTCARE – Kiến chăm tổ.";
     }
 
     if (hash) {
