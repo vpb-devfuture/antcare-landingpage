@@ -691,14 +691,14 @@ const LandingPage = () => {
               </td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Gói lẻ", "Single Session")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("4 tiếng/ ca", "4 hours / session")}</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">540.000</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">490.000</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">490.000</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">459.000</td>
             </tr>
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Gói tháng", "Monthly Package")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("4 ca/ tháng", "4 sessions / month")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right text-on-surface-variant/40">—</td>
-              <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">1.960.000</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">1.690.000</td>
             </tr>
             <tr className="border-b-2 border-surface-lavender/80 hover:bg-surface-mist/50 transition-colors">
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Trọn gói chăm sóc", "Full Care Bundle")}</td>
@@ -709,9 +709,15 @@ const LandingPage = () => {
 
             {/*  Group 2: {tr("Gói Đồng Hành Khám Bệnh", "Hospital Companionship Package")}  */}
             <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
-              <td rowSpan={4} className="py-2 px-3.5 md:py-2.5 md:px-4 font-bold text-plum-deep text-center bg-surface-container-low border-r border-b border-surface-lavender align-middle text-sm md:text-base">
+              <td rowSpan={5} className="py-2 px-3.5 md:py-2.5 md:px-4 font-bold text-plum-deep text-center bg-surface-container-low border-r border-b border-surface-lavender align-middle text-sm md:text-base">
                 {tr("Gói Đồng Hành Khám Bệnh", "Hospital Companionship Package")}
               </td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Khám bệnh (≤ 3 giờ)", "Medical Checkup (≤ 3 hrs)")}</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("3 giờ", "3 hours")}</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">390.000</td>
+              <td className="py-1.5 px-3.5 md:py-2 md:px-4 text-right font-bold text-earth-orange-bright bg-earth-orange-bright/5">390.000</td>
+            </tr>
+            <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender font-semibold text-plum-deep">{tr("Khám bệnh (≤ 4 giờ)", "Medical Checkup (≤ 4 hrs)")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-on-surface-variant">{tr("4 giờ", "4 hours")}</td>
               <td className="py-1.5 px-3.5 md:py-2 md:px-4 border-r border-surface-lavender text-right font-medium">490.000</td>
@@ -773,8 +779,8 @@ const LandingPage = () => {
                 <span className="text-[11px] text-on-surface-variant">{tr("4 tiếng/ ca", "4 hours / session")}</span>
               </div>
               <div className="text-right">
-                <span className="text-[11px] text-on-surface-variant line-through block">540.000đ</span>
-                <span className="font-bold text-earth-orange-bright">490.000đ</span>
+                <span className="text-[11px] text-on-surface-variant line-through block">490.000đ</span>
+                <span className="font-bold text-earth-orange-bright">459.000đ</span>
               </div>
             </div>
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
@@ -783,7 +789,7 @@ const LandingPage = () => {
                 <span className="text-[11px] text-on-surface-variant">{tr("4 ca/ tháng", "4 sessions / month")}</span>
               </div>
               <div className="text-right">
-                <span className="font-bold text-earth-orange-bright">1.960.000đ</span>
+                <span className="font-bold text-earth-orange-bright">1.690.000đ</span>
               </div>
             </div>
             <div className="flex justify-between items-center">
@@ -805,6 +811,15 @@ const LandingPage = () => {
             <h3 className="font-bold text-plum-deep text-sm">{tr("Gói Đồng Hành Khám Bệnh", "Hospital Companionship Package")}</h3>
           </div>
           <div className="p-3 space-y-2.5 text-xs">
+            <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
+              <div>
+                <span className="font-bold text-plum-deep block">{tr("Khám bệnh (≤ 3 giờ)", "Medical Checkup (≤ 3 hrs)")}</span>
+                <span className="text-[11px] text-on-surface-variant">{tr("3 giờ", "3 hours")}</span>
+              </div>
+              <div className="text-right">
+                <span className="font-bold text-earth-orange-bright">390.000đ</span>
+              </div>
+            </div>
             <div className="flex justify-between items-center pb-2 border-b border-surface-lavender/50">
               <div>
                 <span className="font-bold text-plum-deep block">{tr("Khám bệnh (≤ 4 giờ)", "Medical Checkup (≤ 4 hrs)")}</span>
