@@ -190,13 +190,25 @@ const NewsDetail = () => {
     );
   }
 
-  // Get all other articles for the right sidebar sorted by date
-  const allArticles = sortArticlesByDate([
+  // Get 5 related articles: prioritize same category/tag, then recent articles to guarantee exactly 5
+  const allArticlesListSorted = sortArticlesByDate([
     ...(newsData.featured ? [newsData.featured] : []),
     ...(newsData.list || []),
     ...(activitiesData || [])
   ]);
-  const otherArticles = allArticles.filter(item => item.id !== numericId && item.slug !== article.slug);
+
+  const availableArticles = allArticlesListSorted.filter(item => 
+    item.id !== numericId && 
+    item.slug !== article.slug &&
+    (!article.oldSlug || item.slug !== article.oldSlug) &&
+    (!Array.isArray(article.oldSlugs) || !article.oldSlugs.includes(item.slug))
+  );
+
+  const sameCategoryArticles = availableArticles.filter(item => item.category === article.category);
+  const otherCategoryArticles = availableArticles.filter(item => item.category !== article.category);
+
+  // Combine: same category first, then latest articles to get 3
+  const relatedArticles = [...sameCategoryArticles, ...otherCategoryArticles].slice(0, 3);
 
   const schemaMarkup = {
     "@context": "https://schema.org",
@@ -277,9 +289,11 @@ const NewsDetail = () => {
           </h1>
 
           {/* Sapo / Meta Description Paragraph (<p>) DIRECTLY FOLLOWING <h1> for 100% SEO Compliance */}
-          <p className="text-sm sm:text-base md:text-[16.5px] font-medium text-plum-deep/90 max-w-3xl mx-auto text-center leading-relaxed italic bg-surface-mist/60 px-5 py-3 rounded-2xl border border-surface-lavender/50">
-            {article.description}
-          </p>
+          {(article.description || article.excerpt) && (
+            <p className="text-sm sm:text-base md:text-[16.5px] font-medium text-plum-deep/90 max-w-3xl mx-auto text-center leading-relaxed italic bg-surface-mist/60 px-5 py-3 rounded-2xl border border-surface-lavender/50 mt-3">
+              {article.description || article.excerpt}
+            </p>
+          )}
         </div>
       </section>
 
@@ -301,7 +315,7 @@ const NewsDetail = () => {
              {/* Injected HTML Content (Sanitized to guarantee exactly 1 H1 per page for SEO) */}
              <div 
                ref={contentRef}
-               className="prose max-w-none text-sm sm:text-base md:text-[16.5px] text-on-surface-variant leading-[1.8] prose-headings:text-plum-deep prose-headings:font-semibold prose-p:mb-4 prose-li:mb-1.5 prose-a:text-earth-orange-bright prose-img:rounded-xl prose-img:shadow-sm"
+               className="prose max-w-none text-sm sm:text-base md:text-[16.5px] text-on-surface-variant leading-[1.8] prose-headings:text-plum-deep prose-headings:font-bold prose-p:mb-4 prose-li:mb-1.5 prose-a:text-earth-orange-bright prose-img:rounded-xl prose-img:shadow-sm [&_table]:border-collapse [&_table]:w-full [&_table]:my-6 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-100 [&_th]:p-3 [&_td]:border [&_td]:border-slate-300 [&_td]:p-3"
                dangerouslySetInnerHTML={{ __html: article.content ? article.content.replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, '') : '' }}
              >
              </div>
@@ -328,7 +342,7 @@ const NewsDetail = () => {
              </div>
           </div>
 
-          {/* Sidebar - Dịch vụ của ANTCARE + Bài viết khác (Right Column - 4 Cols) */}
+          {/* Sidebar - Dịch vụ của ANTCARE + Bài viết liên quan (Right Column - 4 Cols) */}
           <aside className="lg:col-span-4 sticky top-24 space-y-6">
             
             {/* Sidebar Widget 1: Dịch vụ của ANTCARE */}
@@ -390,18 +404,21 @@ const NewsDetail = () => {
               </div>
             </div>
 
-            {/* Sidebar Widget 2: Bài viết khác */}
+            {/* Sidebar Widget 2: 5 Bài viết liên quan */}
             <div className="bg-white rounded-2xl p-5 shadow-sm border border-surface-lavender">
               <h3 className="font-bold text-sm sm:text-base text-plum-deep mb-3.5 pb-2.5 border-b border-surface-lavender flex items-center justify-between">
-                <span>Bài viết khác</span>
-                <span className="text-xs font-normal text-on-surface-variant">({otherArticles.length})</span>
+                <span className="flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-earth-orange-bright text-base">auto_awesome</span>
+                  <span>Bài viết liên quan</span>
+                </span>
+                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-earth-orange-bright/10 text-earth-orange-bright">({relatedArticles.length})</span>
               </h3>
 
               <div className="space-y-3">
-                {otherArticles.map(item => (
+                {relatedArticles.map(item => (
                   <Link 
                     to={item.slug ? (activitiesData.some(a => a.slug === item.slug) ? `/activities/${item.slug}` : `/news/${item.slug}`) : `/news/${item.id}`} 
-                    key={`${item.category}-${item.slug || item.id}-${item.id}`}
+                    key={`sb-${item.category}-${item.slug || item.id}-${item.id}`}
                     className="flex gap-3 group items-center p-2 rounded-xl hover:bg-surface-mist transition-all duration-200 border border-transparent hover:border-surface-lavender/60"
                   >
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden shrink-0 shadow-sm border border-surface-lavender/50">

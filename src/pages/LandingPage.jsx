@@ -409,7 +409,15 @@ const LandingPage = () => {
               ))}
             </ul>
             <div className="mt-auto text-center pt-1">
-              <button className="py-2 px-5 rounded-full border border-earth-orange-bright text-earth-orange-bright font-bold hover:bg-earth-orange-bright hover:text-white transition-all text-xs sm:text-sm w-full">
+              <button 
+                onClick={() => {
+                  const target = document.getElementById('goi-cham-soc-linh-hoat');
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="py-2 px-5 rounded-full border border-earth-orange-bright text-earth-orange-bright font-bold hover:bg-earth-orange-bright hover:text-white transition-all text-xs sm:text-sm w-full cursor-pointer"
+              >
                 {tr("Bảng giá dịch vụ", "Service Pricing")}
               </button>
             </div>
