@@ -14,8 +14,68 @@
   </url>
   <url>
     <loc>https://antcare.vn/news</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/chi-so-suc-khoe-nguoi-cao-tuoi-can-theo-doi</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bo-me-noi-van-khoe-dau-hieu-can-chu-y</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bai-tap-van-dong-cho-nguoi-cao-tuoi-tai-nha</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cach-do-huyet-ap-tai-nha-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cham-soc-bo-me-tu-xa</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/chuan-bi-gi-khi-dua-bo-me-di-kham-benh</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cau-hoi-nen-hoi-bac-si-khi-dua-nguoi-cao-tuoi-di-kham</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/thu-tuc-kham-bao-hiem-y-te-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/rui-ro-khi-nguoi-cao-tuoi-di-kham-mot-minh</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dich-vu-dong-hanh-kham-benh-la-gi</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>

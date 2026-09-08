@@ -80,3 +80,25 @@ body, #root {
   animation-play-state: paused;
 }
 
+/* Global Table Styling for News Articles: High contrast dark text on light purple header */
+.prose table th,
+article table th,
+.prose table thead th,
+article table thead th,
+.prose table thead tr,
+article table thead tr {
+  background-color: #EFE7FB !important;
+  color: #2A1B3D !important;
+  font-weight: 700 !important;
+  text-align: left;
+  padding: 0.75rem 1rem !important;
+  border: 1px solid #D8CBEB !important;
+}
+
+.prose table td,
+article table td {
+  color: #1E293B !important;
+  padding: 0.75rem 1rem !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
