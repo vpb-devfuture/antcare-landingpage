@@ -119,23 +119,8 @@
   "comprehensiveSolutions": [
     {
       "id": 1,
-      "title": "Trợ lý sức khỏe",
-      "description": "Kế thừa chương trình Senior Fitness của Mỹ, và Active Ageing của Singapore, đội ngũ chuyên nghiệp được đào tạo, đến nhà, kiểm tra, rèn luyện cùng ông, bà và kết nối qua App công nghệ tới gia đình",
-      "image": "/images/service-4.jpg",
-      "icon": "monitor_heart",
-      "features": [
-        "Kiểm tra chỉ số sinh tồn: Huyết áp, nhịp tim, SpO2, đường huyết..",
-        "Bài tập vận động thể chất",
-        "Bài tập Rèn luyện trí não",
-        "Nhắc nhở uống thuốc hàng ngày",
-        "Trò chuyện và trải nghiệm mới mỗi tuần",
-        "Báo cáo qua App"
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Đồng hành khám bệnh",
-      "description": "Đội ngũ chuyên nghiệp đồng hành cùng người già và trẻ em tới các cơ sở y tế an toàn, chu đáo.",
+      "title": "Dịch vụ đưa người cao tuổi đi khám bệnh tại Hà Nội",
+      "description": "Đội ngũ chuyên nghiệp đồng hành cùng người già tới các cơ sở y tế an toàn, chu đáo.",
       "image": "/images/service-3.jpg",
       "icon": "medical_services",
       "features": [
@@ -148,9 +133,24 @@
       ]
     },
     {
+      "id": 2,
+      "title": "Dịch vụ theo dõi sức khỏe người cao tuổi tại nhà",
+      "description": "Kế thừa chương trình Senior Fitness của Mỹ và Active Ageing của Singapore, đội ngũ chuyên nghiệp được đào tạo đến nhà, kiểm tra, rèn luyện cùng ông bà và kết nối qua App tới gia đình.",
+      "image": "/images/service-4.jpg",
+      "icon": "monitor_heart",
+      "features": [
+        "Kiểm tra chỉ số sinh tồn: Huyết áp, nhịp tim, SpO2, đường huyết..",
+        "Bài tập vận động thể chất",
+        "Bài tập Rèn luyện trí não",
+        "Nhắc nhở uống thuốc hàng ngày",
+        "Trò chuyện và trải nghiệm mới mỗi tuần",
+        "Báo cáo qua App"
+      ]
+    },
+    {
       "id": 3,
-      "title": "An tâm nhà cửa",
-      "description": "Kiểm tra rủi ro nhà cửa không an toàn cho người cao tuổi. Hỗ trợ các công việc gia đình và trò chuyện chia sẻ cùng người cao tuổi mỗi ngày",
+      "title": "Dịch vụ hỗ trợ an toàn nhà cửa cho người cao tuổi",
+      "description": "Kiểm tra rủi ro nhà cửa không an toàn cho người cao tuổi. Hỗ trợ các công việc gia đình và trò chuyện chia sẻ cùng người cao tuổi mỗi ngày.",
       "image": "/images/service-5.jpg",
       "icon": "home_repair_service",
       "features": [
@@ -163,7 +163,7 @@
     {
       "id": 4,
       "title": "Dịch vụ chăm sóc y tế",
-      "description": "Nền tảng ANTCARE - Kiến chăm tổ sẽ kết nối gia đình với các nhân viên y tế có kinh nghiệm, được đào tạo bài bản để hỗ trợ và đồng hành cùng gia đình khi người thân bị bệnh, hồi phục sau bệnh",
+      "description": "Nền tảng ANTCARE - Kiến chăm tổ kết nối gia đình với các nhân viên y tế có kinh nghiệm, được đào tạo bài bản để hỗ trợ và đồng hành cùng gia đình khi người thân bị bệnh, hồi phục sau bệnh.",
       "image": "/images/service-2.jpg",
       "icon": "medical_services",
       "features": [

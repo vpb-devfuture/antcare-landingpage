@@ -100,8 +100,97 @@ const LandingPage = () => {
         observer.observe(el);
     });
 
+    // Task 3: JSON-LD Schema.org Service Array Injection
+    const serviceSchemaData = [
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Dịch vụ đưa người cao tuổi đi khám bệnh",
+        "description": "Đưa đón tận nhà, đo 5 chỉ số sinh tồn trước khi đi, định vị AirTag suốt buổi khám, hỗ trợ thủ tục và ghi chép lời bác sĩ dặn gửi về gia đình.",
+        "provider": {
+          "@type": "Organization",
+          "name": "ANTCARE — Kiến chăm tổ",
+          "url": "https://antcare.vn",
+          "telephone": "+84969032360"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Hà Nội"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "299000",
+          "priceCurrency": "VND",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "unitText": "buổi"
+          }
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Dịch vụ theo dõi sức khỏe người cao tuổi tại nhà",
+        "description": "Đo và ghi nhận các chỉ số sức khỏe cơ bản tại nhà, hướng dẫn bài vận động phù hợp, gửi báo cáo tình trạng về gia đình sau mỗi buổi.",
+        "provider": {
+          "@type": "Organization",
+          "name": "ANTCARE — Kiến chăm tổ",
+          "url": "https://antcare.vn",
+          "telephone": "+84969032360"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Hà Nội"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "299000",
+          "priceCurrency": "VND",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "unitText": "buổi"
+          }
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Dịch vụ hỗ trợ an toàn nhà cửa cho người cao tuổi",
+        "description": "Rà soát các điểm rủi ro trong nhà, xử lý công việc nặng và nguy hiểm, kết nối dịch vụ y tế chuyên sâu khi cần. Theo nguyên tắc làm cùng, không làm thay.",
+        "provider": {
+          "@type": "Organization",
+          "name": "ANTCARE — Kiến chăm tổ",
+          "url": "https://antcare.vn",
+          "telephone": "+84969032360"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Hà Nội"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "299000",
+          "priceCurrency": "VND",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "unitText": "buổi"
+          }
+        }
+      }
+    ];
+
+    let schemaScript = document.getElementById('schema-services-jsonld');
+    if (!schemaScript) {
+      schemaScript = document.createElement('script');
+      schemaScript.id = 'schema-services-jsonld';
+      schemaScript.type = 'application/ld+json';
+      document.head.appendChild(schemaScript);
+    }
+    schemaScript.text = JSON.stringify(serviceSchemaData);
+
     return () => {
       rellax.destroy();
+      document.getElementById('schema-services-jsonld')?.remove();
     };
   }, [isLoading]);
 
@@ -140,9 +229,9 @@ const LandingPage = () => {
                 alt="ANTCARE – Kiến chăm tổ – Chăm sóc người cao tuổi tại Hà Nội" 
                 className="w-[155px] sm:w-[175px] h-auto object-contain drop-shadow-xs mx-auto mb-1.5" 
               />
-              <h1 className="font-semibold text-slate-600 text-[15.5px] tracking-tight text-center mb-4">
+              <p className="font-semibold text-slate-600 text-[15.5px] tracking-tight text-center mb-4">
                 {tr("Để ba mẹ tuổi già vui khỏe, an tâm", "For aging parents to live healthy, happy & peaceful")}
-              </h1>
+              </p>
 
               {/* Mobile Buttons */}
               <div className="flex flex-col gap-2.5 w-full max-w-[260px]">
@@ -387,8 +476,8 @@ const LandingPage = () => {
       </div>
     </div>
 
-    {/* 4-Column Card Grid - Roomy Spacing */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+    {/* 3-Column Card Grid - Roomy Spacing */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
       {activePageData?.comprehensiveSolutions?.map((service) => (
         <div key={service.id} className="group cursor-pointer bg-white border border-surface-lavender/80 rounded-2xl p-4 sm:p-5 flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full reveal">
           <div className="aspect-[16/11] rounded-2xl overflow-hidden mb-3.5 relative shrink-0">
@@ -398,7 +487,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="flex flex-col flex-grow">
-            <h3 className="text-base sm:text-lg font-bold text-plum-deep mb-1.5 leading-snug">{service.title}</h3>
+            <h2 className="text-base sm:text-lg font-bold text-plum-deep mb-1.5 leading-snug">{service.title}</h2>
             <p className="text-xs sm:text-sm text-on-surface-variant mb-4 leading-relaxed">{service.description}</p>
             <ul className="space-y-1.5 mb-4 flex-grow">
               {service.features.map((feature, idx) => (

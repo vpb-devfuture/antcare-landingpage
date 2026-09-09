@@ -141,7 +141,19 @@ export const translatePageData = (data, isEn) => {
   if (translated.comprehensiveSolutions) {
     const enSolutions = [
       {
-        title: "Health Assistant",
+        title: "Medical Escort Service in Hanoi",
+        description: "Professional team escorting seniors to medical facilities safely and attentively.",
+        features: [
+          "Pre-booking medical appointments",
+          "Pre-departure health check",
+          "Door-to-door transportation",
+          "Companionship throughout checkup",
+          "Always use Airtag positioning to ensure safety of grandparents",
+          "Complete checkup reports via App"
+        ]
+      },
+      {
+        title: "In-Home Senior Health Tracking Service",
         description: "Adopting US Senior Fitness & Singapore Active Ageing standards, our professional team visits your home for vital checks, physical/brain exercises, and updates family via App.",
         features: [
           "Vital signs check: Blood pressure, heart rate, SpO2, blood sugar...",
@@ -153,19 +165,7 @@ export const translatePageData = (data, isEn) => {
         ]
       },
       {
-        title: "Medical Escort & Companionship",
-        description: "Professional team escorting seniors and children to medical facilities safely and attentively.",
-        features: [
-          "Pre-booking medical appointments",
-          "Pre-departure health check",
-          "Door-to-door transportation",
-          "Companionship throughout checkup",
-          "Always use Airtag positioning to ensure the safety of grandparents",
-          "Complete checkup reports via App"
-        ]
-      },
-      {
-        title: "Home Safety & Care",
+        title: "Home Safety Support Service for Seniors",
         description: "Auditing home safety risks for seniors. Assisting household chores and sharing daily warm conversations.",
         features: [
           "Elderly home safety inspection",

@@ -27,7 +27,7 @@ function App() {
     
     // Dynamic Canonical URL and Open Graph URL management
     const cleanPath = pathname === '/' ? '/' : pathname.replace(/\/$/, '');
-    const canonicalUrl = `https://antcare.vn${cleanPath}`;
+    const canonicalUrl = cleanPath === '/' ? 'https://antcare.vn/' : `https://antcare.vn${cleanPath}/`;
 
     let canonicalLink = document.querySelector('link[rel="canonical"]');
     if (!canonicalLink) {
@@ -50,6 +50,9 @@ function App() {
     if (cleanPath === '/') {
       document.title = "ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi tại nhà Hà Nội";
       if (metaDesc) metaDesc.content = "ANTCARE – Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà chuẩn quốc tế. Hotline: 0969 032 360. Địa chỉ: Tòa Rox Tower, 138 Hồ Tùng Mậu, Hà Nội.";
+    } else if (cleanPath === '/giai-phap-cham-soc') {
+      document.title = "Dịch vụ chăm sóc người cao tuổi tại nhà Hà Nội | ANTCARE — Kiến chăm tổ";
+      if (metaDesc) metaDesc.content = "ANTCARE — Kiến chăm tổ cung cấp 3 dịch vụ chăm sóc người cao tuổi tại Hà Nội: đưa đi khám bệnh, theo dõi sức khỏe tại nhà và hỗ trợ an toàn nhà cửa. Hotline: 0969 032 360.";
     } else if (cleanPath === '/activities') {
       document.title = "Hoạt động cộng đồng | ANTCARE – Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Hành trình lan tỏa yêu thương, tập huấn sơ cấp cứu, y tế cộng đồng và các hoạt động xã hội của ANTCARE – Kiến chăm tổ.";
@@ -91,6 +94,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<LandingPage />} />
+        <Route path="giai-phap-cham-soc" element={<LandingPage />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-use" element={<TermsOfUse />} />
         <Route path="activities" element={<Activities />} />

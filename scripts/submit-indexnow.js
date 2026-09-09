@@ -41,6 +41,7 @@ function getCurrentSiteData() {
   // Các trang cố định
   const staticPages = [
     '/',
+    '/giai-phap-cham-soc',
     '/news',
     '/activities',
     '/recruitment',
