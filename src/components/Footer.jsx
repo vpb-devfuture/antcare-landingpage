@@ -28,8 +28,9 @@ const Footer = () => {
           <h4 className="font-bold text-sm sm:text-base text-white tracking-wide">{isEn ? 'Quick Links' : 'Liên kết'}</h4>
           <ul className="space-y-2 text-xs sm:text-sm text-white/75">
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/">{isEn ? 'Home' : 'Trang chủ'}</Link></li>
-            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/#cau-chuyen-cua-ant">{isEn ? 'About Us' : 'Về chúng tôi'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/#giai-phap-cham-soc">{isEn ? 'Services' : 'Dịch vụ'}</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/san-pham">{isEn ? 'Products' : 'Sản phẩm'}</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/ve-antcare">{isEn ? 'About Us' : 'Về chúng tôi'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/news">{isEn ? 'News' : 'Tin tức'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/activities">{isEn ? 'Activities' : 'Hoạt động'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/#thong-tin-lien-he">{isEn ? 'Contact' : 'Liên hệ'}</Link></li>
@@ -37,12 +38,13 @@ const Footer = () => {
         </div>
 
         <div className="space-y-3">
-          <h4 className="font-bold text-sm sm:text-base text-white tracking-wide">{isEn ? 'Support' : 'Hỗ trợ'}</h4>
+          <h4 className="font-bold text-sm sm:text-base text-white tracking-wide">{isEn ? 'Support & Partner' : 'Hỗ trợ & Hợp tác'}</h4>
           <ul className="space-y-2 text-xs sm:text-sm text-white/75">
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/ve-antcare#faq">{isEn ? 'FAQ' : 'Câu hỏi thường gặp'}</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/recruitment">{isEn ? 'Careers & Recruitment' : 'Tuyển dụng & Đăng ký'}</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/hop-tac">{isEn ? 'Hospital Cooperation' : 'Hợp tác y tế & Bệnh viện'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/privacy-policy">{isEn ? 'Privacy Policy' : 'Chính sách bảo mật'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/terms-of-use">{isEn ? 'Terms of Use' : 'Điều khoản sử dụng'}</Link></li>
-            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/recruitment">{isEn ? 'Careers & Partner' : 'Tuyển dụng & Hợp tác'}</Link></li>
           </ul>
         </div>
 
@@ -69,7 +71,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Minimalist Centered Social Media Icons (No Text Label) */}
+      {/* Minimalist Centered Social Media Icons */}
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 my-3 pt-4 border-t border-white/10">
         <div className="flex items-center justify-center gap-3.5">
           {/* Facebook Fanpage */}

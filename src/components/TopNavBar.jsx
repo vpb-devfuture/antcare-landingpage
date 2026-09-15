@@ -17,9 +17,14 @@ const TopNavBar = () => {
     if (path && path.includes('#')) {
       const [basePath, hashPart] = path.split('#');
       const targetHash = `#${hashPart}`;
-      const currentPath = window.location.pathname;
+      const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+      const cleanBasePath = (basePath === '' || basePath === '/') ? '/' : basePath.replace(/\/$/, '');
 
-      if ((basePath === '/' || basePath === '') && currentPath === '/') {
+      const isSamePage = (currentPath === cleanBasePath) ||
+                         (currentPath === '/recruitment' && (cleanBasePath === '/hop-tac' || cleanBasePath === '/lien-he' || cleanBasePath === '/recruitment')) ||
+                         ((currentPath === '/lien-he' || currentPath === '/hop-tac') && cleanBasePath === '/recruitment');
+
+      if (isSamePage) {
         const targetElement = document.querySelector(targetHash);
         if (targetElement) {
           e.preventDefault();
@@ -88,13 +93,23 @@ const TopNavBar = () => {
             {menu.map(item => item.children ? (
               <div key={item.id} className="relative group">
                 {item.path ? (
-                  <Link
-                    to={item.path}
-                    className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium"
-                    onClick={() => window.scrollTo(0, 0)}
-                  >
-                    <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} /> <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
-                  </Link>
+                  item.path.includes('#') ? (
+                    <a
+                      href={item.path}
+                      className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium"
+                      onClick={(e) => handleNavClick(e, item.path)}
+                    >
+                      <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} /> <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium"
+                      onClick={() => window.scrollTo(0, 0)}
+                    >
+                      <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} /> <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
+                    </Link>
+                  )
                 ) : (
                   <button className="flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium">
                     <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} /> <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>

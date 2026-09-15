@@ -7,6 +7,9 @@
     "service_maid": "Medical Care Services",
     "service_process": "ANT Operation Process",
     "service_why_antcare": "Why Choose Antcare",
+    "products": "Products",
+    "product_all": "Physical & Cognitive Tools",
+    "product_weaving_board": "Water Hyacinth Weaving Board",
     "recruitment": "Careers",
     "recruit_register": "Job Application",
     "recruit_benefits": "Partner Benefits",
@@ -15,6 +18,8 @@
     "about_wish": "Our Mission",
     "about_story": "Story of ANT",
     "contact": "Contact",
+    "contact_info": "Contact Info",
+    "contact_partnership": "Hospital Cooperation",
     "news": "News",
     "activities": "Activities"
   },

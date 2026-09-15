@@ -476,8 +476,8 @@ const LandingPage = () => {
       </div>
     </div>
 
-    {/* 3-Column Card Grid - Roomy Spacing */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+    {/* 4-Column Card Grid so all 4 services are on 1 single row */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-5">
       {activePageData?.comprehensiveSolutions?.map((service) => (
         <div key={service.id} className="group cursor-pointer bg-white border border-surface-lavender/80 rounded-2xl p-4 sm:p-5 flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full reveal">
           <div className="aspect-[16/11] rounded-2xl overflow-hidden mb-3.5 relative shrink-0">
@@ -517,114 +517,7 @@ const LandingPage = () => {
   </div>
 </section>
 
-{/*  5. Service Comparison Table (Chi tiết dịch vụ chăm sóc - Roomy Width & Scaled Text)  */}
-<section className="py-8 md:py-12 bg-surface-mist">
-  <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
-    <div className="text-center mb-8 reveal">
-      <h2 className="font-bold text-plum-deep text-2xl md:text-3xl lg:text-4xl">{tr("Chi tiết Dịch vụ Chăm sóc", "Care Service Details")}</h2>
-      <p className="text-xs sm:text-sm md:text-base text-on-surface-variant mt-1.5 font-medium">{tr("So sánh chi tiết các giải pháp để tìm ra lựa chọn tối ưu cho người thân của bạn", "Detailed comparison of solutions to find the optimal choice for your loved ones")}</p>
-    </div>
-    
-    <div className="hidden md:block w-full overflow-x-auto rounded-2xl border border-surface-lavender shadow-xl bg-white reveal delay-100">
-      <table className="w-full text-left border-collapse min-w-[960px]">
-        <thead>
-          <tr className="bg-primary text-white">
-            <th className="py-3.5 px-4 md:py-4 md:px-5 font-bold text-sm md:text-base border-r border-white/10 w-[16%] text-center sticky-col bg-primary">Nội dung</th>
-            {activePageData?.careServiceDetails.map(service => (
-              <th key={service.id} className="py-3.5 px-4 md:py-4 md:px-5 font-bold text-sm md:text-base border-r border-white/10 w-[21%] text-center">{service.title}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className="text-on-surface text-xs sm:text-sm md:text-[14px]">
-          <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
-            <td className="py-3.5 px-4 md:px-5 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Đối tượng</td>
-            {activePageData?.careServiceDetails.map(service => (
-              <td key={service.id} className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-plum-deep leading-relaxed font-medium">{service.target}</td>
-            ))}
-          </tr>
-          <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
-            <td className="py-3.5 px-4 md:px-5 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Mục tiêu</td>
-            {activePageData?.careServiceDetails.map(service => (
-              <td key={service.id} className="py-3.5 px-4 md:px-5 border-r border-surface-lavender leading-relaxed font-medium">{service.goal}</td>
-            ))}
-          </tr>
-          <tr className="border-b border-surface-lavender hover:bg-surface-mist/50 transition-colors">
-            <td className="py-3.5 px-4 md:px-5 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">Chi tiết dịch vụ</td>
-            {activePageData?.careServiceDetails.map(service => (
-              <td key={service.id} className="py-3.5 px-4 md:px-5 border-r border-surface-lavender leading-relaxed text-plum-deep">
-                <ul className="list-disc ml-4 space-y-1.5">
-                  {service.details.map((detail, idx) => (
-                    <li key={idx}>{detail}</li>
-                  ))}
-                </ul>
-              </td>
-            ))}
-          </tr>
-          <tr>
-            <td className="py-3.5 px-4 md:px-5 bg-surface-container-low font-bold text-plum-deep border-r border-surface-lavender sticky-col">{tr("Chất lượng & Bảo mật", "Quality & Security")}</td>
-            <td className="font-medium text-plum-deep text-center p-0" colSpan="4">
-              <div className="grid grid-cols-4 gap-0 w-full h-full">
-                <div className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-left leading-relaxed">{tr("Thông tin nhân viên minh bạch, theo dõi qua app & bảo mật", "Transparent staff profiles, tracked via app & secure")}</div>
-                <div className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-left leading-relaxed">{tr("Thông tin nhân viên minh bạch, theo dõi qua app & bảo mật", "Transparent staff profiles, tracked via app & secure")}</div>
-                <div className="py-3.5 px-4 md:px-5 border-r border-surface-lavender text-left leading-relaxed">{tr("Thông tin nhân viên minh bạch, theo dõi qua app & bảo mật", "Transparent staff profiles, tracked via app & secure")}</div>
-                <div className="py-3.5 px-4 md:px-5 text-left leading-relaxed">{tr("Thông tin nhân viên minh bạch, theo dõi qua app & bảo mật", "Transparent staff profiles, tracked via app & secure")}</div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
-{/*  Mobile Card View for Service Comparison (Visible only on mobile)  */}
-<div className="md:hidden space-y-6 reveal delay-200 mt-6">
-{activePageData?.careServiceDetails.map(service => (
-<div key={service.id} className="bg-white rounded-2xl shadow-xl border border-surface-lavender overflow-hidden relative">
-  <div className={`${service.bgClass} p-5 border-b border-surface-lavender flex items-center gap-4`}>
-    <div className={`w-12 h-12 rounded-full bg-${service.color} flex items-center justify-center shrink-0 shadow-md`}>
-      <span className="material-symbols-outlined text-white text-[24px]">{service.icon}</span>
-    </div>
-    <h3 className={`text-xl font-bold text-${service.color} leading-tight`}>{service.title}</h3>
-  </div>
-  
-  <div className="p-5 space-y-5">
-    <div className="flex gap-3">
-       <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">group</span>
-       <div>
-         <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Đối tượng</span>
-         <p className="text-[13px] font-medium text-plum-deep leading-relaxed">{service.target}</p>
-       </div>
-    </div>
-    
-    <div className="flex gap-3">
-       <span className="material-symbols-outlined text-earth-orange-bright text-[20px] shrink-0 mt-0.5">flag</span>
-       <div>
-         <span className="text-[11px] uppercase text-on-surface-variant font-bold tracking-wider block mb-1">Mục tiêu</span>
-         <p className="text-[13px] text-on-surface-variant leading-relaxed">{service.goal}</p>
-       </div>
-    </div>
-    
-    <div className="bg-surface-mist p-4 rounded-xl border border-surface-lavender/50">
-      <span className="text-[11px] uppercase text-primary font-bold flex items-center gap-1.5 mb-3"><span className="material-symbols-outlined text-[16px]">list_alt</span> Chi tiết dịch vụ</span>
-      <ul className="space-y-2 text-[13px] text-plum-deep">
-        {service.details.map((detail, idx) => (
-          <li key={idx} className="flex items-start gap-2"><span className="material-symbols-outlined text-earth-orange-bright text-[16px] mt-0.5 shrink-0">check_circle</span> {detail}</li>
-        ))}
-      </ul>
-    </div>
-
-    <div className="flex gap-3 bg-primary/5 p-3 rounded-xl border border-primary/10">
-       <span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified_user</span>
-       <div>
-         <span className="text-[11px] uppercase text-primary font-bold tracking-wider block mb-1">Chất lượng &amp; Bảo mật</span>
-         <p className="text-[12px] font-medium text-plum-deep leading-relaxed">{tr("Thông tin nhân viên minh bạch, được theo dõi qua app và bảo mật thông tin.", "Transparent staff profiles, tracked via app & secure information.")}</p>
-       </div>
-    </div>
-  </div>
-</div>
-))}
-</div>
-</div>
-</section>
 
 {/*  6. Pricing Packages (Gói Chăm sóc Linh hoạt)  */}
 <section className="bg-plum-deep py-8 md:py-12 text-white scroll-mt-20" id="goi-cham-soc-linh-hoat">
@@ -1098,37 +991,7 @@ const LandingPage = () => {
 </div>
 </section>
 
-{/*  Story Details Section  */}
-<section className="py-8 md:py-12 bg-surface-mist scroll-mt-24" id="cau-chuyen-cua-ant">
-<div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
-<div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
-<div className="relative flex justify-center md:justify-start">
-<div className="w-full max-w-[460px] lg:max-w-[500px] rounded-2xl overflow-hidden shadow-md border border-surface-lavender/60 bg-white p-2.5 sm:p-3 transition-all duration-300 hover:shadow-xl">
-<img alt="Tin nhắn quan tâm của con dành cho bố" className="w-full h-auto object-contain rounded-xl" src="/images/story-detail.jpg" />
-</div>
-</div>
-<div className="space-y-4 text-on-surface-variant text-sm sm:text-base leading-relaxed font-normal">
-<h2 className="text-2xl sm:text-3xl lg:text-[32px] font-bold text-plum-deep mb-3 leading-snug">
-  {tr("Câu chuyện của ANTCARE - Kiến chăm tổ", "Story of ANT — Caring for the Nest")}
-</h2>
-<p className="text-justify leading-relaxed">
-  {tr("Chúng tôi thấu hiểu nỗi lòng của những người con xa nhà, luôn đau đáu về sức khỏe của cha mẹ. Những dòng tin nhắn hỏi thăm vội vã giữa giờ làm, những lo âu khi không thể trực tiếp đưa bố mẹ đi khám bệnh chính là khởi nguồn cho sứ mệnh của ANTCARE - Kiến chăm tổ.", "We deeply understand the hearts of children living far away, always caring for their parents' health. Hastily sent text messages during work and anxieties about not escorting parents to medical checkups sparked ANTCARE's mission.")}
-</p>
-<p className="text-justify leading-relaxed">
-  {tr("ANTCARE - Kiến chăm tổ - Dịch vụ trợ lý chăm sóc sức khỏe tại nhà và đồng hành khám bệnh cùng người cao tuổi.", "ANTCARE - Home Healthcare Assistant & Medical Companion Service for Seniors.")}
-</p>
-<div className="bg-white/90 p-4 sm:p-5 rounded-2xl border-l-4 border-earth-orange-bright shadow-xs my-3">
-  <p className="italic text-plum-deep font-semibold text-sm sm:text-base md:text-[16.5px] leading-relaxed">
-    "{tr("Sự cô đơn của tuổi già và nỗi trăn trở của những người con xa xứ chính là nguồn cảm hứng để ANTCARE - Kiến chăm tổ ra đời.", "Old age loneliness and concerns of children living abroad inspired the creation of ANTCARE.")}"
-  </p>
-</div>
-<p className="text-justify text-xs sm:text-sm md:text-base opacity-95 leading-relaxed">
-  {tr("Tại sao lại là ANT? Hình ảnh kiến thường gợi tới tính chất bầy đàn, luôn chăm chút về tổ. Do vậy, chúng tôi liên kết những 'bạn kiến' tận tâm thành một tổ kiến rộng lớn, để lan tỏa yêu thương và sự chăm sóc chu đáo đến từng gia đình Việt.", "Why ANT? Ants signify diligence and caring for the nest. Thus, we connect dedicated Health Assistants into a large nest to spread love and thoughtful care to every family.")}
-</p>
-</div>
-</div>
-</div>
-</section>
+
 
 {/*  Core Values / Operating Process Section  */}
 <section className="py-8 md:py-12 bg-white relative overflow-hidden scroll-mt-24" id="quy-trinh-hoat-dong">
@@ -1166,48 +1029,6 @@ const LandingPage = () => {
 <div className="flex flex-col items-center justify-center text-center p-3.5 sm:p-4 bg-white/90 hover:bg-white rounded-2xl border border-surface-lavender/80 shadow-2xs hover:shadow-md transition-all duration-300 group min-h-[110px]">
   <span className="text-[11px] font-semibold text-primary/70 tracking-widest uppercase mb-1.5 group-hover:text-primary transition-colors">{tr("Bước 06", "Step 06")}</span>
   <p className="font-normal text-plum-deep text-xs sm:text-[13px] leading-snug">{tr("ANT thanh toán cho Kiến", "Payment Settlement to Assistant")}</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-{/*  {tr("Thông tin liên hệ", "Contact Information")} Section  */}
-<section className="py-8 md:py-12 bg-surface-mist scroll-mt-24" id="thong-tin-lien-he">
-<div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
-<div className="text-center mb-6">
-<h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-plum-deep">{tr("Thông tin liên hệ", "Contact Information")}</h2>
-<div className="w-16 h-1 bg-earth-orange-bright rounded-full mx-auto mt-2"></div>
-</div>
-<div className="max-w-2xl mx-auto bg-white p-6 sm:p-8 rounded-3xl border border-surface-lavender shadow-md">
-<div className="flex flex-col gap-4 text-xs sm:text-sm md:text-base">
-<div className="flex items-start gap-3.5">
-<span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">corporate_fare</span>
-<div>
-<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Văn phòng đại diện tại Hà Nội", "Hanoi Representative Office")}</p>
-<p className="font-bold text-plum-deep">{tr("Văn phòng đại diện tại Hà Nội", "Hanoi Representative Office")}</p>
-</div>
-</div>
-<div className="flex items-start gap-3.5">
-<span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">call</span>
-<div>
-<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Số điện thoại", "Phone Number")}</p>
-<a onClick={() => trackEvent('click_hotline', { location: 'contact_section' })} className="font-bold text-earth-orange-bright md:hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a>
-</div>
-</div>
-<div className="flex items-start gap-3.5">
-<span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">mail</span>
-<div>
-<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">Email</p>
-<a className="font-bold text-plum-deep md:hover:text-earth-orange-bright transition-colors" href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>
-</div>
-</div>
-<div className="flex items-start gap-3.5">
-<span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">location_on</span>
-<div>
-<p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Địa chỉ", "Address")}</p>
-<p className="font-bold text-plum-deep leading-relaxed">{tr("Tòa Rox Tower, 138 Hồ Tùng Mậu, Phú Diễn, Hà Nội", "Rox Tower Building, 138 Ho Tung Mau, Phu Dien, Ha Noi")}</p>
-</div>
 </div>
 </div>
 </div>

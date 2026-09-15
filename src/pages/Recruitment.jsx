@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAppTranslation } from '../utils/i18nHelper';
 import { trackEvent } from '../utils/analytics';
+import siteInfo from '../config/siteInfo.json';
 
 const Recruitment = () => {
   const { tr } = useAppTranslation();
@@ -92,7 +93,7 @@ const Recruitment = () => {
                 </li>
               </ul>
               <p className="text-xs sm:text-sm text-on-surface-variant mt-3">
-                Hãy liên hệ với chúng tôi qua email: <a className="text-earth-orange-bright font-bold hover:underline" href="mailto:tuyendung@antcare.vn">tuyendung@antcare.vn</a>
+                Hãy liên hệ với chúng tôi qua email: <a className="text-earth-orange-bright font-bold hover:underline" href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>
               </p>
               <p className="text-xs sm:text-sm text-on-surface-variant">
                 Khi hợp tác cùng chúng tôi, bạn sẽ <a className="text-primary font-bold hover:text-earth-orange-bright transition-colors decoration-2 underline" href="#quyen-loi-doi-tac">xem chi tiết</a>
@@ -207,7 +208,7 @@ const Recruitment = () => {
         </section>
 
         {/* SECTION 2: Partner Benefits & 5-Step Process */}
-        <section className="py-6 md:py-10 bg-white scroll-mt-24" id="hop-tac-cung-ant">
+        <section className="py-6 md:py-10 bg-white scroll-mt-24 mb-10" id="hop-tac-cung-ant">
           <div className="text-center mb-7 flex flex-col items-center">
             <div className="inline-flex items-center gap-1.5 px-3.5 py-0.5 rounded-full bg-primary/10 text-primary font-bold text-[11px] uppercase tracking-widest mb-2" id="quyen-loi-doi-tac">
               <span className="material-symbols-outlined text-[16px]">partnership</span>
@@ -326,6 +327,48 @@ const Recruitment = () => {
                   <div className="pt-0.5">
                     <h4 className="text-xs sm:text-sm md:text-base font-bold text-plum-deep mb-0.5">Đào tạo &amp; Tiếp nhận</h4>
                     <p className="text-xs sm:text-sm text-on-surface-variant">Tham gia khóa đào tạo tiêu chuẩn và bắt đầu nhận các yêu cầu dịch vụ từ hệ thống.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 3: Thông tin liên hệ (Contact Info Card) */}
+        <section className="py-8 md:py-12 bg-surface-mist rounded-3xl border border-surface-lavender scroll-mt-24 shadow-xs" id="thong-tin-lien-he">
+          <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-plum-deep">{tr("Thông tin liên hệ", "Contact Information")}</h2>
+              <div className="w-16 h-1 bg-earth-orange-bright rounded-full mx-auto mt-2"></div>
+            </div>
+            <div className="max-w-2xl mx-auto bg-white p-6 sm:p-8 rounded-3xl border border-surface-lavender shadow-md">
+              <div className="flex flex-col gap-4 text-xs sm:text-sm md:text-base">
+                <div className="flex items-start gap-3.5">
+                  <span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">corporate_fare</span>
+                  <div>
+                    <p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Văn phòng đại diện tại Hà Nội", "Hanoi Representative Office")}</p>
+                    <p className="font-bold text-plum-deep">{tr("Văn phòng đại diện tại Hà Nội", "Hanoi Representative Office")}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3.5">
+                  <span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">call</span>
+                  <div>
+                    <p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Số điện thoại", "Phone Number")}</p>
+                    <a onClick={() => trackEvent('click_hotline', { location: 'contact_section' })} className="font-bold text-earth-orange-bright md:hover:underline" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>{siteInfo.hotline}</a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3.5">
+                  <span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">mail</span>
+                  <div>
+                    <p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">Email</p>
+                    <a className="font-bold text-plum-deep md:hover:text-earth-orange-bright transition-colors" href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3.5">
+                  <span className="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">location_on</span>
+                  <div>
+                    <p className="text-[11px] text-on-surface-variant uppercase tracking-wider mb-0.5">{tr("Địa chỉ", "Address")}</p>
+                    <p className="font-bold text-plum-deep leading-relaxed">{tr("Tòa Rox Tower, 138 Hồ Tùng Mậu, Phú Diễn, Hà Nội", "Rox Tower Building, 138 Ho Tung Mau, Phu Dien, Ha Noi")}</p>
                   </div>
                 </div>
               </div>

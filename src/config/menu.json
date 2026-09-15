@@ -12,12 +12,12 @@
     ]
   },
   {
-    "id": "recruitment",
-    "path": "/recruitment",
-    "i18nKey": "menu.recruitment",
+    "id": "products",
+    "path": "/san-pham",
+    "i18nKey": "menu.products",
     "children": [
-      { "id": "recruit_register", "path": "/recruitment#danh-cho-doi-tac-tuyen-dung", "i18nKey": "menu.recruit_register" },
-      { "id": "recruit_benefits", "path": "/recruitment#hop-tac-cung-ant", "i18nKey": "menu.recruit_benefits" }
+      { "id": "product_all", "path": "/san-pham", "i18nKey": "menu.product_all" },
+      { "id": "product_weaving_board", "path": "/san-pham/bang-luon-day-beo", "i18nKey": "menu.product_weaving_board" }
     ]
   },
   {
@@ -26,15 +26,19 @@
     "i18nKey": "menu.about",
     "children": [
       { "id": "about_main", "path": "/ve-antcare", "i18nKey": "menu.about_main" },
-      { "id": "about_story", "path": "/#cau-chuyen-cua-ant", "i18nKey": "menu.about_story" }
+      { "id": "about_story", "path": "/ve-antcare#cau-chuyen", "i18nKey": "menu.about_story" }
     ]
   },
   {
     "id": "contact",
-    "path": "/#thong-tin-lien-he",
-    "i18nKey": "menu.contact"
+    "path": "/recruitment#thong-tin-lien-he",
+    "i18nKey": "menu.contact",
+    "children": [
+      { "id": "contact_info", "path": "/recruitment#thong-tin-lien-he", "i18nKey": "menu.contact_info" },
+      { "id": "contact_recruitment", "path": "/recruitment", "i18nKey": "menu.recruitment" },
+      { "id": "contact_partnership", "path": "/recruitment#hop-tac-cung-ant", "i18nKey": "menu.contact_partnership" }
+    ]
   },
-
   {
     "id": "news",
     "path": "/news",
