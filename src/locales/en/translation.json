@@ -1,6 +1,7 @@
 {
   "menu": {
     "services": "Services",
+    "service_packages": "Service Packages & Pricing",
     "service_escort": "Medical Escort (Hanoi)",
     "service_tracking": "Health Assistant",
     "service_transport": "Medical Companionship",

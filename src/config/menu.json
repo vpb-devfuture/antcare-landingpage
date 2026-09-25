@@ -1,9 +1,11 @@
 [
   {
     "id": "services",
+    "path": "/#dich-vu",
     "i18nKey": "menu.services",
     "children": [
       { "id": "service_escort", "path": "/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi", "i18nKey": "menu.service_escort" },
+      { "id": "service_packages", "path": "/#dich-vu", "i18nKey": "menu.service_packages" },
       { "id": "service_why_antcare", "path": "/#tai-sao-la-antcare", "i18nKey": "menu.service_why_antcare" },
       { "id": "service_tracking", "path": "/#giai-phap-cham-soc", "i18nKey": "menu.service_tracking" },
       { "id": "service_education", "path": "/#giai-phap-cham-soc", "i18nKey": "menu.service_education" },

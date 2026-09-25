@@ -500,7 +500,7 @@ const LandingPage = () => {
             <div className="mt-auto text-center pt-1">
               <button 
                 onClick={() => {
-                  const target = document.getElementById('goi-cham-soc-linh-hoat');
+                  const target = document.getElementById('dich-vu') || document.getElementById('goi-cham-soc-linh-hoat');
                   if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
                   }
@@ -606,7 +606,7 @@ const LandingPage = () => {
       </div>
 
       {/*  Block 2: Gói Dịch vụ Y tế  */}
-      <div className="flex flex-col reveal delay-100">
+      <div id="dich-vu" className="flex flex-col reveal delay-100 scroll-mt-24">
         <div className="flex items-center gap-2.5 mb-3">
           <div className="w-8 h-8 bg-earth-orange-bright rounded-full flex items-center justify-center shrink-0 shadow-md">
             <span className="material-symbols-outlined text-white text-lg">medical_services</span>

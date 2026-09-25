@@ -122,7 +122,8 @@ function App() {
         <Route path="giai-phap-cham-soc" element={<LandingPage />} />
         <Route path="dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi" element={<MedicalEscortService />} />
         
-        {/* 301 Redirects for consolidated articles */}
+        {/* 301 Redirects for consolidated articles & service root */}
+        <Route path="dich-vu" element={<Navigate to="/" replace />} />
         <Route path="news/chuan-bi-gi-khi-dua-bo-me-di-kham-benh" element={<Navigate to="/news/checklist-dua-bo-me-di-kham-benh-vien" replace />} />
         <Route path="news/dua-bo-me-di-kham-benh-ha-noi-can-chuan-bi-gi" element={<Navigate to="/news/checklist-dua-bo-me-di-kham-benh-vien" replace />} />
         <Route path="news/dich-vu-dong-hanh-kham-benh-la-gi" element={<Navigate to="/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi" replace />} />

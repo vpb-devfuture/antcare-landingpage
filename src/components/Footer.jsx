@@ -29,7 +29,7 @@ const Footer = () => {
           <ul className="space-y-2 text-xs sm:text-sm text-white/75">
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/">{isEn ? 'Home' : 'Trang chủ'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi">{isEn ? 'Elderly Medical Escort' : 'Đưa người cao tuổi đi khám'}</Link></li>
-            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/#giai-phap-cham-soc">{isEn ? 'Services' : 'Dịch vụ'}</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/#dich-vu">{isEn ? 'Services' : 'Dịch vụ'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/san-pham">{isEn ? 'Products' : 'Sản phẩm'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/ve-antcare">{isEn ? 'About Us' : 'Về chúng tôi'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/news">{isEn ? 'News' : 'Tin tức'}</Link></li>

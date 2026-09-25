@@ -246,12 +246,6 @@ export function runPrerender() {
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Dịch vụ",
-            "item": "https://antcare.vn/#giai-phap-cham-soc"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
             "name": "Đưa người cao tuổi đi khám",
             "item": serviceUrl
           }
@@ -387,7 +381,7 @@ export function runPrerender() {
           <span class="material-symbols-outlined text-[16px]">home</span> Trang chủ
         </a>
         <span class="text-slate-400">/</span>
-        <a href="/#giai-phap-cham-soc" class="hover:text-[#6633B4] transition-colors">Dịch vụ</a>
+        <a href="/#dich-vu" class="hover:text-[#6633B4] transition-colors">Dịch vụ</a>
         <span class="text-slate-400">/</span>
         <span class="text-slate-800 font-semibold" aria-current="page">Đưa người cao tuổi đi khám</span>
       </nav>
@@ -920,6 +914,10 @@ export function runPrerender() {
   // 5. CÁC TRANG CHUYỂN HƯỚNG 301 TĨNH
   // ==========================================
   const staticRedirects = [
+    {
+      source: '/dich-vu',
+      target: '/'
+    },
     {
       source: '/news/chuan-bi-gi-khi-dua-bo-me-di-kham-benh',
       target: '/news/checklist-dua-bo-me-di-kham-benh-vien'

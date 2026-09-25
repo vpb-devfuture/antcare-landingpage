@@ -69,6 +69,42 @@ const MedicalEscortService = () => {
 
     let ogImage = document.querySelector('meta[property="og:image"]');
     if (ogImage) ogImage.content = "https://antcare.vn/images/footer-logo.png";
+
+    // BreadcrumbList JSON-LD: 2 levels only (Trang chủ > Đưa người cao tuổi đi khám)
+    const breadcrumbJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Trang chủ",
+          "item": "https://antcare.vn/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Đưa người cao tuổi đi khám",
+          "item": canonicalUrl
+        }
+      ]
+    };
+
+    let breadcrumbScript = document.getElementById('escort-breadcrumb-jsonld');
+    if (!breadcrumbScript) {
+      breadcrumbScript = document.createElement('script');
+      breadcrumbScript.id = 'escort-breadcrumb-jsonld';
+      breadcrumbScript.type = 'application/ld+json';
+      document.head.appendChild(breadcrumbScript);
+    }
+    breadcrumbScript.textContent = JSON.stringify(breadcrumbJsonLd);
+
+    return () => {
+      const scriptToRemove = document.getElementById('escort-breadcrumb-jsonld');
+      if (scriptToRemove) {
+        scriptToRemove.remove();
+      }
+    };
   }, []);
 
   const handleChange = (e) => {
@@ -144,7 +180,7 @@ const MedicalEscortService = () => {
             Trang chủ
           </Link>
           <span className="text-slate-400">/</span>
-          <Link to="/#giai-phap-cham-soc" className="hover:text-[#6633B4] transition-colors">
+          <Link to="/#dich-vu" className="hover:text-[#6633B4] transition-colors">
             Dịch vụ
           </Link>
           <span className="text-slate-400">/</span>

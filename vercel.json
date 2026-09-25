@@ -19,6 +19,16 @@
       "source": "/news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia",
       "destination": "/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi",
       "permanent": true
+    },
+    {
+      "source": "/dich-vu",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/dich-vu/",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
