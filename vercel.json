@@ -1,4 +1,26 @@
 {
+  "redirects": [
+    {
+      "source": "/news/chuan-bi-gi-khi-dua-bo-me-di-kham-benh",
+      "destination": "/news/checklist-dua-bo-me-di-kham-benh-vien",
+      "permanent": true
+    },
+    {
+      "source": "/news/dua-bo-me-di-kham-benh-ha-noi-can-chuan-bi-gi",
+      "destination": "/news/checklist-dua-bo-me-di-kham-benh-vien",
+      "permanent": true
+    },
+    {
+      "source": "/news/dich-vu-dong-hanh-kham-benh-la-gi",
+      "destination": "/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia",
+      "destination": "/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

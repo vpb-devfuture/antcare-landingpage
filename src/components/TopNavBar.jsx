@@ -1,13 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import siteInfo from '../config/siteInfo.json';
 import menu from '../config/menu.json';
 import { trackEvent } from '../utils/analytics';
 
 const TopNavBar = () => {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [expandedItems, setExpandedItems] = useState({ services: true });
+
+  const toggleSection = (id) => {
+    setExpandedItems(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   const handleLogoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -194,63 +218,115 @@ const TopNavBar = () => {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        <div className={`md:hidden border-t border-border-muted ${isMobileMenuOpen ? "block" : "hidden"}`}>
-          <div className="flex flex-col py-2">
-            {menu.map(item => (
-              <div key={item.id} className="flex flex-col">
-                {item.path && !item.path.includes('#') ? (
-                  <Link
-                    className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50"
-                    to={item.path}
-                    dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }}
-                    onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}
-                  />
-                ) : (
-                  <a 
-                    className="px-4 py-3 text-sm text-plum-deep font-medium hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/50" 
-                    href={item.path} 
-                    dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} 
-                    onClick={(e) => { handleNavClick(e, item.path); setIsMobileMenuOpen(false); }} 
-                  />
-                )}
-                {item.children && (
-                  <div className="flex flex-col bg-surface-lavender/30 pl-4">
-                    {item.children.map(child => (
-                      child.path && !child.path.includes('#') ? (
-                        <Link
-                          key={child.id}
-                          className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30"
-                          to={child.path}
-                          dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }}
-                          onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}
-                        />
-                      ) : (
-                        <a 
-                          key={child.id} 
-                          className="px-4 py-3 text-sm text-plum-deep/80 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright transition-colors border-b border-border-muted/30" 
-                          href={child.path} 
-                          dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }} 
-                          onClick={(e) => { handleNavClick(e, child.path); setIsMobileMenuOpen(false); }} 
-                        />
-                      )
-                    ))}
+      {/* Mobile Menu Dropdown / Drawer */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto overscroll-contain shadow-2xl flex flex-col border-t border-border-muted"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
+          <div className="flex flex-col px-4 py-4 pb-32 max-w-lg mx-auto w-full">
+            {menu.map(item => {
+              const hasChildren = item.children && item.children.length > 0;
+              const isExpanded = !!expandedItems[item.id];
+
+              if (hasChildren) {
+                return (
+                  <div key={item.id} className="border-b border-border-muted/50 py-1">
+                    <button
+                      type="button"
+                      onClick={() => toggleSection(item.id)}
+                      className="w-full flex items-center justify-between px-3 py-3.5 text-[15px] font-semibold text-plum-deep hover:text-earth-orange-bright transition-colors text-left"
+                    >
+                      <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} />
+                      <span className={`material-symbols-outlined text-plum-deep/50 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}>
+                        expand_more
+                      </span>
+                    </button>
+
+                    {isExpanded && (
+                      <div className="flex flex-col bg-surface-lavender/30 rounded-xl mb-2 py-1 pl-2">
+                        {item.children.map(child => (
+                          child.path && !child.path.includes('#') ? (
+                            <Link
+                              key={child.id}
+                              className="px-4 py-3 text-sm text-plum-deep/85 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright rounded-lg transition-colors border-b border-border-muted/20 last:border-b-0"
+                              to={child.path}
+                              dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }}
+                              onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}
+                            />
+                          ) : (
+                            <a
+                              key={child.id}
+                              className="px-4 py-3 text-sm text-plum-deep/85 hover:bg-earth-orange-bright/10 hover:text-earth-orange-bright rounded-lg transition-colors border-b border-border-muted/20 last:border-b-0"
+                              href={child.path}
+                              dangerouslySetInnerHTML={{ __html: t(child.i18nKey) }}
+                              onClick={(e) => { handleNavClick(e, child.path); setIsMobileMenuOpen(false); }}
+                            />
+                          )
+                        ))}
+                      </div>
+                    )}
                   </div>
-                )}
+                );
+              }
+
+              // Single item without children (News, Activities, etc.)
+              return (
+                <div key={item.id} className="border-b border-border-muted/50 py-1">
+                  {item.path && !item.path.includes('#') ? (
+                    <Link
+                      className="flex items-center px-3 py-3.5 text-[15px] font-semibold text-plum-deep hover:text-earth-orange-bright transition-colors"
+                      to={item.path}
+                      dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }}
+                      onClick={() => { setIsMobileMenuOpen(false); window.scrollTo(0, 0); }}
+                    />
+                  ) : (
+                    <a
+                      className="flex items-center px-3 py-3.5 text-[15px] font-semibold text-plum-deep hover:text-earth-orange-bright transition-colors"
+                      href={item.path}
+                      dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }}
+                      onClick={(e) => { handleNavClick(e, item.path); setIsMobileMenuOpen(false); }}
+                    />
+                  )}
+                </div>
+              );
+            })}
+
+            {/* Language Switcher in Mobile Drawer */}
+            <div className="pt-6 px-3 flex flex-col gap-2">
+              <span className="text-xs font-semibold uppercase tracking-wider text-plum-deep/60">Ngôn ngữ / Language:</span>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => { i18n.changeLanguage('vi'); setIsMobileMenuOpen(false); }}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                    i18n.language !== 'en'
+                      ? 'bg-earth-orange-bright text-white shadow-sm'
+                      : 'bg-plum-deep/5 text-plum-deep hover:bg-plum-deep/10'
+                  }`}
+                >
+                  <img src="/images/vn-w20.png" srcSet="/images/vn-w40.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-black/10" />
+                  Tiếng Việt
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { i18n.changeLanguage('en'); setIsMobileMenuOpen(false); }}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${
+                    i18n.language === 'en'
+                      ? 'bg-earth-orange-bright text-white shadow-sm'
+                      : 'bg-plum-deep/5 text-plum-deep hover:bg-plum-deep/10'
+                  }`}
+                >
+                  <img src="/images/gb-w20.png" srcSet="/images/gb-w40.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-black/10" />
+                  English
+                </button>
               </div>
-            ))}
-            <div className="flex items-center gap-3 px-4 py-3 border-t border-border-muted mt-1">
-              <button onClick={() => { i18n.changeLanguage("vi"); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 text-sm font-bold text-primary hover:text-earth-orange-bright transition-colors bg-earth-orange-bright/10 px-4 py-2 rounded-lg">
-                <img src="/images/vn-w20.png" srcSet="/images/vn-w40.png 2x" alt="VN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> Tiếng Việt
-              </button>
-              <button onClick={() => { i18n.changeLanguage("en"); setIsMobileMenuOpen(false); }} className="flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary transition-colors px-4 py-2 rounded-lg hover:bg-plum-deep/5">
-                <img src="/images/gb-w20.png" srcSet="/images/gb-w40.png 2x" alt="EN" className="w-5 h-auto rounded-sm border border-border-muted/30" /> English
-              </button>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

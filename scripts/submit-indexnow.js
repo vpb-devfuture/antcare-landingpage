@@ -47,7 +47,8 @@ function getCurrentSiteData() {
     '/recruitment',
     '/privacy-policy',
     '/terms-of-use',
-    '/ve-antcare'
+    '/ve-antcare',
+    '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi'
   ];
 
   for (const page of staticPages) {
@@ -66,6 +67,28 @@ function getCurrentSiteData() {
     for (const article of articles) {
       if (article.slug) {
         const fullUrl = `${DOMAIN}/news/${article.slug}`;
+        const contentStr = JSON.stringify({
+          title: article.title,
+          description: article.description,
+          content: article.content,
+          date: article.date
+        });
+        urlsWithHashes[fullUrl] = crypto.createHash('md5').update(contentStr).digest('hex');
+      }
+    }
+  }
+
+  // Bài viết tiếng Anh từ src/data/news.en.json
+  const newsEnPath = path.join(rootDir, 'src', 'data', 'news.en.json');
+  if (fs.existsSync(newsEnPath)) {
+    const newsEnData = JSON.parse(fs.readFileSync(newsEnPath, 'utf8'));
+    const enArticles = [];
+    if (newsEnData.featured) enArticles.push(newsEnData.featured);
+    if (Array.isArray(newsEnData.list)) enArticles.push(...newsEnData.list);
+
+    for (const article of enArticles) {
+      if (article.slug) {
+        const fullUrl = `${DOMAIN}/blog/${article.slug}`;
         const contentStr = JSON.stringify({
           title: article.title,
           description: article.description,

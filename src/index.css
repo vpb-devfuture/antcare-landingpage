@@ -102,3 +102,135 @@ article table td {
   border: 1px solid #E2E8F0 !important;
 }
 
+/* Rich Article & Senior Activity Blocks */
+.sapo {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #332b45;
+  line-height: 1.7;
+}
+
+.answer {
+  background-color: #F1EBFA;
+  border-left: 4px solid #6633B4;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+.answer strong {
+  color: #6633B4;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+.note {
+  background-color: #FFF1E8;
+  border-left: 4px solid #FD711A;
+  border-radius: 8px;
+  padding: 0.9rem 1.15rem;
+  margin: 1.25rem 0;
+}
+
+.product {
+  border: 1px solid #E4D8F5;
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  margin: 1.25rem 0;
+  background-color: #FCFAFF;
+}
+.product h3 {
+  margin-top: 0;
+  color: #6633B4;
+  font-weight: 700;
+}
+
+.cta {
+  background: linear-gradient(135deg, #6633B4, #8150CF);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(102, 51, 180, 0.15);
+}
+.cta h3 {
+  margin: 0 0 0.5rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+.cta a {
+  color: #FFD9C2;
+  font-weight: 700;
+}
+.cta .btn {
+  display: inline-block;
+  background-color: #FD711A;
+  color: #ffffff !important;
+  padding: 0.65rem 1.4rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  margin-top: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(253, 113, 26, 0.35);
+  transition: transform 0.2s, background-color 0.2s;
+}
+.cta .btn:hover {
+  background-color: #ea5e07;
+  transform: translateY(-1px);
+}
+
+.faq details {
+  border: 1px solid #E6E0EE;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin: 0.65rem 0;
+  background-color: #ffffff;
+}
+.faq summary {
+  font-weight: 700;
+  cursor: pointer;
+  color: #6633B4;
+}
+.faq details[open] summary {
+  margin-bottom: 0.5rem;
+}
+.tags {
+  font-size: 0.85rem;
+  color: #6B6478;
+  margin-top: 1.25rem;
+}
+
+/* Bold Heading Typography across News, Articles & Content (Vietnamese & English) */
+.prose h1, article h1 {
+  font-weight: 800 !important;
+  color: #2e1832 !important;
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+}
+
+.prose h2, article h2 {
+  font-weight: 800 !important;
+  color: #3b1444 !important;
+  letter-spacing: -0.02em;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.prose h3, article h3 {
+  font-weight: 800 !important;
+  color: #2e1832 !important;
+  letter-spacing: -0.015em;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.prose h4, article h4 {
+  font-weight: 750 !important;
+  color: #3e1b48 !important;
+}
+
+.prose strong, article strong {
+  font-weight: 700 !important;
+}
+
+
+

@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useAppTranslation, translateArticle, getCategoryLabel, sortArticlesByDate } from '../utils/i18nHelper';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import newsData from '../data/news.json';
+import { useAppTranslation, getCategoryLabel, sortArticlesByDate } from '../utils/i18nHelper';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
+import newsViData from '../data/news.json';
+import newsEnData from '../data/news.en.json';
 import activitiesData from '../data/activities.json';
 
 const NewsDetail = () => {
   const { tr, isEn } = useAppTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const numericId = parseInt(id, 10);
 
   const [toc, setToc] = useState([]);
@@ -16,27 +18,72 @@ const NewsDetail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]); // Scroll to top when ID changes
+    const REDIRECT_MAP = {
+      'chuan-bi-gi-khi-dua-bo-me-di-kham-benh': '/news/checklist-dua-bo-me-di-kham-benh-vien',
+      '59': '/news/checklist-dua-bo-me-di-kham-benh-vien',
+      'dua-bo-me-di-kham-benh-ha-noi-can-chuan-bi-gi': '/news/checklist-dua-bo-me-di-kham-benh-vien',
+      '27': '/news/checklist-dua-bo-me-di-kham-benh-vien',
+      'dich-vu-dong-hanh-kham-benh-la-gi': '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi',
+      '63': '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi',
+      'dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia': '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi',
+      '126': '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi'
+    };
+    if (REDIRECT_MAP[id]) {
+      navigate(REDIRECT_MAP[id], { replace: true });
+    }
+  }, [id, navigate]);
 
-  const allArticlesList = [
-    ...(newsData.featured ? [newsData.featured] : []),
-    ...(newsData.list || []),
+  const enList = [
+    ...(newsEnData.featured ? [newsEnData.featured] : []),
+    ...(newsEnData.list || [])
+  ];
+
+  const viList = [
+    ...(newsViData.featured ? [newsViData.featured] : []),
+    ...(newsViData.list || []),
     ...(activitiesData || [])
   ];
 
-  let rawArticle = allArticlesList.find(item => 
-    item.slug === id || 
-    item.id === numericId || 
-    item.oldSlug === id || 
-    (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(id))
-  );
-  let article = translateArticle(rawArticle, isEn);
+  const matches = (item) => {
+    if (!item) return false;
+    return (
+      item.slug === id ||
+      item.id === numericId ||
+      item.oldSlug === id ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(id)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`blog/${id}`)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`news/${id}`)) ||
+      item.slug === `blog/${id}` ||
+      item.slug === `news/${id}`
+    );
+  };
+
+  let rawArticle = null;
+  let isCurrentArticleEn = false;
+
+  if (isEn || location.pathname.startsWith('/blog')) {
+    rawArticle = enList.find(matches);
+    if (rawArticle) {
+      isCurrentArticleEn = true;
+    } else {
+      rawArticle = viList.find(matches);
+    }
+  } else {
+    rawArticle = viList.find(matches);
+    if (!rawArticle) {
+      rawArticle = enList.find(matches);
+      if (rawArticle) isCurrentArticleEn = true;
+    }
+  }
+
+  const article = rawArticle;
 
   // Update document.title and meta description dynamically for SEO Meta Title & Meta Description matching H1 & P
   useEffect(() => {
     if (article) {
-      const cleanTitle = article.title.replace(/\n/g, ' ');
-      document.title = `${cleanTitle} | ANTCARE – Kiến chăm tổ`;
+      const cleanTitle = (article.metaTitle || article.title).replace(/\n/g, ' ');
+      const siteSuffix = isCurrentArticleEn ? 'ANTCARE' : 'ANTCARE – Kiến chăm tổ';
+      document.title = `${cleanTitle} | ${siteSuffix}`;
 
       // Update or create meta description tag in document head for SEO crawler
       let metaDesc = document.querySelector('meta[name="description"]');
@@ -49,7 +96,7 @@ const NewsDetail = () => {
 
       // Update Open Graph tags for Facebook & Zalo sharing preview
       let ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle) ogTitle.content = `${cleanTitle} | ANTCARE – Kiến chăm tổ`;
+      if (ogTitle) ogTitle.content = `${cleanTitle} | ${siteSuffix}`;
 
       let ogDesc = document.querySelector('meta[property="og:description"]');
       if (ogDesc) ogDesc.content = article.description || '';
@@ -75,7 +122,7 @@ const NewsDetail = () => {
       let ogUrl = document.querySelector('meta[property="og:url"]');
       if (ogUrl) ogUrl.content = canonicalUrl;
     }
-  }, [article?.id, article?.title, article?.description, article?.image, id]);
+  }, [article?.id, article?.title, article?.metaTitle, article?.description, article?.image, id, isCurrentArticleEn]);
 
   // Ensure all images inside article content have SEO-optimized ALT attributes
   useEffect(() => {
@@ -83,10 +130,10 @@ const NewsDetail = () => {
     const timer = setTimeout(() => {
       if (!contentRef.current) return;
       const imgs = contentRef.current.querySelectorAll('img');
-      const cleanTitle = article.title ? article.title.replace(/\n/g, ' ') : 'ANTCARE – Kiến chăm tổ';
+      const cleanTitle = article.title ? article.title.replace(/\n/g, ' ') : 'ANTCARE';
       imgs.forEach((img, idx) => {
         if (!img.alt || img.alt.trim() === '' || img.alt.toLowerCase() === 'mock image') {
-          img.alt = `${cleanTitle} - Hình minh họa ${idx + 1}`;
+          img.alt = `${cleanTitle} - ${idx + 1}`;
         }
       });
     }, 150);
@@ -184,18 +231,15 @@ const NewsDetail = () => {
           onClick={() => navigate('/news')}
           className="bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-plum-deep transition-colors"
         >
-          {tr("Quay lại trang Tin tức", "Return to News")}
+          {tr("Quay lại trang Tin tức", "Return to Articles")}
         </button>
       </div>
     );
   }
 
-  // Get 5 related articles: prioritize same category/tag, then recent articles to guarantee exactly 5
-  const allArticlesListSorted = sortArticlesByDate([
-    ...(newsData.featured ? [newsData.featured] : []),
-    ...(newsData.list || []),
-    ...(activitiesData || [])
-  ]);
+  // Get related articles from the same language dataset
+  const activeDataset = isCurrentArticleEn ? enList : viList;
+  const allArticlesListSorted = sortArticlesByDate(activeDataset);
 
   const availableArticles = allArticlesListSorted.filter(item => 
     item.id !== numericId && 
@@ -210,53 +254,28 @@ const NewsDetail = () => {
   // Combine: same category first, then latest articles to get 3
   const relatedArticles = [...sameCategoryArticles, ...otherCategoryArticles].slice(0, 3);
 
-  const schemaMarkup = {
+  const schemaMarkup = article.schema || {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "NewsArticle",
+        "@type": "Article",
         "headline": article.title ? article.title.replace(/\n/g, ' ') : '',
-        "datePublished": "2026-08-11T09:00:00+07:00",
+        "datePublished": "2026-09-23T09:00:00+07:00",
         "description": article.description ? article.description.replace(/\n/g, ' ') : '',
         "image": article.image ? (article.image.startsWith('http') ? article.image : `https://antcare.vn${article.image}`) : "https://antcare.vn/images/footer-logo.png",
         "author": {
-          "@type": "Person",
-          "name": article.author ? (typeof article.author === 'object' && article.author !== null ? (article.author.name || "Huyền Trang") : article.author) : "Huyền Trang"
+          "@type": "Organization",
+          "name": article.author ? (typeof article.author === 'object' && article.author !== null ? (article.author.name || "ANTCARE") : article.author) : "ANTCARE"
         },
         "publisher": {
           "@type": "Organization",
           "name": "ANTCARE",
-          "alternateName": ["ANTCARE – Kiến chăm tổ", "ANTCARE Việt Nam"],
+          "url": "https://antcare.vn",
           "logo": {
             "@type": "ImageObject",
             "url": "https://antcare.vn/images/footer-logo.png"
           }
         }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "Độ tuổi nào bắt đầu được trang bị kiến thức tuổi già theo dự thảo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Theo dự thảo, các hoạt động tư vấn và cung cấp tài liệu kiến thức tuổi già áp dụng cho công dân từ 40 tuổi trở lên."
-          }
-        }, {
-          "@type": "Question",
-          "name": "Cần chuẩn bị những kiến thức gì cho tuổi già?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Có 5 nhóm kỹ năng chính cần chuẩn bị: lối sống lành mạnh, rèn luyện sức khỏe, chăm sóc người cao tuổi tại nhà, chuẩn bị tài chính và chuẩn bị lao động/việc làm phù hợp."
-          }
-        }, {
-          "@type": "Question",
-          "name": "Thời gian thực hiện chương trình này là khi nào?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Đề xuất này nằm trong Chương trình mục tiêu quốc gia về chăm sóc sức khỏe, dân số và phát triển giai đoạn 2026 - 2035, trong đó giai đoạn I được triển khai từ năm 2026 đến năm 2030."
-          }
-        }]
       }
     ]
   };
@@ -275,16 +294,16 @@ const NewsDetail = () => {
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-plum-deep hover:text-earth-orange-bright transition-colors group"
             >
               <span className="material-symbols-outlined text-lg group-hover:-translate-x-0.5 transition-transform font-bold">arrow_back</span>
-              <span>{tr("Trở về Tin tức", "Back to News")}</span>
+              <span>{isCurrentArticleEn ? "Back to Articles" : tr("Trở về Tin tức", "Back to News")}</span>
             </Link>
             <span className="text-surface-lavender">•</span>
             <span className="px-3 py-0.5 rounded-full bg-earth-orange-bright/10 text-earth-orange-bright font-bold text-xs">
-              {getCategoryLabel(article.category, isEn)}
+              {isCurrentArticleEn ? article.category : getCategoryLabel(article.category, isEn)}
             </span>
           </div>
 
           {/* Title centered & broke into 2 lines cleanly */}
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-bold text-plum-deep leading-snug whitespace-pre-line max-w-4xl mx-auto mb-3 text-center">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[33px] font-extrabold md:font-black text-plum-deep leading-snug whitespace-pre-line max-w-4xl mx-auto mb-3 text-center tracking-tight">
             {article.title}
           </h1>
 
@@ -297,11 +316,11 @@ const NewsDetail = () => {
         </div>
       </section>
 
-      {/* Main Content Grid: Article Body (Expanded +1.5cm wider) + Sidebar */}
+      {/* Main Content Grid: Article Body + Sidebar */}
       <section className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12 pt-6 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
-          {/* Main Article Body (Left Column - 8 Cols, Extra Roomy Width) */}
+          {/* Main Article Body (Left Column - 8 Cols) */}
           <div className="lg:col-span-8 bg-white rounded-2xl p-5 sm:p-8 md:p-10 shadow-sm border border-surface-lavender">
              {/* Beautiful Framed Featured Image */}
              <div className="w-full overflow-hidden rounded-xl shadow-xs border border-surface-lavender/60 bg-white mb-6 flex items-center justify-center p-2">
@@ -315,7 +334,7 @@ const NewsDetail = () => {
              {/* Injected HTML Content (Sanitized to guarantee exactly 1 H1 per page for SEO) */}
              <div 
                ref={contentRef}
-               className="prose max-w-none text-sm sm:text-base md:text-[16.5px] text-on-surface-variant leading-[1.8] prose-headings:text-plum-deep prose-headings:font-bold prose-p:mb-4 prose-li:mb-1.5 prose-a:text-earth-orange-bright prose-img:rounded-xl prose-img:shadow-sm [&_table]:border-collapse [&_table]:w-full [&_table]:my-6 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-100 [&_th]:p-3 [&_td]:border [&_td]:border-slate-300 [&_td]:p-3"
+               className="prose max-w-none text-sm sm:text-base md:text-[16.5px] text-on-surface-variant leading-[1.8] prose-headings:text-plum-deep prose-headings:font-extrabold prose-headings:tracking-tight prose-p:mb-4 prose-li:mb-1.5 prose-a:text-earth-orange-bright prose-img:rounded-xl prose-img:shadow-sm [&_table]:border-collapse [&_table]:w-full [&_table]:my-6 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-100 [&_th]:p-3 [&_td]:border [&_td]:border-slate-300 [&_td]:p-3"
                dangerouslySetInnerHTML={{ __html: article.content ? article.content.replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, '') : '' }}
              >
              </div>
@@ -325,93 +344,156 @@ const NewsDetail = () => {
                {article.author && (
                  <div className="flex items-center gap-3.5">
                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm shrink-0">
-                     <img src={article.author.image} alt={article.author.name} className="w-full h-full object-cover" />
+                     <img src={article.author.image || '/images/footer-logo.png'} alt={article.author.name} className="w-full h-full object-cover" />
                    </div>
                    <div>
                      <p className="font-bold text-sm text-plum-deep">{article.author.name}</p>
-                     <p className="text-on-surface-variant text-xs mt-0.5">{article.author.description || 'Nhân viên truyền thông ANTCARE - Kiến chăm tổ'}</p>
+                     <p className="text-on-surface-variant text-xs mt-0.5">
+                       {article.author.description || (isCurrentArticleEn ? 'Purpose-built activity tools for older adults' : 'Nhân viên truyền thông ANTCARE - Kiến chăm tổ')}
+                     </p>
                    </div>
                  </div>
                )}
                {article.date && (
                  <div className="flex items-center gap-1.5 text-xs text-on-surface-variant font-medium">
                    <span className="material-symbols-outlined text-sm text-earth-orange-bright">calendar_today</span>
-                   <span>Ngày đăng: {article.date}</span>
+                   <span>{isCurrentArticleEn ? 'Published: ' : 'Ngày đăng: '}{article.date}</span>
                  </div>
                )}
              </div>
           </div>
 
-          {/* Sidebar - Dịch vụ của ANTCARE + Bài viết liên quan (Right Column - 4 Cols) */}
+          {/* Sidebar (Right Column - 4 Cols) */}
           <aside className="lg:col-span-4 sticky top-24 space-y-6">
             
-            {/* Sidebar Widget 1: Dịch vụ của ANTCARE */}
+            {/* Sidebar Widget 1: Services or Product Range */}
             <div className="bg-white rounded-2xl p-5 shadow-sm border border-surface-lavender">
               <h3 className="font-bold text-sm sm:text-base text-plum-deep mb-3.5 pb-2.5 border-b border-surface-lavender flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary text-lg">medical_services</span>
-                <span>Dịch vụ của ANTCARE - Kiến chăm tổ</span>
+                <span className="material-symbols-outlined text-primary text-lg">
+                  {isCurrentArticleEn ? 'extension' : 'medical_services'}
+                </span>
+                <span>
+                  {isCurrentArticleEn ? 'ANTCARE Activity Products' : 'Dịch vụ của ANTCARE - Kiến chăm tổ'}
+                </span>
               </h3>
-              <div className="space-y-2 text-xs sm:text-sm">
-                <Link to="/#giai-phap-cham-soc" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-base">home_health</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Chăm sóc sức khỏe tại nhà</h4>
-                    <p className="text-[11px] text-on-surface-variant line-clamp-1">Điều dưỡng tận tâm, hỗ trợ sinh hoạt &amp; y tế 24/7</p>
-                  </div>
-                </Link>
 
-                <Link to="/#giai-phap-cham-soc" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
-                  <div className="w-8 h-8 rounded-lg bg-earth-orange-bright/10 text-earth-orange-bright flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-earth-orange-bright group-hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-base">local_hospital</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Chăm sóc tại Bệnh viện</h4>
-                    <p className="text-[11px] text-on-surface-variant line-clamp-1">Đồng hành túc trực, hỗ trợ thủ tục &amp; chăm sóc người bệnh</p>
-                  </div>
-                </Link>
+              {isCurrentArticleEn ? (
+                <div className="space-y-2 text-xs sm:text-sm">
+                  <Link to="/san-pham" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors">
+                      <span className="material-symbols-outlined text-base">dashboard_customize</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Wooden Busy Boards</h4>
+                      <p className="text-[11px] text-on-surface-variant line-clamp-1">Natural rubberwood panels for tactile stimulation &amp; calm</p>
+                    </div>
+                  </Link>
 
-                <Link to="/#goi-cham-soc-linh-hoat" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
-                  <div className="w-8 h-8 rounded-lg bg-plum-light/10 text-plum-light flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-plum-light group-hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-base">schedule</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Gói chăm sóc Linh hoạt</h4>
-                    <p className="text-[11px] text-on-surface-variant line-clamp-1">Lựa chọn ca 8h, 12h, 24h hoặc theo giờ linh hoạt</p>
-                  </div>
-                </Link>
+                  <Link to="/san-pham" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
+                    <div className="w-8 h-8 rounded-lg bg-earth-orange-bright/10 text-earth-orange-bright flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-earth-orange-bright group-hover:text-white transition-colors">
+                      <span className="material-symbols-outlined text-base">front_hand</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Hand Activity Boards</h4>
+                      <p className="text-[11px] text-on-surface-variant line-clamp-1">Magnetic &amp; tactile boards with personalised photo puzzles</p>
+                    </div>
+                  </Link>
 
-                <Link to="/#giai-phap-cham-soc" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <span className="material-symbols-outlined text-base">translate</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Trợ lý sức khỏe Song ngữ</h4>
-                    <p className="text-[11px] text-on-surface-variant line-clamp-1">Đội ngũ điều dưỡng hỗ trợ cả tiếng Việt và tiếng Anh</p>
-                  </div>
-                </Link>
-              </div>
+                  <Link to="/san-pham" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
+                    <div className="w-8 h-8 rounded-lg bg-plum-light/10 text-plum-light flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-plum-light group-hover:text-white transition-colors">
+                      <span className="material-symbols-outlined text-base">airline_seat_recline_normal</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Sensory Foot Mats</h4>
+                      <p className="text-[11px] text-on-surface-variant line-clamp-1">Modular textured mats for seated movement &amp; circulation</p>
+                    </div>
+                  </Link>
 
-              <div className="mt-4 pt-3 border-t border-surface-lavender/60 text-center">
-                <Link 
-                  to="/#lien-he-gia-dinh" 
-                  className="w-full py-2.5 px-3 bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white rounded-xl font-bold text-xs shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all inline-flex items-center justify-center gap-1.5"
-                >
-                  <span className="material-symbols-outlined text-base">chat</span>
-                  <span>Nhận tư vấn dịch vụ miễn phí</span>
-                </Link>
-              </div>
+                  <Link to="/san-pham" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors">
+                      <span className="material-symbols-outlined text-base">card_giftcard</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Handmade Craft Kits</h4>
+                      <p className="text-[11px] text-on-surface-variant line-clamp-1">Woven Christmas ornaments &amp; balloon decorations for gifts</p>
+                    </div>
+                  </Link>
+
+                  <div className="mt-4 pt-3 border-t border-surface-lavender/60 text-center">
+                    <Link 
+                      to="/lien-he" 
+                      className="w-full py-2.5 px-3 bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white rounded-xl font-bold text-xs shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all inline-flex items-center justify-center gap-1.5"
+                    >
+                      <span className="material-symbols-outlined text-base">mail</span>
+                      <span>Request Facility &amp; Wholesale Quote</span>
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div className="space-y-2 text-xs sm:text-sm">
+                    <Link to="/#giai-phap-cham-soc" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span className="material-symbols-outlined text-base">home_health</span>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Chăm sóc sức khỏe tại nhà</h4>
+                        <p className="text-[11px] text-on-surface-variant line-clamp-1">Điều dưỡng tận tâm, hỗ trợ sinh hoạt &amp; y tế 24/7</p>
+                      </div>
+                    </Link>
+
+                    <Link to="/#giai-phap-cham-soc" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
+                      <div className="w-8 h-8 rounded-lg bg-earth-orange-bright/10 text-earth-orange-bright flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-earth-orange-bright group-hover:text-white transition-colors">
+                        <span className="material-symbols-outlined text-base">local_hospital</span>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Chăm sóc tại Bệnh viện</h4>
+                        <p className="text-[11px] text-on-surface-variant line-clamp-1">Đồng hành túc trực, hỗ trợ thủ tục &amp; chăm sóc người bệnh</p>
+                      </div>
+                    </Link>
+
+                    <Link to="/#goi-cham-soc-linh-hoat" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
+                      <div className="w-8 h-8 rounded-lg bg-plum-light/10 text-plum-light flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-plum-light group-hover:text-white transition-colors">
+                        <span className="material-symbols-outlined text-base">schedule</span>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Gói chăm sóc Linh hoạt</h4>
+                        <p className="text-[11px] text-on-surface-variant line-clamp-1">Lựa chọn ca 8h, 12h, 24h hoặc theo giờ linh hoạt</p>
+                      </div>
+                    </Link>
+
+                    <Link to="/#giai-phap-cham-soc" className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-surface-mist transition-all border border-transparent hover:border-surface-lavender/60 group">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary group-hover:text-white transition-colors">
+                        <span className="material-symbols-outlined text-base">translate</span>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors text-xs sm:text-sm">Trợ lý sức khỏe Song ngữ</h4>
+                        <p className="text-[11px] text-on-surface-variant line-clamp-1">Đội ngũ điều dưỡng hỗ trợ cả tiếng Việt và tiếng Anh</p>
+                      </div>
+                    </Link>
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-surface-lavender/60 text-center">
+                    <Link 
+                      to="/#lien-he-gia-dinh" 
+                      className="w-full py-2.5 px-3 bg-gradient-to-r from-earth-orange-bright to-earth-orange-dark text-white rounded-xl font-bold text-xs shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all inline-flex items-center justify-center gap-1.5"
+                    >
+                      <span className="material-symbols-outlined text-base">chat</span>
+                      <span>Nhận tư vấn dịch vụ miễn phí</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Sidebar Widget 2: 5 Bài viết liên quan */}
+            {/* Sidebar Widget 2: Related Articles */}
             <div className="bg-white rounded-2xl p-5 shadow-sm border border-surface-lavender">
-              <h3 className="font-bold text-sm sm:text-base text-plum-deep mb-3.5 pb-2.5 border-b border-surface-lavender flex items-center justify-between">
+              <h3 className="font-extrabold text-sm sm:text-base text-plum-deep mb-3.5 pb-2.5 border-b border-surface-lavender flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-earth-orange-bright text-base">auto_awesome</span>
-                  <span>Bài viết liên quan</span>
+                  <span>{isCurrentArticleEn ? "Related Articles" : "Bài viết liên quan"}</span>
                 </span>
-                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-earth-orange-bright/10 text-earth-orange-bright">({relatedArticles.length})</span>
+                <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-earth-orange-bright/10 text-earth-orange-bright">({relatedArticles.length})</span>
               </h3>
 
               <div className="space-y-3">
@@ -433,7 +515,7 @@ const NewsDetail = () => {
                         <span className="text-[10px] font-bold text-earth-orange-bright uppercase tracking-wider">{item.category}</span>
                         {item.date && <span className="text-[10px] text-on-surface-variant">{item.date}</span>}
                       </div>
-                      <h4 className="text-xs sm:text-sm font-bold text-plum-deep group-hover:text-earth-orange-bright transition-colors line-clamp-2 leading-snug">
+                      <h4 className="text-xs sm:text-sm font-extrabold text-plum-deep group-hover:text-earth-orange-bright transition-colors line-clamp-2 leading-snug">
                         {item.title}
                       </h4>
                     </div>
@@ -446,7 +528,7 @@ const NewsDetail = () => {
                   to="/news" 
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-earth-orange-bright transition-colors"
                 >
-                  <span>Xem tất cả tin tức</span>
+                  <span>{isCurrentArticleEn ? "Explore all articles" : "Xem tất cả tin tức"}</span>
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </Link>
               </div>

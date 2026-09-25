@@ -2,279 +2,926 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://antcare.vn/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://antcare.vn/activities</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://antcare.vn/news</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://antcare.vn/news/chi-so-suc-khoe-nguoi-cao-tuoi-can-theo-doi</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/bo-me-noi-van-khoe-dau-hieu-can-chu-y</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://antcare.vn/recruitment</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/bai-tap-van-dong-cho-nguoi-cao-tuoi-tai-nha</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://antcare.vn/hop-tac</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/cach-do-huyet-ap-tai-nha-cho-nguoi-cao-tuoi</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://antcare.vn/lien-he</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/cham-soc-bo-me-tu-xa</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://antcare.vn/privacy-policy</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/chuan-bi-gi-khi-dua-bo-me-di-kham-benh</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://antcare.vn/terms-of-use</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/cau-hoi-nen-hoi-bac-si-khi-dua-nguoi-cao-tuoi-di-kham</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://antcare.vn/ve-antcare</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/thu-tuc-kham-bao-hiem-y-te-cho-nguoi-cao-tuoi</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://antcare.vn/about</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/rui-ro-khi-nguoi-cao-tuoi-di-kham-mot-minh</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://antcare.vn/giai-phap-cham-soc</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/dich-vu-dong-hanh-kham-benh-la-gi</loc>
-    <lastmod>2026-09-06</lastmod>
+    <loc>https://antcare.vn/san-pham</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/dua-bo-me-di-kham-benh-ha-noi-can-chuan-bi-gi</loc>
-    <lastmod>2026-09-02</lastmod>
+    <loc>https://antcare.vn/san-pham/bang-luon-day-beo</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/chon-dich-vu-cham-soc-nguoi-cao-tuoi-tai-nha-ha-noi</loc>
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://antcare.vn/blog</loc>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/ha-noi-diem-cham-soc-nguoi-cao-tuoi-ban-ngay</loc>
-    <lastmod>2026-08-28</lastmod>
+    <loc>https://antcare.vn/activities/tet-trung-thu-2026-mon-qua-cho-bo-me-gia</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/activities/thang-hanh-dong-vi-nguoi-cao-tuoi-2026-phu-dien</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/activities/antcare-tap-huan-so-cap-cuu-danh-cho-nguoi-cao-tuoi-cung-chuyen-gia-wellbeing</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/activities/antcare-hoat-dong-nhu-the-nao-mo-hinh-chuong-trinh-lam-viec-va-bang-gia</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/activities/dieu-ghi-lam-nen-su-khac-biet-cua-antcare</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/activities/uu-dai-vu-lan-bao-hieu-tri-an-cha-me</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/so-sanh-cham-soc-tai-nha-vien-duong-lao-daycare</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/chon-dich-vu-dong-hanh-kham-benh-uy-tin</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cham-soc-bo-me-tu-xa-khi-di-kham</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/kinh-nghiem-dua-nguoi-gia-kham-benh-vien-lon</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/checklist-chuan-bi-dua-nguoi-cao-tuoi-di-kham</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/quy-trinh-dong-hanh-kham-benh-antcare</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bo-me-di-kham-mot-minh-rui-ro</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/tro-ly-theo-doi-suc-khoe-tai-nha-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/tin-tuc-nhat-ban-daycare-giam-xu-huong-cham-soc-tai-nha</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/con-o-xa-theo-doi-suc-khoe-bo-me</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/checklist-dua-bo-me-di-kham-benh-vien</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dau-hieu-bo-me-can-theo-doi-suc-khoe</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bang-ban-ron-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/tham-xuc-giac-cho-nguoi-gia</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/combo-cham-soc-ren-luyen-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bang-hoat-dong-go-cao-su-nguoi-sa-sut-tri-tue</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/qua-tang-ong-ba-bo-dan-day-beo-antcare</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/chon-do-choi-cho-nguoi-sa-sut-tri-tue-theo-giai-doan</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/do-choi-tang-cuong-tri-nho-nguoi-cao-tuoi-antcare</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dong-hanh-tai-kham-benh-man-tinh-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/checklist-chuan-bi-dua-ong-ba-di-kham</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/quy-trinh-dong-hanh-di-kham-antcare</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/con-o-xa-bo-me-di-kham-mot-minh</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dich-vu-dong-hanh-di-kham-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/chon-mua-bang-montessori-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/hoat-dong-thu-cong-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/do-choi-ren-luyen-tri-nao-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/busy-board-cho-nguoi-lon-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/montessori-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dua-nguoi-cao-tuoi-di-kham-benh-can-tro-ly-chuyen-mon</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/khi-con-o-xa-an-tam-voi-app-antcare</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/3-dich-vu-cot-loi-antcare</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/8-gio-o-ben-nguoi-cao-tuoi-khac-hoan-toan-thue-giup-viec</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/khong-phai-luc-nao-nguoi-cao-tuoi-cung-can-dieu-duong</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bo-o-ha-noi-con-cong-tac-5-ngay-ai-dua-bo-di-tai-kham</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://antcare.vn/news/o-nuoc-ngoai-me-goi-bao-mai-di-kham-nhung-khong-ai-dua-di</loc>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/bo-o-ha-noi-con-cong-tac-5-ngay-ai-dua-bo-di-tai-kham</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/thuyet-phuc-bo-me-chap-nhan-dung-bim</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/khong-phai-luc-nao-nguoi-cao-tuoi-cung-can-dieu-duong</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/bo-cham-soc-nguoi-nam-liet-tai-nha-gom-nhung-gi</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/8-gio-o-ben-nguoi-cao-tuoi-khac-hoan-toan-thue-giup-viec</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/tam-lot-giuong-khi-nao-can-va-chon-the-nao</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/3-dich-vu-cot-loi-antcare</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/mot-thang-can-bao-nhieu-bim-nguoi-lon</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/khi-con-o-xa-an-tam-voi-app-antcare</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/thay-bim-cho-nguoi-nam-liet-dung-cach</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/dua-nguoi-cao-tuoi-di-kham-benh-can-tro-ly-chuyen-mon</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/ham-do-mac-bim-o-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/montessori-cho-nguoi-cao-tuoi</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/cach-do-size-bim-nguoi-lon</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/busy-board-cho-nguoi-lon-tuoi</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/bim-nguoi-lon-chon-loai-nao-theo-tinh-trang-bo-me</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/do-choi-ren-luyen-tri-nao-cho-nguoi-cao-tuoi</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/son-tieu-o-nguoi-cao-tuoi-nguyen-nhan-va-giai-phap</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/hoat-dong-thu-cong-cho-nguoi-cao-tuoi</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/mieng-lot-son-tieu-khac-bang-ve-sinh-the-nao</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/chon-mua-bang-montessori-cho-nguoi-cao-tuoi</loc>
-    <lastmod>2026-09-16</lastmod>
+    <loc>https://antcare.vn/news/ta-quan-hay-ta-dan-chon-loai-nao</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/do-choi-tang-cuong-tri-nho-nguoi-cao-tuoi-antcare</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://antcare.vn/news/suy-giam-thinh-luc-o-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/chon-do-choi-cho-nguoi-sa-sut-tri-tue-theo-giai-doan</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://antcare.vn/news/tao-bon-va-tieu-hoa-o-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/qua-tang-ong-ba-bo-dan-day-beo-antcare</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://antcare.vn/news/duc-thuy-tinh-the-va-suy-giam-thi-luc-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/bang-hoat-dong-go-cao-su-nguoi-sa-sut-tri-tue</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://antcare.vn/news/vien-duong-lao-hay-cham-soc-tai-nha</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/choi-cung-ong-ba-do-choi-tri-nho-antcare</loc>
-    <lastmod>2026-09-18</lastmod>
+    <loc>https://antcare.vn/news/cham-soc-nguoi-sau-dot-quy-tai-nha</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/tro-ly-theo-doi-suc-khoe-tai-nha-nguoi-cao-tuoi</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/quan-ly-nhieu-loai-thuoc-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/loang-xuong-o-nguoi-cao-tuoi-phong-ngua</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/tin-tuc-nhat-ban-daycare-giam-xu-huong-cham-soc-tai-nha</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/tram-cam-o-nguoi-cao-tuoi-nhan-biet-va-ho-tro</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/con-o-xa-theo-doi-suc-khoe-bo-me</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/dau-hieu-dot-quy-va-so-cuu-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/checklist-dua-bo-me-di-kham-benh-vien</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/dau-hieu-som-sa-sut-tri-tue-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/dau-hieu-bo-me-can-theo-doi-suc-khoe</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/tro-cap-huu-tri-xa-hoi-nguoi-cao-tuoi-2026</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/bang-ban-ron-cho-nguoi-cao-tuoi</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/che-do-an-cho-nguoi-benh-xuong-khop</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/tham-xuc-giac-cho-nguoi-gia</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/che-do-an-cho-nguoi-benh-tim-mach</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/combo-cham-soc-ren-luyen-nguoi-cao-tuoi</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/che-do-an-cho-nguoi-tieu-duong-type-2</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/news/so-sanh-cham-soc-tai-nha-vien-duong-lao-daycare</loc>
-    <lastmod>2026-09-21</lastmod>
+    <loc>https://antcare.vn/news/che-do-an-cho-nguoi-huyet-ap-thap</loc>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/recruitment</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://antcare.vn/news/che-do-an-cho-nguoi-cao-huyet-ap</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/privacy-policy</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://antcare.vn/news/giac-ngu-nguoi-cao-tuoi-van-de-va-giai-phap</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://antcare.vn/terms-of-use</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://antcare.vn/news/phong-nga-nguoi-cao-tuoi-mua-lanh</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dinh-duong-mua-lanh-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/vac-xin-mua-thu-dong-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/tang-huyet-ap-nguoi-cao-tuoi-nhung-dieu-can-biet</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/tieu-duong-nguoi-cao-tuoi-dau-hieu-va-quan-ly</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cum-mua-2026-nguoi-cao-tuoi-nen-biet</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/sot-xuat-huyet-mua-mua-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bhyt-sang-loc-tang-huyet-ap-tieu-duong-tu-2030</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/benh-ho-hap-giao-mua-thang-9-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/rui-ro-khi-nguoi-cao-tuoi-di-kham-mot-minh</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/thu-tuc-kham-bao-hiem-y-te-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cau-hoi-nen-hoi-bac-si-khi-dua-nguoi-cao-tuoi-di-kham</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cham-soc-bo-me-tu-xa</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cach-do-huyet-ap-tai-nha-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bai-tap-van-dong-cho-nguoi-cao-tuoi-tai-nha</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bo-me-noi-van-khoe-dau-hieu-can-chu-y</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/chi-so-suc-khoe-nguoi-cao-tuoi-can-theo-doi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cai-tao-nha-o-chong-truot-nga-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cam-nang-chon-qua-tang-thiet-bi-y-te-gia-dinh</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/5-noi-so-vo-hinh-khien-nguoi-cao-tuoi-ngai-di-benh-vien</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dot-quy-buoi-sang-nguoi-cao-tuoi-quy-tac-3-phut</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/vien-duong-lao-giup-viec-hay-cham-soc-tai-gia</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cach-noi-chuyen-voi-bo-me-ve-viec-can-nguoi-cham-soc</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/trung-thu-2026-qua-tang-y-nghia-bo-me-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/tro-ly-suc-khoe-cho-bo-me-song-mot-minh-ha-noi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/mot-buoi-tro-ly-suc-khoe-antcare-dien-ra-the-nao</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/tai-sao-nen-chon-dich-vu-tro-ly-suc-khoe-antcare</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/trung-thu-mon-qua-y-nghia-nhat-cho-bo-me</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/mua-thu-tai-kham-suc-khoe-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/mo-hinh-xa-hoi-hoa-cham-soc-nguoi-cao-tuoi-dich-vu-tu-nhan</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/sandwich-generation-ap-luc-kiet-que-cua-the-he-kep-giua</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/ung-dung-cong-nghe-cham-soc-nguoi-cao-tuoi-dinh-vi-den-bao-cao-so</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dai-thao-duong-o-nguoi-cao-tuoi-nhung-dieu-con-cai-can-biet-de-cham-soc-dung</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/tang-huyet-ap-o-nguoi-cao-tuoi-vi-sao-do-tai-nha-quan-trong-hon-o-phong-kham</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/sa-sut-tri-tue-o-nguoi-cao-tuoi-dau-hieu-nhan-biet-som</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/muc-tieu-90-nguoi-cao-tuoi-duoc-phat-hien-va-quan-ly-benh-khong-lay-nhiem-den-nam-2030</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/nguoi-cao-tuoi-duoc-kham-sang-loc-mien-phi-hang-nam</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/benh-vien-nao-tot-cho-nguoi-cao-tuoi-ha-noi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/con-cai-o-xa-cham-soc-bo-me-tu-xa</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/thu-tuc-kham-bao-hiem-y-te-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/kham-suc-khoe-mien-phi-nguoi-cao-tuoi-2026</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dich-vu-dua-nguoi-cao-tuoi-di-kham-benh-ha-noi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/chon-dich-vu-cham-soc-nguoi-cao-tuoi-tai-nha-ha-noi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/ha-noi-diem-cham-soc-nguoi-cao-tuoi-ban-ngay</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/quan-ly-suc-khoe-bo-me-tu-xa</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/con-xa-nha-me-van-khoe</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/giup-viec-theo-gio-vs-tro-ly-antcare-lua-chon-nao-an-toan</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/don-nha-cho-nguoi-gia-dung-nham-lan-giua-sach-se-va-an-toan</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/khi-nao-can-dich-vu-dua-nguoi-gia-di-kham-benh</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/huong-dan-su-dung-dich-vu-dua-nguoi-cao-tuoi-di-kham</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/thue-nguoi-dua-nguoi-gia-di-vien-3-sai-lam</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/dich-vu-an-tam-cua-nha-5-yeu-to-xoa-so-rui-ro</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/nghi-ngo-dot-quy-o-nguoi-cao-tuoi-nhung-viec-khong-nen-lam</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/uu-dai-vu-lan-bao-hieu-tri-an-cha-me</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/phong-chong-te-nga-cho-nguoi-cao-tuoi-tai-nha</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/bai-tap-chong-te-nga-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/huong-dan-chon-gay-chong-xe-day-xe-lan-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/trao-luu-chup-anh-mua-thu-ha-noi-cho-nguoi-cao-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/cam-nang-tri-mat-ngu-o-nguoi-gia</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/mua-sua-ensure-chinh-hang-o-dau-re-nhat</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/huong-dan-cach-uong-sua-dung-chuan-suc-khoe-gia-dinh</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/kinh-nghiem-chon-mua-sua-cho-nguoi-moi-om-day</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/kinh-nghiem-mua-sua-cho-bo-me</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/top-4-sua-cho-nguoi-benh-ung-thu</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/top-3-sua-cho-nguoi-mo-mau-cao</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/top-3-sua-cho-nguoi-tieu-duong</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/top-3-sua-cho-nguoi-cao-huyet-ap</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/top-5-sua-dinh-duong-cho-nguoi-gia</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://antcare.vn/news/de-xuat-trang-bi-kien-thuc-tuoi-gia-tu-40-tuoi</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
-

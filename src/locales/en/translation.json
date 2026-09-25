@@ -1,6 +1,7 @@
 {
   "menu": {
     "services": "Services",
+    "service_escort": "Medical Escort (Hanoi)",
     "service_tracking": "Health Assistant",
     "service_transport": "Medical Companionship",
     "service_education": "Peace of Mind at Home",

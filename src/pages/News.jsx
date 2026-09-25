@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useAppTranslation, translateArticle, sortArticlesByDate } from '../utils/i18nHelper';
+import { useAppTranslation, sortArticlesByDate } from '../utils/i18nHelper';
 import { Link } from 'react-router-dom';
-import newsData from '../data/news.json';
+import newsViData from '../data/news.json';
+import newsEnData from '../data/news.en.json';
 
 const News = () => {
   const { t, isEn, tr } = useAppTranslation();
+  const currentNewsData = isEn ? newsEnData : newsViData;
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   // Sort list articles descending by date (newest first)
-  const sortedList = sortArticlesByDate(newsData.list || []);
+  const sortedList = sortArticlesByDate(currentNewsData.list || []);
 
   // allArticles sorted strictly by date (newest first)
-  const rawAllArticles = sortArticlesByDate([
-    ...(newsData.featured ? [newsData.featured] : []),
-    ...sortedList.filter(item => item.id !== newsData.featured?.id)
+  const allArticles = sortArticlesByDate([
+    ...(currentNewsData.featured ? [currentNewsData.featured] : []),
+    ...sortedList.filter(item => item.id !== currentNewsData.featured?.id)
   ]);
-  const allArticles = rawAllArticles.map(item => translateArticle(item, isEn));
 
   // Carousel articles for top left hero banner (Default slide 0 is fixed featured article)
   const carouselArticles = allArticles.slice(0, 4);
@@ -39,10 +41,20 @@ const News = () => {
   const topRightArticles = allArticles.slice(1, 4);
 
   // Category filtering for archive list below
-  const [selectedCategory, setSelectedCategory] = useState('Tất cả');
-  const categories = ['Tất cả', 'An toàn nhà ở', 'Tri ân khách hàng', 'Chăm sóc sức khỏe', 'Sữa', 'Tin tức'];
+  const [selectedCategory, setSelectedCategory] = useState(isEn ? 'All' : 'Tất cả');
+
+  useEffect(() => {
+    setSelectedCategory(isEn ? 'All' : 'Tất cả');
+    setCurrentPage(1);
+    setActiveSlide(0);
+  }, [isEn]);
+
+  const categories = isEn
+    ? ['All', ...Array.from(new Set(allArticles.map(item => item.category).filter(Boolean)))]
+    : ['Tất cả', 'An toàn nhà ở', 'Tri ân khách hàng', 'Chăm sóc sức khỏe', 'Sữa', 'Tin tức'];
+
   const getCategoryLabel = (cat) => {
-    if (!isEn) return cat;
+    if (isEn) return cat;
     const map = { 'Tất cả': 'All', 'An toàn nhà ở': 'Home Safety', 'Tri ân khách hàng': 'Customer Appreciation', 'Chăm sóc sức khỏe': 'Healthcare', 'Sữa': 'Nutrition & Milk', 'Tin tức': 'News & Updates' };
     return map[cat] || cat;
   };
@@ -56,7 +68,8 @@ const News = () => {
     setCurrentPage(1);
   };
 
-  const filteredArchive = selectedCategory === 'Tất cả' 
+  const isAllCategory = selectedCategory === 'Tất cả' || selectedCategory === 'All';
+  const filteredArchive = isAllCategory
     ? allArticles 
     : allArticles.filter(item => item.category === selectedCategory);
 
@@ -64,7 +77,7 @@ const News = () => {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const paginatedArchive = filteredArchive.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
-  const currentHeroArticle = carouselArticles[activeSlide] || allArticles[0];
+  const currentHeroArticle = carouselArticles[activeSlide] || allArticles[0] || {};
 
   return (
     <div className="bg-white min-h-screen py-6 sm:py-8 md:py-10">
@@ -121,7 +134,7 @@ const News = () => {
             {/* Title Overlay Directly on Image (No date, no category tag) */}
             <div className="relative z-20 p-4 sm:p-5 md:p-6 pointer-events-none">
               <Link to={`/news/${currentHeroArticle.slug || currentHeroArticle.id}`} className="block group/link pointer-events-auto">
-                <h1 className="text-base sm:text-lg md:text-xl font-bold text-white leading-snug line-clamp-2 group-hover/link:text-earth-orange-bright transition-colors drop-shadow-sm">
+                <h1 className="text-base sm:text-lg md:text-xl font-extrabold md:font-black text-white leading-snug line-clamp-2 group-hover/link:text-earth-orange-bright transition-colors drop-shadow-md tracking-tight">
                   {currentHeroArticle.title}
                 </h1>
               </Link>
@@ -144,7 +157,7 @@ const News = () => {
                   />
                 </div>
                 <div className="flex-1 min-w-0 flex flex-col justify-center">
-                  <h3 className="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-earth-orange-bright leading-snug line-clamp-2 mb-1.5 transition-colors">
+                  <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 group-hover:text-earth-orange-bright leading-snug line-clamp-2 mb-1.5 transition-colors">
                     {item.title}
                   </h3>
                   <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-500 font-medium">
@@ -162,8 +175,10 @@ const News = () => {
         <section className="pt-6 border-t border-slate-200 scroll-mt-24" id="tat-ca-bai-viet">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-slate-800 mb-1">{tr("Tất cả bài viết", "All Articles")}</h2>
-              <p className="text-sm text-slate-600">Khám phá thông tin dinh dưỡng &amp; chăm sóc sức khỏe cho người cao tuổi từ ANTCARE - Kiến chăm tổ</p>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1 tracking-tight">{tr("Tất cả bài viết", "All Articles")}</h2>
+              <p className="text-sm text-slate-600">
+                {tr("Khám phá thông tin dinh dưỡng & chăm sóc sức khỏe cho người cao tuổi từ ANTCARE - Kiến chăm tổ", "Purpose-built activity tools, dementia care guides, and healthy ageing insights from ANTCARE.")}
+              </p>
             </div>
             
             {/* Category Filter Tabs in Clean White Palette */}
@@ -192,11 +207,11 @@ const News = () => {
                 </Link>
                 <div className="p-5 flex-grow flex flex-col">
                   <div className="flex items-center gap-2 mb-2.5">
-                    <span className="text-[11px] font-bold text-earth-orange-bright uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-earth-orange-bright/10">{article.category}</span>
+                    <span className="text-[11px] font-bold text-earth-orange-bright uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-earth-orange-bright/10">{getCategoryLabel(article.category)}</span>
                     <span className="text-xs text-on-surface-variant font-medium">{article.date}</span>
                   </div>
                   <Link to={`/news/${article.slug || article.id}`} className="block cursor-pointer">
-                    <h3 className="font-bold text-base text-plum-deep mb-2.5 group-hover:text-earth-orange-bright transition-colors line-clamp-2 leading-snug">
+                    <h3 className="font-extrabold text-base sm:text-[17px] text-plum-deep mb-2.5 group-hover:text-earth-orange-bright transition-colors line-clamp-2 leading-snug tracking-tight">
                       {article.title}
                     </h3>
                   </Link>
@@ -204,7 +219,7 @@ const News = () => {
                     {article.description}
                   </p>
                   <Link className="mt-auto inline-flex items-center gap-1 text-primary font-bold hover:text-earth-orange-bright transition-colors text-xs sm:text-sm" to={`/news/${article.slug || article.id}`}>
-                    Đọc thêm <span className="material-symbols-outlined text-sm">arrow_right_alt</span>
+                    {tr("Đọc thêm", "Read article")} <span className="material-symbols-outlined text-sm">arrow_right_alt</span>
                   </Link>
                 </div>
               </article>

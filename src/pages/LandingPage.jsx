@@ -618,12 +618,28 @@ const LandingPage = () => {
           <p className="text-xs sm:text-sm text-white/90 mb-3 font-medium">{tr("Bao gồm các dịch vụ chuyên sâu hỗ trợ sức khỏe toàn diện:", "Includes specialized healthcare services:")}</p>
           
           <div className="grid grid-cols-2 gap-3 mb-4">
-            {activePageData?.medicalPackages.map(medPkg => (
-              <div key={medPkg.id} className="bg-white p-3 rounded-xl text-center border border-white/20 shadow-sm flex flex-col items-center justify-center h-20 sm:h-22 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:scale-[1.02]">
-                <span className="material-symbols-outlined text-primary text-xl mb-1">{medPkg.icon}</span>
-                <span className="text-xs sm:text-sm font-bold text-plum-deep leading-tight">{medPkg.title}</span>
-              </div>
-            ))}
+            {activePageData?.medicalPackages.map(medPkg => {
+              const isEscort = medPkg.title?.includes('Đồng hành khám bệnh') || medPkg.id === 1;
+              if (isEscort) {
+                return (
+                  <Link 
+                    key={medPkg.id} 
+                    to="/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi"
+                    className="bg-white p-3 rounded-xl text-center border-2 border-earth-orange-bright/40 shadow-sm flex flex-col items-center justify-center h-20 sm:h-22 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:scale-[1.02] group"
+                    title="Dịch vụ đưa người cao tuổi đi khám tại Hà Nội"
+                  >
+                    <span className="material-symbols-outlined text-earth-orange-bright text-xl mb-1 group-hover:scale-110 transition-transform">{medPkg.icon}</span>
+                    <span className="text-xs sm:text-sm font-bold text-plum-deep leading-tight group-hover:text-earth-orange-bright transition-colors">{medPkg.title}</span>
+                  </Link>
+                );
+              }
+              return (
+                <div key={medPkg.id} className="bg-white p-3 rounded-xl text-center border border-white/20 shadow-sm flex flex-col items-center justify-center h-20 sm:h-22 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:scale-[1.02]">
+                  <span className="material-symbols-outlined text-primary text-xl mb-1">{medPkg.icon}</span>
+                  <span className="text-xs sm:text-sm font-bold text-plum-deep leading-tight">{medPkg.title}</span>
+                </div>
+              );
+            })}
           </div>
 
           <div className="mt-auto pt-1">

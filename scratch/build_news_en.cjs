@@ -1,0 +1,1216 @@
+const fs = require('fs');
+const path = require('path');
+
+// Extract each article from the HTML string provided
+const articlesRaw = [
+  {
+    id: 1,
+    slug: "activity-tools-for-older-adults-market-gap",
+    oldSlugs: [
+      "blog/activity-tools-for-older-adults-market-gap",
+      "news/activity-tools-for-older-adults-market-gap"
+    ],
+    metaTitle: "Why Seniors Still Get Toddler Toys: The Activity Tool Gap",
+    title: "The Overlooked Gap in Elder Care: Why Older Adults Are Still Handed Toddler Toys",
+    category: "Market Insights",
+    topic: "The state of senior activity tools",
+    date: "23/09/2026",
+    image: "/images/do-choi-tang-cuong-tri-nho-nguoi-cao-tuoi-antcare.jpg",
+    author: {
+      name: "ANTCARE Team",
+      image: "/images/footer-logo.png",
+      description: "Purpose-built activity tools for older adults · Handcrafted in Vietnam"
+    },
+    description: "Care homes and families often rely on children's toys and DIY props for senior activities. Here's why that gap exists, what it costs, and what purpose-built tools change.",
+    excerpt: "Care homes and families often rely on children's toys and DIY props for senior activities. Here's why that gap exists, what it costs, and what purpose-built tools change.",
+    primaryKeyword: "activity tools for older adults",
+    secondaryKeywords: "senior activity products, elderly activities for care homes, aged care activity resources, dementia activity supplies",
+    featured: true,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "The Overlooked Gap in Elder Care: Why Older Adults Are Still Handed Toddler Toys",
+          "inLanguage": "en",
+          "author": { "@type": "Organization", "name": "ANTCARE" },
+          "publisher": { "@type": "Organization", "name": "ANTCARE", "url": "https://antcare.vn" },
+          "about": ["activity tools for older adults", "dementia activities", "elder care"]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why do care homes use children's toys for older adults?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Because purpose-built senior activity products are still scarce, fragmented and often expensive, so caregivers rely on cheap toddler toys, printed worksheets or DIY props."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is it wrong to use children's toys with older adults?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not always, but childlike designs can feel patronising to many adults and reduce engagement. Adult-styled alternatives let each person choose."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are activity tools for older adults?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Products designed to encourage physical, cognitive, sensory or creative engagement in later life, such as busy boards, hand boards, sensory mats, puzzles and craft kits."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    content: `<div class="antcare-article-body">
+  <p class="sapo">Walk into many care homes, day centres or family living rooms and you will see the same thing: a brightly coloured shape sorter, a plastic toddler bead maze, a stack of photocopied puzzles. Older adults deserve meaningful, stimulating activity, yet the tools we hand them were very often designed for someone else entirely.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> Most activity and movement tools used with older adults today are either repurposed children's toys, printed worksheets, or items improvised by care staff. This happens because the market for purpose-built senior activity products is still small, fragmented and expensive. The result is tools that can feel infantilising, wear out quickly, and don't match adult hands, eyesight or interests. Purpose-built, adult-styled tools can improve engagement, protect dignity and save staff time.
+  </div>
+
+  <h2>A fast-ageing world with a slow-moving product category</h2>
+  <p>According to the World Health Organization, by 2030 one in six people worldwide will be aged 60 or over. Japan already has nearly 30% of its population aged 65+, and countries such as Taiwan, Singapore, South Korea, the UK, Canada and Australia are all moving quickly in the same direction. The WHO also estimates that more than 55 million people are living with dementia globally, with around 10 million new cases each year.</p>
+  <p>Yet when you look for products designed specifically to keep older adults' hands, minds and bodies active, the choice is thin. Mobility aids, incontinence products and medical devices have mature supply chains. Meaningful activity, one of the most researched ways to support wellbeing in later life, is still largely handled with whatever is at hand.</p>
+
+  <h2>What caregivers are actually using today</h2>
+  <h3>1. Children's toys</h3>
+  <p>Toddler busy boards, stacking cups, shape sorters and bead mazes are cheap and widely available. They do offer tactile stimulation. But their bright primary colours, cartoon animals and tiny parts were designed for the eyes and hands of a two-year-old, not a retired engineer or a grandmother who raised five children.</p>
+  <h3>2. Printed worksheets</h3>
+  <p>Word searches, colouring pages and "spot the difference" sheets are printed by the hundred. They are useful for some people, but they are single-use, flat (no tactile input), and hard to use for anyone with low vision, tremor or arthritis.</p>
+  <h3>3. Staff-made DIY props</h3>
+  <p>Activity coordinators and nurses are remarkably creative. They glue zippers, locks and light switches onto plywood, sew fidget muffs, and build sensory boxes from craft-store supplies. These homemade tools are made with love, but they take hours of unpaid or off-the-clock time, vary in safety and durability, and often fall apart after a few weeks of use.</p>
+  <h3>4. Generic fitness equipment</h3>
+  <p>Stress balls, therapy putty and resistance bands are helpful for strength, but on their own they are rarely engaging. Repetitive exercise without a goal is easy to abandon.</p>
+
+  <h2>Why the gap exists</h2>
+  <ul>
+    <li><strong>Small, fragmented buyers:</strong> individual families and independent care homes buy in small quantities, so large manufacturers rarely prioritise the category.</li>
+    <li><strong>"Good enough" substitutes:</strong> because children's toys technically "work", few buyers push for something better.</li>
+    <li><strong>Budget pressure:</strong> activity budgets in residential care are often the first to be cut.</li>
+    <li><strong>Design blind spots:</strong> designing for older hands, eyesight and cognition, while keeping the look adult and respectful, requires specific attention that general toy makers don't give.</li>
+  </ul>
+
+  <h2>Why it matters for health and mood</h2>
+  <p>Meaningful activity is not a luxury. Research in gerontology and dementia care consistently links engagement in purposeful, personally relevant activities with better mood, reduced boredom and agitation, and a stronger sense of identity. Fine-motor practice supports the everyday hand skills needed for buttoning a shirt or holding a cup. Seated movement helps circulation and joint mobility. When a tool is embarrassing to use, people simply don't use it, and all of these benefits disappear.</p>
+
+  <h2>What a purpose-built tool should look like</h2>
+  <div class="overflow-x-auto my-6">
+    <table>
+      <thead>
+        <tr><th>Children's toys / DIY</th><th>Purpose-built for older adults</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Primary colours, cartoon themes</td><td>Natural materials, calm palettes, adult styling</td></tr>
+        <tr><td>Small parts sized for tiny hands</td><td>Larger, easy-grip pieces; high contrast for ageing eyes</td></tr>
+        <tr><td>One difficulty level</td><td>Graduated levels as ability changes</td></tr>
+        <tr><td>Flimsy or single-use</td><td>Durable, easy to clean, suitable for shared settings</td></tr>
+        <tr><td>Activity "to pass time"</td><td>Activity with a purpose: a finished item, a gift, a memory</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How ANTCARE approaches the problem</h2>
+  <p>ANTCARE began as an elder home-care service in Vietnam. Working in families' homes, our team saw the same pattern again and again: caregivers improvising, older adults quietly refusing activities that felt childish. So we started designing tools specifically for older adults, handcrafted from natural Vietnamese materials such as <strong>rubberwood</strong>, <strong>water hyacinth</strong> and <strong>rattan-style woven strands</strong>. Our range includes a wooden busy board, a hand activity board, a sensory foot mat, and craft kits (Christmas ornament balls and hot-air balloon decorations) that older adults make and then give away as gifts. The following articles explore each of these in depth.</p>
+
+  <div class="cta">
+    <h3>Tools made for grown-up hands</h3>
+    <p>Explore ANTCARE's handcrafted activity range for families, care homes and day centres at <a href="https://antcare.vn">antcare.vn</a>. Wholesale enquiries from care providers and distributors are welcome.</p>
+    <a class="btn" href="/san-pham">See the collection</a>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>Is it wrong to use children's toys with older adults?</summary><p>Not always. Some people enjoy them, especially in later stages of dementia. The concern is that childlike designs can feel patronising to many adults, which reduces engagement. Offering adult-styled alternatives lets each person choose.</p></details>
+    <details><summary>What are activity tools for older adults?</summary><p>They are products designed to encourage physical, cognitive, sensory or creative engagement in later life, such as busy boards, hand dexterity boards, sensory mats, puzzles and craft kits.</p></details>
+    <details><summary>Who uses senior activity tools?</summary><p>Families caring at home, activity coordinators in care homes and assisted living, adult day centres, occupational therapists and dementia care specialists.</p></details>
+  </section>
+
+  <p class="tags">#SeniorActivities #ElderCare #DementiaCare #ActivityCoordinator #AgedCare #ANTCARE</p>
+</div>`
+  },
+  {
+    id: 2,
+    slug: "diy-activities-care-homes-hidden-cost",
+    oldSlugs: [
+      "blog/diy-activities-care-homes-hidden-cost",
+      "news/diy-activities-care-homes-hidden-cost"
+    ],
+    metaTitle: "DIY Activities in Care Homes: The Hidden Cost to Staff",
+    title: "Paper Worksheets and Cardboard Boards: The Hidden Cost of DIY Activities in Care Homes",
+    category: "Care Home Resources",
+    topic: "The state of senior activity tools",
+    date: "23/09/2026",
+    image: "/images/combo-cham-soc-ren-luyen-nguoi-cao-tuoi.jpg",
+    author: {
+      name: "ANTCARE Team",
+      image: "/images/footer-logo.png",
+      description: "Purpose-built activity tools for older adults · Handcrafted in Vietnam"
+    },
+    description: "Activity coordinators spend hours making sensory boards and printing worksheets. We break down the real cost of DIY senior activities and when buying ready-made tools makes sense.",
+    excerpt: "Activity coordinators spend hours making sensory boards and printing worksheets. We break down the real cost of DIY senior activities and when buying ready-made tools makes sense.",
+    primaryKeyword: "care home activity ideas",
+    secondaryKeywords: "activity coordinator resources, DIY sensory board for dementia, nursing home activities, aged care lifestyle program",
+    featured: false,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Paper Worksheets and Cardboard Boards: The Hidden Cost of DIY Activities in Care Homes",
+          "inLanguage": "en",
+          "author": { "@type": "Organization", "name": "ANTCARE" },
+          "publisher": { "@type": "Organization", "name": "ANTCARE", "url": "https://antcare.vn" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What are the hidden costs of DIY activities in care homes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Staff time, safety and hygiene risks, short lifespan, inconsistent quality between staff, and lower engagement when tools look improvised or childish."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are homemade sensory boards safe for people with dementia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They can be if made carefully, but check for sharp edges, small detachable parts, toxic finishes and materials that cannot be cleaned."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should a care home buy ready-made activity tools?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When tools must be durable, cleanable and shared by many residents, when staff time is stretched, or when residents reject childlike items."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    content: `<div class="antcare-article-body">
+  <p class="sapo">Ask any activity coordinator, lifestyle officer or care assistant where their activity materials come from, and many will laugh and point to the photocopier, the dollar store, or their own garage. DIY has become the backbone of senior activity programmes. It is a testament to caregivers' creativity, and a sign of a system that asks too much of them.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> DIY activity materials seem free, but they carry hidden costs: staff time spent making and repairing them, inconsistent safety and hygiene, short lifespan, and lower engagement when tools look improvised or childish. Ready-made, purpose-built activity tools cost more upfront but can save staff hours, standardise quality across a facility, and let caregivers spend their time with residents rather than with glue guns.
+  </div>
+
+  <h2>What "DIY" really looks like on the floor</h2>
+  <p>Across care settings in the US, UK, Canada, Australia and Asia, we hear remarkably similar stories:</p>
+  <ul>
+    <li>A nurse spends her weekend screwing door latches, chains and switches onto a plywood board for a resident who keeps "fiddling" with his shirt buttons.</li>
+    <li>An activity coordinator prints 40 copies of the same word search every week because nothing else is available in large print.</li>
+    <li>Staff cut up cereal boxes to make matching cards, then throw them away after a few days because they can't be cleaned.</li>
+    <li>A family buys a toddler "busy board" online, and their father pushes it away saying, "I'm not a baby."</li>
+  </ul>
+
+  <h2>The five hidden costs of DIY activity materials</h2>
+  <h3>1. Staff time, the most expensive resource in care</h3>
+  <p>Making a single sensory board can take several hours of design, shopping, cutting and assembly. Multiply that by a facility with dozens of residents, and the hours add up quickly. Every hour spent crafting a prop is an hour not spent with a resident, or an hour of unpaid time that contributes to burnout.</p>
+  <h3>2. Safety and infection control</h3>
+  <p>Homemade boards may have sharp screw tips, loose small parts or paint that isn't rated for frequent handling. Cardboard and paper can't be properly cleaned between users, which matters in shared settings.</p>
+  <h3>3. Durability</h3>
+  <p>Items made with hot glue and tape rarely survive daily use. When a board breaks, it is usually thrown away, and the cycle starts again.</p>
+  <h3>4. Inconsistency</h3>
+  <p>The quality of a resident's activity experience ends up depending on which staff member happens to be crafty. When that person leaves, their materials often leave with them.</p>
+  <h3>5. Lower engagement</h3>
+  <p>Perhaps the biggest cost: older adults can tell when something looks improvised or childish. Engagement drops, and with it the benefits activities are meant to deliver.</p>
+
+  <h2>Why activity matters so much: health and mood benefits</h2>
+  <p>Activity is not "extra". Guidance from bodies such as the UK's National Institute for Health and Care Excellence (NICE) emphasises offering people living with dementia a range of activities tailored to their preferences to promote wellbeing. In practice, well-designed activity can:</p>
+  <ul>
+    <li><strong>Reduce boredom and restlessness</strong>, which are common triggers for distress and agitation.</li>
+    <li><strong>Maintain fine-motor skills</strong> used in daily living: buttoning, turning keys, holding cutlery.</li>
+    <li><strong>Encourage conversation and reminiscence</strong>, supporting social connection.</li>
+    <li><strong>Provide a sense of achievement</strong>, which supports self-esteem and mood.</li>
+    <li><strong>Give caregivers a calm, positive way to connect</strong> with residents.</li>
+  </ul>
+
+  <h2>When DIY still makes sense, and when to buy</h2>
+  <div class="overflow-x-auto my-6">
+    <table>
+      <thead>
+        <tr><th>Keep it DIY when…</th><th>Buy purpose-built when…</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>You're personalising around one resident's unique history (e.g. a former sailor's rope knots)</td><td>You need consistent, durable tools for many residents</td></tr>
+        <tr><td>The activity is one-off or seasonal</td><td>Tools must be cleaned and shared daily</td></tr>
+        <tr><td>Staff genuinely enjoy making it as a team activity</td><td>Staff time is already stretched</td></tr>
+        <tr><td>Materials are safe and easy to clean</td><td>Residents reject childlike or improvised items</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>A middle path: ready-made tools that still feel personal</h2>
+  <p>At ANTCARE, we design activity tools that take the "making" burden off staff while keeping the personal touch. Our <strong>hand activity board</strong> uses large, covered magnetic pieces on a leather-look surface, with activities like colour matching, left-and-right hand gesture games, texture exploration and photo puzzles, including <strong>custom puzzles made from a resident's own family photo</strong>. For those who can't use magnets, a hook-and-loop fabric version is available. Our <strong>rubberwood busy board</strong> brings together everyday mechanisms in a calm, adult design. And our <strong>craft kits</strong> turn activity time into gift-making sessions, so there is always a finished piece to be proud of.</p>
+
+  <div class="note"><strong>Tip for activity coordinators:</strong> Keep one "signature" DIY project per season that residents help make together, and use durable purpose-built tools for daily one-to-one engagement. You get the social benefit of making things together without the constant repair work.</div>
+
+  <div class="cta">
+    <h3>Give your team their weekends back</h3>
+    <p>ANTCARE supplies care homes, assisted living communities and day centres with durable, adult-designed activity tools. Contact us via <a href="https://antcare.vn">antcare.vn</a> for wholesale and facility packs.</p>
+    <a class="btn" href="/lien-he">Request a facility quote</a>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>How much time do caregivers spend making DIY activity materials?</summary><p>It varies widely, but a single homemade sensory board typically takes several hours to plan, source and assemble, and needs frequent repair. Across a facility, this adds up to significant staff time.</p></details>
+    <details><summary>Are homemade sensory boards safe for people with dementia?</summary><p>They can be, if made carefully. Check for sharp edges, small detachable parts, toxic finishes and materials that can't be cleaned. Purpose-built tools are designed with these risks in mind.</p></details>
+    <details><summary>What are good activity resources for care home coordinators?</summary><p>A mix of durable tactile tools (busy boards, hand boards), seated movement aids (sensory foot mats), creative projects (craft kits), and personalised reminiscence items works well for most groups.</p></details>
+  </section>
+
+  <p class="tags">#ActivityCoordinator #CareHome #NursingHome #AgedCare #DementiaActivities #ANTCARE</p>
+</div>`
+  },
+  {
+    id: 3,
+    slug: "dignity-adult-appropriate-activities-seniors",
+    oldSlugs: [
+      "blog/dignity-adult-appropriate-activities-seniors",
+      "news/dignity-adult-appropriate-activities-seniors"
+    ],
+    metaTitle: "Dignity by Design: Adult-Appropriate Activities for Seniors",
+    title: "Dignity by Design: Why Adult-Appropriate Activity Tools Lift Mood and Engagement in Later Life",
+    category: "Dignity & Wellbeing",
+    topic: "Health, mood and meaningful activity",
+    date: "23/09/2026",
+    image: "/images/choi-cung-ong-ba-do-choi-tri-nho-antcare.jpg",
+    author: {
+      name: "ANTCARE Team",
+      image: "/images/footer-logo.png",
+      description: "Purpose-built activity tools for older adults · Handcrafted in Vietnam"
+    },
+    description: "Infantilising activities can harm mood and engagement in older adults. Learn the principles of dignity-centred activity design and how to choose age-appropriate tools.",
+    excerpt: "Infantilising activities can harm mood and engagement in older adults. Learn the principles of dignity-centred activity design and how to choose age-appropriate tools.",
+    primaryKeyword: "age-appropriate activities for seniors",
+    secondaryKeywords: "dignity in dementia care, infantilization of elderly, person-centred activities, respectful dementia activities",
+    featured: false,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Dignity by Design: Why Adult-Appropriate Activity Tools Lift Mood and Engagement in Later Life",
+          "inLanguage": "en",
+          "author": { "@type": "Organization", "name": "ANTCARE" },
+          "publisher": { "@type": "Organization", "name": "ANTCARE", "url": "https://antcare.vn" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What are age-appropriate activities for seniors with dementia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Activities that respect adult identity and history while matching current abilities, such as adult-styled sorting tasks, personal photo puzzles, purposeful crafts, era-appropriate music and tactile boards."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does infantilisation matter in elder care?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Childlike tools and language can cause embarrassment and withdrawal, reducing engagement and the mood and health benefits of activity."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are dolls and toys ever appropriate in dementia care?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes for some people, especially in later stages; offer adult options first and respect the person's choice."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    content: `<div class="antcare-article-body">
+  <p class="sapo">"I taught maths for 35 years. Why are they giving me a baby's toy?" Comments like this, heard in care homes and family homes around the world, capture a problem that rarely makes headlines: the quiet loss of dignity that happens when older adults are treated, and equipped, like children.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> Age-appropriate activities respect an older adult's life history, intelligence and adult identity, even when their abilities change. Infantilising tools (cartoon designs, toddler toys, "baby talk" instructions) can lead to embarrassment, withdrawal and refusal, while adult-styled, person-centred activities tend to increase engagement, self-esteem and positive mood. The key principles: adult aesthetics, personal relevance, adjustable difficulty, real purpose, and choice.
+  </div>
+
+  <h2>What is infantilisation, and why does it happen?</h2>
+  <p>Infantilisation means treating an adult as if they were a child: in language ("good girl!"), in decision-making (doing things for them rather than with them), and in the objects we give them. It usually comes from good intentions and time pressure. When someone's memory or dexterity declines, it's easy to reach for the simplest tool available, and the simplest tools on the market are often made for toddlers.</p>
+  <p>Person-centred care, the dominant philosophy in modern dementia and aged care across the UK, North America, Australia and Asia, pushes back against this. It asks us to see the person first: their history, preferences, roles and values.</p>
+
+  <h2>How dignity affects health and mood</h2>
+  <h3>Engagement depends on self-image</h3>
+  <p>People engage with activities that fit how they see themselves. A retired carpenter may happily spend 30 minutes with a wooden board of latches and bolts, but ignore a plastic toy with the same mechanisms. The motor benefit is identical; the emotional response is not.</p>
+  <h3>Embarrassment leads to withdrawal</h3>
+  <p>When activities feel humiliating, especially in front of family or other residents, older adults may refuse to participate or disengage entirely. Reduced activity can contribute to boredom, low mood and, in people living with dementia, restlessness or distress.</p>
+  <h3>Achievement builds wellbeing</h3>
+  <p>Completing an adult task, such as solving a puzzle made from a family photograph or finishing a decoration to gift a grandchild, reinforces competence and identity. Many caregivers notice brighter mood and more conversation after these moments.</p>
+
+  <h2>Five principles of dignity-centred activity design</h2>
+  <ol>
+    <li><strong>Adult aesthetics.</strong> Natural materials (wood, woven fibres, leather-look finishes), calm colours and no cartoon characters. The object should look at home in an adult living room.</li>
+    <li><strong>Personal relevance.</strong> Link activities to the person's life: their profession, hobbies, family photos, cultural festivals.</li>
+    <li><strong>Adjustable challenge.</strong> Too easy feels patronising; too hard feels defeating. Graduated levels let the activity grow or shrink with the person.</li>
+    <li><strong>Real purpose.</strong> Activities with a meaningful outcome, such as a gift, a decoration, or a shared memory, are more motivating than tasks that exist only to "keep busy".</li>
+    <li><strong>Choice and control.</strong> Offer options, invite rather than instruct, and accept "not today".</li>
+  </ol>
+
+  <h2>Language matters as much as objects</h2>
+  <div class="overflow-x-auto my-6">
+    <table>
+      <thead>
+        <tr><th>Instead of…</th><th>Try…</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"Let's play with your toy!"</td><td>"Would you help me sort these pieces?"</td></tr>
+        <tr><td>"Good job, sweetie!"</td><td>"That's a neat piece of work, thank you."</td></tr>
+        <tr><td>"It's activity time."</td><td>"We're making ornaments for the Christmas market. Would you like to join?"</td></tr>
+        <tr><td>Doing it for them</td><td>Doing it with them, step by step</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How ANTCARE builds dignity into every product</h2>
+  <div class="product">
+    <h3>Natural, grown-up materials</h3>
+    <p>Our tools are handcrafted in Vietnam from rubberwood, water hyacinth and woven natural strands, with a look that fits a home décor rather than a nursery.</p>
+  </div>
+  <div class="product">
+    <h3>Personal by default</h3>
+    <p>Our hand activity board can include photo puzzles made from the user's own family pictures, so a "puzzle" becomes a conversation about a wedding, a first home or a grandchild.</p>
+  </div>
+  <div class="product">
+    <h3>Levels that respect ability</h3>
+    <p>Photo puzzles come in progressive stages (for example 13 and 36 pieces), and board activities range from simple colour matching to two-handed coordination games.</p>
+  </div>
+  <div class="product">
+    <h3>Activities that end in a gift</h3>
+    <p>Our craft kits, including woven Christmas ornament balls and hot-air balloon decorations, let older adults create something beautiful to give away, restoring the role of the giver rather than the receiver.</p>
+  </div>
+
+  <div class="cta">
+    <h3>Respectful by design</h3>
+    <p>Discover activity tools that older adults are proud to use. Visit <a href="https://antcare.vn">antcare.vn</a> or find ANTCARE on Etsy.</p>
+    <a class="btn" href="/san-pham">Explore ANTCARE</a>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>What are age-appropriate activities for seniors with dementia?</summary><p>Activities that respect the person's adult identity and history while matching their current abilities: sorting and matching with adult materials, personal photo puzzles, simple crafts with a real purpose, music from their era, and tactile boards with everyday mechanisms.</p></details>
+    <details><summary>Are dolls and toys ever appropriate in dementia care?</summary><p>For some people in later stages, items like dolls can bring comfort, and that choice should be respected. The goal isn't to ban toys but to offer adult options first and let the person decide.</p></details>
+    <details><summary>How can I tell if an activity feels infantilising?</summary><p>Watch the person's reaction. Embarrassment, refusal, or comments like "I'm not a child" are clear signals. Ask yourself whether you would be comfortable using the item in front of your own friends.</p></details>
+  </section>
+
+  <p class="tags">#PersonCentredCare #DignityInCare #DementiaCare #AgeAppropriate #ANTCARE</p>
+</div>`
+  },
+  {
+    id: 4,
+    slug: "busy-board-for-seniors-dementia",
+    oldSlugs: [
+      "blog/busy-board-for-seniors-dementia",
+      "news/busy-board-for-seniors-dementia"
+    ],
+    metaTitle: "Busy Boards for Seniors & Dementia: Benefits, How to Choose",
+    title: "Busy Boards for Seniors and People Living With Dementia: Benefits, Safety and How to Choose",
+    category: "Product Guides",
+    topic: "Product guides",
+    date: "23/09/2026",
+    image: "/images/bang-ban-ron-cho-nguoi-cao-tuoi.jpg",
+    author: {
+      name: "ANTCARE Team",
+      image: "/images/footer-logo.png",
+      description: "Purpose-built activity tools for older adults · Handcrafted in Vietnam"
+    },
+    description: "What is a busy board for adults, how can it help people living with dementia, and what should you look for? A practical guide plus ANTCARE's handcrafted wooden busy board.",
+    excerpt: "What is a busy board for adults, how can it help people living with dementia, and what should you look for? A practical guide plus ANTCARE's handcrafted wooden busy board.",
+    primaryKeyword: "busy board for seniors",
+    secondaryKeywords: "dementia busy board, fidget board for adults, activity board for elderly, sensory board for Alzheimer's",
+    featured: false,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Busy Boards for Seniors and People Living With Dementia: Benefits, Safety and How to Choose",
+          "inLanguage": "en",
+          "author": { "@type": "Organization", "name": "ANTCARE" },
+          "publisher": { "@type": "Organization", "name": "ANTCARE", "url": "https://antcare.vn" }
+        },
+        {
+          "@type": "Product",
+          "name": "ANTCARE Wooden Busy Board for Seniors",
+          "brand": { "@type": "Brand", "name": "ANTCARE" },
+          "material": "Rubberwood, water hyacinth, natural woven fibre",
+          "description": "Handcrafted adult-designed busy board with familiar everyday mechanisms and natural textures for older adults and people living with dementia.",
+          "countryOfOrigin": "Vietnam"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a busy board for adults with dementia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A panel with familiar mechanisms and textures that gives restless hands a safe, calming and meaningful activity."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do busy boards help with dementia agitation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Many caregivers find tactile, repetitive activities help redirect restlessness and provide comfort, though responses vary by individual."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I clean a wooden busy board?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wipe with a slightly damp cloth and mild soap or wood-safe disinfectant, then dry thoroughly; avoid soaking."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    content: `<div class="antcare-article-body">
+  <p class="sapo">Restless hands that pull at clothes, fiddle with buttons or wander through drawers are a familiar sight for anyone caring for a person living with dementia. A busy board gives those hands something safe, familiar and satisfying to do, and when it's designed for adults, it can become a cherished daily ritual.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> A busy board (also called a fidget board, activity board or sensory board) is a panel fitted with everyday mechanisms such as latches, zippers, switches, buckles and textures. For older adults, especially people living with dementia, busy boards can provide calming tactile stimulation, channel restlessness, maintain fine-motor skills and trigger familiar memories. Choose one with adult styling, securely fixed parts, smooth edges, easy-to-clean surfaces and mechanisms linked to real-life tasks.
+  </div>
+
+  <h2>Why restless hands need a purpose</h2>
+  <p>Many people living with dementia experience periods of restlessness, particularly in the late afternoon and evening. Fiddling is often a sign of boredom, anxiety or an unmet need for stimulation. Rather than stopping the behaviour, dementia care specialists typically recommend redirecting it towards something safe and meaningful. Busy boards were developed precisely for this.</p>
+
+  <h2>Benefits of busy boards for older adults</h2>
+  <h3>Calm and comfort</h3>
+  <p>Repetitive, predictable actions, such as sliding a bolt or turning a dial, can be soothing. Many caregivers use busy boards during times of day when distress tends to rise.</p>
+  <h3>Fine-motor maintenance</h3>
+  <p>Opening a latch, zipping a zip or buckling a strap uses the same pinch, grip and wrist rotation needed for dressing, eating and personal care. Regular practice may help keep these daily-living skills in use for longer.</p>
+  <h3>Procedural memory and reminiscence</h3>
+  <p>"Muscle memory" for familiar tasks often remains even when other memories fade. A door chain, a light switch or a shoe buckle can spark recognition and conversation: "We had a gate just like this on the farm."</p>
+  <h3>Independence and achievement</h3>
+  <p>Unlike many activities, a busy board can be used alone, at the person's own pace, with no right or wrong answer. That independence matters for self-esteem.</p>
+  <h3>Connection</h3>
+  <p>Family members and staff often use the board as a shared activity, a low-pressure way to sit together when conversation is difficult.</p>
+
+  <h2>Busy boards: children's versions vs adult versions</h2>
+  <div class="overflow-x-auto my-6">
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>Toddler busy board</th><th>Adult / senior busy board</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Look and feel</td><td>Bright plastic, cartoon shapes, animal faces</td><td>Natural wood, woven textures, calm tones</td></tr>
+        <tr><td>Mechanisms</td><td>Simplified toy parts</td><td>Real-life mechanisms adults recognise</td></tr>
+        <tr><td>Part size</td><td>Small, for tiny fingers</td><td>Larger, easier grip for stiff or arthritic hands</td></tr>
+        <tr><td>Emotional message</td><td>"This is a toy"</td><td>"This is something familiar and useful"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Safety checklist before you buy</h2>
+  <ul>
+    <li>All parts are firmly fixed; nothing small can come loose and be swallowed.</li>
+    <li>Edges and corners are smooth and rounded; no protruding screws.</li>
+    <li>Finishes are non-toxic and suitable for frequent handling.</li>
+    <li>The board is stable on a lap or table and not too heavy to move.</li>
+    <li>Surfaces can be wiped clean, which is essential for shared use in care settings.</li>
+    <li>No long cords or strings that could pose a strangulation or tangling risk.</li>
+  </ul>
+
+  <div class="note"><strong>Always supervise at first.</strong> Observe how the person uses the board during the first few sessions, and check the board regularly for wear. If someone tends to put objects in their mouth, choose boards without any removable parts.</div>
+
+  <h2>Introducing ANTCARE's wooden busy board</h2>
+  <div class="product">
+    <h3>Handcrafted rubberwood with natural woven details</h3>
+    <p>Our busy board is made in Vietnam from sustainably sourced rubberwood, finished smooth and combined with natural water hyacinth and woven textures that invite touch. The mechanisms are chosen because older adults recognise them from everyday life, not from a nursery.</p>
+    <ul>
+      <li><strong>Adult design</strong> that looks at home in a living room or residents' lounge.</li>
+      <li><strong>Larger, easy-grip mechanisms</strong> for stiff or arthritic fingers.</li>
+      <li><strong>Multiple textures</strong> for sensory exploration: smooth wood, woven fibre, soft fabric.</li>
+      <li><strong>Lap-friendly size</strong> for use in a chair, bed or wheelchair.</li>
+      <li><strong>Suited to families and care facilities</strong>, with wholesale packs for care homes and day centres.</li>
+    </ul>
+  </div>
+
+  <h2>How to introduce a busy board</h2>
+  <ol>
+    <li>Place it within reach during a calm moment rather than announcing an "activity".</li>
+    <li>Model one action yourself, e.g. slide a latch, and see if the person follows.</li>
+    <li>Talk about the mechanisms: "Did you have a lock like this at home?"</li>
+    <li>Let the person lead. Five focused minutes can be just as valuable as thirty.</li>
+    <li>Keep the board in the same place so it becomes a familiar, self-chosen activity.</li>
+  </ol>
+
+  <div class="cta">
+    <h3>Give restless hands a meaningful task</h3>
+    <p>Order ANTCARE's handcrafted busy board for a loved one, or equip your care home with durable, adult-designed boards. Visit <a href="https://antcare.vn">antcare.vn</a>.</p>
+    <a class="btn" href="/san-pham">Shop the busy board</a>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>What is a busy board for adults with dementia?</summary><p>A panel with familiar mechanisms and textures (latches, zippers, switches, buckles) that gives restless hands a safe, calming and meaningful activity.</p></details>
+    <details><summary>Do busy boards help with dementia agitation?</summary><p>Many caregivers find that tactile, repetitive activities help redirect restlessness and provide comfort. Responses vary by individual, so observe what works and combine the board with other person-centred approaches.</p></details>
+    <details><summary>What age is a senior busy board suitable for?</summary><p>It's designed for adults, typically older adults with mild to moderate cognitive changes, reduced dexterity, or anyone who enjoys tactile activities. It is not intended as a children's toy.</p></details>
+    <details><summary>How do I clean a wooden busy board?</summary><p>Wipe with a slightly damp cloth and mild soap or a wood-safe disinfectant, then dry thoroughly. Avoid soaking the wood.</p></details>
+  </section>
+
+  <p class="tags">#BusyBoard #DementiaActivities #FidgetBoard #Alzheimers #SeniorCare #ANTCARE</p>
+</div>`
+  },
+  {
+    id: 5,
+    slug: "hand-activity-board-dexterity-seniors",
+    oldSlugs: [
+      "blog/hand-activity-board-dexterity-seniors",
+      "news/hand-activity-board-dexterity-seniors"
+    ],
+    metaTitle: "Hand Activity Boards for Seniors: Dexterity & Brain Games",
+    title: "Hand Activity Boards: Keeping Fingers Nimble, Minds Sharp and Hands Connected in Later Life",
+    category: "Product Guides",
+    topic: "Product guides",
+    date: "23/09/2026",
+    image: "/images/bang-hoat-dong-go-cao-su-nguoi-sa-sut-tri-tue.jpg",
+    author: {
+      name: "ANTCARE Team",
+      image: "/images/footer-logo.png",
+      description: "Purpose-built activity tools for older adults · Handcrafted in Vietnam"
+    },
+    description: "Hand dexterity declines with age, affecting independence. Learn how a hand activity board combines fine-motor practice, two-handed coordination and memory games for older adults.",
+    excerpt: "Hand dexterity declines with age, affecting independence. Learn how a hand activity board combines fine-motor practice, two-handed coordination and memory games for older adults.",
+    primaryKeyword: "hand exercises for seniors",
+    secondaryKeywords: "fine motor activities for elderly, hand dexterity board, magnetic activity board for dementia, cognitive games for older adults",
+    featured: false,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Hand Activity Boards: Keeping Fingers Nimble, Minds Sharp and Hands Connected in Later Life",
+          "inLanguage": "en",
+          "author": { "@type": "Organization", "name": "ANTCARE" },
+          "publisher": { "@type": "Organization", "name": "ANTCARE", "url": "https://antcare.vn" }
+        },
+        {
+          "@type": "Product",
+          "name": "ANTCARE Multi-Sensory Hand Activity Board",
+          "brand": { "@type": "Brand", "name": "ANTCARE" },
+          "description": "Leather-look magnetic activity board with large covered pieces, colour games, two-hand coordination activities, textures and personalised photo puzzles for older adults. Hook-and-loop version available.",
+          "countryOfOrigin": "Vietnam"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What does a hand activity board train in older adults?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pinch and grip, finger isolation, two-handed coordination, hand-eye coordination, tactile discrimination, attention and visual memory."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are magnetic activity boards safe for people with dementia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They can be when magnets are enclosed and pieces are large; supervise initially and use a non-magnetic version for anyone with implanted medical devices."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I get a custom photo puzzle for my parent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, ANTCARE creates personalised photo puzzles from family pictures at different difficulty levels."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    content: `<div class="antcare-article-body">
+  <p class="sapo">We rarely think about our hands until they stop cooperating. Yet nearly every act of independence, from making tea and fastening a coat to taking medication and holding a grandchild's hand, depends on them. For older adults, keeping hands active is one of the most practical investments in everyday freedom.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> A hand activity board is a tabletop board with movable pieces that older adults grasp, place, match and arrange. Regular use supports fine-motor skills (pinch, grip, finger isolation), bimanual coordination (using both hands together), hand-eye coordination and cognitive functions such as attention, memory and visual recognition. The best boards offer several difficulty levels, large easy-grip pieces, high-contrast colours and personally meaningful content such as family photo puzzles.
+  </div>
+
+  <h2>Why hand function matters so much in ageing</h2>
+  <p>With age, many people experience reduced grip strength, stiffer joints, slower finger movements and less precise sensation. Arthritis, stroke and neurological conditions can accelerate these changes. Researchers have also found that grip strength is associated with broader health outcomes in older adults, which is one reason occupational therapists pay such close attention to hand function.</p>
+  <p>The good news: hands respond to use. Gentle, regular activity that involves grasping, releasing, placing and coordinating tends to help people maintain the skills they have. The challenge is making that activity engaging enough to do every day.</p>
+
+  <h2>What hand activity boards train</h2>
+  <div class="overflow-x-auto my-6">
+    <table>
+      <thead>
+        <tr><th>Skill</th><th>Everyday task it supports</th><th>Board activity example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pinch grip</td><td>Buttons, pills, coins</td><td>Picking up and placing individual pieces</td></tr>
+        <tr><td>Finger isolation</td><td>Using a phone, typing, pressing buttons</td><td>Pointing and touch-matching games</td></tr>
+        <tr><td>Bimanual coordination</td><td>Opening jars, cutting food, dressing</td><td>Left-hand / right-hand gesture games</td></tr>
+        <tr><td>Hand-eye coordination</td><td>Pouring, writing, reaching</td><td>Colour reflex and bingo-style placement</td></tr>
+        <tr><td>Tactile discrimination</td><td>Finding keys in a bag, feeling fabric</td><td>Texture identification with eyes closed</td></tr>
+        <tr><td>Visual memory and attention</td><td>Recognising faces, following instructions</td><td>Photo puzzles at progressive levels</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The mood side: why a board beats repetitive exercise</h2>
+  <p>Squeezing a stress ball 20 times is good for strength, but it's hard to stay motivated. Game-like activities with a clear goal, a sense of progress and a satisfying finish are far more likely to be repeated. When the content is personal, such as a puzzle made from a photograph of the person's wedding day, the activity becomes an opportunity for reminiscence and conversation, which many families and caregivers find lifts mood noticeably.</p>
+
+  <h2>Introducing ANTCARE's multi-sensory hand activity board</h2>
+  <div class="product">
+    <h3>Designed with older hands in mind</h3>
+    <ul>
+      <li><strong>Leather-look magnetic surface:</strong> a thin steel core covered in soft leather/vinyl, pleasant to touch and easy to wipe clean.</li>
+      <li><strong>Large, covered magnetic pieces</strong> (at least 4 cm) that are easy to grasp and place, with magnets fully enclosed for safety.</li>
+      <li><strong>Hook-and-loop fabric version</strong> for people who cannot use magnets (for example, people with certain implanted medical devices; always check with the user's doctor).</li>
+      <li><strong>Built-in activities:</strong> colour reflex and bingo games, left/right hand gesture challenges, texture exploration and photo puzzles.</li>
+      <li><strong>Progressive puzzle levels</strong> (e.g. 13 pieces, then 36 pieces) so the challenge grows with the user.</li>
+      <li><strong>Personalised photo puzzles:</strong> send us a family photo and we create a puzzle unique to your loved one, a keepsake as much as an exercise.</li>
+    </ul>
+  </div>
+
+  <h2>A simple 10-minute routine</h2>
+  <ol>
+    <li><strong>Warm-up (2 min):</strong> open and close hands, gently touch each fingertip to the thumb.</li>
+    <li><strong>Colour reflex (3 min):</strong> a caregiver calls a colour; the user finds and places the matching piece.</li>
+    <li><strong>Two-hand game (2 min):</strong> follow left/right hand gesture cards to practise coordination.</li>
+    <li><strong>Photo puzzle (3+ min):</strong> complete part or all of the puzzle while chatting about the picture.</li>
+  </ol>
+  <p>Stop if the person shows pain or fatigue. Consistency, a few times a week or daily, matters more than duration.</p>
+
+  <div class="note"><strong>Health note:</strong> Activity boards support general hand use and engagement, but they are not a substitute for therapy. People recovering from stroke, hand surgery or living with severe arthritis should follow the guidance of their occupational therapist or physiotherapist. Keep magnetic pieces away from anyone with a pacemaker or similar device unless their clinician approves.</div>
+
+  <div class="cta">
+    <h3>Turn hand exercise into a moment of joy</h3>
+    <p>Order ANTCARE's hand activity board with a personalised family photo puzzle, or request bulk options for care facilities, at <a href="https://antcare.vn">antcare.vn</a>.</p>
+    <a class="btn" href="/san-pham">Personalise your board</a>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>What are good hand exercises for seniors?</summary><p>Gentle finger-to-thumb touches, open-close stretches, grasp-and-release tasks, and game-based activities like placing pieces on a board or completing puzzles. Consult a therapist for condition-specific programmes.</p></details>
+    <details><summary>Are magnetic activity boards safe for people with dementia?</summary><p>They can be when magnets are fully enclosed and pieces are large enough not to be swallowed. Supervise initially and choose a non-magnetic version for anyone with implanted medical devices.</p></details>
+    <details><summary>Can I make a custom photo puzzle for my parent?</summary><p>Yes. ANTCARE can create personalised photo puzzles from your family pictures at different difficulty levels.</p></details>
+  </section>
+
+  <p class="tags">#HandExercises #FineMotorSkills #DementiaActivities #OccupationalTherapy #PhotoPuzzle #ANTCARE</p>
+</div>`
+  },
+  {
+    id: 6,
+    slug: "sensory-foot-mat-older-adults",
+    oldSlugs: [
+      "blog/sensory-foot-mat-older-adults",
+      "news/sensory-foot-mat-older-adults"
+    ],
+    metaTitle: "Sensory Foot Mats for Seniors: Seated Movement & Balance",
+    title: "Sensory Foot Mats for Older Adults: Seated Movement, Circulation and Body Awareness",
+    category: "Product Guides",
+    topic: "Product guides",
+    date: "23/09/2026",
+    image: "/images/tham-xuc-giac-cho-nguoi-gia.jpg",
+    author: {
+      name: "ANTCARE Team",
+      image: "/images/footer-logo.png",
+      description: "Purpose-built activity tools for older adults · Handcrafted in Vietnam"
+    },
+    description: "How a textured sensory foot mat supports seated leg movement, circulation and body awareness in older adults, plus safety tips and a simple daily routine.",
+    excerpt: "How a textured sensory foot mat supports seated leg movement, circulation and body awareness in older adults, plus safety tips and a simple daily routine.",
+    primaryKeyword: "sensory foot mat for elderly",
+    secondaryKeywords: "seated exercises for seniors, foot exercises for older adults, balance activities for elderly, tactile mat for dementia",
+    featured: false,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Sensory Foot Mats for Older Adults: Seated Movement, Circulation and Body Awareness",
+          "inLanguage": "en",
+          "author": { "@type": "Organization", "name": "ANTCARE" },
+          "publisher": { "@type": "Organization", "name": "ANTCARE", "url": "https://antcare.vn" }
+        },
+        {
+          "@type": "Product",
+          "name": "ANTCARE Sensory Foot Mat",
+          "brand": { "@type": "Brand", "name": "ANTCARE" },
+          "description": "Modular textured foot mat with natural materials including woven water hyacinth, designed for seated movement and sensory activity for older adults.",
+          "countryOfOrigin": "Vietnam"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Are sensory foot mats good for elderly people?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They can make seated leg and foot movement more engaging and provide sensory stimulation when used on a non-slip surface, usually seated, with supervision where needed."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can a foot mat prevent falls?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No single product prevents falls; a foot mat can complement professional fall-prevention programmes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can people with diabetes use a textured foot mat?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Only after checking with their doctor or podiatrist, especially with reduced sensation, wounds or circulation problems."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    content: `<div class="antcare-article-body">
+  <p class="sapo">Our feet carry us through life, but in later years they often receive the least attention. Long hours sitting in a chair, reduced sensation and fear of falling can leave older adults' legs and feet under-used. A textured sensory mat offers a simple, low-risk way to wake them up, often without even standing up.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> A sensory foot mat is a floor mat made of different textured sections that older adults step on, press or roll their feet across, usually while seated. It can encourage leg and ankle movement, stimulate the soles of the feet, support body awareness (proprioception) and make seated exercise more engaging. It should be used with supervision, on a non-slip surface, and is a complement to, not a replacement for, professional fall-prevention or physiotherapy programmes.
+  </div>
+
+  <h2>Why feet matter for falls, mobility and independence</h2>
+  <p>The US Centers for Disease Control and Prevention (CDC) reports that about one in four adults aged 65 and over reports a fall each year. Falls are a leading cause of injury in later life across every market we serve, from North America and Europe to Japan and Singapore. Many factors contribute, including muscle weakness, medication, vision and home hazards, but reduced sensation and awareness in the feet also play a role in how well we sense the ground and adjust our balance.</p>
+  <p>At the same time, many older adults spend long periods sitting. Keeping the ankles, calves and toes moving during the day is widely encouraged to support circulation and joint mobility.</p>
+
+  <h2>Potential benefits of a sensory foot mat</h2>
+  <h3>Makes seated leg movement engaging</h3>
+  <p>Ankle pumps and toe curls are useful but monotonous. Different textures give each movement a "reason": find the bumpy section, roll across the woven section, press into the soft section.</p>
+  <h3>Stimulates the soles of the feet</h3>
+  <p>The soles contain many sensory receptors. Varied textures provide rich input that many users simply find pleasant and relaxing.</p>
+  <h3>Supports body awareness</h3>
+  <p>Paying attention to where the feet are, and what they feel, is part of the body awareness that balance relies on. Therapists often use textured surfaces in sensory and balance work for this reason.</p>
+  <h3>Mood and calm</h3>
+  <p>For people living with dementia, tactile foot activities can be soothing, especially when combined with music or conversation.</p>
+  <h3>Social and cognitive engagement</h3>
+  <p>Mats with distinct sections can be used for simple games, such as "step on the smooth one, now the woven one", adding attention and memory to the movement.</p>
+
+  <h2>Safety first</h2>
+  <ul>
+    <li><strong>Start seated.</strong> Most older adults should use the mat while sitting in a stable chair with armrests.</li>
+    <li><strong>Standing use only with support and supervision,</strong> ideally with a caregiver present and something sturdy to hold.</li>
+    <li><strong>Non-slip placement:</strong> use the mat on a flat, dry floor; check that it doesn't slide.</li>
+    <li><strong>Check the feet:</strong> people with diabetes, peripheral neuropathy, wounds or poor circulation should consult their doctor or podiatrist first, and caregivers should inspect feet regularly.</li>
+    <li><strong>Stop if there is pain,</strong> dizziness or discomfort.</li>
+  </ul>
+
+  <h2>A 10-minute seated foot routine</h2>
+  <ol>
+    <li><strong>Settle in (1 min):</strong> sit upright, feet flat on the mat, breathe slowly.</li>
+    <li><strong>Texture tour (3 min):</strong> slide each foot slowly across each section. Ask: "Which one feels best?"</li>
+    <li><strong>Ankle pumps (2 min):</strong> lift toes, then heels, on the firmest section.</li>
+    <li><strong>Toe grip (2 min):</strong> curl and relax the toes on the woven or ridged section.</li>
+    <li><strong>Colour or texture game (2 min):</strong> caregiver calls out a section, user places the named foot on it.</li>
+  </ol>
+
+  <h2>Introducing ANTCARE's sensory foot mat</h2>
+  <div class="product">
+    <h3>Natural textures, modular design</h3>
+    <p>Inspired by modular sensory mats used in therapy settings, ANTCARE's foot mat is designed specifically for older adults. It combines distinct textured sections made with natural Vietnamese materials, including woven water hyacinth, alongside softer and firmer surfaces, to create a varied, pleasant sensory path.</p>
+    <ul>
+      <li>Designed for <strong>seated use</strong> first, with gentle, varied textures.</li>
+      <li><strong>Modular sections</strong> that can be rearranged to keep activities fresh.</li>
+      <li>Natural, adult look suitable for a living room or day-centre lounge.</li>
+      <li>Pairs well with our hand activity board for a <strong>full "hands and feet" session</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="note"><strong>Important:</strong> A sensory mat supports general activity and engagement. It is not a medical device and does not replace fall-risk assessment, strength and balance programmes, or advice from a physiotherapist or doctor.</div>
+
+  <div class="cta">
+    <h3>Get feet moving, from the comfort of a chair</h3>
+    <p>Discover ANTCARE's sensory foot mat and our hands-and-feet activity bundles for families and care homes at <a href="https://antcare.vn">antcare.vn</a>.</p>
+    <a class="btn" href="/san-pham">View the foot mat</a>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>Are sensory foot mats good for elderly people?</summary><p>They can make seated leg and foot movement more engaging and provide pleasant sensory stimulation. They should be used on a non-slip surface, usually seated, and with supervision where needed.</p></details>
+    <details><summary>Can a foot mat prevent falls?</summary><p>No single product prevents falls. A foot mat can complement fall-prevention efforts such as strength and balance exercise, medication review, vision checks and home safety changes, which should be guided by health professionals.</p></details>
+    <details><summary>Can people with diabetes use a textured foot mat?</summary><p>Only after checking with their doctor or podiatrist, especially if they have reduced foot sensation, wounds or circulation problems.</p></details>
+  </section>
+
+  <p class="tags">#SeatedExercise #FootHealth #FallPrevention #SensoryMat #HealthyAgeing #ANTCARE</p>
+</div>`
+  },
+  {
+    id: 7,
+    slug: "craft-kits-for-seniors-christmas-ornaments",
+    oldSlugs: [
+      "blog/craft-kits-for-seniors-christmas-ornaments",
+      "news/craft-kits-for-seniors-christmas-ornaments"
+    ],
+    metaTitle: "Craft Kits for Seniors: Christmas Ornaments That Lift Mood",
+    title: "Purposeful Crafting: Why Making a Gift Does More for Older Adults Than \"Passing the Time\"",
+    category: "Crafts & Activities",
+    topic: "Health, mood and meaningful activity",
+    date: "23/09/2026",
+    image: "/images/qua-tang-ong-ba-bo-dan-day-beo-antcare.jpg",
+    author: {
+      name: "ANTCARE Team",
+      image: "/images/footer-logo.png",
+      description: "Purpose-built activity tools for older adults · Handcrafted in Vietnam"
+    },
+    description: "Why making a gift boosts purpose and mood in older adults, and how to run a Christmas craft session with ANTCARE's woven ornament ball and hot-air balloon kits.",
+    excerpt: "Why making a gift boosts purpose and mood in older adults, and how to run a Christmas craft session with ANTCARE's woven ornament ball and hot-air balloon kits.",
+    primaryKeyword: "craft kits for seniors",
+    secondaryKeywords: "Christmas crafts for elderly, craft activities for dementia, care home Christmas activities, handmade gift ideas for grandparents",
+    featured: false,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Purposeful Crafting: Why Making a Gift Does More for Older Adults Than Passing the Time",
+          "inLanguage": "en",
+          "author": { "@type": "Organization", "name": "ANTCARE" },
+          "publisher": { "@type": "Organization", "name": "ANTCARE", "url": "https://antcare.vn" }
+        },
+        {
+          "@type": "Product",
+          "name": "ANTCARE Woven Christmas Ornament Ball Craft Kit",
+          "brand": { "@type": "Brand", "name": "ANTCARE" },
+          "material": "Water hyacinth, natural woven strands",
+          "description": "Craft kit for older adults to finish a natural woven Christmas ornament to keep or gift.",
+          "countryOfOrigin": "Vietnam"
+        },
+        {
+          "@type": "Product",
+          "name": "ANTCARE Hot-Air Balloon Decoration Craft Kit",
+          "brand": { "@type": "Brand", "name": "ANTCARE" },
+          "material": "Water hyacinth, natural woven strands",
+          "description": "Craft kit for older adults to create a woven hot-air balloon hanging decoration as a gift.",
+          "countryOfOrigin": "Vietnam"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What are good Christmas crafts for elderly people?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ornaments, simple wreaths, card making and decorations with large, easy-to-handle materials, especially when finished items are given as gifts."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are craft activities suitable for people with dementia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes when adapted: simple steps, pre-prepared hard parts, no sharp tools, and focus on enjoyment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is making a gift good for older adults?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Giving restores a sense of usefulness and reciprocity and is associated with better wellbeing, while crafting also exercises fine-motor and attention skills."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    content: `<div class="antcare-article-body">
+  <p class="sapo">For most of their lives, today's older adults were the givers: the ones who cooked the holiday meal, knitted the scarves, wrapped the presents. In later life, that role quietly slips away. Crafting a gift, a real, beautiful object that someone else will treasure, is one of the simplest ways to give it back.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> Craft kits for seniors provide pre-prepared materials and step-by-step instructions so older adults can create finished items with minimal setup. Purposeful crafts, especially ones made as gifts, can support fine-motor skills, concentration and sequencing, while boosting mood, self-esteem and social connection. Seasonal projects such as Christmas ornaments add anticipation and a natural reason to share the result with family.
+  </div>
+
+  <h2>The psychology of giving in later life</h2>
+  <p>Positive psychology research has long associated generosity and "doing for others" with greater wellbeing. For older adults, particularly those who now receive a lot of care, the chance to give can restore a sense of usefulness and reciprocity. Care staff and families often describe a visible change in residents when they know their work will be given to a grandchild, displayed at a community fair, or hung on the family tree.</p>
+
+  <h2>Health and mood benefits of crafting</h2>
+  <div class="overflow-x-auto my-6">
+    <table>
+      <thead>
+        <tr><th>Benefit</th><th>How crafting supports it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fine-motor skills</td><td>Threading, weaving, attaching and shaping materials exercise pinch, grip and finger coordination.</td></tr>
+        <tr><td>Attention and sequencing</td><td>Following steps in order engages planning and focus.</td></tr>
+        <tr><td>Mood</td><td>Absorbing, creative tasks can be relaxing, and completing them brings satisfaction.</td></tr>
+        <tr><td>Self-esteem and identity</td><td>A finished, beautiful object is tangible proof of capability.</td></tr>
+        <tr><td>Social connection</td><td>Group sessions encourage conversation; gifts create a reason to connect with family.</td></tr>
+        <tr><td>Reminiscence</td><td>Seasonal crafts often bring back memories of holidays past.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>What makes a good craft kit for older adults?</h2>
+  <ul>
+    <li><strong>Everything included:</strong> no hunting for materials; setup takes minutes.</li>
+    <li><strong>Large, easy-to-handle parts</strong> and no need for sharp tools where possible.</li>
+    <li><strong>Clear, picture-led instructions</strong> in large print.</li>
+    <li><strong>Adaptable difficulty:</strong> a caregiver can pre-assemble some steps for those who need more support.</li>
+    <li><strong>A result worth giving:</strong> the finished piece should look genuinely beautiful, not like "a craft from the activity room".</li>
+  </ul>
+
+  <h2>ANTCARE craft kits: handcrafted in spirit, finished by your loved one</h2>
+  <div class="product">
+    <h3>Woven Christmas ornament ball kit</h3>
+    <p>A natural-fibre ornament made from woven water hyacinth and rattan-style strands, a traditional Vietnamese craft material. Users decorate and finish the ornament step by step, creating a rustic, elegant piece for the Christmas tree or a gift box. Perfect for group sessions in the weeks leading up to the holidays.</p>
+  </div>
+  <div class="product">
+    <h3>Hot-air balloon decoration kit</h3>
+    <p>A charming woven hot-air balloon hanging decoration that symbolises lightness, travel and hope. It works beautifully as a nursery or window decoration, so it's a lovely gift from a grandparent to a new grandchild, and it's suitable year-round, not just at Christmas.</p>
+  </div>
+  <p>Because each kit is built around natural materials unique to Vietnam, every finished piece is slightly different, which is exactly what makes it personal.</p>
+
+  <h2>How to run a Christmas craft session (care homes and families)</h2>
+  <ol>
+    <li><strong>Plan early:</strong> start in October or November so there's time to finish and gift.</li>
+    <li><strong>Set the scene:</strong> seasonal music, good lighting, tables at a comfortable height.</li>
+    <li><strong>Frame the purpose:</strong> "These are going to our families / the Christmas market / the children's ward."</li>
+    <li><strong>Pair up:</strong> match residents with different abilities, or a family member with a grandparent.</li>
+    <li><strong>Adapt, don't take over:</strong> pre-prepare difficult steps, but let the person complete the parts they can.</li>
+    <li><strong>Celebrate:</strong> display the finished ornaments, take photos, and add a tag: "Handmade by Grandma Rose."</li>
+  </ol>
+
+  <div class="note"><strong>Idea for care homes:</strong> Host a small "Residents' Christmas Market" where families can take home ornaments made by residents, or donate them to a local charity. It turns an activity into a community event residents are proud of.</div>
+
+  <div class="cta">
+    <h3>Plan this year's Christmas activity now</h3>
+    <p>ANTCARE's Christmas ornament ball and hot-air balloon kits are available for families and in group packs for care homes and day centres. Order early for the holiday season at <a href="https://antcare.vn">antcare.vn</a> or on Etsy.</p>
+    <a class="btn" href="/san-pham">Order craft kits</a>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>What are good Christmas crafts for elderly people?</summary><p>Ornaments, simple wreaths, card making and decorations with large, easy-to-handle materials work well, especially when the finished items are given as gifts.</p></details>
+    <details><summary>Are craft activities suitable for people with dementia?</summary><p>Yes, when adapted: break tasks into simple steps, pre-prepare harder parts, avoid sharp tools, and focus on enjoyment rather than perfection.</p></details>
+    <details><summary>How many craft kits does a care home group need?</summary><p>Typically one kit per participant, plus a few spares for demonstrations. ANTCARE offers group packs for facilities.</p></details>
+  </section>
+
+  <p class="tags">#ChristmasCrafts #CraftKits #CareHomeActivities #DementiaCrafts #HandmadeGifts #ANTCARE</p>
+</div>`
+  },
+  {
+    id: 8,
+    slug: "how-to-choose-activity-tools-care-homes",
+    oldSlugs: [
+      "blog/how-to-choose-activity-tools-care-homes",
+      "news/how-to-choose-activity-tools-care-homes"
+    ],
+    metaTitle: "How to Choose Activity Tools for Care Homes & Seniors",
+    title: "Buyer's Guide: How Care Homes and Families Choose Activity Tools for Older Adults",
+    category: "Buyer's Guide",
+    topic: "Guides for families and care providers",
+    date: "23/09/2026",
+    image: "/images/chon-do-choi-cho-nguoi-sa-sut-tri-tue-theo-giai-doan.jpg",
+    author: {
+      name: "ANTCARE Team",
+      image: "/images/footer-logo.png",
+      description: "Purpose-built activity tools for older adults · Handcrafted in Vietnam"
+    },
+    description: "A practical buyer's guide for families, care homes, assisted living and day centres in the US, UK, Canada, Australia, Singapore, Japan and Taiwan choosing senior activity tools.",
+    excerpt: "A practical buyer's guide for families, care homes, assisted living and day centres in the US, UK, Canada, Australia, Singapore, Japan and Taiwan choosing senior activity tools.",
+    primaryKeyword: "how to choose activity tools for seniors",
+    secondaryKeywords: "care home activity equipment, assisted living activity supplies, aged care activity products, dementia activity products wholesale",
+    featured: false,
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "Buyer's Guide: How Care Homes and Families Choose Activity Tools for Older Adults",
+          "inLanguage": "en",
+          "author": { "@type": "Organization", "name": "ANTCARE" },
+          "publisher": { "@type": "Organization", "name": "ANTCARE", "url": "https://antcare.vn" }
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to choose activity tools for older adults",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Assess the people",
+              "text": "Review cognition, hand function, mobility, vision, interests and setting."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Evaluate products",
+              "text": "Check adult design, safety, adjustable difficulty, hygiene, personalisation, purpose and value."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Build a balanced set",
+              "text": "Cover hands, feet and legs, mind, and creativity."
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What activity equipment should a care home have?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A balanced set covering hands (busy boards, hand boards), legs and feet (seated movement tools such as sensory mats), cognition (puzzles and games) and creativity (craft kits), plus personalised reminiscence items."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I choose activities for someone with dementia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Start with the person's history, interests and abilities; choose adult-styled, safe tools with adjustable difficulty and a meaningful outcome."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does ANTCARE ship internationally?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ANTCARE focuses on international markets; contact antcare.vn for shipping and wholesale details."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can ANTCARE products be personalised for a facility?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Photo puzzles and selected items can be personalised; contact us to discuss facility-specific options."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    content: `<div class="antcare-article-body">
+  <p class="sapo">Whether you're an activity coordinator in a Toronto long-term care home, a lifestyle manager in a Melbourne aged care facility, a daughter in London caring for her father, or the owner of a day-service centre in Osaka or Taipei, the question is the same: which activity tools are actually worth buying? This guide gives you a clear framework.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> To choose activity tools for older adults, assess the users' abilities and interests, then evaluate products on seven criteria: adult-appropriate design, safety, adjustable difficulty, hygiene and durability, personalisation, purpose (a meaningful outcome), and value for money including staff time saved. A balanced set usually covers four areas: hands (fine-motor boards), feet and legs (seated movement mats), mind (puzzles and games) and creativity (craft kits).
+  </div>
+
+  <h2>Step 1: Start with the people, not the product</h2>
+  <p>Before browsing, answer these questions for each person or group:</p>
+  <ul>
+    <li><strong>Cognition:</strong> no impairment, mild cognitive changes, or moderate to advanced dementia?</li>
+    <li><strong>Hands:</strong> any arthritis, tremor, weakness after stroke, or reduced sensation?</li>
+    <li><strong>Mobility:</strong> independent, uses a walker, mostly seated, or bed-bound?</li>
+    <li><strong>Vision and hearing:</strong> does the person need high contrast and large print?</li>
+    <li><strong>History and interests:</strong> profession, hobbies, cultural festivals, family roles.</li>
+    <li><strong>Setting:</strong> one-to-one at home, small groups, or large facility sessions?</li>
+  </ul>
+
+  <h2>Step 2: Evaluate products against seven criteria</h2>
+  <div class="overflow-x-auto my-6">
+    <table>
+      <thead>
+        <tr><th>Criterion</th><th>What to look for</th><th>Red flags</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1. Adult-appropriate design</td><td>Natural materials, calm colours, adult styling</td><td>Cartoon characters, toddler branding</td></tr>
+        <tr><td>2. Safety</td><td>Secured parts, rounded edges, non-toxic finishes, enclosed magnets</td><td>Small detachable parts, sharp screws, loose cords</td></tr>
+        <tr><td>3. Adjustable difficulty</td><td>Multiple levels or activities on one tool</td><td>Only one "level" that quickly becomes boring or frustrating</td></tr>
+        <tr><td>4. Hygiene and durability</td><td>Wipeable surfaces, sturdy construction</td><td>Paper, cardboard, glued-on parts</td></tr>
+        <tr><td>5. Personalisation</td><td>Custom photos, themes linked to life history</td><td>Generic content only</td></tr>
+        <tr><td>6. Purpose</td><td>A finished item, a gift, a shared memory</td><td>"Busy work" with no outcome</td></tr>
+        <tr><td>7. Value</td><td>Reusable, shared across users, saves staff prep time</td><td>Cheap but single-use or quickly broken</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Step 3: Build a balanced activity set</h2>
+  <p>Most care settings and many families benefit from covering four areas:</p>
+  <ol>
+    <li><strong>Hands:</strong> a busy board and a hand activity board for fine-motor and tactile work.</li>
+    <li><strong>Feet and legs:</strong> a sensory foot mat for seated movement.</li>
+    <li><strong>Mind:</strong> puzzles, matching and memory games, ideally personalised.</li>
+    <li><strong>Creativity and purpose:</strong> craft kits that produce gifts or decorations.</li>
+  </ol>
+
+  <h2>Notes for different markets</h2>
+  <h3>United States and Canada</h3>
+  <p>Assisted living communities, memory care units and long-term care homes typically run structured activity calendars. Look for durable tools that can be shared and cleaned between residents, and that support person-centred care plans.</p>
+  <h3>United Kingdom</h3>
+  <p>Care homes are expected to provide meaningful activity tailored to residents' needs and preferences. Personalised, reminiscence-rich tools help demonstrate person-centred practice.</p>
+  <h3>Australia</h3>
+  <p>Residential aged care and home care providers place strong emphasis on lifestyle and wellbeing programmes. Tools that support both individual and group sessions offer the most flexibility.</p>
+  <h3>Singapore</h3>
+  <p>With active ageing centres and a strong family-care culture, compact tools suitable for small homes and community centres are popular.</p>
+  <h3>Japan</h3>
+  <p>As one of the world's most aged societies, Japan has a mature network of day-service centres where hand activities, crafts and seasonal events are part of daily programmes. Quality, craftsmanship and natural materials are highly valued.</p>
+  <h3>Taiwan</h3>
+  <p>Taiwan's long-term care system has expanded community-based day care and activity centres, creating demand for engaging, reusable tools that suit group settings.</p>
+
+  <h2>The ANTCARE range at a glance</h2>
+  <div class="overflow-x-auto my-6">
+    <table>
+      <thead>
+        <tr><th>Product</th><th>Main focus</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Wooden busy board</td><td>Tactile stimulation, fine-motor skills, calm</td><td>People living with dementia, restless hands, one-to-one use</td></tr>
+        <tr><td>Hand activity board (magnetic or hook-and-loop)</td><td>Dexterity, two-hand coordination, attention, personalised photo puzzles</td><td>Home use and small groups; progressive levels</td></tr>
+        <tr><td>Sensory foot mat</td><td>Seated leg movement, foot sensation, engagement</td><td>Mostly seated users, day centres, morning routines</td></tr>
+        <tr><td>Christmas ornament ball kit</td><td>Creativity, purpose, seasonal joy</td><td>Group sessions, holiday events, gifting</td></tr>
+        <tr><td>Hot-air balloon decoration kit</td><td>Creativity, gifting, year-round crafting</td><td>Gifts for grandchildren, group crafting</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>All products are handcrafted in Vietnam from natural materials such as rubberwood and water hyacinth. ANTCARE supplies both individual families (B2C, including via Etsy) and care providers and distributors (B2B), with facility packs and personalisation options.</p>
+
+  <div class="note"><strong>Buying for a facility?</strong> Start with a small pilot: one of each tool in one unit for four weeks. Track participation, staff feedback and residents' reactions, then scale what works.</div>
+
+  <div class="cta">
+    <h3>Build your activity toolkit with ANTCARE</h3>
+    <p>Families can order individual products; care homes, assisted living communities, day-service centres and distributors can request wholesale pricing and facility bundles. Get in touch via <a href="https://antcare.vn">antcare.vn</a>.</p>
+    <a class="btn" href="/lien-he">Contact ANTCARE for wholesale</a>
+  </div>
+
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>What activity equipment should a care home have?</summary><p>A balanced set covering hands (busy boards, hand boards), legs and feet (seated movement tools such as sensory mats), cognition (puzzles and games) and creativity (craft kits), plus personalised reminiscence items.</p></details>
+    <details><summary>How do I choose activities for someone with dementia?</summary><p>Start with the person's history, interests and current abilities; choose adult-styled, safe tools with adjustable difficulty; and prioritise activities with a meaningful outcome.</p></details>
+    <details><summary>Does ANTCARE ship internationally?</summary><p>ANTCARE is focused on international markets including the US, UK, Europe, Canada, Australia, Singapore, Japan and Taiwan. Contact us through antcare.vn for shipping and wholesale details.</p></details>
+    <details><summary>Can ANTCARE products be personalised for a facility?</summary><p>Yes. Photo puzzles and selected items can be personalised; contact us to discuss facility-specific options.</p></details>
+  </section>
+
+  <p class="tags">#CareHome #AssistedLiving #AgedCare #DayService #ActivityCoordinator #ElderCareProducts #ANTCARE</p>
+</div>`
+  }
+];
+
+const newsEnData = {
+  featured: articlesRaw[0],
+  list: articlesRaw
+};
+
+const outputPath = path.join(__dirname, '../src/data/news.en.json');
+fs.writeFileSync(outputPath, JSON.stringify(newsEnData, null, 2), 'utf-8');
+console.log(`Successfully generated ${outputPath} with ${articlesRaw.length} English articles.`);
