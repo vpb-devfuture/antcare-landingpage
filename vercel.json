@@ -11,13 +11,13 @@
       "permanent": true
     },
     {
-      "source": "/news/dich-vu-dong-hanh-kham-benh-la-gi",
+      "source": "/news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia",
       "destination": "/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi",
       "permanent": true
     },
     {
-      "source": "/news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia",
-      "destination": "/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi",
+      "source": "/cam-nang-suc-khoe-nguoi-cao-tuoi",
+      "destination": "/news/cam-nang-suc-khoe-nguoi-cao-tuoi",
       "permanent": true
     },
     {

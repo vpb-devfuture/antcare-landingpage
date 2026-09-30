@@ -126,8 +126,8 @@ function App() {
         <Route path="dich-vu" element={<Navigate to="/" replace />} />
         <Route path="news/chuan-bi-gi-khi-dua-bo-me-di-kham-benh" element={<Navigate to="/news/checklist-dua-bo-me-di-kham-benh-vien" replace />} />
         <Route path="news/dua-bo-me-di-kham-benh-ha-noi-can-chuan-bi-gi" element={<Navigate to="/news/checklist-dua-bo-me-di-kham-benh-vien" replace />} />
-        <Route path="news/dich-vu-dong-hanh-kham-benh-la-gi" element={<Navigate to="/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi" replace />} />
         <Route path="news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia" element={<Navigate to="/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi" replace />} />
+        <Route path="cam-nang-suc-khoe-nguoi-cao-tuoi" element={<Navigate to="/news/cam-nang-suc-khoe-nguoi-cao-tuoi" replace />} />
         
         <Route path="san-pham" element={<Products />} />
         <Route path="san-pham/bang-luon-day-beo" element={<ProductDetail />} />

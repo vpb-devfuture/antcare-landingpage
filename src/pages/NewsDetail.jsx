@@ -23,8 +23,6 @@ const NewsDetail = () => {
       '59': '/news/checklist-dua-bo-me-di-kham-benh-vien',
       'dua-bo-me-di-kham-benh-ha-noi-can-chuan-bi-gi': '/news/checklist-dua-bo-me-di-kham-benh-vien',
       '27': '/news/checklist-dua-bo-me-di-kham-benh-vien',
-      'dich-vu-dong-hanh-kham-benh-la-gi': '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi',
-      '63': '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi',
       'dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia': '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi',
       '126': '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi'
     };

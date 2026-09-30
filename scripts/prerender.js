@@ -828,7 +828,6 @@ export function runPrerender() {
   const redirectedSlugs = new Set([
     'chuan-bi-gi-khi-dua-bo-me-di-kham-benh',
     'dua-bo-me-di-kham-benh-ha-noi-can-chuan-bi-gi',
-    'dich-vu-dong-hanh-kham-benh-la-gi',
     'dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia'
   ]);
 
@@ -850,7 +849,7 @@ export function runPrerender() {
       ? (article.image.startsWith('http') ? article.image : `${DOMAIN}${article.image.startsWith('/') ? '' : '/'}${article.image}`)
       : `${DOMAIN}/images/footer-logo.png`;
 
-    const articleJsonLd = {
+    const articleJsonLd = article.schema || {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": cleanTitle,
@@ -927,12 +926,12 @@ export function runPrerender() {
       target: '/news/checklist-dua-bo-me-di-kham-benh-vien'
     },
     {
-      source: '/news/dich-vu-dong-hanh-kham-benh-la-gi',
+      source: '/news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia',
       target: '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi'
     },
     {
-      source: '/news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia',
-      target: '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi'
+      source: '/cam-nang-suc-khoe-nguoi-cao-tuoi',
+      target: '/news/cam-nang-suc-khoe-nguoi-cao-tuoi'
     }
   ];
 
