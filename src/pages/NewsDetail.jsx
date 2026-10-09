@@ -51,8 +51,10 @@ const NewsDetail = () => {
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(id)) ||
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`blog/${id}`)) ||
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`news/${id}`)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`tin-tuc/${id}`)) ||
       item.slug === `blog/${id}` ||
-      item.slug === `news/${id}`
+      item.slug === `news/${id}` ||
+      item.slug === `tin-tuc/${id}`
     );
   };
 

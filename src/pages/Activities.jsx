@@ -66,6 +66,13 @@ const Activities = () => {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const paginatedArchive = filteredArchive.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
+  // Maximum ~10 pages displayed per window
+  const PAGE_WINDOW = 10;
+  const currentBlock = Math.floor((currentPage - 1) / PAGE_WINDOW);
+  const startPage = currentBlock * PAGE_WINDOW + 1;
+  const endPage = Math.min(startPage + PAGE_WINDOW - 1, totalPages);
+  const visiblePages = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+
   const currentHeroArticle = carouselActivities[activeSlide] || sortedActivities[0];
 
   return (
@@ -218,7 +225,7 @@ const Activities = () => {
 
           {/* Pagination Control Bar */}
           {totalPages > 1 && (
-            <div className="flex items-center justify-center gap-2 mt-10 pt-6 border-t border-surface-lavender/60">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-10 pt-6 border-t border-surface-lavender/60">
               <button
                 onClick={() => {
                   if (currentPage > 1) {
@@ -237,7 +244,26 @@ const Activities = () => {
                 <span className="material-symbols-outlined text-lg">chevron_left</span>
               </button>
 
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              {/* Biểu tượng xem các trang trước */}
+              {startPage > 1 && (
+                <button
+                  onClick={() => {
+                    const prevPage = startPage - 1;
+                    setCurrentPage(prevPage);
+                    document.getElementById('tat-ca-hoat-dong')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  aria-label={tr("Xem các trang trước", "View previous pages")}
+                  title={`${tr("Xem các trang trước", "View previous pages")} (${Math.max(1, startPage - PAGE_WINDOW)} - ${startPage - 1})`}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer bg-surface-mist text-plum-deep hover:bg-primary hover:text-white border border-surface-lavender group shadow-2xs"
+                >
+                  <svg className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                  </svg>
+                </button>
+              )}
+
+              {/* Danh sách tối đa khoảng 10 trang */}
+              {visiblePages.map((page) => (
                 <button
                   key={page}
                   onClick={() => {
@@ -253,6 +279,24 @@ const Activities = () => {
                   {page}
                 </button>
               ))}
+
+              {/* Biểu tượng xem các trang sau */}
+              {endPage < totalPages && (
+                <button
+                  onClick={() => {
+                    const nextPage = endPage + 1;
+                    setCurrentPage(nextPage);
+                    document.getElementById('tat-ca-hoat-dong')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  aria-label={tr("Xem các trang sau", "View next pages")}
+                  title={`${tr("Xem các trang sau", "View next pages")} (${endPage + 1} - ${Math.min(totalPages, endPage + PAGE_WINDOW)})`}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all cursor-pointer bg-surface-mist text-plum-deep hover:bg-primary hover:text-white border border-surface-lavender group shadow-2xs"
+                >
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                  </svg>
+                </button>
+              )}
 
               <button
                 onClick={() => {

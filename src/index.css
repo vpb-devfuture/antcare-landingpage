@@ -232,5 +232,200 @@ article table td {
   font-weight: 700 !important;
 }
 
+/* AntCare SEO / AEO Article Styles */
+:root {
+  --antcare-purple: #6633B4;
+  --antcare-orange: #FD711A;
+  --antcare-ink: #1f1a2b;
+  --antcare-muted: #5d566b;
+  --antcare-line: #e6e1ee;
+  --antcare-soft: #f6f2fb;
+}
 
+.antcare-article {
+  max-width: 100%;
+  color: var(--antcare-ink);
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+.antcare-article h2 {
+  font-size: 1.38rem;
+  line-height: 1.4;
+  color: var(--antcare-purple);
+  margin: 32px 0 12px;
+  font-weight: 750;
+  border-left: 4px solid var(--antcare-orange);
+  padding-left: 10px;
+}
+.antcare-article h3 {
+  font-size: 1.15rem;
+  margin: 20px 0 6px;
+  color: var(--antcare-purple);
+  font-weight: 700;
+}
+.antcare-article a {
+  color: var(--antcare-purple);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+.antcare-article a:hover {
+  color: var(--antcare-orange);
+}
+.antcare-article .quick-answer,
+.quick-answer {
+  background: var(--antcare-soft);
+  border-left: 4px solid var(--antcare-purple);
+  padding: 16px 18px;
+  border-radius: 8px;
+  margin: 0 0 24px;
+}
+.antcare-article .quick-answer strong:first-child,
+.quick-answer strong:first-child {
+  color: var(--antcare-purple);
+}
+.antcare-article .table-wrap,
+.table-wrap {
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+.antcare-article table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+}
+.antcare-article th, .antcare-article td {
+  border: 1px solid var(--antcare-line);
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+.antcare-article th {
+  background: var(--antcare-purple) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+.antcare-article tr:nth-child(even) td {
+  background: #faf8fd;
+}
+.antcare-article .faq-item,
+.faq-item {
+  border-bottom: 1px solid var(--antcare-line);
+  padding: 10px 0 14px;
+}
+.antcare-article .faq-item h3,
+.faq-item h3 {
+  margin: 12px 0 4px;
+  color: var(--antcare-purple);
+  font-size: 1.08rem;
+}
+.antcare-article .faq-item p,
+.faq-item p {
+  margin: 4px 0 0;
+  color: #334155;
+  line-height: 1.65;
+}
+.antcare-article .cta {
+  background: linear-gradient(135deg, var(--antcare-orange) 0%, #ea5e07 100%) !important;
+  color: #ffffff !important;
+  padding: 22px 24px;
+  border-radius: 14px;
+  margin: 32px 0 16px;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(253, 113, 26, 0.25);
+}
+.antcare-article .cta a {
+  color: #ffffff !important;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.antcare-article .note,
+.note {
+  color: var(--antcare-muted);
+  font-size: 0.9rem;
+  background: #f8fafc;
+  border-left: 3px solid #94a3b8;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 16px 0;
+}
+
+/* Oct 2026 Batch Article Styles */
+.answer {
+  background: var(--antcare-soft);
+  border-left: 5px solid var(--antcare-purple);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 20px 0;
+  line-height: 1.7;
+}
+.answer strong:first-child {
+  color: var(--antcare-purple);
+}
+.byline {
+  color: var(--antcare-muted);
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+}
+.sources {
+  font-size: 0.9rem;
+  color: var(--antcare-muted);
+  border-top: 1px dashed var(--antcare-line);
+  padding-top: 14px;
+  margin-top: 24px;
+}
+.sources a {
+  color: var(--antcare-purple);
+  font-weight: 600;
+}
+.ad {
+  margin: 32px 0 20px;
+  border-radius: 14px;
+  padding: 22px 24px;
+  background: linear-gradient(135deg, var(--antcare-purple), #8a5ad0);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(102, 51, 180, 0.2);
+}
+.ad h2 {
+  color: #fff !important;
+  margin: 0 0 10px !important;
+  font-size: 1.3rem !important;
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+.ad p {
+  color: #fff !important;
+  margin: 8px 0 !important;
+}
+.ad ul {
+  margin: 8px 0 16px;
+  padding-left: 20px;
+  color: #fff;
+}
+.ad .cta {
+  display: inline-block;
+  background: var(--antcare-orange) !important;
+  color: #fff !important;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(253, 113, 26, 0.35);
+  transition: transform 0.2s, background-color 0.2s;
+}
+.ad .cta:hover {
+  background: #ea5e07 !important;
+  transform: translateY(-1px);
+}
+.ad .cta.alt {
+  background: #fff !important;
+  color: var(--antcare-purple) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.ad .cta.alt:hover {
+  background: #f6f2fc !important;
+}
 

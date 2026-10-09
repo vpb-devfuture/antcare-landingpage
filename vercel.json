@@ -21,6 +21,106 @@
       "permanent": true
     },
     {
+      "source": "/dong-hanh-kham-benh-nguoi-cao-tuoi",
+      "destination": "/news/dong-hanh-kham-benh-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/bang-gia-dua-nguoi-gia-di-kham",
+      "destination": "/news/bang-gia-dua-nguoi-gia-di-kham",
+      "permanent": true
+    },
+    {
+      "source": "/dua-nguoi-cao-tuoi-di-kham-bach-mai",
+      "destination": "/news/dua-nguoi-cao-tuoi-di-kham-bach-mai",
+      "permanent": true
+    },
+    {
+      "source": "/dua-bo-me-di-kham-benh-vien-lao-khoa",
+      "destination": "/news/dua-bo-me-di-kham-benh-vien-lao-khoa",
+      "permanent": true
+    },
+    {
+      "source": "/con-o-xa-cham-soc-suc-khoe-bo-me",
+      "destination": "/news/con-o-xa-cham-soc-suc-khoe-bo-me",
+      "permanent": true
+    },
+    {
+      "source": "/nguoi-cao-tuoi-tu-tinh-len-ha-noi-kham-benh",
+      "destination": "/news/nguoi-cao-tuoi-tu-tinh-len-ha-noi-kham-benh",
+      "permanent": true
+    },
+    {
+      "source": "/checklist-chuan-bi-di-kham-cho-nguoi-gia",
+      "destination": "/news/checklist-chuan-bi-di-kham-cho-nguoi-gia",
+      "permanent": true
+    },
+    {
+      "source": "/tro-ly-suc-khoe-tai-nha-nguoi-cao-tuoi",
+      "destination": "/news/tro-ly-suc-khoe-tai-nha-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/theo-doi-suc-khoe-nguoi-cao-tuoi-benh-man-tinh",
+      "destination": "/news/theo-doi-suc-khoe-nguoi-cao-tuoi-benh-man-tinh",
+      "permanent": true
+    },
+    {
+      "source": "/co-nen-thue-nguoi-dua-nguoi-gia-di-kham",
+      "destination": "/news/co-nen-thue-nguoi-dua-nguoi-gia-di-kham",
+      "permanent": true
+    },
+    {
+      "source": "/thang-hanh-dong-vi-nguoi-cao-tuoi-2026-cham-soc-tich-hop",
+      "destination": "/news/thang-hanh-dong-vi-nguoi-cao-tuoi-2026-cham-soc-tich-hop",
+      "permanent": true
+    },
+    {
+      "source": "/nghi-dinh-335-2026-tro-cap-nguoi-cao-tuoi",
+      "destination": "/news/nghi-dinh-335-2026-tro-cap-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/kham-suc-khoe-mien-phi-2026-nguoi-cao-tuoi",
+      "destination": "/news/kham-suc-khoe-mien-phi-2026-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/so-suc-khoe-dien-tu-vneid-cho-nguoi-cao-tuoi",
+      "destination": "/news/so-suc-khoe-dien-tu-vneid-cho-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/bhyt-chi-tra-100-nguoi-cao-tuoi-75-tuoi",
+      "destination": "/news/bhyt-chi-tra-100-nguoi-cao-tuoi-75-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/uy-quyen-nhan-luong-huu-2026",
+      "destination": "/news/uy-quyen-nhan-luong-huu-2026",
+      "permanent": true
+    },
+    {
+      "source": "/lua-dao-nguoi-cao-tuoi-2026-cach-phong-tranh",
+      "destination": "/news/lua-dao-nguoi-cao-tuoi-2026-cach-phong-tranh",
+      "permanent": true
+    },
+    {
+      "source": "/c-sui-gia-thuc-pham-bo-sung-nguoi-cao-tuoi",
+      "destination": "/news/c-sui-gia-thuc-pham-bo-sung-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/dot-quy-nguoi-cao-tuoi-khi-troi-chuyen-lanh",
+      "destination": "/news/dot-quy-nguoi-cao-tuoi-khi-troi-chuyen-lanh",
+      "permanent": true
+    },
+    {
+      "source": "/cum-mua-thu-dong-nguoi-cao-tuoi",
+      "destination": "/news/cum-mua-thu-dong-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
       "source": "/dich-vu",
       "destination": "/",
       "permanent": true

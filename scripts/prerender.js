@@ -722,6 +722,12 @@ export function runPrerender() {
       title: 'Tin tức & Cẩm nang y tế | ANTCARE – Kiến chăm tổ',
       desc: 'Tin tức y tế, bài viết chia sẻ kiến thức chăm sóc sức khỏe tuổi già và đồng hành người cao tuổi từ ANTCARE – Kiến chăm tổ.',
       h1: 'Tin tức & Cẩm nang chăm sóc sức khỏe'
+    },
+    {
+      path: '/tin-tuc',
+      title: 'Tin tức & Y tế | ANTCARE – Kiến chăm tổ',
+      desc: 'Tin tức y tế, bài viết chia sẻ kiến thức chăm sóc sức khỏe tuổi già và đồng hành người cao tuổi từ ANTCARE – Kiến chăm tổ.',
+      h1: 'Tin tức y tế & Chăm sóc người cao tuổi'
     }
   ];
 
@@ -932,6 +938,86 @@ export function runPrerender() {
     {
       source: '/cam-nang-suc-khoe-nguoi-cao-tuoi',
       target: '/news/cam-nang-suc-khoe-nguoi-cao-tuoi'
+    },
+    {
+      source: '/dong-hanh-kham-benh-nguoi-cao-tuoi',
+      target: '/news/dong-hanh-kham-benh-nguoi-cao-tuoi'
+    },
+    {
+      source: '/bang-gia-dua-nguoi-gia-di-kham',
+      target: '/news/bang-gia-dua-nguoi-gia-di-kham'
+    },
+    {
+      source: '/dua-nguoi-cao-tuoi-di-kham-bach-mai',
+      target: '/news/dua-nguoi-cao-tuoi-di-kham-bach-mai'
+    },
+    {
+      source: '/dua-bo-me-di-kham-benh-vien-lao-khoa',
+      target: '/news/dua-bo-me-di-kham-benh-vien-lao-khoa'
+    },
+    {
+      source: '/con-o-xa-cham-soc-suc-khoe-bo-me',
+      target: '/news/con-o-xa-cham-soc-suc-khoe-bo-me'
+    },
+    {
+      source: '/nguoi-cao-tuoi-tu-tinh-len-ha-noi-kham-benh',
+      target: '/news/nguoi-cao-tuoi-tu-tinh-len-ha-noi-kham-benh'
+    },
+    {
+      source: '/checklist-chuan-bi-di-kham-cho-nguoi-gia',
+      target: '/news/checklist-chuan-bi-di-kham-cho-nguoi-gia'
+    },
+    {
+      source: '/tro-ly-suc-khoe-tai-nha-nguoi-cao-tuoi',
+      target: '/news/tro-ly-suc-khoe-tai-nha-nguoi-cao-tuoi'
+    },
+    {
+      source: '/theo-doi-suc-khoe-nguoi-cao-tuoi-benh-man-tinh',
+      target: '/news/theo-doi-suc-khoe-nguoi-cao-tuoi-benh-man-tinh'
+    },
+    {
+      source: '/co-nen-thue-nguoi-dua-nguoi-gia-di-kham',
+      target: '/news/co-nen-thue-nguoi-dua-nguoi-gia-di-kham'
+    },
+    {
+      source: '/thang-hanh-dong-vi-nguoi-cao-tuoi-2026-cham-soc-tich-hop',
+      target: '/news/thang-hanh-dong-vi-nguoi-cao-tuoi-2026-cham-soc-tich-hop'
+    },
+    {
+      source: '/nghi-dinh-335-2026-tro-cap-nguoi-cao-tuoi',
+      target: '/news/nghi-dinh-335-2026-tro-cap-nguoi-cao-tuoi'
+    },
+    {
+      source: '/kham-suc-khoe-mien-phi-2026-nguoi-cao-tuoi',
+      target: '/news/kham-suc-khoe-mien-phi-2026-nguoi-cao-tuoi'
+    },
+    {
+      source: '/so-suc-khoe-dien-tu-vneid-cho-nguoi-cao-tuoi',
+      target: '/news/so-suc-khoe-dien-tu-vneid-cho-nguoi-cao-tuoi'
+    },
+    {
+      source: '/bhyt-chi-tra-100-nguoi-cao-tuoi-75-tuoi',
+      target: '/news/bhyt-chi-tra-100-nguoi-cao-tuoi-75-tuoi'
+    },
+    {
+      source: '/uy-quyen-nhan-luong-huu-2026',
+      target: '/news/uy-quyen-nhan-luong-huu-2026'
+    },
+    {
+      source: '/lua-dao-nguoi-cao-tuoi-2026-cach-phong-tranh',
+      target: '/news/lua-dao-nguoi-cao-tuoi-2026-cach-phong-tranh'
+    },
+    {
+      source: '/c-sui-gia-thuc-pham-bo-sung-nguoi-cao-tuoi',
+      target: '/news/c-sui-gia-thuc-pham-bo-sung-nguoi-cao-tuoi'
+    },
+    {
+      source: '/dot-quy-nguoi-cao-tuoi-khi-troi-chuyen-lanh',
+      target: '/news/dot-quy-nguoi-cao-tuoi-khi-troi-chuyen-lanh'
+    },
+    {
+      source: '/cum-mua-thu-dong-nguoi-cao-tuoi',
+      target: '/news/cum-mua-thu-dong-nguoi-cao-tuoi'
     }
   ];
 

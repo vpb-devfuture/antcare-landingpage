@@ -65,7 +65,7 @@ function App() {
     } else if (cleanPath === '/activities') {
       document.title = "Hoạt động cộng đồng | ANTCARE – Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Hành trình lan tỏa yêu thương, tập huấn sơ cấp cứu, y tế cộng đồng và các hoạt động xã hội của ANTCARE – Kiến chăm tổ.";
-    } else if (cleanPath === '/news' || cleanPath === '/blog') {
+    } else if (cleanPath === '/news' || cleanPath === '/blog' || cleanPath === '/tin-tuc') {
       const isEnglish = (localStorage.getItem('i18nextLng') || '').startsWith('en');
       document.title = isEnglish
         ? "Senior Activity Tools & Elder Care Articles | ANTCARE"
@@ -129,6 +129,30 @@ function App() {
         <Route path="news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia" element={<Navigate to="/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi" replace />} />
         <Route path="cam-nang-suc-khoe-nguoi-cao-tuoi" element={<Navigate to="/news/cam-nang-suc-khoe-nguoi-cao-tuoi" replace />} />
         
+        {/* 301 Redirects for 10 SEO/AEO articles root URLs to /news/<slug> */}
+        <Route path="dong-hanh-kham-benh-nguoi-cao-tuoi" element={<Navigate to="/news/dong-hanh-kham-benh-nguoi-cao-tuoi" replace />} />
+        <Route path="bang-gia-dua-nguoi-gia-di-kham" element={<Navigate to="/news/bang-gia-dua-nguoi-gia-di-kham" replace />} />
+        <Route path="dua-nguoi-cao-tuoi-di-kham-bach-mai" element={<Navigate to="/news/dua-nguoi-cao-tuoi-di-kham-bach-mai" replace />} />
+        <Route path="dua-bo-me-di-kham-benh-vien-lao-khoa" element={<Navigate to="/news/dua-bo-me-di-kham-benh-vien-lao-khoa" replace />} />
+        <Route path="con-o-xa-cham-soc-suc-khoe-bo-me" element={<Navigate to="/news/con-o-xa-cham-soc-suc-khoe-bo-me" replace />} />
+        <Route path="nguoi-cao-tuoi-tu-tinh-len-ha-noi-kham-benh" element={<Navigate to="/news/nguoi-cao-tuoi-tu-tinh-len-ha-noi-kham-benh" replace />} />
+        <Route path="checklist-chuan-bi-di-kham-cho-nguoi-gia" element={<Navigate to="/news/checklist-chuan-bi-di-kham-cho-nguoi-gia" replace />} />
+        <Route path="tro-ly-suc-khoe-tai-nha-nguoi-cao-tuoi" element={<Navigate to="/news/tro-ly-suc-khoe-tai-nha-nguoi-cao-tuoi" replace />} />
+        <Route path="theo-doi-suc-khoe-nguoi-cao-tuoi-benh-man-tinh" element={<Navigate to="/news/theo-doi-suc-khoe-nguoi-cao-tuoi-benh-man-tinh" replace />} />
+        <Route path="co-nen-thue-nguoi-dua-nguoi-gia-di-kham" element={<Navigate to="/news/co-nen-thue-nguoi-dua-nguoi-gia-di-kham" replace />} />
+
+        {/* 301 Redirects for 10 October 2026 articles root URLs to /news/<slug> */}
+        <Route path="thang-hanh-dong-vi-nguoi-cao-tuoi-2026-cham-soc-tich-hop" element={<Navigate to="/news/thang-hanh-dong-vi-nguoi-cao-tuoi-2026-cham-soc-tich-hop" replace />} />
+        <Route path="nghi-dinh-335-2026-tro-cap-nguoi-cao-tuoi" element={<Navigate to="/news/nghi-dinh-335-2026-tro-cap-nguoi-cao-tuoi" replace />} />
+        <Route path="kham-suc-khoe-mien-phi-2026-nguoi-cao-tuoi" element={<Navigate to="/news/kham-suc-khoe-mien-phi-2026-nguoi-cao-tuoi" replace />} />
+        <Route path="so-suc-khoe-dien-tu-vneid-cho-nguoi-cao-tuoi" element={<Navigate to="/news/so-suc-khoe-dien-tu-vneid-cho-nguoi-cao-tuoi" replace />} />
+        <Route path="bhyt-chi-tra-100-nguoi-cao-tuoi-75-tuoi" element={<Navigate to="/news/bhyt-chi-tra-100-nguoi-cao-tuoi-75-tuoi" replace />} />
+        <Route path="uy-quyen-nhan-luong-huu-2026" element={<Navigate to="/news/uy-quyen-nhan-luong-huu-2026" replace />} />
+        <Route path="lua-dao-nguoi-cao-tuoi-2026-cach-phong-tranh" element={<Navigate to="/news/lua-dao-nguoi-cao-tuoi-2026-cach-phong-tranh" replace />} />
+        <Route path="c-sui-gia-thuc-pham-bo-sung-nguoi-cao-tuoi" element={<Navigate to="/news/c-sui-gia-thuc-pham-bo-sung-nguoi-cao-tuoi" replace />} />
+        <Route path="dot-quy-nguoi-cao-tuoi-khi-troi-chuyen-lanh" element={<Navigate to="/news/dot-quy-nguoi-cao-tuoi-khi-troi-chuyen-lanh" replace />} />
+        <Route path="cum-mua-thu-dong-nguoi-cao-tuoi" element={<Navigate to="/news/cum-mua-thu-dong-nguoi-cao-tuoi" replace />} />
+        
         <Route path="san-pham" element={<Products />} />
         <Route path="san-pham/bang-luon-day-beo" element={<ProductDetail />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
@@ -139,6 +163,8 @@ function App() {
         <Route path="news/:id" element={<NewsDetail />} />
         <Route path="blog" element={<News />} />
         <Route path="blog/:id" element={<NewsDetail />} />
+        <Route path="tin-tuc" element={<News />} />
+        <Route path="tin-tuc/:id" element={<NewsDetail />} />
         <Route path="recruitment" element={<Recruitment />} />
         <Route path="hop-tac" element={<Recruitment />} />
         <Route path="lien-he" element={<Recruitment />} />
