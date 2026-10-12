@@ -51,11 +51,20 @@ const News = () => {
 
   const categories = isEn
     ? ['All', ...Array.from(new Set(allArticles.map(item => item.category).filter(Boolean)))]
-    : ['Tất cả', 'An toàn nhà ở', 'Tri ân khách hàng', 'Chăm sóc sức khỏe', 'Sữa', 'Tin tức'];
+    : ['Tất cả', 'Sống tự tin', 'Chăm sóc người cao tuổi', 'Chăm sóc sức khỏe', 'An toàn nhà ở', 'Tri ân khách hàng', 'Sữa', 'Tin tức'];
 
   const getCategoryLabel = (cat) => {
     if (isEn) return cat;
-    const map = { 'Tất cả': 'All', 'An toàn nhà ở': 'Home Safety', 'Tri ân khách hàng': 'Customer Appreciation', 'Chăm sóc sức khỏe': 'Healthcare', 'Sữa': 'Nutrition & Milk', 'Tin tức': 'News & Updates' };
+    const map = {
+      'Tất cả': 'All',
+      'Sống tự tin': 'Live with Confidence',
+      'Chăm sóc người cao tuổi': 'Elderly Care',
+      'An toàn nhà ở': 'Home Safety',
+      'Tri ân khách hàng': 'Customer Appreciation',
+      'Chăm sóc sức khỏe': 'Healthcare',
+      'Sữa': 'Nutrition & Milk',
+      'Tin tức': 'News & Updates'
+    };
     return map[cat] || cat;
   };
 

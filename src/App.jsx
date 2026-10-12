@@ -165,6 +165,10 @@ function App() {
         <Route path="blog/:id" element={<NewsDetail />} />
         <Route path="tin-tuc" element={<News />} />
         <Route path="tin-tuc/:id" element={<NewsDetail />} />
+        <Route path="song-tu-tin" element={<News />} />
+        <Route path="song-tu-tin/:id" element={<NewsDetail />} />
+        <Route path="cham-soc-nguoi-cao-tuoi" element={<News />} />
+        <Route path="cham-soc-nguoi-cao-tuoi/:id" element={<NewsDetail />} />
         <Route path="recruitment" element={<Recruitment />} />
         <Route path="hop-tac" element={<Recruitment />} />
         <Route path="lien-he" element={<Recruitment />} />

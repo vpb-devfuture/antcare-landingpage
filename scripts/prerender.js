@@ -1018,7 +1018,47 @@ export function runPrerender() {
     {
       source: '/cum-mua-thu-dong-nguoi-cao-tuoi',
       target: '/news/cum-mua-thu-dong-nguoi-cao-tuoi'
-    }
+    },
+    // Batch 2 (Oct 12)
+    { source: '/son-tieu-o-nguoi-cao-tuoi', target: '/news/son-tieu-o-nguoi-cao-tuoi' },
+    { source: '/bai-tap-kegel-cho-nguoi-cao-tuoi', target: '/news/bai-tap-kegel-cho-nguoi-cao-tuoi' },
+    { source: '/quan-lot-chong-son-tieu-cach-chon', target: '/news/quan-lot-chong-son-tieu-cach-chon' },
+    { source: '/cach-dung-va-giat-quan-lot-chong-son-tieu', target: '/news/cach-dung-va-giat-quan-lot-chong-son-tieu' },
+    { source: '/so-sanh-quan-lot-chong-son-bim-nguoi-lon-mieng-lot', target: '/news/so-sanh-quan-lot-chong-son-bim-nguoi-lon-mieng-lot' },
+    { source: '/son-tieu-o-nam-gioi-cao-tuoi', target: '/news/son-tieu-o-nam-gioi-cao-tuoi' },
+    { source: '/tieu-dem-o-nguoi-cao-tuoi', target: '/news/tieu-dem-o-nguoi-cao-tuoi' },
+    { source: '/cham-soc-da-vung-kin-nguoi-son-tieu', target: '/news/cham-soc-da-vung-kin-nguoi-son-tieu' },
+    { source: '/tien-man-kinh-dau-hieu-do-tuoi', target: '/news/tien-man-kinh-dau-hieu-do-tuoi' },
+    { source: '/quan-lot-ky-kinh-tien-man-kinh', target: '/news/quan-lot-ky-kinh-tien-man-kinh' },
+    { source: '/hoi-chung-nieu-sinh-duc-man-kinh', target: '/news/hoi-chung-nieu-sinh-duc-man-kinh' },
+    { source: '/loang-xuong-sau-man-kinh', target: '/news/loang-xuong-sau-man-kinh' },
+    { source: '/mo-hinh-cham-soc-nguoi-cao-tuoi-2026', target: '/news/mo-hinh-cham-soc-nguoi-cao-tuoi-2026' },
+    { source: '/benh-mat-nguoi-cao-tuoi', target: '/news/benh-mat-nguoi-cao-tuoi' },
+    { source: '/tram-cam-co-don-nguoi-cao-tuoi', target: '/news/tram-cam-co-don-nguoi-cao-tuoi' },
+
+    // Batch 3 - Nhom A (Song tu tin)
+    { source: '/song-tu-tin/quan-lot-tham-hut-sau-sinh', target: '/news/quan-lot-tham-hut-sau-sinh' },
+    { source: '/song-tu-tin/ri-tieu-khi-chay-bo-tap-gym', target: '/news/ri-tieu-khi-chay-bo-tap-gym' },
+    { source: '/song-tu-tin/quan-boxer-chong-ro-ri-cho-nam', target: '/news/quan-boxer-chong-ro-ri-cho-nam' },
+    { source: '/song-tu-tin/quan-lot-tham-hut-thay-bang-hang-ngay', target: '/news/quan-lot-tham-hut-thay-bang-hang-ngay' },
+    { source: '/song-tu-tin/quan-lot-chong-ro-ri-khi-di-du-lich', target: '/news/quan-lot-chong-ro-ri-khi-di-du-lich' },
+    { source: '/song-tu-tin/chat-lieu-quan-lot-chuc-nang', target: '/news/chat-lieu-quan-lot-chuc-nang' },
+    { source: '/quan-lot-tham-hut-sau-sinh', target: '/news/quan-lot-tham-hut-sau-sinh' },
+    { source: '/ri-tieu-khi-chay-bo-tap-gym', target: '/news/ri-tieu-khi-chay-bo-tap-gym' },
+    { source: '/quan-boxer-chong-ro-ri-cho-nam', target: '/news/quan-boxer-chong-ro-ri-cho-nam' },
+    { source: '/quan-lot-tham-hut-thay-bang-hang-ngay', target: '/news/quan-lot-tham-hut-thay-bang-hang-ngay' },
+    { source: '/quan-lot-chong-ro-ri-khi-di-du-lich', target: '/news/quan-lot-chong-ro-ri-khi-di-du-lich' },
+    { source: '/chat-lieu-quan-lot-chuc-nang', target: '/news/chat-lieu-quan-lot-chuc-nang' },
+
+    // Batch 3 - Nhom B (Cham soc nguoi cao tuoi)
+    { source: '/cham-soc-nguoi-cao-tuoi/quan-lot-mo-hong-khuy-bam', target: '/news/quan-lot-mo-hong-khuy-bam' },
+    { source: '/cham-soc-nguoi-cao-tuoi/quan-lot-bao-ve-hong', target: '/news/quan-lot-bao-ve-hong' },
+    { source: '/cham-soc-nguoi-cao-tuoi/quan-lot-cho-nguoi-sa-sut-tri-nho', target: '/news/quan-lot-cho-nguoi-sa-sut-tri-nho' },
+    { source: '/cham-soc-nguoi-cao-tuoi/quan-lot-tham-qua-dem-tam-lot-giuong', target: '/news/quan-lot-tham-qua-dem-tam-lot-giuong' },
+    { source: '/quan-lot-mo-hong-khuy-bam', target: '/news/quan-lot-mo-hong-khuy-bam' },
+    { source: '/quan-lot-bao-ve-hong', target: '/news/quan-lot-bao-ve-hong' },
+    { source: '/quan-lot-cho-nguoi-sa-sut-tri-nho', target: '/news/quan-lot-cho-nguoi-sa-sut-tri-nho' },
+    { source: '/quan-lot-tham-qua-dem-tam-lot-giuong', target: '/news/quan-lot-tham-qua-dem-tam-lot-giuong' }
   ];
 
   staticRedirects.forEach(({ source, target }) => {

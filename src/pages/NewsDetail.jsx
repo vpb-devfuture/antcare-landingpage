@@ -49,9 +49,13 @@ const NewsDetail = () => {
       item.id === numericId ||
       item.oldSlug === id ||
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(id)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`song-tu-tin/${id}`)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`cham-soc-nguoi-cao-tuoi/${id}`)) ||
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`blog/${id}`)) ||
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`news/${id}`)) ||
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`tin-tuc/${id}`)) ||
+      item.slug === `song-tu-tin/${id}` ||
+      item.slug === `cham-soc-nguoi-cao-tuoi/${id}` ||
       item.slug === `blog/${id}` ||
       item.slug === `news/${id}` ||
       item.slug === `tin-tuc/${id}`
