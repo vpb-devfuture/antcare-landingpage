@@ -65,6 +65,15 @@ function App() {
     } else if (cleanPath === '/activities') {
       document.title = "Hoạt động cộng đồng | ANTCARE – Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Hành trình lan tỏa yêu thương, tập huấn sơ cấp cứu, y tế cộng đồng và các hoạt động xã hội của ANTCARE – Kiến chăm tổ.";
+    } else if (cleanPath === '/tieu-son' || cleanPath === '/son-tieu') {
+      document.title = "Tiểu són & Rối loạn sàn chậu: Nguyên nhân, cách xử lý & chăm sóc | ANTCARE";
+      if (metaDesc) metaDesc.content = "Chuyên mục kiến thức toàn diện về són tiểu, rỉ tiểu sau sinh, tuổi mãn kinh và người cao tuổi. Bài tập Kegel, cách chọn và sử dụng quần chống són thấm hút từ ANTCARE.";
+    } else if (cleanPath === '/dong-hanh-di-kham' || cleanPath === '/dong-hanh-kham-benh') {
+      document.title = "Dịch vụ đồng hành đi khám cho người cao tuổi: cẩm nang cho gia đình | ANTCARE";
+      if (metaDesc) metaDesc.content = "10 bài cẩm nang về dịch vụ đồng hành đi khám, đưa bố mẹ đi khám khi con bận hoặc ở xa: chuẩn bị giấy tờ, thủ tục BHYT, quy trình khám, chi phí và cách chọn dịch vụ uy tín.";
+    } else if (cleanPath === '/cham-soc-nguoi-cao-tuoi') {
+      document.title = "Chăm sóc người cao tuổi tại Hà Nội: Trợ lý Sức khỏe & Đồng hành đi khám | ANTCARE";
+      if (metaDesc) metaDesc.content = "15 bài cẩm nang chăm sóc người cao tuổi tại Hà Nội: trợ lý sức khỏe bán thời gian, theo dõi huyết áp, quản lý thuốc, phòng té ngã, sau xuất viện và đưa bố mẹ đi khám.";
     } else if (cleanPath === '/news' || cleanPath === '/blog' || cleanPath === '/tin-tuc') {
       const isEnglish = (localStorage.getItem('i18nextLng') || '').startsWith('en');
       document.title = isEnglish
@@ -153,6 +162,84 @@ function App() {
         <Route path="dot-quy-nguoi-cao-tuoi-khi-troi-chuyen-lanh" element={<Navigate to="/news/dot-quy-nguoi-cao-tuoi-khi-troi-chuyen-lanh" replace />} />
         <Route path="cum-mua-thu-dong-nguoi-cao-tuoi" element={<Navigate to="/news/cum-mua-thu-dong-nguoi-cao-tuoi" replace />} />
         
+        {/* 301 Redirects for 10 Son Tieu articles root URLs to /news/<slug> */}
+        <Route path="son-tieu-la-gi" element={<Navigate to="/news/son-tieu-la-gi" replace />} />
+        <Route path="son-tieu-sau-sinh" element={<Navigate to="/news/son-tieu-sau-sinh" replace />} />
+        <Route path="son-tieu-tuoi-man-kinh" element={<Navigate to="/news/son-tieu-tuoi-man-kinh" replace />} />
+        <Route path="son-tieu-nguoi-cao-tuoi" element={<Navigate to="/news/son-tieu-nguoi-cao-tuoi" replace />} />
+        <Route path="son-tieu-co-nen-dung-bang-ve-sinh" element={<Navigate to="/news/son-tieu-co-nen-dung-bang-ve-sinh" replace />} />
+        <Route path="quan-chong-son-tieu-la-gi" element={<Navigate to="/news/quan-chong-son-tieu-la-gi" replace />} />
+        <Route path="so-sanh-giai-phap-son-tieu" element={<Navigate to="/news/so-sanh-giai-phap-son-tieu" replace />} />
+        <Route path="cach-chon-quan-chong-son-tieu" element={<Navigate to="/news/cach-chon-quan-chong-son-tieu" replace />} />
+        <Route path="cach-giat-quan-tham-hut" element={<Navigate to="/news/cach-giat-quan-tham-hut" replace />} />
+        <Route path="bai-tap-kegel-giam-son-tieu" element={<Navigate to="/news/bai-tap-kegel-giam-son-tieu" replace />} />
+        <Route path="khong-nen-dung-bang-ve-sinh" element={<Navigate to="/news/son-tieu-co-nen-dung-bang-ve-sinh" replace />} />
+        <Route path="so-sanh-giai-phap" element={<Navigate to="/news/so-sanh-giai-phap-son-tieu" replace />} />
+        <Route path="cach-chon-quan" element={<Navigate to="/news/cach-chon-quan-chong-son-tieu" replace />} />
+        <Route path="cach-giat-quan" element={<Navigate to="/news/cach-giat-quan-tham-hut" replace />} />
+        <Route path="bai-tap-kegel" element={<Navigate to="/news/bai-tap-kegel-giam-son-tieu" replace />} />
+        
+        {/* 301 Redirects for 10 Dong Hanh Di Kham articles root URLs to /news/<slug> */}
+        <Route path="dich-vu-dong-hanh-di-kham-la-gi" element={<Navigate to="/news/dich-vu-dong-hanh-di-kham-la-gi" replace />} />
+        <Route path="dua-bo-me-di-kham-khi-con-ban" element={<Navigate to="/news/dua-bo-me-di-kham-khi-con-ban" replace />} />
+        <Route path="con-o-xa-cham-bo-me-di-kham" element={<Navigate to="/news/con-o-xa-cham-bo-me-di-kham" replace />} />
+        <Route path="chuan-bi-gi-khi-dua-nguoi-gia-di-kham" element={<Navigate to="/news/chuan-bi-gi-khi-dua-nguoi-gia-di-kham" replace />} />
+        <Route path="kham-bhyt-nguoi-cao-tuoi" element={<Navigate to="/news/kham-bhyt-nguoi-cao-tuoi" replace />} />
+        <Route path="kinh-nghiem-di-kham-benh-vien-lon" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-lon" replace />} />
+        <Route path="dua-nguoi-gia-tu-tinh-len-ha-noi-kham" element={<Navigate to="/news/dua-nguoi-gia-tu-tinh-len-ha-noi-kham" replace />} />
+        <Route path="gia-dich-vu-dong-hanh-di-kham" element={<Navigate to="/news/gia-dich-vu-dong-hanh-di-kham" replace />} />
+        <Route path="chon-dich-vu-dong-hanh-di-kham-uy-tin" element={<Navigate to="/news/chon-dich-vu-dong-hanh-di-kham-uy-tin" replace />} />
+        <Route path="tai-kham-dinh-ky-benh-man-tinh" element={<Navigate to="/news/tai-kham-dinh-ky-benh-man-tinh" replace />} />
+        <Route path="dong-hanh-di-kham-la-gi" element={<Navigate to="/news/dich-vu-dong-hanh-di-kham-la-gi" replace />} />
+        <Route path="con-ban-ai-dua-bo-me-di-kham" element={<Navigate to="/news/dua-bo-me-di-kham-khi-con-ban" replace />} />
+        <Route path="con-o-xa" element={<Navigate to="/news/con-o-xa-cham-bo-me-di-kham" replace />} />
+        <Route path="chuan-bi-gi" element={<Navigate to="/news/chuan-bi-gi-khi-dua-nguoi-gia-di-kham" replace />} />
+        <Route path="kham-bhyt" element={<Navigate to="/news/kham-bhyt-nguoi-cao-tuoi" replace />} />
+        <Route path="quy-trinh-benh-vien-lon" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-lon" replace />} />
+        <Route path="tu-tinh-len-ha-noi" element={<Navigate to="/news/dua-nguoi-gia-tu-tinh-len-ha-noi-kham" replace />} />
+        <Route path="bang-gia" element={<Navigate to="/news/gia-dich-vu-dong-hanh-di-kham" replace />} />
+        <Route path="chon-dich-vu-uy-tin" element={<Navigate to="/news/chon-dich-vu-dong-hanh-di-kham-uy-tin" replace />} />
+        <Route path="tai-kham-dinh-ky" element={<Navigate to="/news/tai-kham-dinh-ky-benh-man-tinh" replace />} />
+        
+        {/* Category redirects from /kien-thuc/<category> */}
+        <Route path="kien-thuc/cham-soc-nguoi-cao-tuoi-ha-noi" element={<Navigate to="/cham-soc-nguoi-cao-tuoi" replace />} />
+        <Route path="kien-thuc/dong-hanh-di-kham" element={<Navigate to="/dong-hanh-di-kham" replace />} />
+        <Route path="kien-thuc/dong-hanh-kham-benh" element={<Navigate to="/dong-hanh-di-kham" replace />} />
+        <Route path="kien-thuc/son-tieu" element={<Navigate to="/son-tieu" replace />} />
+        <Route path="kien-thuc/tieu-son" element={<Navigate to="/tieu-son" replace />} />
+
+        {/* 301 Redirects for 15 Cham Soc Nguoi Cao Tuoi Ha Noi articles root URLs to /news/<slug> */}
+        <Route path="dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi" element={<Navigate to="/news/dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi" replace />} />
+        <Route path="tro-ly-suc-khoe-nguoi-cao-tuoi" element={<Navigate to="/news/tro-ly-suc-khoe-nguoi-cao-tuoi" replace />} />
+        <Route path="gia-cham-soc-nguoi-gia-tai-nha-ha-noi" element={<Navigate to="/news/gia-cham-soc-nguoi-gia-tai-nha-ha-noi" replace />} />
+        <Route path="bo-me-song-mot-minh-ha-noi" element={<Navigate to="/news/bo-me-song-mot-minh-ha-noi" replace />} />
+        <Route path="theo-doi-huyet-ap-duong-huyet-tai-nha" element={<Navigate to="/news/theo-doi-huyet-ap-duong-huyet-tai-nha" replace />} />
+        <Route path="quan-ly-thuoc-nguoi-cao-tuoi" element={<Navigate to="/news/quan-ly-thuoc-nguoi-cao-tuoi" replace />} />
+        <Route path="phong-nga-nguoi-cao-tuoi-tai-nha" element={<Navigate to="/news/phong-nga-nguoi-cao-tuoi-tai-nha" replace />} />
+        <Route path="cham-soc-nguoi-gia-sau-xuat-vien" element={<Navigate to="/news/cham-soc-nguoi-gia-sau-xuat-vien" replace />} />
+        <Route path="dau-hieu-bo-me-can-cham-soc" element={<Navigate to="/news/dau-hieu-bo-me-can-cham-soc" replace />} />
+        <Route path="chon-dich-vu-cham-soc-nguoi-cao-tuoi-uy-tin-ha-noi" element={<Navigate to="/news/chon-dich-vu-cham-soc-nguoi-cao-tuoi-uy-tin-ha-noi" replace />} />
+        <Route path="dich-vu-dua-nguoi-gia-di-kham-ha-noi" element={<Navigate to="/news/dich-vu-dua-nguoi-gia-di-kham-ha-noi" replace />} />
+        <Route path="kham-lao-khoa-ha-noi" element={<Navigate to="/news/kham-lao-khoa-ha-noi" replace />} />
+        <Route path="kham-suc-khoe-tong-quat-nguoi-cao-tuoi-ha-noi" element={<Navigate to="/news/kham-suc-khoe-tong-quat-nguoi-cao-tuoi-ha-noi" replace />} />
+        <Route path="dua-nguoi-gia-di-noi-soi-gay-me" element={<Navigate to="/news/dua-nguoi-gia-di-noi-soi-gay-me" replace />} />
+        <Route path="dua-nguoi-gia-sa-sut-tri-tue-di-kham" element={<Navigate to="/news/dua-nguoi-gia-sa-sut-tri-tue-di-kham" replace />} />
+        {/* Short hash aliases */}
+        <Route path="cham-soc-nguoi-cao-tuoi-ha-noi" element={<Navigate to="/news/dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi" replace />} />
+        <Route path="tro-ly-suc-khoe-la-gi" element={<Navigate to="/news/tro-ly-suc-khoe-nguoi-cao-tuoi" replace />} />
+        <Route path="gia-cham-soc-nguoi-gia-ha-noi" element={<Navigate to="/news/gia-cham-soc-nguoi-gia-tai-nha-ha-noi" replace />} />
+        <Route path="bo-me-song-mot-minh" element={<Navigate to="/news/bo-me-song-mot-minh-ha-noi" replace />} />
+        <Route path="theo-doi-huyet-ap-duong-huyet" element={<Navigate to="/news/theo-doi-huyet-ap-duong-huyet-tai-nha" replace />} />
+        <Route path="quan-ly-thuoc" element={<Navigate to="/news/quan-ly-thuoc-nguoi-cao-tuoi" replace />} />
+        <Route path="phong-te-nga" element={<Navigate to="/news/phong-nga-nguoi-cao-tuoi-tai-nha" replace />} />
+        <Route path="cham-soc-sau-xuat-vien" element={<Navigate to="/news/cham-soc-nguoi-gia-sau-xuat-vien" replace />} />
+        <Route path="dau-hieu-can-cham-soc" element={<Navigate to="/news/dau-hieu-bo-me-can-cham-soc" replace />} />
+        <Route path="chon-dich-vu-cham-soc-uy-tin" element={<Navigate to="/news/chon-dich-vu-cham-soc-nguoi-cao-tuoi-uy-tin-ha-noi" replace />} />
+        <Route path="dua-nguoi-gia-di-kham-ha-noi" element={<Navigate to="/news/dich-vu-dua-nguoi-gia-di-kham-ha-noi" replace />} />
+        <Route path="kham-tong-quat-nguoi-cao-tuoi" element={<Navigate to="/news/kham-suc-khoe-tong-quat-nguoi-cao-tuoi-ha-noi" replace />} />
+        <Route path="noi-soi-thu-thuat" element={<Navigate to="/news/dua-nguoi-gia-di-noi-soi-gay-me" replace />} />
+        <Route path="di-kham-sa-sut-tri-tue" element={<Navigate to="/news/dua-nguoi-gia-sa-sut-tri-tue-di-kham" replace />} />
+        
         <Route path="san-pham" element={<Products />} />
         <Route path="san-pham/bang-luon-day-beo" element={<ProductDetail />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
@@ -169,6 +256,16 @@ function App() {
         <Route path="song-tu-tin/:id" element={<NewsDetail />} />
         <Route path="cham-soc-nguoi-cao-tuoi" element={<News />} />
         <Route path="cham-soc-nguoi-cao-tuoi/:id" element={<NewsDetail />} />
+        <Route path="tieu-son" element={<News />} />
+        <Route path="tieu-son/:id" element={<NewsDetail />} />
+        <Route path="son-tieu" element={<News />} />
+        <Route path="son-tieu/:id" element={<NewsDetail />} />
+        <Route path="dong-hanh-di-kham" element={<News />} />
+        <Route path="dong-hanh-di-kham/:id" element={<NewsDetail />} />
+        <Route path="dong-hanh-kham-benh" element={<News />} />
+        <Route path="dong-hanh-kham-benh/:id" element={<NewsDetail />} />
+        <Route path="kien-thuc" element={<News />} />
+        <Route path="kien-thuc/:id" element={<NewsDetail />} />
         <Route path="recruitment" element={<Recruitment />} />
         <Route path="hop-tac" element={<Recruitment />} />
         <Route path="lien-he" element={<Recruitment />} />

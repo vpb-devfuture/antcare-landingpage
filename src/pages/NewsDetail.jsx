@@ -54,11 +54,21 @@ const NewsDetail = () => {
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`blog/${id}`)) ||
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`news/${id}`)) ||
       (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`tin-tuc/${id}`)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`tieu-son/${id}`)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`son-tieu/${id}`)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`dong-hanh-di-kham/${id}`)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`dong-hanh-kham-benh/${id}`)) ||
+      (Array.isArray(item.oldSlugs) && item.oldSlugs.includes(`kien-thuc/${id}`)) ||
       item.slug === `song-tu-tin/${id}` ||
       item.slug === `cham-soc-nguoi-cao-tuoi/${id}` ||
       item.slug === `blog/${id}` ||
       item.slug === `news/${id}` ||
-      item.slug === `tin-tuc/${id}`
+      item.slug === `tin-tuc/${id}` ||
+      item.slug === `tieu-son/${id}` ||
+      item.slug === `son-tieu/${id}` ||
+      item.slug === `dong-hanh-di-kham/${id}` ||
+      item.slug === `dong-hanh-kham-benh/${id}` ||
+      item.slug === `kien-thuc/${id}`
     );
   };
 
@@ -195,10 +205,11 @@ const NewsDetail = () => {
       if (!target) return;
       const href = target.getAttribute('href');
 
-      if (href && href.startsWith('/')) {
+      if (href && (href.startsWith('/') || href.startsWith('https://antcare.vn') || href.startsWith('http://antcare.vn'))) {
         e.preventDefault();
-        navigate(href);
-        const hash = href.split('#')[1];
+        const localPath = href.replace(/^https?:\/\/antcare\.vn/, '') || '/';
+        navigate(localPath);
+        const hash = localPath.split('#')[1];
         if (hash) {
           setTimeout(() => {
             const el = document.getElementById(hash);

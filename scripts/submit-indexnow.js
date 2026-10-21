@@ -48,6 +48,7 @@ function getCurrentSiteData() {
     '/privacy-policy',
     '/terms-of-use',
     '/ve-antcare',
+    '/tieu-son',
     '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi'
   ];
 

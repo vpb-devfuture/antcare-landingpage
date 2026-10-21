@@ -728,6 +728,36 @@ export function runPrerender() {
       title: 'Tin tức & Y tế | ANTCARE – Kiến chăm tổ',
       desc: 'Tin tức y tế, bài viết chia sẻ kiến thức chăm sóc sức khỏe tuổi già và đồng hành người cao tuổi từ ANTCARE – Kiến chăm tổ.',
       h1: 'Tin tức y tế & Chăm sóc người cao tuổi'
+    },
+    {
+      path: '/tieu-son',
+      title: 'Tiểu són & Rối loạn sàn chậu: Nguyên nhân, cách xử lý & chăm sóc | ANTCARE',
+      desc: 'Chuyên mục kiến thức toàn diện về són tiểu, rỉ tiểu sau sinh, tuổi mãn kinh và người cao tuổi. Bài tập Kegel, cách chọn và sử dụng quần chống són thấm hút từ ANTCARE.',
+      h1: 'Kiến thức về Són tiểu & Giải pháp chăm sóc'
+    },
+    {
+      path: '/son-tieu',
+      title: 'Tiểu són & Rối loạn sàn chậu: Nguyên nhân, cách xử lý & chăm sóc | ANTCARE',
+      desc: 'Chuyên mục kiến thức toàn diện về són tiểu, rỉ tiểu sau sinh, tuổi mãn kinh và người cao tuổi. Bài tập Kegel, cách chọn và sử dụng quần chống són thấm hút từ ANTCARE.',
+      h1: 'Kiến thức về Són tiểu & Giải pháp chăm sóc'
+    },
+    {
+      path: '/dong-hanh-di-kham',
+      title: 'Dịch vụ đồng hành đi khám cho người cao tuổi: cẩm nang cho gia đình | ANTCARE',
+      desc: '10 bài cẩm nang về dịch vụ đồng hành đi khám, đưa bố mẹ đi khám khi con bận hoặc ở xa: chuẩn bị giấy tờ, thủ tục BHYT, quy trình khám, chi phí và cách chọn dịch vụ uy tín.',
+      h1: 'Cẩm nang Đồng hành đi khám cho người cao tuổi'
+    },
+    {
+      path: '/dong-hanh-kham-benh',
+      title: 'Dịch vụ đồng hành đi khám cho người cao tuổi: cẩm nang cho gia đình | ANTCARE',
+      desc: '10 bài cẩm nang về dịch vụ đồng hành đi khám, đưa bố mẹ đi khám khi con bận hoặc ở xa: chuẩn bị giấy tờ, thủ tục BHYT, quy trình khám, chi phí và cách chọn dịch vụ uy tín.',
+      h1: 'Cẩm nang Đồng hành đi khám cho người cao tuổi'
+    },
+    {
+      path: '/cham-soc-nguoi-cao-tuoi',
+      title: 'Chăm sóc người cao tuổi tại Hà Nội: Trợ lý Sức khỏe & Đồng hành đi khám | ANTCARE',
+      desc: '15 bài cẩm nang chăm sóc người cao tuổi tại Hà Nội: trợ lý sức khỏe bán thời gian, theo dõi huyết áp, quản lý thuốc, phòng té ngã, sau xuất viện và đưa bố mẹ đi khám.',
+      h1: 'Chăm sóc sức khỏe người cao tuổi tại Hà Nội'
     }
   ];
 
@@ -1058,7 +1088,82 @@ export function runPrerender() {
     { source: '/quan-lot-mo-hong-khuy-bam', target: '/news/quan-lot-mo-hong-khuy-bam' },
     { source: '/quan-lot-bao-ve-hong', target: '/news/quan-lot-bao-ve-hong' },
     { source: '/quan-lot-cho-nguoi-sa-sut-tri-nho', target: '/news/quan-lot-cho-nguoi-sa-sut-tri-nho' },
-    { source: '/quan-lot-tham-qua-dem-tam-lot-giuong', target: '/news/quan-lot-tham-qua-dem-tam-lot-giuong' }
+    { source: '/quan-lot-tham-qua-dem-tam-lot-giuong', target: '/news/quan-lot-tham-qua-dem-tam-lot-giuong' },
+
+    // Batch 4 - 10 Bai viet Son tieu (Oct 19)
+    { source: '/son-tieu-la-gi', target: '/news/son-tieu-la-gi' },
+    { source: '/son-tieu-sau-sinh', target: '/news/son-tieu-sau-sinh' },
+    { source: '/son-tieu-tuoi-man-kinh', target: '/news/son-tieu-tuoi-man-kinh' },
+    { source: '/son-tieu-nguoi-cao-tuoi', target: '/news/son-tieu-nguoi-cao-tuoi' },
+    { source: '/son-tieu-co-nen-dung-bang-ve-sinh', target: '/news/son-tieu-co-nen-dung-bang-ve-sinh' },
+    { source: '/quan-chong-son-tieu-la-gi', target: '/news/quan-chong-son-tieu-la-gi' },
+    { source: '/so-sanh-giai-phap-son-tieu', target: '/news/so-sanh-giai-phap-son-tieu' },
+    { source: '/cach-chon-quan-chong-son-tieu', target: '/news/cach-chon-quan-chong-son-tieu' },
+    { source: '/cach-giat-quan-tham-hut', target: '/news/cach-giat-quan-tham-hut' },
+    { source: '/bai-tap-kegel-giam-son-tieu', target: '/news/bai-tap-kegel-giam-son-tieu' },
+    { source: '/khong-nen-dung-bang-ve-sinh', target: '/news/son-tieu-co-nen-dung-bang-ve-sinh' },
+    { source: '/so-sanh-giai-phap', target: '/news/so-sanh-giai-phap-son-tieu' },
+    { source: '/cach-chon-quan', target: '/news/cach-chon-quan-chong-son-tieu' },
+    { source: '/cach-giat-quan', target: '/news/cach-giat-quan-tham-hut' },
+    { source: '/bai-tap-kegel', target: '/news/bai-tap-kegel-giam-son-tieu' },
+
+    // Batch 5 - 10 Bai viet Dong Hanh Di Kham (Oct 20)
+    { source: '/dich-vu-dong-hanh-di-kham-la-gi', target: '/news/dich-vu-dong-hanh-di-kham-la-gi' },
+    { source: '/dua-bo-me-di-kham-khi-con-ban', target: '/news/dua-bo-me-di-kham-khi-con-ban' },
+    { source: '/con-o-xa-cham-bo-me-di-kham', target: '/news/con-o-xa-cham-bo-me-di-kham' },
+    { source: '/chuan-bi-gi-khi-dua-nguoi-gia-di-kham', target: '/news/chuan-bi-gi-khi-dua-nguoi-gia-di-kham' },
+    { source: '/kham-bhyt-nguoi-cao-tuoi', target: '/news/kham-bhyt-nguoi-cao-tuoi' },
+    { source: '/kinh-nghiem-di-kham-benh-vien-lon', target: '/news/kinh-nghiem-di-kham-benh-vien-lon' },
+    { source: '/dua-nguoi-gia-tu-tinh-len-ha-noi-kham', target: '/news/dua-nguoi-gia-tu-tinh-len-ha-noi-kham' },
+    { source: '/gia-dich-vu-dong-hanh-di-kham', target: '/news/gia-dich-vu-dong-hanh-di-kham' },
+    { source: '/chon-dich-vu-dong-hanh-di-kham-uy-tin', target: '/news/chon-dich-vu-dong-hanh-di-kham-uy-tin' },
+    { source: '/tai-kham-dinh-ky-benh-man-tinh', target: '/news/tai-kham-dinh-ky-benh-man-tinh' },
+    { source: '/dong-hanh-di-kham-la-gi', target: '/news/dich-vu-dong-hanh-di-kham-la-gi' },
+    { source: '/con-ban-ai-dua-bo-me-di-kham', target: '/news/dua-bo-me-di-kham-khi-con-ban' },
+    { source: '/con-o-xa', target: '/news/con-o-xa-cham-bo-me-di-kham' },
+    { source: '/chuan-bi-gi', target: '/news/chuan-bi-gi-khi-dua-nguoi-gia-di-kham' },
+    { source: '/kham-bhyt', target: '/news/kham-bhyt-nguoi-cao-tuoi' },
+    { source: '/quy-trinh-benh-vien-lon', target: '/news/kinh-nghiem-di-kham-benh-vien-lon' },
+    { source: '/tu-tinh-len-ha-noi', target: '/news/dua-nguoi-gia-tu-tinh-len-ha-noi-kham' },
+    { source: '/bang-gia', target: '/news/gia-dich-vu-dong-hanh-di-kham' },
+    { source: '/chon-dich-vu-uy-tin', target: '/news/chon-dich-vu-dong-hanh-di-kham-uy-tin' },
+    { source: '/tai-kham-dinh-ky', target: '/news/tai-kham-dinh-ky-benh-man-tinh' },
+    { source: '/kien-thuc/dong-hanh-di-kham', target: '/dong-hanh-di-kham' },
+    { source: '/kien-thuc/dong-hanh-kham-benh', target: '/dong-hanh-di-kham' },
+    { source: '/kien-thuc/son-tieu', target: '/son-tieu' },
+    { source: '/kien-thuc/tieu-son', target: '/tieu-son' },
+
+    // Batch 6 - 15 Bai viet Cham soc nguoi cao tuoi Ha Noi (Oct 21)
+    { source: '/dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi', target: '/news/dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi' },
+    { source: '/tro-ly-suc-khoe-nguoi-cao-tuoi', target: '/news/tro-ly-suc-khoe-nguoi-cao-tuoi' },
+    { source: '/gia-cham-soc-nguoi-gia-tai-nha-ha-noi', target: '/news/gia-cham-soc-nguoi-gia-tai-nha-ha-noi' },
+    { source: '/bo-me-song-mot-minh-ha-noi', target: '/news/bo-me-song-mot-minh-ha-noi' },
+    { source: '/theo-doi-huyet-ap-duong-huyet-tai-nha', target: '/news/theo-doi-huyet-ap-duong-huyet-tai-nha' },
+    { source: '/quan-ly-thuoc-nguoi-cao-tuoi', target: '/news/quan-ly-thuoc-nguoi-cao-tuoi' },
+    { source: '/phong-nga-nguoi-cao-tuoi-tai-nha', target: '/news/phong-nga-nguoi-cao-tuoi-tai-nha' },
+    { source: '/cham-soc-nguoi-gia-sau-xuat-vien', target: '/news/cham-soc-nguoi-gia-sau-xuat-vien' },
+    { source: '/dau-hieu-bo-me-can-cham-soc', target: '/news/dau-hieu-bo-me-can-cham-soc' },
+    { source: '/chon-dich-vu-cham-soc-nguoi-cao-tuoi-uy-tin-ha-noi', target: '/news/chon-dich-vu-cham-soc-nguoi-cao-tuoi-uy-tin-ha-noi' },
+    { source: '/dich-vu-dua-nguoi-gia-di-kham-ha-noi', target: '/news/dich-vu-dua-nguoi-gia-di-kham-ha-noi' },
+    { source: '/kham-lao-khoa-ha-noi', target: '/news/kham-lao-khoa-ha-noi' },
+    { source: '/kham-suc-khoe-tong-quat-nguoi-cao-tuoi-ha-noi', target: '/news/kham-suc-khoe-tong-quat-nguoi-cao-tuoi-ha-noi' },
+    { source: '/dua-nguoi-gia-di-noi-soi-gay-me', target: '/news/dua-nguoi-gia-di-noi-soi-gay-me' },
+    { source: '/dua-nguoi-gia-sa-sut-tri-tue-di-kham', target: '/news/dua-nguoi-gia-sa-sut-tri-tue-di-kham' },
+    { source: '/cham-soc-nguoi-cao-tuoi-ha-noi', target: '/news/dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi' },
+    { source: '/tro-ly-suc-khoe-la-gi', target: '/news/tro-ly-suc-khoe-nguoi-cao-tuoi' },
+    { source: '/gia-cham-soc-nguoi-gia-ha-noi', target: '/news/gia-cham-soc-nguoi-gia-tai-nha-ha-noi' },
+    { source: '/bo-me-song-mot-minh', target: '/news/bo-me-song-mot-minh-ha-noi' },
+    { source: '/theo-doi-huyet-ap-duong-huyet', target: '/news/theo-doi-huyet-ap-duong-huyet-tai-nha' },
+    { source: '/quan-ly-thuoc', target: '/news/quan-ly-thuoc-nguoi-cao-tuoi' },
+    { source: '/phong-te-nga', target: '/news/phong-nga-nguoi-cao-tuoi-tai-nha' },
+    { source: '/cham-soc-sau-xuat-vien', target: '/news/cham-soc-nguoi-gia-sau-xuat-vien' },
+    { source: '/dau-hieu-can-cham-soc', target: '/news/dau-hieu-bo-me-can-cham-soc' },
+    { source: '/chon-dich-vu-cham-soc-uy-tin', target: '/news/chon-dich-vu-cham-soc-nguoi-cao-tuoi-uy-tin-ha-noi' },
+    { source: '/dua-nguoi-gia-di-kham-ha-noi', target: '/news/dich-vu-dua-nguoi-gia-di-kham-ha-noi' },
+    { source: '/kham-tong-quat-nguoi-cao-tuoi', target: '/news/kham-suc-khoe-tong-quat-nguoi-cao-tuoi-ha-noi' },
+    { source: '/noi-soi-thu-thuat', target: '/news/dua-nguoi-gia-di-noi-soi-gay-me' },
+    { source: '/di-kham-sa-sut-tri-tue', target: '/news/dua-nguoi-gia-sa-sut-tri-tue-di-kham' },
+    { source: '/kien-thuc/cham-soc-nguoi-cao-tuoi-ha-noi', target: '/cham-soc-nguoi-cao-tuoi' }
   ];
 
   staticRedirects.forEach(({ source, target }) => {

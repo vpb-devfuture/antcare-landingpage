@@ -494,3 +494,161 @@ article.a table td,
   color: var(--teal) !important;
 }
 
+/* Son Tieu & Dong Hanh Di Kham Article Custom Styles */
+.article-son-tieu h2,
+.article-dong-hanh-di-kham h2 {
+  color: #6633B4;
+  font-size: 1.5rem;
+  line-height: 1.35;
+  margin: 1.6em 0 0.5em;
+  font-weight: 700;
+}
+
+.article-son-tieu h3,
+.article-dong-hanh-di-kham h3 {
+  color: #1f1a2b;
+  font-size: 1.2rem;
+  margin: 1.5em 0 0.4em;
+  font-weight: 700;
+}
+
+.article-son-tieu .meta,
+.article-dong-hanh-di-kham .meta {
+  color: #5b5568;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+}
+
+.article-son-tieu .answer,
+.article-dong-hanh-di-kham .answer {
+  background: #f6f1fc;
+  border-left: 5px solid #6633B4;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin: 18px 0;
+  line-height: 1.7;
+}
+
+.article-son-tieu .answer strong:first-child,
+.article-dong-hanh-di-kham .answer strong:first-child {
+  color: #6633B4;
+}
+
+.article-son-tieu table,
+.article-dong-hanh-di-kham table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 0.95rem;
+  border: 1px solid #e6dff2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.article-son-tieu th,
+.article-dong-hanh-di-kham th,
+.article-son-tieu td,
+.article-dong-hanh-di-kham td {
+  border: 1px solid #e6dff2;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-son-tieu th,
+.article-dong-hanh-di-kham th {
+  background: #6633B4;
+  color: #fff;
+  font-weight: 700;
+}
+
+.article-son-tieu tr:nth-child(even) td,
+.article-dong-hanh-di-kham tr:nth-child(even) td {
+  background: #faf8fd;
+}
+
+.article-son-tieu .cta,
+.article-dong-hanh-di-kham .cta {
+  background: linear-gradient(135deg, #6633B4, #4e2590);
+  color: #fff !important;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  box-shadow: 0 4px 16px rgba(102, 51, 180, 0.2);
+}
+
+.article-son-tieu .cta h4,
+.article-dong-hanh-di-kham .cta h4 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.article-son-tieu .cta p,
+.article-dong-hanh-di-kham .cta p {
+  color: #f3effa;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.article-son-tieu .cta .btn,
+.article-dong-hanh-di-kham .cta .btn {
+  display: inline-block;
+  background: #FD711A;
+  color: #fff !important;
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 999px;
+  margin: 8px 10px 0 0;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(253, 113, 26, 0.35);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.article-son-tieu .cta .btn:hover,
+.article-dong-hanh-di-kham .cta .btn:hover {
+  background: #ea5e07;
+  transform: translateY(-1px);
+}
+
+.article-son-tieu dl.faq,
+.article-dong-hanh-di-kham dl.faq {
+  margin: 20px 0;
+  background: #faf8fd;
+  border: 1px solid #e6dff2;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.article-son-tieu dl.faq dt,
+.article-dong-hanh-di-kham dl.faq dt {
+  font-weight: 700;
+  color: #6633B4;
+  margin-top: 12px;
+  font-size: 1.02rem;
+}
+
+.article-son-tieu dl.faq dt:first-child,
+.article-dong-hanh-di-kham dl.faq dt:first-child {
+  margin-top: 0;
+}
+
+.article-son-tieu dl.faq dd,
+.article-dong-hanh-di-kham dl.faq dd {
+  margin: 4px 0 12px;
+  color: #374151;
+  line-height: 1.65;
+}
+
+.article-son-tieu .note,
+.article-dong-hanh-di-kham .note {
+  font-size: 0.85rem;
+  color: #5b5568;
+  border-top: 1px dashed #e6dff2;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-style: italic;
+}
+
+

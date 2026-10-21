@@ -16,6 +16,10 @@ export const getCategoryLabel = (cat, isEn) => {
   if (!isEn) return cat;
   const map = {
     'Tất cả': 'All',
+    'Đồng hành đi khám': 'Medical Escort',
+    'Tiểu són': 'Urinary Incontinence',
+    'Sống tự tin': 'Live with Confidence',
+    'Chăm sóc người cao tuổi': 'Elderly Care',
     'An toàn nhà ở': 'Home Safety',
     'An toàn tại nhà': 'Home Safety',
     'Tri ân khách hàng': 'Customer Appreciation',

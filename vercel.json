@@ -121,6 +121,276 @@
       "permanent": true
     },
     {
+      "source": "/son-tieu-la-gi",
+      "destination": "/news/son-tieu-la-gi",
+      "permanent": true
+    },
+    {
+      "source": "/son-tieu-sau-sinh",
+      "destination": "/news/son-tieu-sau-sinh",
+      "permanent": true
+    },
+    {
+      "source": "/son-tieu-tuoi-man-kinh",
+      "destination": "/news/son-tieu-tuoi-man-kinh",
+      "permanent": true
+    },
+    {
+      "source": "/son-tieu-nguoi-cao-tuoi",
+      "destination": "/news/son-tieu-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/son-tieu-co-nen-dung-bang-ve-sinh",
+      "destination": "/news/son-tieu-co-nen-dung-bang-ve-sinh",
+      "permanent": true
+    },
+    {
+      "source": "/quan-chong-son-tieu-la-gi",
+      "destination": "/news/quan-chong-son-tieu-la-gi",
+      "permanent": true
+    },
+    {
+      "source": "/so-sanh-giai-phap-son-tieu",
+      "destination": "/news/so-sanh-giai-phap-son-tieu",
+      "permanent": true
+    },
+    {
+      "source": "/cach-chon-quan-chong-son-tieu",
+      "destination": "/news/cach-chon-quan-chong-son-tieu",
+      "permanent": true
+    },
+    {
+      "source": "/cach-giat-quan-tham-hut",
+      "destination": "/news/cach-giat-quan-tham-hut",
+      "permanent": true
+    },
+    {
+      "source": "/bai-tap-kegel-giam-son-tieu",
+      "destination": "/news/bai-tap-kegel-giam-son-tieu",
+      "permanent": true
+    },
+    {
+      "source": "/dich-vu-dong-hanh-di-kham-la-gi",
+      "destination": "/news/dich-vu-dong-hanh-di-kham-la-gi",
+      "permanent": true
+    },
+    {
+      "source": "/dua-bo-me-di-kham-khi-con-ban",
+      "destination": "/news/dua-bo-me-di-kham-khi-con-ban",
+      "permanent": true
+    },
+    {
+      "source": "/con-o-xa-cham-bo-me-di-kham",
+      "destination": "/news/con-o-xa-cham-bo-me-di-kham",
+      "permanent": true
+    },
+    {
+      "source": "/chuan-bi-gi-khi-dua-nguoi-gia-di-kham",
+      "destination": "/news/chuan-bi-gi-khi-dua-nguoi-gia-di-kham",
+      "permanent": true
+    },
+    {
+      "source": "/kham-bhyt-nguoi-cao-tuoi",
+      "destination": "/news/kham-bhyt-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/kinh-nghiem-di-kham-benh-vien-lon",
+      "destination": "/news/kinh-nghiem-di-kham-benh-vien-lon",
+      "permanent": true
+    },
+    {
+      "source": "/dua-nguoi-gia-tu-tinh-len-ha-noi-kham",
+      "destination": "/news/dua-nguoi-gia-tu-tinh-len-ha-noi-kham",
+      "permanent": true
+    },
+    {
+      "source": "/gia-dich-vu-dong-hanh-di-kham",
+      "destination": "/news/gia-dich-vu-dong-hanh-di-kham",
+      "permanent": true
+    },
+    {
+      "source": "/chon-dich-vu-dong-hanh-di-kham-uy-tin",
+      "destination": "/news/chon-dich-vu-dong-hanh-di-kham-uy-tin",
+      "permanent": true
+    },
+    {
+      "source": "/tai-kham-dinh-ky-benh-man-tinh",
+      "destination": "/news/tai-kham-dinh-ky-benh-man-tinh",
+      "permanent": true
+    },
+    {
+      "source": "/kien-thuc/dong-hanh-di-kham",
+      "destination": "/dong-hanh-di-kham",
+      "permanent": true
+    },
+    {
+      "source": "/kien-thuc/dong-hanh-kham-benh",
+      "destination": "/dong-hanh-di-kham",
+      "permanent": true
+    },
+    {
+      "source": "/kien-thuc/son-tieu",
+      "destination": "/son-tieu",
+      "permanent": true
+    },
+    {
+      "source": "/kien-thuc/tieu-son",
+      "destination": "/tieu-son",
+      "permanent": true
+    },
+    {
+      "source": "/kien-thuc/cham-soc-nguoi-cao-tuoi-ha-noi",
+      "destination": "/cham-soc-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi",
+      "destination": "/news/dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/tro-ly-suc-khoe-nguoi-cao-tuoi",
+      "destination": "/news/tro-ly-suc-khoe-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/gia-cham-soc-nguoi-gia-tai-nha-ha-noi",
+      "destination": "/news/gia-cham-soc-nguoi-gia-tai-nha-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/bo-me-song-mot-minh-ha-noi",
+      "destination": "/news/bo-me-song-mot-minh-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/theo-doi-huyet-ap-duong-huyet-tai-nha",
+      "destination": "/news/theo-doi-huyet-ap-duong-huyet-tai-nha",
+      "permanent": true
+    },
+    {
+      "source": "/quan-ly-thuoc-nguoi-cao-tuoi",
+      "destination": "/news/quan-ly-thuoc-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/phong-nga-nguoi-cao-tuoi-tai-nha",
+      "destination": "/news/phong-nga-nguoi-cao-tuoi-tai-nha",
+      "permanent": true
+    },
+    {
+      "source": "/cham-soc-nguoi-gia-sau-xuat-vien",
+      "destination": "/news/cham-soc-nguoi-gia-sau-xuat-vien",
+      "permanent": true
+    },
+    {
+      "source": "/dau-hieu-bo-me-can-cham-soc",
+      "destination": "/news/dau-hieu-bo-me-can-cham-soc",
+      "permanent": true
+    },
+    {
+      "source": "/chon-dich-vu-cham-soc-nguoi-cao-tuoi-uy-tin-ha-noi",
+      "destination": "/news/chon-dich-vu-cham-soc-nguoi-cao-tuoi-uy-tin-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/dich-vu-dua-nguoi-gia-di-kham-ha-noi",
+      "destination": "/news/dich-vu-dua-nguoi-gia-di-kham-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/kham-lao-khoa-ha-noi",
+      "destination": "/news/kham-lao-khoa-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/kham-suc-khoe-tong-quat-nguoi-cao-tuoi-ha-noi",
+      "destination": "/news/kham-suc-khoe-tong-quat-nguoi-cao-tuoi-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/dua-nguoi-gia-di-noi-soi-gay-me",
+      "destination": "/news/dua-nguoi-gia-di-noi-soi-gay-me",
+      "permanent": true
+    },
+    {
+      "source": "/dua-nguoi-gia-sa-sut-tri-tue-di-kham",
+      "destination": "/news/dua-nguoi-gia-sa-sut-tri-tue-di-kham",
+      "permanent": true
+    },
+    {
+      "source": "/cham-soc-nguoi-cao-tuoi-ha-noi",
+      "destination": "/news/dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/tro-ly-suc-khoe-la-gi",
+      "destination": "/news/tro-ly-suc-khoe-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/gia-cham-soc-nguoi-gia-ha-noi",
+      "destination": "/news/gia-cham-soc-nguoi-gia-tai-nha-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/bo-me-song-mot-minh",
+      "destination": "/news/bo-me-song-mot-minh-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/theo-doi-huyet-ap-duong-huyet",
+      "destination": "/news/theo-doi-huyet-ap-duong-huyet-tai-nha",
+      "permanent": true
+    },
+    {
+      "source": "/quan-ly-thuoc",
+      "destination": "/news/quan-ly-thuoc-nguoi-cao-tuoi",
+      "permanent": true
+    },
+    {
+      "source": "/phong-te-nga",
+      "destination": "/news/phong-nga-nguoi-cao-tuoi-tai-nha",
+      "permanent": true
+    },
+    {
+      "source": "/cham-soc-sau-xuat-vien",
+      "destination": "/news/cham-soc-nguoi-gia-sau-xuat-vien",
+      "permanent": true
+    },
+    {
+      "source": "/dau-hieu-can-cham-soc",
+      "destination": "/news/dau-hieu-bo-me-can-cham-soc",
+      "permanent": true
+    },
+    {
+      "source": "/chon-dich-vu-cham-soc-uy-tin",
+      "destination": "/news/chon-dich-vu-cham-soc-nguoi-cao-tuoi-uy-tin-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/dua-nguoi-gia-di-kham-ha-noi",
+      "destination": "/news/dich-vu-dua-nguoi-gia-di-kham-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/kham-tong-quat-nguoi-cao-tuoi",
+      "destination": "/news/kham-suc-khoe-tong-quat-nguoi-cao-tuoi-ha-noi",
+      "permanent": true
+    },
+    {
+      "source": "/noi-soi-thu-thuat",
+      "destination": "/news/dua-nguoi-gia-di-noi-soi-gay-me",
+      "permanent": true
+    },
+    {
+      "source": "/di-kham-sa-sut-tri-tue",
+      "destination": "/news/dua-nguoi-gia-sa-sut-tri-tue-di-kham",
+      "permanent": true
+    },
+    {
       "source": "/dich-vu",
       "destination": "/",
       "permanent": true

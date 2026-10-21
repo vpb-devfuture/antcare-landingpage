@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAppTranslation, sortArticlesByDate } from '../utils/i18nHelper';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import newsViData from '../data/news.json';
 import newsEnData from '../data/news.en.json';
 
@@ -40,23 +40,37 @@ const News = () => {
   // Top Right 3 Stacked Cards (3 next newest articles)
   const topRightArticles = allArticles.slice(1, 4);
 
+  const location = useLocation();
+
   // Category filtering for archive list below
   const [selectedCategory, setSelectedCategory] = useState(isEn ? 'All' : 'Tất cả');
 
   useEffect(() => {
-    setSelectedCategory(isEn ? 'All' : 'Tất cả');
+    if (location.pathname.includes('tieu-son') || location.pathname.includes('son-tieu')) {
+      setSelectedCategory('Tiểu són');
+    } else if (location.pathname.includes('dong-hanh-di-kham') || location.pathname.includes('dong-hanh-kham-benh')) {
+      setSelectedCategory('Đồng hành đi khám');
+    } else if (location.pathname.includes('song-tu-tin')) {
+      setSelectedCategory('Sống tự tin');
+    } else if (location.pathname.includes('cham-soc-nguoi-cao-tuoi')) {
+      setSelectedCategory('Chăm sóc người cao tuổi');
+    } else {
+      setSelectedCategory(isEn ? 'All' : 'Tất cả');
+    }
     setCurrentPage(1);
     setActiveSlide(0);
-  }, [isEn]);
+  }, [isEn, location.pathname]);
 
   const categories = isEn
     ? ['All', ...Array.from(new Set(allArticles.map(item => item.category).filter(Boolean)))]
-    : ['Tất cả', 'Sống tự tin', 'Chăm sóc người cao tuổi', 'Chăm sóc sức khỏe', 'An toàn nhà ở', 'Tri ân khách hàng', 'Sữa', 'Tin tức'];
+    : ['Tất cả', 'Đồng hành đi khám', 'Tiểu són', 'Sống tự tin', 'Chăm sóc người cao tuổi', 'Chăm sóc sức khỏe', 'An toàn nhà ở', 'Tri ân khách hàng', 'Sữa', 'Tin tức'];
 
   const getCategoryLabel = (cat) => {
     if (isEn) return cat;
     const map = {
       'Tất cả': 'All',
+      'Đồng hành đi khám': 'Medical Escort',
+      'Tiểu són': 'Urinary Incontinence',
       'Sống tự tin': 'Live with Confidence',
       'Chăm sóc người cao tuổi': 'Elderly Care',
       'An toàn nhà ở': 'Home Safety',
