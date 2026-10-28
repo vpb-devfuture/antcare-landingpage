@@ -1,9 +1,69 @@
 {
   "enabled": true,
-  "badge": "Tết Trung Thu Đoàn Viên",
-  "highlightText": "Giảm giá dịch vụ chỉ từ 299k/buổi",
-  "fullText": "Vui Tết Trung Thu Đoàn Viên — Ưu đãi đặc biệt dịch vụ chăm sóc người cao tuổi tại nhà chỉ từ 299k/buổi. Quà tặng thiệp viết tay & hoa tươi tri ân.",
-  "ctaText": "Đăng ký ngay",
-  "ctaLink": "/activities/tet-trung-thu-2026-mon-qua-cho-bo-me-gia",
-  "speedSeconds": 28
+  "mode": "news",
+  "badge": "Tin tức mới",
+  "badgeEn": "Latest News",
+  "ctaText": "Xem tin tức",
+  "ctaTextEn": "All News",
+  "ctaLink": "/news",
+  "speedSeconds": 108,
+  "items": [
+    {
+      "category": "Bệnh viện Đại học Y",
+      "categoryEn": "Hanoi Medical University",
+      "title": "Kinh nghiệm đi khám Bệnh viện Đại học Y Hà Nội: hiểu đúng 4 khu khám trước khi đi",
+      "titleEn": "Visiting Hanoi Medical University Hospital: Guide to 4 Examination Areas",
+      "link": "/news/kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi"
+    },
+    {
+      "category": "Đồng hành đi khám",
+      "categoryEn": "Medical Escort",
+      "title": "Kinh nghiệm đi khám Bệnh viện Tim Hà Nội: cẩm nang từ đặt lịch đến lấy thuốc",
+      "titleEn": "Guide to Visiting Hanoi Heart Hospital: From Booking to Pharmacy",
+      "link": "/news/kinh-nghiem-di-kham-benh-vien-tim-ha-noi"
+    },
+    {
+      "category": "Bệnh viện Tim Hà Nội",
+      "categoryEn": "Hanoi Heart Hospital",
+      "title": "Bệnh viện Tim Hà Nội cơ sở 2 Võ Chí Công: quy mô 300 giường và lưu ý khi khám",
+      "titleEn": "Hanoi Heart Hospital Facility 2 Vo Chi Cong: 300 Beds & Visitor Guide",
+      "link": "/news/benh-vien-tim-ha-noi-co-so-2-vo-chi-cong"
+    },
+    {
+      "category": "Chăm sóc người cao tuổi",
+      "categoryEn": "Elderly Care",
+      "title": "Dịch vụ chăm sóc người cao tuổi tại Hà Nội: 5 hình thức phổ biến và cách chọn đúng",
+      "titleEn": "Elderly Care Services in Hanoi: 5 Popular Forms & How to Choose",
+      "link": "/news/dich-vu-cham-soc-nguoi-cao-tuoi-tai-ha-noi"
+    },
+    {
+      "category": "Tư vấn chăm sóc",
+      "categoryEn": "Care Consultation",
+      "title": "Chăm sóc tại nhà, viện dưỡng lão hay daycare? So sánh chi tiết cho gia đình",
+      "titleEn": "Home Care, Nursing Home or Daycare? Detailed Comparison for Families",
+      "link": "/news/so-sanh-cham-soc-tai-nha-vien-duong-lao-daycare"
+    },
+    {
+      "category": "Trợ lý sức khỏe",
+      "categoryEn": "Health Assistant",
+      "title": "Trợ lý sức khỏe cho người cao tuổi là gì? Dịch vụ chăm sóc bán thời gian tại nhà",
+      "titleEn": "What is a Senior Health Assistant? Part-time Home Care Service",
+      "link": "/news/tro-ly-suc-khoe-nguoi-cao-tuoi"
+    },
+    {
+      "category": "Chăm sóc người cao tuổi",
+      "categoryEn": "Elderly Care",
+      "title": "Bố mẹ cao tuổi sống một mình ở Hà Nội: con cái nên làm gì để an tâm?",
+      "titleEn": "Elderly Parents Living Alone in Hanoi: What Should Adult Children Do?",
+      "link": "/news/bo-me-song-mot-minh-ha-noi"
+    },
+    {
+      "category": "Cẩm nang an toàn",
+      "categoryEn": "Safety Guide",
+      "title": "Phòng ngừa té ngã cho người cao tuổi tại nhà: checklist từng phòng và xử lý khi ngã",
+      "titleEn": "Fall Prevention for Seniors at Home: Room Checklist & Emergency Response",
+      "link": "/news/phong-nga-nguoi-cao-tuoi-tai-nha"
+    }
+  ]
 }
+

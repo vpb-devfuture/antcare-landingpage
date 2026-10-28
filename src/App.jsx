@@ -240,6 +240,57 @@ function App() {
         <Route path="noi-soi-thu-thuat" element={<Navigate to="/news/dua-nguoi-gia-di-noi-soi-gay-me" replace />} />
         <Route path="di-kham-sa-sut-tri-tue" element={<Navigate to="/news/dua-nguoi-gia-sa-sut-tri-tue-di-kham" replace />} />
         
+        {/* 301 Redirects for 10 Benh Vien Tim Ha Noi articles root URLs to /news/<slug> */}
+        <Route path="kinh-nghiem-di-kham-benh-vien-tim-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-tim-ha-noi" replace />} />
+        <Route path="benh-vien-tim-ha-noi-co-so-2-vo-chi-cong" element={<Navigate to="/news/benh-vien-tim-ha-noi-co-so-2-vo-chi-cong" replace />} />
+        <Route path="dat-lich-kham-benh-vien-tim-ha-noi" element={<Navigate to="/news/dat-lich-kham-benh-vien-tim-ha-noi" replace />} />
+        <Route path="quy-trinh-kham-benh-vien-tim-ha-noi" element={<Navigate to="/news/quy-trinh-kham-benh-vien-tim-ha-noi" replace />} />
+        <Route path="benh-vien-tim-ha-noi-dong-meo-tranh-cho-lau" element={<Navigate to="/news/benh-vien-tim-ha-noi-dong-meo-tranh-cho-lau" replace />} />
+        <Route path="kham-tim-co-can-nhin-an-khong" element={<Navigate to="/news/kham-tim-co-can-nhin-an-khong" replace />} />
+        <Route path="kham-tim-can-mang-giay-to-ho-so-gi" element={<Navigate to="/news/kham-tim-can-mang-giay-to-ho-so-gi" replace />} />
+        <Route path="kham-bhyt-benh-vien-tim-ha-noi" element={<Navigate to="/news/kham-bhyt-benh-vien-tim-ha-noi" replace />} />
+        <Route path="dua-nguoi-cao-tuoi-di-kham-tim-mach" element={<Navigate to="/news/dua-nguoi-cao-tuoi-di-kham-tim-mach" replace />} />
+        <Route path="dich-vu-dua-di-kham-benh-vien-tim-ha-noi" element={<Navigate to="/news/dich-vu-dua-di-kham-benh-vien-tim-ha-noi" replace />} />
+
+        {/* Short hash aliases for Benh Vien Tim Ha Noi */}
+        <Route path="cam-nang-kham-benh-vien-tim-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-tim-ha-noi" replace />} />
+        <Route path="benh-vien-tim-co-so-2-vo-chi-cong" element={<Navigate to="/news/benh-vien-tim-ha-noi-co-so-2-vo-chi-cong" replace />} />
+        <Route path="dat-lich-kham-benh-vien-tim" element={<Navigate to="/news/dat-lich-kham-benh-vien-tim-ha-noi" replace />} />
+        <Route path="quy-trinh-kham-benh-vien-tim" element={<Navigate to="/news/quy-trinh-kham-benh-vien-tim-ha-noi" replace />} />
+        <Route path="benh-vien-tim-dong-meo-tranh-cho" element={<Navigate to="/news/benh-vien-tim-ha-noi-dong-meo-tranh-cho-lau" replace />} />
+        <Route path="nhin-an-truoc-khi-kham-tim" element={<Navigate to="/news/kham-tim-co-can-nhin-an-khong" replace />} />
+        <Route path="ho-so-thuoc-mang-theo-kham-tim" element={<Navigate to="/news/kham-tim-can-mang-giay-to-ho-so-gi" replace />} />
+        <Route path="kham-bhyt-benh-vien-tim" element={<Navigate to="/news/kham-bhyt-benh-vien-tim-ha-noi" replace />} />
+        <Route path="dua-nguoi-cao-tuoi-kham-tim" element={<Navigate to="/news/dua-nguoi-cao-tuoi-di-kham-tim-mach" replace />} />
+        <Route path="dich-vu-di-kham-benh-vien-tim-antcare" element={<Navigate to="/news/dich-vu-dua-di-kham-benh-vien-tim-ha-noi" replace />} />
+        <Route path="kien-thuc/kham-benh-vien-tim-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-tim-ha-noi" replace />} />
+        
+        {/* 301 Redirects for 10 Benh Vien Dai Hoc Y Ha Noi articles root URLs to /news/<slug> */}
+        <Route path="kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="4-khu-kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/4-khu-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="kham-bhyt-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/kham-bhyt-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="kham-theo-yeu-cau-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/kham-theo-yeu-cau-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="trung-tam-y-khoa-so-1-ton-that-tung" element={<Navigate to="/news/trung-tam-y-khoa-so-1-ton-that-tung" replace />} />
+        <Route path="kham-suc-khoe-doanh-nghiep-dai-hoc-y-ha-noi" element={<Navigate to="/news/kham-suc-khoe-doanh-nghiep-dai-hoc-y-ha-noi" replace />} />
+        <Route path="dat-lich-kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/dat-lich-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="luu-y-khi-di-kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/luu-y-khi-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="dua-nguoi-cao-tuoi-di-kham-dai-hoc-y-ha-noi" element={<Navigate to="/news/dua-nguoi-cao-tuoi-di-kham-dai-hoc-y-ha-noi" replace />} />
+        <Route path="dich-vu-dong-hanh-kham-benh-dai-hoc-y-ha-noi" element={<Navigate to="/news/dich-vu-dong-hanh-kham-benh-dai-hoc-y-ha-noi" replace />} />
+
+        {/* Short hash aliases for Benh Vien Dai Hoc Y Ha Noi */}
+        <Route path="kinh-nghiem-kham-dai-hoc-y" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="4-khu-kham-dai-hoc-y" element={<Navigate to="/news/4-khu-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="khoa-kham-benh-a2" element={<Navigate to="/news/kham-bhyt-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="kham-theo-yeu-cau-a2" element={<Navigate to="/news/kham-theo-yeu-cau-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="trung-tam-y-khoa-so-1" element={<Navigate to="/news/trung-tam-y-khoa-so-1-ton-that-tung" replace />} />
+        <Route path="kham-suc-khoe-doanh-nghiep" element={<Navigate to="/news/kham-suc-khoe-doanh-nghiep-dai-hoc-y-ha-noi" replace />} />
+        <Route path="dat-lich-dai-hoc-y" element={<Navigate to="/news/dat-lich-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="luu-y-kham-dai-hoc-y" element={<Navigate to="/news/luu-y-khi-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="nguoi-cao-tuoi-kham-dai-hoc-y" element={<Navigate to="/news/dua-nguoi-cao-tuoi-di-kham-dai-hoc-y-ha-noi" replace />} />
+        <Route path="dich-vu-dong-hanh-dai-hoc-y" element={<Navigate to="/news/dich-vu-dong-hanh-kham-benh-dai-hoc-y-ha-noi" replace />} />
+        <Route path="kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        <Route path="kien-thuc/kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
+        
         <Route path="san-pham" element={<Products />} />
         <Route path="san-pham/bang-luon-day-beo" element={<ProductDetail />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
