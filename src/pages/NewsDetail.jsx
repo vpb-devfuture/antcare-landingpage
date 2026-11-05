@@ -305,11 +305,11 @@ const NewsDetail = () => {
           {/* Top navigation row: Left-aligned with bold text */}
           <div className="w-full flex items-center justify-start gap-3 mb-4">
             <Link 
-              to="/news" 
+              to={(location.pathname.startsWith('/kinh-nguyet') || location.pathname.startsWith('/kinhnguyet') || location.pathname.startsWith('/cam-nang')) ? '/kinh-nguyet' : '/news'} 
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-plum-deep hover:text-earth-orange-bright transition-colors group"
             >
               <span className="material-symbols-outlined text-lg group-hover:-translate-x-0.5 transition-transform font-bold">arrow_back</span>
-              <span>{isCurrentArticleEn ? "Back to Articles" : tr("Trở về Tin tức", "Back to News")}</span>
+              <span>{isCurrentArticleEn ? "Back to Articles" : ((location.pathname.startsWith('/kinh-nguyet') || location.pathname.startsWith('/kinhnguyet') || location.pathname.startsWith('/cam-nang')) ? "Trở về Cẩm nang" : "Trở về Tin tức")}</span>
             </Link>
             <span className="text-surface-lavender">•</span>
             <span className="px-3 py-0.5 rounded-full bg-earth-orange-bright/10 text-earth-orange-bright font-bold text-xs">

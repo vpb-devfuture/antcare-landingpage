@@ -12,14 +12,16 @@ const News = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Sort list articles descending by date (newest first)
+  // Sort list articles descending by date (newest first, pinned on top)
   const sortedList = sortArticlesByDate(currentNewsData.list || []);
 
-  // allArticles sorted strictly by date (newest first)
-  const allArticles = sortArticlesByDate([
-    ...(currentNewsData.featured ? [currentNewsData.featured] : []),
-    ...sortedList.filter(item => item.id !== currentNewsData.featured?.id)
-  ]);
+  // Ensure pinned / featured article is always at the very top (index 0)
+  const featuredArticle = currentNewsData.featured || sortedList.find(item => item.isPinned) || sortedList[0];
+  const remainingList = sortedList.filter(item => item.id !== featuredArticle?.id && item.slug !== featuredArticle?.slug);
+
+  const allArticles = featuredArticle 
+    ? [featuredArticle, ...remainingList]
+    : sortedList;
 
   // Carousel articles for top left hero banner (Default slide 0 is fixed featured article)
   const carouselArticles = allArticles.slice(0, 4);
@@ -61,14 +63,19 @@ const News = () => {
     setActiveSlide(0);
   }, [isEn, location.pathname]);
 
+  const basePrefix = (location.pathname.startsWith('/kinh-nguyet') || location.pathname.startsWith('/kinhnguyet') || location.pathname.startsWith('/cam-nang')) 
+    ? '/kinh-nguyet' 
+    : '/news';
+
   const categories = isEn
     ? ['All', ...Array.from(new Set(allArticles.map(item => item.category).filter(Boolean)))]
-    : ['Tất cả', 'Đồng hành đi khám', 'Tiểu són', 'Sống tự tin', 'Chăm sóc người cao tuổi', 'Chăm sóc sức khỏe', 'An toàn nhà ở', 'Tri ân khách hàng', 'Sữa', 'Tin tức'];
+    : ['Tất cả', ...Array.from(new Set(allArticles.map(item => item.category).filter(Boolean)))];
 
   const getCategoryLabel = (cat) => {
     if (isEn) return cat;
     const map = {
       'Tất cả': 'All',
+      'Cẩm nang': 'Care Guide',
       'Đồng hành đi khám': 'Medical Escort',
       'Tiểu són': 'Urinary Incontinence',
       'Sống tự tin': 'Live with Confidence',
@@ -114,12 +121,12 @@ const News = () => {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-10 lg:px-12">
         
         {/* TOP HERO SECTION: Left Big Banner + Right 3 Stacked Cards (Clean White Theme) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch mb-10 md:mb-14">
+        <div className={`grid grid-cols-1 ${topRightArticles.length > 0 ? 'lg:grid-cols-12' : ''} gap-5 sm:gap-6 items-stretch mb-10 md:mb-14`}>
           
-          {/* Left Large Hero Banner (7 Columns - Title Overlayed Directly on Image) */}
-          <div className="lg:col-span-7 relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-md transition-all group aspect-[16/9] sm:aspect-[1.9/1] bg-slate-900 flex flex-col justify-end">
+          {/* Left Large Hero Banner */}
+          <div className={`${topRightArticles.length > 0 ? 'lg:col-span-7 aspect-[16/9] sm:aspect-[1.9/1]' : 'w-full aspect-[16/9] sm:aspect-[2.2/1]'} relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xs hover:shadow-md transition-all group bg-slate-900 flex flex-col justify-end`}>
             <Link 
-              to={`/news/${currentHeroArticle.slug || currentHeroArticle.id}`} 
+              to={`${basePrefix}/${currentHeroArticle.slug || currentHeroArticle.id}`} 
               className="absolute inset-0 z-10 cursor-pointer block"
               aria-label={currentHeroArticle.title}
             >
@@ -132,72 +139,86 @@ const News = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
             </Link>
 
-            {/* Left Carousel Arrow Button */}
-            <button 
-              onClick={handlePrevSlide}
-              aria-label="Previous slide"
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 bg-black/40 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all shadow-md active:scale-95 cursor-pointer border border-white/20"
-            >
-              <span className="material-symbols-outlined text-xl">chevron_left</span>
-            </button>
+            {/* Carousel Arrow Buttons & Indicators (only if > 1 article in carousel) */}
+            {carouselArticles.length > 1 && (
+              <>
+                <button 
+                  onClick={handlePrevSlide}
+                  aria-label="Previous slide"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 bg-black/40 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all shadow-md active:scale-95 cursor-pointer border border-white/20"
+                >
+                  <span className="material-symbols-outlined text-xl">chevron_left</span>
+                </button>
 
-            {/* Right Carousel Arrow Button */}
-            <button 
-              onClick={handleNextSlide}
-              aria-label="Next slide"
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 bg-black/40 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all shadow-md active:scale-95 cursor-pointer border border-white/20"
-            >
-              <span className="material-symbols-outlined text-xl">chevron_right</span>
-            </button>
+                <button 
+                  onClick={handleNextSlide}
+                  aria-label="Next slide"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 bg-black/40 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all shadow-md active:scale-95 cursor-pointer border border-white/20"
+                >
+                  <span className="material-symbols-outlined text-xl">chevron_right</span>
+                </button>
 
-            {/* Slide indicators top right */}
-            <div className="absolute top-3 right-3 z-30 flex gap-1.5 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
-              {carouselArticles.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveSlide(idx); }}
-                  className={`h-1.5 rounded-full transition-all cursor-pointer ${idx === activeSlide ? 'w-5 bg-earth-orange-bright' : 'w-1.5 bg-white/60 hover:bg-white'}`}
-                />
-              ))}
-            </div>
+                <div className="absolute top-3 right-3 z-30 flex gap-1.5 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+                  {carouselArticles.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); setActiveSlide(idx); }}
+                      className={`h-1.5 rounded-full transition-all cursor-pointer ${idx === activeSlide ? 'w-5 bg-earth-orange-bright' : 'w-1.5 bg-white/60 hover:bg-white'}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
 
-            {/* Title Overlay Directly on Image (No date, no category tag) */}
+            {/* Title Overlay Directly on Image */}
             <div className="relative z-20 p-4 sm:p-5 md:p-6 pointer-events-none">
-              <Link to={`/news/${currentHeroArticle.slug || currentHeroArticle.id}`} className="block group/link pointer-events-auto">
-                <h1 className="text-base sm:text-lg md:text-xl font-extrabold md:font-black text-white leading-snug line-clamp-2 group-hover/link:text-earth-orange-bright transition-colors drop-shadow-md tracking-tight">
+              <Link to={`${basePrefix}/${currentHeroArticle.slug || currentHeroArticle.id}`} className="block group/link pointer-events-auto">
+                <div className="flex items-center gap-2 mb-2">
+                  {currentHeroArticle.isPinned && (
+                    <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-amber-950 bg-amber-300 px-2.5 py-0.5 rounded-full shadow-xs">
+                      📌 {tr("Đã ghim", "Pinned")}
+                    </span>
+                  )}
+                  <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-white bg-earth-orange-bright px-2.5 py-0.5 rounded-full">
+                    {currentHeroArticle.category || 'Cẩm nang'}
+                  </span>
+                </div>
+                <h1 className="text-base sm:text-lg md:text-2xl font-extrabold md:font-black text-white leading-snug line-clamp-2 group-hover/link:text-earth-orange-bright transition-colors drop-shadow-md tracking-tight">
                   {currentHeroArticle.title}
                 </h1>
               </Link>
             </div>
           </div>
 
-          {/* Right Stacked 3 Cards (5 Columns - Rectangular Images) */}
-          <div className="lg:col-span-5 flex flex-col justify-start gap-3 sm:gap-3.5">
-            {topRightArticles.map((item) => (
-              <Link
-                key={item.id}
-                to={`/news/${item.slug || item.id}`}
-                className="bg-white hover:bg-slate-50/90 border border-slate-200/90 rounded-2xl p-3 sm:p-3.5 flex items-center gap-3 sm:gap-3.5 transition-all duration-300 group shadow-2xs hover:shadow-md"
-              >
-                <div className="w-24 sm:w-28 h-16 sm:h-20 rounded-md overflow-hidden shrink-0 shadow-2xs border border-slate-100">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                  />
-                </div>
-                <div className="flex-1 min-w-0 flex flex-col justify-center">
-                  <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 group-hover:text-earth-orange-bright leading-snug line-clamp-2 mb-1.5 transition-colors">
-                    {item.title}
-                  </h3>
-                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-500 font-medium">
-                    <span className="material-symbols-outlined text-xs text-earth-orange-bright">calendar_today</span>
-                    <span>{item.date}</span>
+          {/* Right Stacked 3 Cards (only if > 0) */}
+          {topRightArticles.length > 0 && (
+            <div className="lg:col-span-5 flex flex-col justify-start gap-3 sm:gap-3.5">
+              {topRightArticles.map((item) => (
+                <Link
+                  key={item.id}
+                  to={`${basePrefix}/${item.slug || item.id}`}
+                  className="bg-white hover:bg-slate-50/90 border border-slate-200/90 rounded-2xl p-3 sm:p-3.5 flex items-center gap-3 sm:gap-3.5 transition-all duration-300 group shadow-2xs hover:shadow-md"
+                >
+                  <div className="w-24 sm:w-28 h-16 sm:h-20 rounded-md overflow-hidden shrink-0 shadow-2xs border border-slate-100">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+                  <div className="flex-1 min-w-0 flex flex-col justify-center">
+                    <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 group-hover:text-earth-orange-bright leading-snug line-clamp-2 mb-1.5 transition-colors">
+                      {item.title}
+                    </h3>
+                    <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-500 font-medium">
+                      <span className="material-symbols-outlined text-xs text-earth-orange-bright">calendar_today</span>
+                      <span>{item.date}</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
 
         </div>
 
@@ -232,15 +253,20 @@ const News = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {paginatedArchive.map((article) => (
               <article key={article.id} className="flex flex-col bg-white rounded-2xl overflow-hidden shadow-2xs hover:shadow-md transition-all group duration-300 border border-slate-200/90">
-                <Link to={`/news/${article.slug || article.id}`} className="h-48 sm:h-52 overflow-hidden block cursor-pointer">
+                <Link to={`${basePrefix}/${article.slug || article.id}`} className="h-48 sm:h-52 overflow-hidden block cursor-pointer">
                   <img src={article.image} alt={article.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </Link>
                 <div className="p-5 flex-grow flex flex-col">
                   <div className="flex items-center gap-2 mb-2.5">
+                    {article.isPinned && (
+                      <span className="text-[10px] font-bold text-amber-800 bg-amber-50 border border-amber-300 px-2 py-0.5 rounded-md flex items-center gap-1 shrink-0">
+                        📌 {tr("Đã ghim", "Pinned")}
+                      </span>
+                    )}
                     <span className="text-[11px] font-bold text-earth-orange-bright uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-earth-orange-bright/10">{getCategoryLabel(article.category)}</span>
                     <span className="text-xs text-on-surface-variant font-medium">{article.date}</span>
                   </div>
-                  <Link to={`/news/${article.slug || article.id}`} className="block cursor-pointer">
+                  <Link to={`${basePrefix}/${article.slug || article.id}`} className="block cursor-pointer">
                     <h3 className="font-extrabold text-base sm:text-[17px] text-plum-deep mb-2.5 group-hover:text-earth-orange-bright transition-colors line-clamp-2 leading-snug tracking-tight">
                       {article.title}
                     </h3>
@@ -248,7 +274,7 @@ const News = () => {
                   <p className="text-on-surface-variant text-xs sm:text-sm line-clamp-2 mb-4 leading-relaxed">
                     {article.description}
                   </p>
-                  <Link className="mt-auto inline-flex items-center gap-1 text-primary font-bold hover:text-earth-orange-bright transition-colors text-xs sm:text-sm" to={`/news/${article.slug || article.id}`}>
+                  <Link className="mt-auto inline-flex items-center gap-1 text-primary font-bold hover:text-earth-orange-bright transition-colors text-xs sm:text-sm" to={`${basePrefix}/${article.slug || article.id}`}>
                     {tr("Đọc thêm", "Read article")} <span className="material-symbols-outlined text-sm">arrow_right_alt</span>
                   </Link>
                 </div>

@@ -652,3 +652,259 @@ article.a table td,
 }
 
 
+
+/* Custom Cẩm Nang & Article components */
+.eyebrow {
+  color: #FD711A;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+nav.toc {
+  background: #f6f1fc;
+  border: 1px solid #e6dff2;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+
+nav.toc strong {
+  color: #6633B4;
+  font-size: 0.95rem;
+}
+
+nav.toc ol {
+  margin: 0.5em 0 0;
+  padding-left: 1.3em;
+}
+
+nav.toc li {
+  margin-bottom: 0.35rem;
+}
+
+nav.toc a {
+  color: #6633B4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav.toc a:hover {
+  color: #FD711A;
+  text-decoration: underline;
+}
+
+.verdict {
+  background: #fff4ec;
+  border-left: 5px solid #FD711A;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin: 18px 0;
+  font-size: 0.98rem;
+  color: #2e1832;
+}
+
+.verdict strong {
+  color: #FD711A;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 16px 0;
+  border-radius: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.pc div {
+  border: 1px solid #e6dff2;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #faf8fd;
+}
+
+.pc h4 {
+  margin: 0.2em 0 0.5em;
+  font-size: 1.05rem;
+}
+
+.pros h4 {
+  color: #1f7a4d !important;
+}
+
+.cons h4 {
+  color: #b3261e !important;
+}
+
+.pc ul {
+  padding-left: 1.2em;
+  margin: 0;
+}
+
+.pc li {
+  margin-bottom: 0.35rem;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 640px) {
+  .pc {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sources {
+  font-size: 0.88rem;
+  color: #5b5568;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e6dff2;
+}
+
+.sources h3 {
+  font-size: 1.05rem;
+  color: #2A1B3D;
+  margin-bottom: 8px;
+}
+
+.sources a {
+  color: #6633B4;
+}
+
+.sources a:hover {
+  color: #FD711A;
+  text-decoration: underline;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #5b5568;
+  border-top: 1px dashed #e6dff2;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-style: italic;
+}
+
+/* Interactive FAQ Accordion */
+.faq-accordion {
+  margin: 1.5rem 0;
+}
+
+.faq-item {
+  background: #FAF8FD;
+  border: 1px solid #E6DFF2;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 0.75rem;
+}
+
+.faq-item:hover {
+  border-color: #6633B4;
+}
+
+.faq-item[open] {
+  background: #FFFFFF;
+  border-color: #6633B4;
+  box-shadow: 0 4px 16px rgba(102, 51, 180, 0.08);
+}
+
+.faq-question {
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  user-select: none;
+  list-style: none;
+}
+
+.faq-question::-webkit-details-marker,
+.toc-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::marker,
+.toc-accordion summary::marker {
+  display: none;
+}
+
+.faq-q-text {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.faq-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 9999px;
+  background-color: rgba(102, 51, 180, 0.1);
+  color: #6633B4;
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.faq-title {
+  color: #2A1B3D;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.faq-item[open] .faq-title {
+  color: #6633B4;
+}
+
+.faq-arrow {
+  color: #6633B4;
+  font-size: 1.4rem;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.faq-item[open] .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 1.25rem 1.15rem 1.25rem;
+  color: #4A4458;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  border-top: 1px dashed #E6DFF2;
+  margin-top: 0.25rem;
+  padding-top: 0.85rem;
+}
+
+/* Collapsible Table of Contents */
+.toc-accordion summary {
+  list-style: none;
+}
+
+.toc-accordion ol {
+  border-top: 1px dashed #E6DFF2;
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* 3 Related Articles Box */
+.related-articles-box a {
+  text-decoration: none;
+}
+
+.related-articles-box a:hover {
+  text-decoration: none;
+}

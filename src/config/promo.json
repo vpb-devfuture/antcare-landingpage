@@ -1,5 +1,5 @@
 {
-  "enabled": true,
+  "enabled": false,
   "mode": "news",
   "badge": "Tin tức mới",
   "badgeEn": "Latest News",

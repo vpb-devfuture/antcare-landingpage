@@ -140,7 +140,7 @@ const TopNavBar = () => {
                     <span dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }} /> <span className="text-[9px] group-hover:text-earth-orange-bright">▼</span>
                   </button>
                 )}
-                <div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-2xl shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
+                <div className="absolute top-full left-0 mt-1 min-w-[260px] bg-white rounded-2xl shadow-xl border border-surface-lavender opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden">
                   <div className="flex flex-col py-2">
                     {item.children.map(child => (
                       child.path && !child.path.includes('#') ? (
@@ -269,6 +269,7 @@ const TopNavBar = () => {
                 products: 'inventory_2',
                 about: 'info',
                 contact: 'support_agent',
+                handbook: 'menu_book',
                 news: 'newspaper',
                 activities: 'volunteer_activism'
               };

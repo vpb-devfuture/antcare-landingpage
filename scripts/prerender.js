@@ -658,6 +658,12 @@ export function runPrerender() {
       h1: 'Tin tức y tế & Chăm sóc người cao tuổi'
     },
     {
+      path: '/kinh-nguyet',
+      title: 'Cẩm nang Kinh nguyệt & Sức khỏe phụ nữ | ANTCARE – Kiến chăm tổ',
+      desc: 'Cẩm nang toàn diện về chu kỳ kinh nguyệt, so sánh băng vệ sinh, tampon, cốc, đĩa và quần kinh nguyệt chống tràn ANTCARE.',
+      h1: 'Cẩm nang Kinh nguyệt & Sức khỏe phụ nữ ANTCARE'
+    },
+    {
       path: '/recruitment',
       title: 'Tuyển dụng & Hợp tác | ANTCARE – Kiến chăm tổ',
       desc: 'Cơ hội gia nhập đội ngũ Trợ lý sức khỏe & Điều dưỡng chăm sóc người cao tuổi tại ANTCARE – Kiến chăm tổ.',
@@ -704,6 +710,12 @@ export function runPrerender() {
       title: 'Dịch vụ chăm sóc người cao tuổi tại nhà Hà Nội | ANTCARE — Kiến chăm tổ',
       desc: 'ANTCARE — Kiến chăm tổ cung cấp 3 dịch vụ chăm sóc người cao tuổi tại Hà Nội: đưa đi khám bệnh, theo dõi sức khỏe tại nhà và hỗ trợ an toàn nhà cửa.',
       h1: 'Giải pháp chăm sóc người cao tuổi toàn diện'
+    },
+    {
+      path: '/quan-lot-tham-hut',
+      title: 'Quần Lót Thấm Hút ANTCARE – Chống Són Tiểu & Thay Thế Băng Vệ Sinh 2-in-1',
+      desc: 'Quần lót thấm hút ANTCARE công nghệ 4 lớp kháng khuẩn: vừa là quần lót nguyệt san chống tràn ban đêm, vừa là quần lót chống són tiểu cho mẹ sau sinh & người lớn tuổi. Giặt tái dùng 100+ lần.',
+      h1: 'Quần Lót Thấm Hút ANTCARE – Tự Tin Từng Khoảnh Khắc, Quên Đi Nỗi Lo Tràn & Són Tiểu'
     },
     {
       path: '/san-pham',
@@ -868,12 +880,14 @@ export function runPrerender() {
   ]);
 
   let articlesPrerendered = 0;
+  const seenSlugs = new Set();
 
   allArticles.forEach(article => {
     const slug = article.slug || article.id;
-    if (!slug || redirectedSlugs.has(String(slug))) {
+    if (!slug || redirectedSlugs.has(String(slug)) || seenSlugs.has(String(slug))) {
       return;
     }
+    seenSlugs.add(String(slug));
 
     const articleUrl = `${DOMAIN}/news/${slug}`;
     const cleanTitle = (article.metaTitle || article.title || 'Tin tức y tế').replace(/\n/g, ' ').trim();
@@ -940,6 +954,23 @@ export function runPrerender() {
       lastmod: dateMod
     });
 
+    writeStaticPage({
+      relativeUrl: `/kinh-nguyet/${slug}`,
+      title: fullTitle,
+      description: safeDesc,
+      canonical: `${DOMAIN}/kinh-nguyet/${slug}`,
+      ogImage: imgUrl,
+      h1Title: cleanTitle,
+      bodyContent: articleBody,
+      jsonLd: {
+        ...articleJsonLd,
+        mainEntityOfPage: `${DOMAIN}/kinh-nguyet/${slug}`
+      },
+      priority: '0.8',
+      changefreq: 'weekly',
+      lastmod: dateMod
+    });
+
     articlesPrerendered++;
   });
 
@@ -949,6 +980,18 @@ export function runPrerender() {
   // 5. CÁC TRANG CHUYỂN HƯỚNG 301 TĨNH
   // ==========================================
   const staticRedirects = [
+    {
+      source: '/cam-nang',
+      target: '/kinh-nguyet'
+    },
+    {
+      source: '/camnang',
+      target: '/kinh-nguyet'
+    },
+    {
+      source: '/kinhnguyet',
+      target: '/kinh-nguyet'
+    },
     {
       source: '/dich-vu',
       target: '/'
@@ -1165,6 +1208,21 @@ export function runPrerender() {
     { source: '/di-kham-sa-sut-tri-tue', target: '/news/dua-nguoi-gia-sa-sut-tri-tue-di-kham' },
     { source: '/kien-thuc/cham-soc-nguoi-cao-tuoi-ha-noi', target: '/cham-soc-nguoi-cao-tuoi' }
   ];
+
+  // Redirect old /cam-nang/<slug> and /kinhnguyet/<slug> to /kinh-nguyet/<slug>
+  allArticles.forEach(article => {
+    const slug = article.slug || article.id;
+    if (slug) {
+      staticRedirects.push({
+        source: `/cam-nang/${slug}`,
+        target: `/kinh-nguyet/${slug}`
+      });
+      staticRedirects.push({
+        source: `/kinhnguyet/${slug}`,
+        target: `/kinh-nguyet/${slug}`
+      });
+    }
+  });
 
   staticRedirects.forEach(({ source, target }) => {
     const targetDir = path.join(distDir, ...source.split('/').filter(Boolean));

@@ -1,6 +1,31 @@
 {
   "redirects": [
     {
+      "source": "/cam-nang",
+      "destination": "/kinh-nguyet",
+      "permanent": true
+    },
+    {
+      "source": "/camnang",
+      "destination": "/kinh-nguyet",
+      "permanent": true
+    },
+    {
+      "source": "/kinhnguyet",
+      "destination": "/kinh-nguyet",
+      "permanent": true
+    },
+    {
+      "source": "/cam-nang/:slug",
+      "destination": "/kinh-nguyet/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/kinhnguyet/:slug",
+      "destination": "/kinh-nguyet/:slug",
+      "permanent": true
+    },
+    {
       "source": "/news/chuan-bi-gi-khi-dua-bo-me-di-kham-benh",
       "destination": "/news/checklist-dua-bo-me-di-kham-benh-vien",
       "permanent": true
@@ -398,6 +423,36 @@
     {
       "source": "/dich-vu/",
       "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/quan-lot-tham-hut-nguyet-san-son-tieu",
+      "destination": "/quan-lot-tham-hut",
+      "permanent": true
+    },
+    {
+      "source": "/quan-lot-nguyet-san-son-tieu",
+      "destination": "/quan-lot-tham-hut",
+      "permanent": true
+    },
+    {
+      "source": "/quan-lot-son-tieu",
+      "destination": "/quan-lot-tham-hut",
+      "permanent": true
+    },
+    {
+      "source": "/quan-lot-nguyet-san",
+      "destination": "/quan-lot-tham-hut",
+      "permanent": true
+    },
+    {
+      "source": "/quan-chong-son-tieu",
+      "destination": "/quan-lot-tham-hut",
+      "permanent": true
+    },
+    {
+      "source": "/san-pham/quan-lot-tham-hut",
+      "destination": "/quan-lot-tham-hut",
       "permanent": true
     }
   ],

@@ -230,7 +230,7 @@ const LandingPage = () => {
                 className="w-[155px] sm:w-[175px] h-auto object-contain drop-shadow-xs mx-auto mb-1.5" 
               />
               <p className="font-semibold text-slate-600 text-[15.5px] tracking-tight text-center mb-4">
-                {tr("Để ba mẹ tuổi già vui khỏe, an tâm", "For aging parents to live healthy, happy & peaceful")}
+                {tr("Nhẹ nhàng mỗi ngày, an tâm mọi lúc", "Gentle every day, peaceful at all times")}
               </p>
 
               {/* Mobile Buttons */}
@@ -260,7 +260,7 @@ const LandingPage = () => {
             <div className="flex flex-col items-center justify-center gap-1 mb-5 text-center w-full">
               <img src="/images/hero-logo-text.png" alt="ANTCARE – Kiến chăm tổ – Chăm sóc người cao tuổi tại Hà Nội" className="w-[200px] md:w-[245px] lg:w-[270px] h-auto object-contain drop-shadow-sm mx-auto my-1" />
               <h1 className="font-semibold text-slate-500 text-[21px] md:text-[24px] lg:text-[26px] tracking-tight whitespace-nowrap text-center mt-1 w-full">
-                {tr("Để ba mẹ tuổi già vui khỏe, an tâm", "For aging parents to live healthy, happy & peaceful")}
+                {tr("Nhẹ nhàng mỗi ngày, an tâm mọi lúc", "Gentle every day, peaceful at all times")}
               </h1>
             </div>
 

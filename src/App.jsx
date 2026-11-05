@@ -12,6 +12,7 @@ import Recruitment from './pages/Recruitment';
 import AboutUs from './pages/AboutUs';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
+import AbsorbentUnderwear from './pages/AbsorbentUnderwear';
 import { trackPageView, initClarity } from './utils/analytics';
 import siteInfo from './config/siteInfo.json';
 
@@ -56,6 +57,9 @@ function App() {
     } else if (cleanPath === '/giai-phap-cham-soc') {
       document.title = "Dịch vụ chăm sóc người cao tuổi tại nhà Hà Nội | ANTCARE — Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "ANTCARE — Kiến chăm tổ cung cấp 3 dịch vụ chăm sóc người cao tuổi tại Hà Nội: đưa đi khám bệnh, theo dõi sức khỏe tại nhà và hỗ trợ an toàn nhà cửa. Hotline: 0969 032 360.";
+    } else if (cleanPath === '/quan-lot-tham-hut' || cleanPath === '/quan-lot-son-tieu' || cleanPath === '/quan-lot-nguyet-san' || cleanPath === '/quan-chong-son-tieu' || cleanPath === '/quan-lot-tham-hut-nguyet-san-son-tieu' || cleanPath === '/quan-lot-nguyet-san-son-tieu') {
+      document.title = "Quần Lót Thấm Hút ANTCARE – Chống Són Tiểu & Thay Thế Băng Vệ Sinh 2-in-1";
+      if (metaDesc) metaDesc.content = "Quần lót thấm hút ANTCARE công nghệ 4 lớp kháng khuẩn: vừa là quần lót nguyệt san chống tràn ban đêm, vừa là quần lót chống són tiểu cho mẹ sau sinh & người lớn tuổi. Giặt tái dùng 100+ lần.";
     } else if (cleanPath === '/san-pham') {
       document.title = "Dụng cụ rèn luyện thể chất & trí não cho người cao tuổi | ANTCARE — Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Đồ chơi thủ công, dụng cụ rèn luyện vận động tinh ngón tay và kích thích trí não chuyên biệt cho người cao tuổi từ ANTCARE – Kiến chăm tổ.";
@@ -74,14 +78,22 @@ function App() {
     } else if (cleanPath === '/cham-soc-nguoi-cao-tuoi') {
       document.title = "Chăm sóc người cao tuổi tại Hà Nội: Trợ lý Sức khỏe & Đồng hành đi khám | ANTCARE";
       if (metaDesc) metaDesc.content = "15 bài cẩm nang chăm sóc người cao tuổi tại Hà Nội: trợ lý sức khỏe bán thời gian, theo dõi huyết áp, quản lý thuốc, phòng té ngã, sau xuất viện và đưa bố mẹ đi khám.";
+    } else if (cleanPath === '/kinh-nguyet' || cleanPath === '/kinhnguyet' || cleanPath === '/cam-nang') {
+      const isEnglish = (localStorage.getItem('i18nextLng') || '').startsWith('en');
+      document.title = isEnglish
+        ? "Menstrual Health & Period Underwear Guide | ANTCARE"
+        : "Cẩm nang Kinh nguyệt & Sức khỏe phụ nữ | ANTCARE – Kiến chăm tổ";
+      if (metaDesc) metaDesc.content = isEnglish
+        ? "Comprehensive menstrual health handbook, comparing pads, tampons, cups, discs and ANTCARE leakproof period underwear."
+        : "Cẩm nang kiến thức kinh nguyệt phụ nữ, so sánh băng vệ sinh, tampon, cốc, đĩa nguyệt san và giải pháp quần lót kinh nguyệt chống tràn ANTCARE.";
     } else if (cleanPath === '/news' || cleanPath === '/blog' || cleanPath === '/tin-tuc') {
       const isEnglish = (localStorage.getItem('i18nextLng') || '').startsWith('en');
       document.title = isEnglish
         ? "Senior Activity Tools & Elder Care Articles | ANTCARE"
-        : "Tin tức & Y tế | ANTCARE – Kiến chăm tổ";
+        : "Cẩm nang Y tế & Chăm sóc người cao tuổi | ANTCARE – Kiến chăm tổ";
       if (metaDesc) metaDesc.content = isEnglish
         ? "Explore purposeful activity tools for older adults, dementia care resources, busy boards, sensory mats and handcrafted gift kits from ANTCARE."
-        : "Tin tức y tế, bài viết chia sẻ kiến thức chăm sóc sức khỏe tuổi già và đồng hành người cao tuổi từ ANTCARE – Kiến chăm tổ.";
+        : "Cẩm nang y tế, bài viết chia sẻ kiến thức chăm sóc sức khỏe tuổi già và đồng hành người cao tuổi từ ANTCARE – Kiến chăm tổ.";
     } else if (cleanPath === '/recruitment') {
       document.title = "Tuyển dụng & Hợp tác | ANTCARE – Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Cơ hội gia nhập đội ngũ Trợ lý sức khỏe & Điều dưỡng chăm sóc người cao tuổi tại ANTCARE – Kiến chăm tổ.";
@@ -291,12 +303,30 @@ function App() {
         <Route path="kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
         <Route path="kien-thuc/kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
         
+        <Route path="quan-lot-tham-hut" element={<AbsorbentUnderwear />} />
+        <Route path="quan-lot-tham-hut-nguyet-san-son-tieu" element={<Navigate to="/quan-lot-tham-hut" replace />} />
+        <Route path="quan-lot-nguyet-san-son-tieu" element={<Navigate to="/quan-lot-tham-hut" replace />} />
+        <Route path="quan-lot-son-tieu" element={<Navigate to="/quan-lot-tham-hut" replace />} />
+        <Route path="quan-lot-nguyet-san" element={<Navigate to="/quan-lot-tham-hut" replace />} />
+        <Route path="quan-chong-son-tieu" element={<Navigate to="/quan-lot-tham-hut" replace />} />
+        <Route path="san-pham/quan-lot-tham-hut" element={<Navigate to="/quan-lot-tham-hut" replace />} />
+        
         <Route path="san-pham" element={<Products />} />
         <Route path="san-pham/bang-luon-day-beo" element={<ProductDetail />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-use" element={<TermsOfUse />} />
         <Route path="activities" element={<Activities />} />
         <Route path="activities/:id" element={<NewsDetail />} />
+        {/* Chuyên mục Kinh nguyệt (URL chuẩn SEO /kinh-nguyet) */}
+        <Route path="kinh-nguyet" element={<News />} />
+        <Route path="kinh-nguyet/:id" element={<NewsDetail />} />
+        <Route path="kinhnguyet" element={<Navigate to="/kinh-nguyet" replace />} />
+        <Route path="kinhnguyet/:id" element={<NewsDetail />} />
+
+        {/* Tương thích ngược từ /cam-nang sang /kinh-nguyet */}
+        <Route path="cam-nang" element={<Navigate to="/kinh-nguyet" replace />} />
+        <Route path="cam-nang/:id" element={<NewsDetail />} />
+        <Route path="camnang" element={<Navigate to="/kinh-nguyet" replace />} />
         <Route path="news" element={<News />} />
         <Route path="news/:id" element={<NewsDetail />} />
         <Route path="blog" element={<News />} />

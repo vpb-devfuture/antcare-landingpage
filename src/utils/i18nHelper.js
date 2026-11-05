@@ -361,6 +361,8 @@ export const parseArticleDate = (dateStr) => {
 export const sortArticlesByDate = (articles) => {
   if (!Array.isArray(articles)) return [];
   return [...articles].sort((a, b) => {
+    if (a.isPinned && !b.isPinned) return -1;
+    if (!a.isPinned && b.isPinned) return 1;
     const timeA = parseArticleDate(a.date);
     const timeB = parseArticleDate(b.date);
     if (timeB !== timeA) {
