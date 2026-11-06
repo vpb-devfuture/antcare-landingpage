@@ -107,8 +107,8 @@ function App() {
       document.title = "Chính sách bảo mật | ANTCARE – Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Chính sách bảo mật thông tin và quyền riêng tư của khách hàng tại ANTCARE – Kiến chăm tổ.";
     } else if (cleanPath === '/ve-antcare' || cleanPath === '/about') {
-      document.title = "Về ANTCARE – Kiến chăm tổ | Trợ Lý Chăm Sóc Sức Khỏe Người Cao Tuổi Tại Nhà Hà Nội";
-      if (metaDesc) metaDesc.content = "ANTCARE – Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội, với 4 dịch vụ: Trợ lý sức khỏe, Đồng hành khám bệnh, An tâm nhà cửa, Kết nối dịch vụ y tế.";
+      document.title = "Về ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi, quần thấm hút";
+      if (metaDesc) metaDesc.content = "ANTCARE – Kiến chăm tổ: dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà ở Hà Nội và sản phẩm quần lót thấm hút: quần són tiểu, quần kinh nguyệt.";
     } else if (cleanPath === '/terms-of-use') {
       document.title = "Điều khoản sử dụng | ANTCARE – Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Quy định và điều khoản sử dụng dịch vụ trợ lý chăm sóc sức khỏe ANTCARE – Kiến chăm tổ.";

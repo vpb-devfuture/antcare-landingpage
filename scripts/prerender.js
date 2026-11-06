@@ -695,15 +695,15 @@ export function runPrerender() {
     },
     {
       path: '/ve-antcare',
-      title: 'Về ANTCARE – Kiến chăm tổ | Trợ Lý Chăm Sóc Sức Khỏe Người Cao Tuổi Tại Nhà Hà Nội',
-      desc: 'ANTCARE – Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội.',
-      h1: 'Về chúng tôi – ANTCARE Kiến chăm tổ'
+      title: 'Về ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi, quần thấm hút',
+      desc: 'ANTCARE – Kiến chăm tổ: dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà ở Hà Nội và sản phẩm quần lót thấm hút: quần són tiểu, quần kinh nguyệt.',
+      h1: 'Về ANTCARE – Kiến chăm tổ'
     },
     {
       path: '/about',
-      title: 'Về ANTCARE – Kiến chăm tổ | Trợ Lý Chăm Sóc Sức Khỏe Người Cao Tuổi Tại Nhà Hà Nội',
-      desc: 'ANTCARE – Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội.',
-      h1: 'Về chúng tôi – ANTCARE Kiến chăm tổ'
+      title: 'Về ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi, quần thấm hút',
+      desc: 'ANTCARE – Kiến chăm tổ: dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà ở Hà Nội và sản phẩm quần lót thấm hút: quần són tiểu, quần kinh nguyệt.',
+      h1: 'Về ANTCARE – Kiến chăm tổ'
     },
     {
       path: '/giai-phap-cham-soc',

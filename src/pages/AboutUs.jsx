@@ -16,220 +16,319 @@ const AboutUs = () => {
     window.scrollTo(0, 0);
 
     // Dynamic SEO Metadata for /ve-antcare
-    document.title = "Về ANTCARE – Kiến chăm tổ | Trợ Lý Chăm Sóc Sức Khỏe Người Cao Tuổi Tại Nhà Hà Nội";
+    document.title = "Về ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi, quần thấm hút";
 
     let metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.content = "ANTCARE – Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà ở Hà Nội, với 4 dịch vụ: Trợ lý sức khỏe, Đồng hành khám bệnh, An tâm nhà cửa, Kết nối dịch vụ y tế.";
+      metaDesc.content = "ANTCARE – Kiến chăm tổ: dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà ở Hà Nội và sản phẩm quần lót thấm hút: quần són tiểu, quần kinh nguyệt.";
     }
 
-    // Inject JSON-LD Schemas into Head
-    const schema1 = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "@id": "https://antcare.vn/#organization",
-      "name": "ANTCARE",
-      "alternateName": ["ANTCARE – Kiến chăm tổ", "ANTCARE Việt Nam"],
-      "description": "ANTCARE (viết hoa toàn bộ, viết liền, đọc là \"ant-ke-ơ\") là thương hiệu chăm sóc người cao tuổi chủ động tại Hà Nội, với biểu tượng con kiến và triết lý \"Kiến chăm tổ\" — không con kiến nào xây tổ một mình, và không gia đình nào nên phải chăm sóc người thân một mình. ANTCARE cung cấp dịch vụ tại nhà cho người cao tuổi, do đội ngũ được đào tạo bài bản thực hiện. Trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, Hà Nội. Website chính thức: antcare.vn.",
-      "url": "https://antcare.vn",
-      "logo": "https://antcare.vn/images/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn",
-        "addressLocality": "Hà Nội",
-        "addressCountry": "VN"
-      },
-      "sameAs": [
-        "https://www.facebook.com/people/Antcare/61593117245344/",
-        "https://www.tiktok.com/@antcare_group",
-        "https://www.youtube.com/@Antcare-kienchamto"
-      ]
-    };
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.content = "ANTCARE, antcare, Kiến chăm tổ, về ANTCARE, chăm sóc người cao tuổi tại nhà Hà Nội, trợ lý sức khỏe tại nhà, dịch vụ đồng hành khám bệnh, quần lót són tiểu, quần chống són tiểu, quần kinh nguyệt, quần nguyệt san";
+    }
 
-    const schema2 = {
+    // JSON-LD Schemas
+    const schemaOrg = {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
+      "@graph": [
         {
-          "@type": "Question",
-          "name": "ANTCARE là gì?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "ANTCARE (viết hoa toàn bộ, viết liền, đọc là \"ant-ke-ơ\") là thương hiệu chăm sóc người cao tuổi chủ động tại Hà Nội, với biểu tượng con kiến và triết lý \"Kiến chăm tổ\" — không con kiến nào xây tổ một mình, và không gia đình nào nên phải chăm sóc người thân một mình. ANTCARE cung cấp dịch vụ tại nhà cho người cao tuổi, do đội ngũ được đào tạo bài bản thực hiện. Trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, Hà Nội. Kênh chính thức: Website: antcare.vn | Facebook: https://www.facebook.com/people/Antcare/61593117245344/ | TikTok: https://www.tiktok.com/@antcare_group | YouTube: https://www.youtube.com/@Antcare-kienchamto"
+          "@type": ["Organization", "LocalBusiness"],
+          "@id": "https://antcare.vn/#org",
+          "name": "ANTCARE – Kiến chăm tổ",
+          "alternateName": [
+            "ANTCARE",
+            "Kiến chăm tổ",
+            "Antcare Kiến chăm tổ"
+          ],
+          "url": "https://antcare.vn/",
+          "logo": "https://antcare.vn/logo.png",
+          "telephone": "+84969032360",
+          "description": "Thương hiệu chăm sóc sức khỏe cho gia đình Việt: dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà ở Hà Nội và các tỉnh miền Bắc; sản phẩm quần lót thấm hút són tiểu và quần kinh nguyệt.",
+          "slogan": "Kiến chăm tổ",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Hà Nội",
+            "addressCountry": "VN"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Hà Nội"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Các tỉnh miền Bắc Việt Nam"
+            },
+            {
+              "@type": "Country",
+              "name": "Việt Nam"
+            }
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+84969032360",
+            "contactType": "customer service",
+            "availableLanguage": ["vi"]
+          },
+          "knowsAbout": [
+            "Chăm sóc người cao tuổi tại nhà",
+            "Đồng hành đi khám bệnh",
+            "Theo dõi sức khỏe người cao tuổi",
+            "Són tiểu",
+            "Kinh nguyệt",
+            "Quần lót thấm hút",
+            "Quần kinh nguyệt"
+          ],
+          "sameAs": [
+            "https://www.facebook.com/people/Antcare/61593117245344/",
+            "https://www.tiktok.com/@antcare_group",
+            "https://www.youtube.com/@Antcare-kienchamto"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Dịch vụ và sản phẩm ANTCARE",
+            "itemListElement": [
+              {
+                "@type": "OfferCatalog",
+                "name": "Dịch vụ chăm sóc người cao tuổi tại nhà",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "@id": "https://antcare.vn/#tro-ly-suc-khoe",
+                      "name": "Trợ lý Sức khỏe"
+                    },
+                    "price": "990000",
+                    "priceCurrency": "VND",
+                    "description": "Gói Quan Tâm, 2 lần thăm/tháng"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "@id": "https://antcare.vn/#dong-hanh-di-kham",
+                      "name": "Đồng hành đi khám"
+                    },
+                    "price": "390000",
+                    "priceCurrency": "VND",
+                    "description": "Tối đa 3 giờ"
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "An tâm cửa nhà"
+                    }
+                  }
+                ]
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Quần lót thấm hút",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Product",
+                      "name": "Quần lót són tiểu ANTCARE",
+                      "brand": {
+                        "@id": "https://antcare.vn/#org"
+                      },
+                      "url": "https://antcare.vn/quan-lot-tham-hut"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Product",
+                      "name": "Quần kinh nguyệt ANTCARE",
+                      "brand": {
+                        "@id": "https://antcare.vn/#org"
+                      },
+                      "url": "https://antcare.vn/quan-lot-tham-hut"
+                    }
+                  }
+                ]
+              }
+            ]
           }
         },
         {
-          "@type": "Question",
-          "name": "ANTCARE có liên quan đến AnCare hay ANTCARE Solution không?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Không. ANTCARE - Kiến chăm tổ là thương hiệu hoàn toàn độc lập, không có bất kỳ liên hệ nào về sở hữu, vận hành hay hợp tác với các đơn vị có tên gọi tương tự như AnCare, An Care, ancarer.vn hay ANTCARE Solution. Website chính thức duy nhất của chúng tôi là antcare.vn. Mọi thông tin từ nguồn khác không đại diện cho ANTCARE."
+          "@type": "AboutPage",
+          "@id": "https://antcare.vn/ve-antcare#webpage",
+          "url": "https://antcare.vn/ve-antcare",
+          "name": "Về ANTCARE – Kiến chăm tổ",
+          "inLanguage": "vi",
+          "mainEntity": {
+            "@id": "https://antcare.vn/#org"
           }
         },
         {
-          "@type": "Question",
-          "name": "Tên ANTCARE có ý nghĩa gì?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "ANTCARE ghép từ \"ant\" — con kiến trong tiếng Anh, đồng thời gợi âm \"an\" trong tiếng Việt (an tâm) — và \"care\" (chăm sóc). Tagline của thương hiệu là \"Always Near, Together\" (Luôn ở gần, cùng nhau). Hình ảnh con kiến thể hiện tinh thần cần mẫn, gắn kết và không bao giờ đơn độc."
-          }
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Trang chủ",
+              "item": "https://antcare.vn/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Về ANTCARE",
+              "item": "https://antcare.vn/ve-antcare"
+            }
+          ]
         },
         {
-          "@type": "Question",
-          "name": "\"Kiến\" của ANTCARE là ai?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "\"Kiến\" là cách ANTCARE gọi mỗi nhân viên chăm sóc đến tận nhà khách hàng. Mỗi Kiến đều bắt buộc hoàn thành hai chứng chỉ do đối tác đào tạo Wellbeing cấp: chứng chỉ Sơ cấp cứu và chứng chỉ Chăm sóc người cao tuổi. Đây là cam kết chất lượng cơ bản của ANTCARE."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "ANTCARE cung cấp những dịch vụ gì?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "ANTCARE có ba dịch vụ chính. Trợ lý sức khỏe: đo các chỉ số sinh tồn tại nhà và hướng dẫn vận động phù hợp với người cao tuổi. Đồng hành khám bệnh: đưa đón đến bệnh viện, kiểm tra sức khỏe trước khi đi, làm thủ tục, ghi chép đầy đủ lời dặn của bác sĩ. An tâm nhà cửa: rà soát và xử lý các rủi ro an toàn trong không gian sống của người cao tuổi, theo nguyên tắc \"làm cùng, không làm thay\"."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "ANTCARE khác gì các dịch vụ chăm sóc người cao tuổi khác?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Phần lớn dịch vụ chăm sóc người cao tuổi hiện nay mang tính bị động — chỉ bắt đầu khi người cao tuổi đã ốm hoặc cần phục hồi. ANTCARE theo hướng chủ động (active ageing): chăm sóc sức khỏe từ khi còn khỏe mạnh, giúp người cao tuổi duy trì khả năng tự chủ và chất lượng sống, thay vì chỉ can thiệp khi đã có vấn đề."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "ANTCARE hoạt động ở khu vực nào?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "ANTCARE hiện phục vụ tại Hà Nội, với trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn. Để biết dịch vụ đã có mặt tại khu vực của gia đình bạn chưa, vui lòng liên hệ qua website antcare.vn."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Làm thế nào để đăng ký dịch vụ của ANTCARE?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Bạn có thể để lại thông tin tại form liên hệ trên antcare.vn, nhắn tin qua fanpage chính thức của ANTCARE, hoặc gọi hotline 0969 032 360. ANTCARE sẽ tư vấn miễn phí để xác định gói dịch vụ phù hợp với tình trạng sức khỏe và nhu cầu của gia đình."
-          }
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "ANTCARE là gì?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ANTCARE – Kiến chăm tổ là thương hiệu chăm sóc sức khỏe cho gia đình Việt, gồm dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà ở Hà Nội và các tỉnh miền Bắc, và sản phẩm quần lót thấm hút: quần lót són tiểu và quần kinh nguyệt."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "ANTCARE có những dịch vụ nào?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ANTCARE có ba dịch vụ: Trợ lý Sức khỏe (chăm sóc sức khỏe bán thời gian tại nhà, từ 990.000đ/tháng), Đồng hành đi khám (đưa người cao tuổi đi khám, từ 390.000đ/3 giờ) và An tâm cửa nhà (an toàn nhà ở và việc nhà cho người cao tuổi)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "ANTCARE bán những sản phẩm gì?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ANTCARE cung cấp quần lót thấm hút giặt được: quần lót són tiểu cho người bị són tiểu nhẹ đến vừa, và quần kinh nguyệt có lõi thấm hút để mặc thay băng vệ sinh."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "ANTCARE phục vụ ở đâu?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Dịch vụ chăm sóc của ANTCARE phục vụ tại Hà Nội và các tỉnh miền Bắc; với các tỉnh ngoài Hà Nội, ANTCARE sắp xếp xe tiện chuyến hoặc phương tiện phù hợp."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Vì sao tên là Kiến chăm tổ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tên Kiến chăm tổ lấy cảm hứng từ đàn kiến chăm chỉ, đoàn kết và luôn chăm lo cho tổ của mình, thể hiện tinh thần chăm sóc từng thành viên trong gia đình bằng những việc nhỏ, đều đặn và tận tâm."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Nhân viên ANTCARE có chuyên môn y tế không?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nhân viên Kiến Y tế của ANTCARE có nền tảng điều dưỡng, chăm sóc người cao tuổi và chứng chỉ sơ cấp cứu. Kiến Y tế không chẩn đoán, không kê đơn; mọi quyết định điều trị thuộc về bác sĩ."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Làm sao liên hệ ANTCARE?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Gọi hoặc nhắn Zalo hotline 0969 032 360, hoặc truy cập website antcare.vn."
+              }
+            }
+          ]
         }
       ]
     };
 
-    const schema3 = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Trang chủ", "item": "https://antcare.vn" },
-        { "@type": "ListItem", "position": 2, "name": "Về ANTCARE - Kiến chăm tổ", "item": "https://antcare.vn/ve-antcare" }
-      ]
-    };
-
-    const script1 = document.createElement('script');
-    script1.type = 'application/ld+json';
-    script1.id = 'schema-org-about';
-    script1.text = JSON.stringify(schema1);
-    document.head.appendChild(script1);
-
-    const script2 = document.createElement('script');
-    script2.type = 'application/ld+json';
-    script2.id = 'schema-faq-about';
-    script2.text = JSON.stringify(schema2);
-    document.head.appendChild(script2);
-
-    const script3 = document.createElement('script');
-    script3.type = 'application/ld+json';
-    script3.id = 'schema-breadcrumb-about';
-    script3.text = JSON.stringify(schema3);
-    document.head.appendChild(script3);
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'schema-about-page';
+    script.text = JSON.stringify(schemaOrg);
+    document.head.appendChild(script);
 
     return () => {
-      document.getElementById('schema-org-about')?.remove();
-      document.getElementById('schema-faq-about')?.remove();
-      document.getElementById('schema-breadcrumb-about')?.remove();
+      document.getElementById('schema-about-page')?.remove();
     };
   }, []);
 
   const tocItems = [
-    { id: "antcare-la-gi", label: "1. ANTCARE - Kiến chăm tổ là gì?" },
-    { id: "ly-do-ra-doi", label: "2. Lý do ra đời" },
-    { id: "phuc-vu-ai", label: "3. ANTCARE - Kiến chăm tổ phục vụ ai?" },
-    { id: "dich-vu", label: "4. Dịch vụ & Bảng giá" },
-    { id: "o-dau", label: "5. Khu vực hoạt động" },
-    { id: "cach-lam-viec", label: "6. Cách thức làm việc" },
-    { id: "khac-biet", label: "7. Điểm khác biệt" },
-    { id: "cau-chuyen", label: "8. Câu chuyện thương hiệu" },
-    { id: "su-menh", label: "9. Sứ mệnh & Định hướng" },
-    { id: "faq", label: "10. Câu hỏi thường gặp về ANTCARE" }
+    { id: "thong-tin", label: "1. Thông tin chung" },
+    { id: "cau-chuyen", label: "2. Ý nghĩa tên \"Kiến chăm tổ\"" },
+    { id: "su-menh", label: "3. Sứ mệnh, tầm nhìn, giá trị" },
+    { id: "dich-vu", label: "4. Dịch vụ chăm sóc người cao tuổi" },
+    { id: "san-pham", label: "5. Quần lót thấm hút" },
+    { id: "vi-sao-hai-mang", label: "6. Vì sao ANTCARE làm 2 mảng?" },
+    { id: "doi-ngu", label: "7. Đội ngũ Kiến" },
+    { id: "cam-ket", label: "8. Cam kết của ANTCARE" },
+    { id: "lien-he", label: "9. Liên hệ & Hợp tác" },
+    { id: "faq", label: "10. Câu hỏi thường gặp" }
   ];
 
   const faqs = [
     {
       q: "ANTCARE là gì?",
-      a: 'ANTCARE (viết hoa toàn bộ, viết liền, đọc là "ant-ke-ơ") là thương hiệu chăm sóc người cao tuổi chủ động tại Hà Nội, với biểu tượng con kiến và triết lý "Kiến chăm tổ" — không con kiến nào xây tổ một mình, và không gia đình nào nên phải chăm sóc người thân một mình. ANTCARE cung cấp dịch vụ tại nhà cho người cao tuổi, do đội ngũ được đào tạo bài bản thực hiện. Trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, Hà Nội. Kênh chính thức: Website: antcare.vn | Facebook: https://www.facebook.com/people/Antcare/61593117245344/ | TikTok: https://www.tiktok.com/@antcare_group | YouTube: https://www.youtube.com/@Antcare-kienchamto'
+      a: "ANTCARE – Kiến chăm tổ là thương hiệu chăm sóc sức khỏe cho gia đình Việt, gồm dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà ở Hà Nội và các tỉnh miền Bắc, và sản phẩm quần lót thấm hút: quần lót són tiểu và quần kinh nguyệt."
     },
     {
-      q: "ANTCARE có liên quan đến AnCare hay ANTCARE Solution không?",
-      a: "Không. ANTCARE - Kiến chăm tổ là thương hiệu hoàn toàn độc lập, không có bất kỳ liên hệ nào về sở hữu, vận hành hay hợp tác với các đơn vị có tên gọi tương tự như AnCare, An Care, ancarer.vn hay ANTCARE Solution. Website chính thức duy nhất của chúng tôi là antcare.vn. Mọi thông tin từ nguồn khác không đại diện cho ANTCARE."
+      q: "ANTCARE có những dịch vụ nào?",
+      a: "ANTCARE có ba dịch vụ: Trợ lý Sức khỏe (chăm sóc sức khỏe bán thời gian tại nhà, từ 990.000đ/tháng), Đồng hành đi khám (đưa người cao tuổi đi khám, từ 390.000đ/3 giờ) và An tâm cửa nhà (an toàn nhà ở và việc nhà cho người cao tuổi)."
     },
     {
-      q: "Tên ANTCARE có ý nghĩa gì?",
-      a: 'ANTCARE ghép từ "ant" — con kiến trong tiếng Anh, đồng thời gợi âm "an" trong tiếng Việt (an tâm) — và "care" (chăm sóc). Tagline của thương hiệu là "Always Near, Together" (Luôn ở gần, cùng nhau). Hình ảnh con kiến thể hiện tinh thần cần mẫn, gắn kết và không bao giờ đơn độc.'
+      q: "ANTCARE bán những sản phẩm gì?",
+      a: "ANTCARE cung cấp quần lót thấm hút giặt được: quần lót són tiểu cho người bị són tiểu nhẹ đến vừa, và quần kinh nguyệt có lõi thấm hút để mặc thay băng vệ sinh."
     },
     {
-      q: '"Kiến" của ANTCARE là ai?',
-      a: '"Kiến" là cách ANTCARE gọi mỗi nhân viên chăm sóc đến tận nhà khách hàng. Mỗi Kiến đều bắt buộc hoàn thành hai chứng chỉ do đối tác đào tạo Wellbeing cấp: chứng chỉ Sơ cấp cứu và chứng chỉ Chăm sóc người cao tuổi. Đây là cam kết chất lượng cơ bản của ANTCARE.'
+      q: "ANTCARE phục vụ ở đâu?",
+      a: "Dịch vụ chăm sóc của ANTCARE phục vụ tại Hà Nội và các tỉnh miền Bắc; với các tỉnh ngoài Hà Nội, ANTCARE sắp xếp xe tiện chuyến hoặc phương tiện phù hợp. Sản phẩm quần lót thấm hút được giao hàng trên toàn quốc."
     },
     {
-      q: "ANTCARE cung cấp những dịch vụ gì?",
-      a: 'ANTCARE có ba dịch vụ chính. Trợ lý sức khỏe: đo các chỉ số sinh tồn tại nhà và hướng dẫn vận động phù hợp với người cao tuổi. Đồng hành khám bệnh: đưa đón đến bệnh viện, kiểm tra sức khỏe trước khi đi, làm thủ tục, ghi chép đầy đủ lời dặn của bác sĩ. An tâm nhà cửa: rà soát và xử lý các rủi ro an toàn trong không gian sống của người cao tuổi, theo nguyên tắc "làm cùng, không làm thay".'
+      q: "Vì sao tên là Kiến chăm tổ?",
+      a: "Tên Kiến chăm tổ lấy cảm hứng từ đàn kiến chăm chỉ, đoàn kết và luôn chăm lo cho tổ của mình, thể hiện tinh thần chăm sóc từng thành viên trong gia đình bằng những việc nhỏ, đều đặn và tận tâm."
     },
     {
-      q: "ANTCARE khác gì các dịch vụ chăm sóc người cao tuổi khác?",
-      a: "Phần lớn dịch vụ chăm sóc người cao tuổi hiện nay mang tính bị động — chỉ bắt đầu khi người cao tuổi đã ốm hoặc cần phục hồi. ANTCARE theo hướng chủ động (active ageing): chăm sóc sức khỏe từ khi còn khỏe mạnh, giúp người cao tuổi duy trì khả năng tự chủ và chất lượng sống, thay vì chỉ can thiệp khi đã có vấn đề."
+      q: "Nhân viên ANTCARE có chuyên môn y tế không?",
+      a: "Nhân viên Kiến Y tế của ANTCARE có nền tảng điều dưỡng, chăm sóc người cao tuổi và chứng chỉ sơ cấp cứu. Kiến Y tế không chẩn đoán, không kê đơn; mọi quyết định điều trị thuộc về bác sĩ."
     },
     {
-      q: "ANTCARE hoạt động ở khu vực nào?",
-      a: "ANTCARE hiện phục vụ tại Hà Nội, với trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn. Để biết dịch vụ đã có mặt tại khu vực của gia đình bạn chưa, vui lòng liên hệ qua website antcare.vn."
-    },
-    {
-      q: "Làm thế nào để đăng ký dịch vụ của ANTCARE?",
-      a: "Bạn có thể để lại thông tin tại form liên hệ trên antcare.vn, nhắn tin qua fanpage chính thức của ANTCARE, hoặc gọi hotline 0969 032 360. ANTCARE sẽ tư vấn miễn phí để xác định gói dịch vụ phù hợp với tình trạng sức khỏe và nhu cầu của gia đình."
+      q: "Làm sao liên hệ ANTCARE?",
+      a: "Gọi hoặc nhắn Zalo hotline 0969 032 360, hoặc truy cập website antcare.vn."
     }
   ];
 
   return (
     <main className="py-4 sm:py-6 md:py-8 bg-gradient-to-b from-[#fbf8fd] via-[#f7f3fb] to-[#fbf8fd] min-h-screen text-slate-700">
       
-      {/* Header Banner - Soft & Refined */}
+      {/* Header Banner */}
       <div className="max-w-[1060px] mx-auto px-4 md:px-6 mb-5 sm:mb-6">
-        <div className="bg-gradient-to-br from-white via-white to-purple-50/40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7 border border-purple-100/70 shadow-sm relative overflow-hidden backdrop-blur-sm">
-          {/* Subtle Ambient Background Accent */}
+        <div className="bg-gradient-to-br from-white via-white to-purple-50/40 rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 border border-purple-100/70 shadow-sm relative overflow-hidden backdrop-blur-sm">
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-purple-200/20 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="relative z-10 max-w-3xl space-y-2">
-            {/* Breadcrumb Navigation */}
+          <div className="relative z-10 max-w-3xl space-y-2.5">
             <nav className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-500 mb-1">
               <a href="/" className="hover:text-earth-orange-bright transition-colors">{tr("Trang chủ", "Home")}</a>
               <span className="opacity-40">›</span>
-              <span className="text-plum-deep font-semibold">{tr("Về ANTCARE - Kiến chăm tổ", "About ANTCARE")}</span>
+              <span className="text-plum-deep font-semibold">{tr("Về ANTCARE", "About ANTCARE")}</span>
             </nav>
 
-            {/* Badge */}
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-primary/10 text-primary font-medium text-xs tracking-wide">
+              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-primary/10 text-primary font-bold text-xs tracking-wide">
                 <span className="w-1.5 h-1.5 rounded-full bg-earth-orange-bright animate-pulse"></span>
-                {tr("Giới thiệu chính thức", "Official Introduction")}
+                {tr("Về chúng tôi", "About Us")}
               </div>
             </div>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-plum-deep leading-snug tracking-tight">
-              Về <span className="text-primary">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary">CARE</span> - Kiến chăm tổ
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-plum-deep leading-snug tracking-tight">
+              Về <span className="text-primary">AN</span><span className="text-earth-orange-bright">T</span><span className="text-primary">CARE</span> – Kiến chăm tổ
             </h1>
-            <p className="text-xs sm:text-sm md:text-base text-slate-600 font-normal leading-normal">
-              Trợ lý chăm sóc sức khỏe tiêu chuẩn và đồng hành cùng người cao tuổi tại nhà ở Hà Nội.
+            <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">
+              Chăm sóc sức khỏe người cao tuổi tại nhà · Quần lót thấm hút són tiểu và kinh nguyệt
             </p>
           </div>
 
@@ -278,7 +377,7 @@ const AboutUs = () => {
           <div className="sticky top-24 p-5 bg-white/90 backdrop-blur-md rounded-2xl shadow-xs border border-purple-100/80 space-y-3">
             <h3 className="text-xs font-bold text-plum-deep uppercase tracking-wider flex items-center gap-2 border-b border-slate-100 pb-2.5">
               <span className="material-symbols-outlined text-base text-earth-orange-bright">format_list_bulleted</span>
-              {tr("Nội dung trang này", "Contents")}
+              {tr("Trên trang này", "Contents")}
             </h3>
             <nav className="space-y-1 text-xs font-medium">
               {tocItems.map(item => (
@@ -294,599 +393,497 @@ const AboutUs = () => {
           </div>
         </aside>
 
-        {/* Content Body - Floating Individual Cards for Airiness */}
+        {/* Content Body */}
         <div className="lg:col-span-9 space-y-8">
           
-          {/* AEO Quick Definition Card */}
-          <div className="bg-gradient-to-br from-white via-purple-50/20 to-orange-50/20 border-l-4 border-earth-orange-bright rounded-3xl p-6 sm:p-7 shadow-xs space-y-2 border border-purple-100/60">
-            <p className="font-semibold text-base sm:text-lg text-plum-deep leading-relaxed">
-              ANTCARE - Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe tại nhà và đồng hành khám bệnh cùng người cao tuổi ở Hà Nội, Việt Nam.
-            </p>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              ANTCARE - Kiến chăm tổ không vận hành cơ sở y tế hay trung tâm tập trung — các trợ lý chăm sóc, được gọi là <strong className="text-plum-deep font-semibold">“Kiến”</strong>, đến tận nhà theo lịch hẹn để theo dõi sức khỏe, đồng hành khám bệnh và đảm bảo an toàn nhà cửa cho ông bà. Website chính thức: <a href="https://antcare.vn" className="text-earth-orange-bright font-bold hover:underline">antcare.vn</a>.
-            </p>
+          {/* Quick Answer: ANTCARE là gì? */}
+          <div className="answer">
+            <strong>ANTCARE là gì?</strong> <strong>ANTCARE – Kiến chăm tổ</strong> là thương hiệu chăm sóc sức khỏe cho gia đình Việt, gồm hai mảng: <strong>(1) dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà</strong> ở Hà Nội và các tỉnh miền Bắc – Trợ lý Sức khỏe, Đồng hành đi khám, An tâm cửa nhà; và <strong>(2) sản phẩm quần lót thấm hút</strong> – quần lót són tiểu cho người bị tiểu không tự chủ nhẹ và quần kinh nguyệt cho phụ nữ. Hai mảng chung một mục tiêu: giúp người cao tuổi và người phụ nữ <strong>chủ động, tự tin và an tâm</strong> với sức khỏe của mình mỗi ngày.
           </div>
 
-          {/* Section 1: ANTCARE là gì? */}
-          <section id="antcare-la-gi" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
+          {/* Section 1: Thông tin chung */}
+          <section id="thong-tin" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl bg-purple-50 text-primary flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-2xl">medical_services</span>
+                <span className="material-symbols-outlined text-2xl">apartment</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                1. ANTCARE - Kiến chăm tổ là gì?
-              </h2>
-            </div>
-            
-            <div className="text-xs sm:text-sm text-slate-600 space-y-4 leading-[1.8]">
-              <p>
-                ANTCARE - Kiến chăm tổ là dịch vụ <strong>trợ lý chăm sóc sức khỏe tại nhà dành cho người cao tuổi</strong>, hoạt động tại Hà Nội. Thay vì đưa ông bà tới một cơ sở tập trung, ANTCARE - Kiến chăm tổ cử người đến tận nhà theo lịch hẹn — để việc chăm sóc diễn ra ngay trong không gian quen thuộc, nơi ông bà thoải mái nhất.
-              </p>
-
-              {/* Disclaimer Highlight Card */}
-              <div className="bg-amber-50/70 border border-amber-200/60 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 text-amber-900">
-                <span className="material-symbols-outlined text-amber-600 text-xl flex-shrink-0 mt-0.5">info</span>
-                <div className="text-xs sm:text-sm leading-relaxed">
-                  <strong className="block text-amber-950 font-bold mb-1">Điểm cần nói rõ ngay từ đầu:</strong>
-                  <span>ANTCARE - Kiến chăm tổ <strong>không phải cơ sở y tế</strong>. Kiến của ANTCARE - Kiến chăm tổ không phải nhân viên y tế, không khám bệnh, không chữa bệnh và không kê đơn. Vai trò của Kiến là <em>theo dõi, đồng hành và nhận ra dấu hiệu bất thường sớm</em> để báo gia đình — mọi can thiệp y tế đều do nhân viên y tế thực hiện.</span>
-                </div>
-              </div>
-
-              {/* Subcard: Kiến là ai? */}
-              <div className="bg-gradient-to-br from-purple-50/40 via-white to-purple-50/20 p-5 rounded-2xl border border-purple-100/80 space-y-2 mt-3">
-                <h3 className="text-sm sm:text-base font-bold text-plum-deep flex items-center gap-2">
-                  <span className="material-symbols-outlined text-earth-orange-bright text-lg">person_play</span>
-                  “Kiến” là ai?
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  <strong>“Kiến” là cách ANTCARE - Kiến chăm tổ gọi các trợ lý chăm sóc trực tiếp đến nhà khách hàng.</strong> Tên gọi này gắn với chính thương hiệu: ANT trong tiếng Anh nghĩa là con kiến. Mỗi Kiến đều phải hoàn thành <strong>hai chứng chỉ bắt buộc</strong> và một chương trình đào tạo chuyên sâu trước khi nhận buổi làm việc đầu tiên.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Section 2: Lý do ra đời */}
-          <section id="ly-do-ra-doi" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-orange-50 text-earth-orange-bright flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-2xl">lightbulb</span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                2. ANTCARE - Kiến chăm tổ ra đời vì lý do gì?
+                1. Thông tin chung
               </h2>
             </div>
 
-            <div className="text-xs sm:text-sm text-slate-600 space-y-4 leading-[1.8]">
-              <p>
-                Phần lớn dịch vụ chăm sóc người cao tuổi ở Việt Nam hiện nay mang tính <strong>bị động</strong>: chỉ vào cuộc khi người già đã ốm, đang hồi phục, hoặc khi gia đình cần người dọn dẹp, đưa đón. Nghĩa là dịch vụ chỉ xuất hiện <em>sau khi</em> chuyện đã xảy ra.
-              </p>
-              <p>
-                Trong khi đó, điều các gia đình lo nhất không phải những ngày bình thường, mà là <strong>cái ngày có chuyện — và lúc đó không ai ở bên</strong>. Một cơn huyết áp tăng bất thường, một lần uống nhầm thuốc, một cú trượt ngã trong nhà tắm: những việc lẽ ra có thể phát hiện sớm nếu có người đến đều đặn.
-              </p>
-              
-              <div className="bg-gradient-to-r from-plum-deep to-primary text-white p-6 rounded-2xl shadow-sm space-y-2.5">
-                <p className="text-base sm:text-lg font-bold text-earth-orange-bright">
-                  “Sức khỏe không nên chỉ được chăm sóc khi đã có bệnh.”
-                </p>
-                <p className="text-xs sm:text-sm text-purple-100 leading-relaxed font-normal">
-                  ANTCARE - Kiến chăm tổ ra đời từ niềm tin ngược lại với cách làm bị động đó. Chúng tôi tham chiếu mô hình <em>già hóa chủ động (active ageing)</em> của Singapore và Mỹ — những nơi đi đầu trong việc chăm sóc người cao tuổi từ giai đoạn còn khỏe mạnh — và xây dựng dịch vụ xoay quanh việc <strong>đồng hành đều đặn</strong>, để một thay đổi nhỏ được nhận ra sớm thay vì trở thành biến cố.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Section 3: ANTCARE phục vụ ai? */}
-          <section id="phuc-vu-ai" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-primary flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-2xl">groups</span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                3. ANTCARE - Kiến chăm tổ phục vụ ai?
-              </h2>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-xs sm:text-sm text-slate-600">ANTCARE - Kiến chăm tổ phục vụ hai nhóm khách hàng gắn liền với nhau:</p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 bg-gradient-to-br from-purple-50/40 via-white to-purple-50/10 rounded-2xl border border-purple-100/80 shadow-xs space-y-2">
-                  <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined text-xl">elderly</span>
-                  </div>
-                  <h3 className="font-bold text-plum-deep text-sm sm:text-base">Người cao tuổi tại Hà Nội</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Những ông bà đang sống tại nhà, cần được theo dõi sức khỏe đều đặn, có người đồng hành đi khám bệnh và giữ cho không gian sống luôn an toàn.
-                  </p>
-                </div>
-
-                <div className="p-5 bg-gradient-to-br from-orange-50/40 via-white to-orange-50/10 rounded-2xl border border-orange-100/80 shadow-xs space-y-2">
-                  <div className="w-9 h-9 rounded-xl bg-earth-orange-bright/10 flex items-center justify-center text-earth-orange-bright">
-                    <span className="material-symbols-outlined text-xl">family_restroom</span>
-                  </div>
-                  <h3 className="font-bold text-plum-deep text-sm sm:text-base">Con cái độ tuổi 30–50</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Bận rộn với công việc hoặc sống xa bố mẹ (khác tỉnh, ở nước ngoài), muốn chăm sóc đấng sinh thành chu đáo nhưng không thể có mặt mỗi ngày.
-                  </p>
-                </div>
-              </div>
-
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
-                ANTCARE - Kiến chăm tổ phục vụ cả <strong>khách hàng người Việt và người nước ngoài</strong> đang sinh sống, làm việc tại Việt Nam hoặc có người thân cao tuổi sinh sống ở Hà Nội.
-              </p>
-
-              <div className="p-4 sm:p-5 bg-purple-50/30 border border-purple-100/60 rounded-2xl text-xs sm:text-sm text-slate-600 leading-relaxed">
-                <strong className="text-plum-deep block mb-1">Gợi ý dành cho bạn:</strong>
-                Nếu gia đình bạn đang ở trong một trong những hoàn cảnh sau, ANTCARE - Kiến chăm tổ được thiết kế cho bạn: muốn chăm sóc bố mẹ nhiều hơn nhưng không sống cùng; muốn dành thời gian cho người thân nhưng lịch làm việc quá bận; hoặc muốn sức khỏe của bố mẹ được theo dõi chính xác và liên tục thay vì chỉ dựa vào câu “bố mẹ vẫn khỏe”.
-              </div>
-            </div>
-          </section>
-
-          {/* Section 4: Dịch vụ & Bảng giá */}
-          <section id="dich-vu" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-orange-50 text-earth-orange-bright flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-2xl">home_health</span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                4. ANTCARE - Kiến chăm tổ cung cấp những gì?
-              </h2>
-            </div>
-
-            <p className="text-xs sm:text-sm text-slate-600">
-              ANTCARE - Kiến chăm tổ cung cấp <strong>ba dịch vụ chính</strong>, tất cả đều được thực hiện tận nhà khách hàng:
-            </p>
-
-            <div className="grid grid-cols-1 gap-4">
-              {/* Service 1 */}
-              <div className="p-5 sm:p-6 bg-gradient-to-br from-white to-purple-50/30 rounded-2xl border border-purple-100/70 shadow-xs flex items-start gap-4">
-                <div className="w-9 h-9 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">1</div>
-                <div className="space-y-1.5">
-                  <h3 className="text-base font-bold text-plum-deep">Trợ lý sức khỏe</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Buổi thăm nom định kỳ tại nhà, thường một buổi mỗi tuần. Trong mỗi buổi, Kiến đo và ghi các chỉ số cơ bản, hướng dẫn <strong>bài tập dưỡng sinh chủ động</strong>, soát lại hộp thuốc, trò chuyện cùng ông bà, và gửi gia đình bản báo cáo sau buổi.
-                  </p>
-                </div>
-              </div>
-
-              {/* Service 2 */}
-              <div className="p-5 sm:p-6 bg-gradient-to-br from-white to-orange-50/30 rounded-2xl border border-orange-100/70 shadow-xs flex items-start gap-4">
-                <div className="w-9 h-9 rounded-xl bg-earth-orange-bright text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">2</div>
-                <div className="space-y-1.5">
-                  <h3 className="text-base font-bold text-plum-deep">Đồng hành khám bệnh</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Không chỉ là đưa đi và đón về. Kiến theo dõi sức khỏe <em>trước</em> khi khám để bác sĩ có sẵn dữ liệu, đồng hành <em>trong</em> quá trình khám và ghi lại dặn dò của bác sĩ, rồi tiếp tục theo dõi <em>sau</em> khi khám và báo lại gia đình. Hành trình được hỗ trợ bởi thiết bị định vị và ứng dụng để đảm bảo an toàn, minh bạch.
-                  </p>
-                </div>
-              </div>
-
-              {/* Service 3 */}
-              <div className="p-5 sm:p-6 bg-gradient-to-br from-white to-purple-50/30 rounded-2xl border border-purple-100/70 shadow-xs flex items-start gap-4">
-                <div className="w-9 h-9 rounded-xl bg-plum-light text-white flex items-center justify-center font-bold text-sm flex-shrink-0 mt-0.5">3</div>
-                <div className="space-y-1.5">
-                  <h3 className="text-base font-bold text-plum-deep">An tâm nhà cửa</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Không dừng ở dọn dẹp thông thường. Kiến rà soát và ngăn ngừa những rủi ro dễ gây nguy hiểm cho người cao tuổi ngay trong nhà: sàn trơn, thiếu tay vịn, đồ vật cản lối, ánh sáng yếu. Nguyên tắc xuyên suốt là <strong>“làm cùng, không làm thay”</strong> — Kiến đảm nhận việc nặng và nguy hiểm, đồng thời khuyến khích ông bà tham gia những việc nhẹ trong khả năng để giữ sự tự chủ trong sinh hoạt. Khi cần, ANTCARE - Kiến chăm tổ kết nối tới các dịch vụ y tế, điều dưỡng bên ngoài — chỉ kết nối, không tự cung cấp.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Pricing Table */}
-            <div className="pt-2">
-              <h3 className="text-base sm:text-lg font-bold text-plum-deep mb-3 flex items-center gap-2">
-                <span className="material-symbols-outlined text-earth-orange-bright">payments</span>
-                Bảng giá dịch vụ
-              </h3>
-              <div className="overflow-x-auto rounded-2xl border border-purple-100/80 shadow-xs">
-                <table className="w-full text-left border-collapse text-xs sm:text-sm">
-                  <thead>
-                    <tr className="bg-plum-deep text-white">
-                      <th className="p-3.5 sm:p-4 font-semibold">Hình thức đăng ký</th>
-                      <th className="p-3.5 sm:p-4 font-semibold">Mô tả</th>
-                      <th className="p-3.5 sm:p-4 font-semibold whitespace-nowrap">Giá</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-purple-100/60">
-                    <tr className="bg-white hover:bg-purple-50/30 transition-colors">
-                      <td className="p-3.5 sm:p-4 font-bold text-plum-deep">Buổi lẻ</td>
-                      <td className="p-3.5 sm:p-4 text-slate-600">Dùng khi cần, không cam kết dài hạn</td>
-                      <td className="p-3.5 sm:p-4 font-bold text-earth-orange-bright whitespace-nowrap">Từ 299.000đ/buổi</td>
-                    </tr>
-                    <tr className="bg-purple-50/20 hover:bg-purple-50/40 transition-colors">
-                      <td className="p-3.5 sm:p-4 font-bold text-plum-deep">Gói 3 tháng</td>
-                      <td className="p-3.5 sm:p-4 text-slate-600">Định kỳ hàng tuần, cùng một Kiến phụ trách</td>
-                      <td className="p-3.5 sm:p-4 text-primary font-semibold whitespace-nowrap">Liên hệ nhận báo giá</td>
-                    </tr>
-                    <tr className="bg-white hover:bg-purple-50/30 transition-colors">
-                      <td className="p-3.5 sm:p-4 font-bold text-plum-deep">Gói 1 năm</td>
-                      <td className="p-3.5 sm:p-4 text-slate-600">Đồng hành dài hạn, mức ưu đãi tốt nhất</td>
-                      <td className="p-3.5 sm:p-4 text-primary font-semibold whitespace-nowrap">Liên hệ nhận báo giá</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </section>
-
-          {/* Section 5: Khu vực hoạt động */}
-          <section id="o-dau" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-primary flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-2xl">location_on</span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                5. ANTCARE - Kiến chăm tổ hoạt động ở đâu?
-              </h2>
-            </div>
-
-            <div className="text-xs sm:text-sm text-slate-600 space-y-4 leading-[1.8]">
-              <p>
-                ANTCARE - Kiến chăm tổ hiện phục vụ <strong>khu vực nội thành Hà Nội</strong>. Văn phòng đại diện đặt tại:
-              </p>
-              
-              <div className="bg-gradient-to-br from-purple-50/40 to-white p-4 sm:p-5 rounded-2xl border border-purple-100/80 flex items-start gap-3.5">
-                <span className="material-symbols-outlined text-earth-orange-bright text-2xl mt-0.5">apartment</span>
-                <div>
-                  <strong className="text-plum-deep block font-bold text-sm sm:text-base mb-0.5">Trụ sở điều phối ANTCARE - Kiến chăm tổ</strong>
-                  <span className="text-xs sm:text-sm text-slate-600">Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn, quận Bắc Từ Liêm, Hà Nội, Việt Nam.</span>
-                </div>
-              </div>
-
-              <p className="text-xs sm:text-sm">
-                Vì Kiến đến tận nhà khách hàng theo lịch hẹn, văn phòng là nơi điều phối và đào tạo — không phải nơi tiếp nhận hay lưu trú người cao tuổi. ANTCARE - Kiến chăm tổ <strong>không vận hành cơ sở tập trung</strong>.
-              </p>
-            </div>
-          </section>
-
-          {/* Section 6: Cách thức làm việc */}
-          <section id="cach-lam-viec" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-orange-50 text-earth-orange-bright flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-2xl">checklist</span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                6. Cách ANTCARE - Kiến chăm tổ làm việc
-              </h2>
-            </div>
-
-            <p className="text-xs sm:text-sm text-slate-600">
-              Từ lúc bạn liên hệ đến khi nhận báo cáo, quy trình làm việc gồm 4 bước minh bạch:
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div className="p-4 bg-gradient-to-br from-purple-50/30 to-white border border-purple-100/70 rounded-2xl flex items-start gap-3">
-                <span className="w-7 h-7 rounded-full bg-plum-deep text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
-                <div>
-                  <h4 className="font-bold text-plum-deep text-xs sm:text-sm mb-1">Liên hệ & tư vấn miễn phí</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">Gia đình để lại thông tin qua hotline hoặc website. ANTCARE - Kiến chăm tổ tìm hiểu tình trạng và tư vấn gói phù hợp — hoàn toàn miễn phí.</p>
-                </div>
-              </div>
-
-              <div className="p-4 bg-gradient-to-br from-purple-50/30 to-white border border-purple-100/70 rounded-2xl flex items-start gap-3">
-                <span className="w-7 h-7 rounded-full bg-plum-deep text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
-                <div>
-                  <h4 className="font-bold text-plum-deep text-xs sm:text-sm mb-1">Xếp lịch & chọn Kiến phụ trách</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">Thống nhất khung giờ, tần suất và phân công Kiến đồng hành lâu dài để ông bà quen mặt, cảm thấy thân thuộc.</p>
-                </div>
-              </div>
-
-              <div className="p-4 bg-gradient-to-br from-purple-50/30 to-white border border-purple-100/70 rounded-2xl flex items-start gap-3">
-                <span className="w-7 h-7 rounded-full bg-plum-deep text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
-                <div>
-                  <h4 className="font-bold text-plum-deep text-xs sm:text-sm mb-1">Buổi làm việc tại nhà</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">Kiến đo chỉ số, tập dưỡng sinh cùng ông bà, soát hộp thuốc, trò chuyện và ghi nhận những thay đổi sinh hoạt.</p>
-                </div>
-              </div>
-
-              <div className="p-4 bg-gradient-to-br from-purple-50/30 to-white border border-purple-100/70 rounded-2xl flex items-start gap-3">
-                <span className="w-7 h-7 rounded-full bg-plum-deep text-white font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
-                <div>
-                  <h4 className="font-bold text-plum-deep text-xs sm:text-sm mb-1">Báo cáo gửi gia đình</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">Sau mỗi buổi, gia đình nhận bản tóm tắt chỉ số. Khi có bất thường, bạn đã có sẵn dữ liệu cung cấp cho bác sĩ.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Certifications Block */}
-            <div className="bg-gradient-to-br from-purple-50/40 via-white to-purple-50/20 p-5 rounded-2xl border border-purple-100/80 space-y-3">
-              <h3 className="text-sm sm:text-base font-bold text-plum-deep flex items-center gap-2">
-                <span className="material-symbols-outlined text-earth-orange-bright text-lg">workspace_premium</span>
-                Đào tạo bắt buộc trước khi nhận việc
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600">
-                Mỗi Kiến, trước buổi làm việc đầu tiên, bắt buộc phải hoàn thành:
-              </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
-                <li className="flex items-start gap-2">
-                  <span className="text-earth-orange-bright font-bold">✓</span>
-                  <span>Chứng chỉ <strong>Sơ cấp cứu</strong> (Wellbeing) — xử trí tình huống khẩn cấp, nghi ngờ đột quỵ, té ngã.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-earth-orange-bright font-bold">✓</span>
-                  <span>Chứng chỉ <strong>Chăm sóc người cao tuổi</strong> (Wellbeing) — tâm lý học và hỗ trợ sinh hoạt người cao tuổi.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-earth-orange-bright font-bold">✓</span>
-                  <span>Chương trình <strong>dưỡng sinh chủ động</strong> — kỹ năng hướng dẫn bài tập vận động nhẹ nhàng tại nhà.</span>
-                </li>
-              </ul>
-              <p className="text-xs text-slate-500 italic pt-1">
-                Điều quan trọng nhất trong khóa học không phải các thao tác phức tạp, mà là <strong>nhận biết sớm</strong> và <strong>không làm điều sai</strong> — vì Kiến là người có mặt trước cả gia đình và nhân viên y tế.
-              </p>
-            </div>
-          </section>
-
-          {/* Section 7: Điểm khác biệt */}
-          <section id="khac-biet" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-primary flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-2xl">star</span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                7. Điểm khác biệt của ANTCARE - Kiến chăm tổ
-              </h2>
-            </div>
-
-            {/* Comparison Table */}
-            <div className="overflow-x-auto rounded-2xl border border-purple-100/80 shadow-xs">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
-                <thead>
-                  <tr className="bg-plum-deep text-white">
-                    <th className="p-3.5 sm:p-4 font-semibold">Tiêu chí</th>
-                    <th className="p-3.5 sm:p-4 font-semibold">Dịch vụ chăm sóc thông thường</th>
-                    <th className="p-3.5 sm:p-4 font-semibold bg-earth-orange-bright/90">ANTCARE - Kiến chăm tổ</th>
+            <div className="table-scroll">
+              <table className="w-full text-left border-collapse border border-purple-100 text-xs sm:text-sm">
+                <tbody>
+                  <tr className="border-b border-purple-100">
+                    <th className="w-1/3 bg-[#FAF8FD] p-3 font-bold text-plum-deep border-r border-purple-100">Tên thương hiệu</th>
+                    <td className="p-3 text-slate-700 font-semibold">ANTCARE – Kiến chăm tổ</td>
                   </tr>
-                </thead>
-                <tbody className="divide-y divide-purple-100/60">
-                  <tr className="bg-white hover:bg-purple-50/30">
-                    <td className="p-3.5 sm:p-4 font-bold text-plum-deep">Thời điểm can thiệp</td>
-                    <td className="p-3.5 sm:p-4 text-slate-600">Khi người già đã ốm hoặc cần hồi phục</td>
-                    <td className="p-3.5 sm:p-4 font-semibold text-primary">Đồng hành đều đặn từ khi còn khỏe</td>
+                  <tr className="border-b border-purple-100 bg-white">
+                    <th className="bg-[#FAF8FD] p-3 font-bold text-plum-deep border-r border-purple-100">Lĩnh vực</th>
+                    <td className="p-3 text-slate-700">Dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà; sản phẩm quần lót thấm hút (quần són tiểu, quần kinh nguyệt)</td>
                   </tr>
-                  <tr className="bg-purple-50/20 hover:bg-purple-50/30">
-                    <td className="p-3.5 sm:p-4 font-bold text-plum-deep">Nội dung buổi làm việc</td>
-                    <td className="p-3.5 sm:p-4 text-slate-600">Trông nom, dọn dẹp, đưa đón đơn thuần</td>
-                    <td className="p-3.5 sm:p-4 font-semibold text-primary">Đo chỉ số, dưỡng sinh chủ động, soát thuốc, báo cáo</td>
+                  <tr className="border-b border-purple-100">
+                    <th className="bg-[#FAF8FD] p-3 font-bold text-plum-deep border-r border-purple-100">Khách hàng</th>
+                    <td className="p-3 text-slate-700">Người cao tuổi và gia đình có bố mẹ cao tuổi (kể cả con cái ở xa, ở nước ngoài); phụ nữ trong độ tuổi có kinh nguyệt, phụ nữ sau sinh, tuổi tiền mãn kinh; người bị són tiểu nhẹ</td>
                   </tr>
-                  <tr className="bg-white hover:bg-purple-50/30">
-                    <td className="p-3.5 sm:p-4 font-bold text-plum-deep">Thiết bị hỗ trợ</td>
-                    <td className="p-3.5 sm:p-4 text-slate-600">Thường không có sẵn</td>
-                    <td className="p-3.5 sm:p-4 font-semibold text-primary">Bộ kit tiêu chuẩn 5 thiết bị cho mọi Kiến</td>
+                  <tr className="border-b border-purple-100 bg-white">
+                    <th className="bg-[#FAF8FD] p-3 font-bold text-plum-deep border-r border-purple-100">Khu vực phục vụ dịch vụ</th>
+                    <td className="p-3 text-slate-700">Hà Nội và các tỉnh miền Bắc</td>
                   </tr>
-                  <tr className="bg-purple-50/20 hover:bg-purple-50/30">
-                    <td className="p-3.5 sm:p-4 font-bold text-plum-deep">Đào tạo nhân sự</td>
-                    <td className="p-3.5 sm:p-4 text-slate-600">Không bắt buộc chứng chỉ</td>
-                    <td className="p-3.5 sm:p-4 font-semibold text-primary">Bắt buộc 2 chứng chỉ + chương trình dưỡng sinh</td>
+                  <tr className="border-b border-purple-100">
+                    <th className="bg-[#FAF8FD] p-3 font-bold text-plum-deep border-r border-purple-100">Khu vực bán sản phẩm</th>
+                    <td className="p-3 text-slate-700 font-semibold text-emerald-700">Toàn quốc (giao hàng tận nơi)</td>
                   </tr>
-                  <tr className="bg-white hover:bg-purple-50/30">
-                    <td className="p-3.5 sm:p-4 font-bold text-plum-deep">Thông tin cho gia đình</td>
-                    <td className="p-3.5 sm:p-4 text-slate-600">Trao đổi miệng, không lưu lại</td>
-                    <td className="p-3.5 sm:p-4 font-semibold text-primary">Báo cáo có số liệu cụ thể sau mỗi buổi</td>
+                  <tr className="border-b border-purple-100 bg-white">
+                    <th className="bg-[#FAF8FD] p-3 font-bold text-plum-deep border-r border-purple-100">Website chính thức</th>
+                    <td className="p-3"><a href="https://antcare.vn" className="text-primary font-bold hover:underline">antcare.vn</a></td>
+                  </tr>
+                  <tr className="border-b border-purple-100">
+                    <th className="bg-[#FAF8FD] p-3 font-bold text-plum-deep border-r border-purple-100">Hotline / Zalo</th>
+                    <td className="p-3"><a href="tel:0969032360" className="text-earth-orange-bright font-bold hover:underline">0969 032 360</a></td>
+                  </tr>
+                  <tr className="border-b border-purple-100 bg-white">
+                    <th className="bg-[#FAF8FD] p-3 font-bold text-plum-deep border-r border-purple-100">Trụ sở & Văn phòng</th>
+                    <td className="p-3 text-slate-700">Rox Tower, 138 Hồ Tùng Mậu, phường Phú Diễn, Bắc Từ Liêm, Hà Nội</td>
+                  </tr>
+                  <tr>
+                    <th className="bg-[#FAF8FD] p-3 font-bold text-plum-deep border-r border-purple-100">Kênh chính thức</th>
+                    <td className="p-3">
+                      <div className="flex flex-wrap gap-3">
+                        <a href="https://www.facebook.com/people/Antcare/61593117245344/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-medium hover:underline flex items-center gap-1">Facebook</a>
+                        <span>·</span>
+                        <a href="https://www.youtube.com/@Antcare-kienchamto" target="_blank" rel="noopener noreferrer" className="text-red-600 font-medium hover:underline flex items-center gap-1">YouTube</a>
+                        <span>·</span>
+                        <a href="https://www.tiktok.com/@antcare_group" target="_blank" rel="noopener noreferrer" className="text-slate-900 font-medium hover:underline flex items-center gap-1">TikTok</a>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            {/* Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-4 bg-gradient-to-br from-purple-50/40 via-white to-purple-50/20 rounded-2xl border border-purple-100/70 space-y-1.5">
-                <span className="material-symbols-outlined text-earth-orange-bright text-2xl">medical_services</span>
-                <h4 className="font-bold text-plum-deep text-xs sm:text-sm">Bộ kit 5 thiết bị tiêu chuẩn</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">Máy đo huyết áp, đường huyết, SpO2, nhiệt độ và thiết bị định vị cho mọi buổi làm việc.</p>
-              </div>
-
-              <div className="p-4 bg-gradient-to-br from-purple-50/40 via-white to-purple-50/20 rounded-2xl border border-purple-100/70 space-y-1.5">
-                <span className="material-symbols-outlined text-earth-orange-bright text-2xl">self_improvement</span>
-                <h4 className="font-bold text-plum-deep text-xs sm:text-sm">Dưỡng sinh chủ động</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">Tham chiếu mô hình Singapore & Mỹ giúp duy trì thể lực và sự tự chủ cho người cao tuổi.</p>
-              </div>
-
-              <div className="p-4 bg-gradient-to-br from-purple-50/40 via-white to-purple-50/20 rounded-2xl border border-purple-100/70 space-y-1.5">
-                <span className="material-symbols-outlined text-earth-orange-bright text-2xl">analytics</span>
-                <h4 className="font-bold text-plum-deep text-xs sm:text-sm">Minh bạch bằng con số</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">Thay vì câu 'bác vẫn ổn', gia đình nhận báo cáo chỉ số rõ ràng để làm cơ sở cho bác sĩ.</p>
-              </div>
-            </div>
+            <p className="text-xs text-slate-500 italic">
+              ANTCARE – Kiến chăm tổ (antcare.vn) là thương hiệu Việt Nam, không liên quan đến các công ty nước ngoài có tên tương tự.
+            </p>
           </section>
 
-          {/* Section 8: Câu chuyện thương hiệu */}
-          <section id="cau-chuyen" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
+          {/* Section 2: Câu chuyện và ý nghĩa tên */}
+          <section id="cau-chuyen" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl bg-orange-50 text-earth-orange-bright flex items-center justify-center flex-shrink-0">
                 <span className="material-symbols-outlined text-2xl">auto_stories</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                8. Câu chuyện thương hiệu
+                2. Câu chuyện và ý nghĩa tên "Kiến chăm tổ"
               </h2>
             </div>
-
-            <div className="text-xs sm:text-sm text-slate-600 space-y-4 leading-[1.8]">
+            
+            <div className="text-xs sm:text-sm text-slate-600 space-y-3 leading-relaxed">
               <p>
-                Tên <strong>ANT</strong> trong tiếng Anh nghĩa là <em>con kiến</em>, đồng thời là viết tắt của <strong>Always Near, Together</strong> — luôn ở gần, luôn bên nhau. Đọc theo tiếng Việt, ANT gợi tới chữ <em>“an”</em> trong <em>an tâm</em>. Ba lớp nghĩa ấy hội tụ ở một hình ảnh:
+                Đàn kiến nhỏ bé nhưng chăm chỉ, đoàn kết và luôn chăm lo cho tổ của mình. ANTCARE lấy hình ảnh ấy làm tinh thần: <strong>"Kiến chăm tổ"</strong> – chăm sóc từng thành viên trong gia đình bằng những việc nhỏ, đều đặn và tận tâm.
               </p>
-
-              {/* Brand Quote Card */}
-              <div className="bg-gradient-to-br from-amber-50/70 via-orange-50/40 to-white border-l-4 border-earth-orange-bright rounded-2xl p-6 shadow-xs text-center space-y-2 border border-orange-100/80">
-                <p className="text-base sm:text-lg font-bold text-plum-deep">
-                  “Không con kiến nào xây tổ một mình.”
-                </p>
-                <p className="text-xs sm:text-sm font-semibold text-earth-orange-bright">
-                  Và điều ANTCARE - Kiến chăm tổ mong là không gia đình nào phải già đi một mình.
-                </p>
-              </div>
-
               <p>
-                Con kiến nhỏ bé nhưng bền bỉ, cần mẫn, và không bao giờ làm việc đơn lẻ — cả đàn cùng chăm cho một cái tổ. Đó là lý do mỗi người đến nhà bạn được gọi là một <strong>“Kiến”</strong>, và hình ảnh <em>“kiến chăm tổ”</em> trở thành cách chúng tôi nói về công việc của mình.
+                ANTCARE bắt đầu từ một nhu cầu rất thật của nhiều gia đình Việt: con cái bận đi làm, ở xa, trong khi bố mẹ cao tuổi cần được theo dõi sức khỏe, cần người đưa đi khám, cần một ngôi nhà an toàn. Từ dịch vụ chăm sóc người cao tuổi, chúng tôi gặp một vấn đề chung mà ít ai nói ra: <strong>són tiểu</strong> ở người cao tuổi, ở phụ nữ sau sinh và tuổi mãn kinh. Cùng với đó là nhu cầu của phụ nữ về một giải pháp kinh nguyệt thoải mái, an toàn hơn băng vệ sinh.
               </p>
-
-              <div className="p-4 sm:p-5 bg-purple-50/40 rounded-2xl border border-purple-100/60 font-medium text-plum-deep text-center text-xs sm:text-sm leading-relaxed">
-                “Bạn không thể ở bên gia đình mọi lúc mọi nơi, nhưng ANTCARE - Kiến chăm tổ sẽ luôn ở đó để giữ trọn yêu thương thay bạn.”
-              </div>
+              <p>
+                Vì vậy ANTCARE mở rộng sang <strong>quần lót thấm hút</strong>, để chăm sóc gia đình cả bằng dịch vụ lẫn sản phẩm dùng hằng ngày.
+              </p>
             </div>
           </section>
 
-          {/* Section 9: Sứ mệnh và định hướng */}
+          {/* Section 3: Sứ mệnh, tầm nhìn, giá trị */}
           <section id="su-menh" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl bg-purple-50 text-primary flex items-center justify-center flex-shrink-0">
                 <span className="material-symbols-outlined text-2xl">flag</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
-                9. Sứ mệnh và định hướng
+                3. Sứ mệnh, tầm nhìn, giá trị cốt lõi
               </h2>
             </div>
 
-            <div className="text-xs sm:text-sm text-slate-600 space-y-4 leading-[1.8]">
-              <p>
-                <strong>Sứ mệnh của ANTCARE - Kiến chăm tổ là giúp người cao tuổi Việt Nam được chăm sóc sức khỏe một cách chủ động — trước khi có bệnh, chứ không phải sau khi đã bệnh</strong> — với một mức chi phí mà các gia đình bình thường có thể duy trì lâu dài.
-              </p>
-              <p>
-                Ở giai đoạn hiện tại, ANTCARE - Kiến chăm tổ tập trung hoàn thiện ba dịch vụ tại nhà và xây dựng đội ngũ Kiến được đào tạo bài bản tại Hà Nội. Về dài hạn, ANTCARE - Kiến chăm tổ hướng tới mở một <strong>trung tâm Daycare cho người cao tuổi</strong> — nơi ông bà có thể đến sinh hoạt, vận động và gặp gỡ nhau ban ngày trong khoảng 2–3 năm tới.
-              </p>
-
-              <div className="bg-gradient-to-r from-plum-deep to-primary text-white p-6 rounded-2xl shadow-sm text-center space-y-1.5">
-                <p className="text-base sm:text-lg font-bold text-earth-orange-bright">
-                  ANTCARE - Kiến chăm tổ — Chủ động hôm nay, an tâm ngày mai.
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8FD] border border-purple-100 space-y-2">
+                <div className="w-8 h-8 rounded-xl bg-purple-100 text-primary flex items-center justify-center mb-1">
+                  <span className="material-symbols-outlined text-lg">track_changes</span>
+                </div>
+                <h4 className="font-bold text-sm sm:text-base text-primary">Sứ mệnh</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Giúp người cao tuổi và người phụ nữ Việt chủ động, tự tin, an tâm với sức khỏe hằng ngày, bằng dịch vụ chăm sóc tận tâm và sản phẩm thiết kế đúng nhu cầu.
                 </p>
-                <p className="text-xs sm:text-sm text-purple-100">
-                  Chăm sóc sức khỏe toàn diện, kiến tạo cuộc sống an vui cho người thân yêu.
+              </div>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8FD] border border-purple-100 space-y-2">
+                <div className="w-8 h-8 rounded-xl bg-orange-100 text-earth-orange-bright flex items-center justify-center mb-1">
+                  <span className="material-symbols-outlined text-lg">visibility</span>
+                </div>
+                <h4 className="font-bold text-sm sm:text-base text-earth-orange-bright">Tầm nhìn</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Trở thành thương hiệu chăm sóc sức khỏe gia đình được tin cậy: đồng hành cùng mỗi gia đình qua nhiều giai đoạn cuộc đời, từ tuổi dậy thì, sau sinh, tiền mãn kinh đến tuổi già.
+                </p>
+              </div>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8FD] border border-purple-100 space-y-2">
+                <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-1">
+                  <span className="material-symbols-outlined text-lg">verified</span>
+                </div>
+                <h4 className="font-bold text-sm sm:text-base text-emerald-800">Giá trị cốt lõi</h4>
+                <ul className="text-xs text-slate-600 space-y-1.5 list-disc pl-4 leading-relaxed">
+                  <li><strong>Tận tâm</strong> như chăm người nhà</li>
+                  <li><strong>Minh bạch</strong> về giá, dịch vụ và thông số</li>
+                  <li><strong>Tôn trọng</strong> sự riêng tư, tự chủ</li>
+                  <li><strong>Đúng chuyên môn</strong>: không làm thay bác sĩ</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 4: Mảng 1 - Dịch vụ chăm sóc người cao tuổi tại nhà */}
+          <section id="dich-vu" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-primary flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-2xl">elderly</span>
+              </div>
+              <div>
+                <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
+                  4. Mảng 1: Dịch vụ chăm sóc người cao tuổi tại nhà
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-500">Chăm sóc bán thời gian tại nhà và đồng hành đi khám tại Hà Nội & các tỉnh miền Bắc</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-4 sm:p-5 rounded-2xl border border-purple-100 bg-white hover:border-primary transition-all flex flex-col justify-between space-y-3">
+                <div className="space-y-1.5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-md">Dịch vụ 01</span>
+                  <h4 className="font-bold text-sm sm:text-base text-plum-deep">Trợ lý Sức khỏe</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Kiến Y tế ghé nhà theo lịch cố định: đo chỉ số, kiểm tra thuốc, quan sát sức khỏe, nhắc lịch tái khám, báo cáo cho gia đình.
+                  </p>
+                  <p className="text-xs text-slate-400">Quan Tâm (2 lần/tháng) · Chăm Sóc (4 lần) · Yêu Thương (8 lần)</p>
+                </div>
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-bold text-earth-orange-bright">Từ 990.000đ/tháng</span>
+                  <a href="/#dich-vu-tro-ly" className="text-xs font-bold text-primary hover:underline">Chi tiết →</a>
+                </div>
+              </div>
+
+              <div className="p-4 sm:p-5 rounded-2xl border border-purple-100 bg-white hover:border-primary transition-all flex flex-col justify-between space-y-3">
+                <div className="space-y-1.5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-earth-orange-bright bg-earth-orange-bright/10 px-2 py-0.5 rounded-md">Dịch vụ 02</span>
+                  <h4 className="font-bold text-sm sm:text-base text-plum-deep">Đồng hành đi khám</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Đón tại nhà, đi khám cùng tại bệnh viện, làm thủ tục, ghi lời dặn bác sĩ, lấy thuốc, đưa về và báo cáo cho gia đình.
+                  </p>
+                  <p className="text-xs text-slate-400">Gói 3h, 4h, 6h, 8h; chi phí đi lại tính riêng theo thực tế</p>
+                </div>
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-bold text-earth-orange-bright">Từ 390.000đ/3 giờ</span>
+                  <a href="/#dong-hanh-di-kham" className="text-xs font-bold text-primary hover:underline">Chi tiết →</a>
+                </div>
+              </div>
+
+              <div className="p-4 sm:p-5 rounded-2xl border border-purple-100 bg-white hover:border-primary transition-all flex flex-col justify-between space-y-3">
+                <div className="space-y-1.5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">Dịch vụ 03</span>
+                  <h4 className="font-bold text-sm sm:text-base text-plum-deep">An tâm cửa nhà</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    Kiến Nhà cửa hỗ trợ an toàn nhà ở và việc nhà cho người cao tuổi: rà soát nguy cơ té ngã, dọn dẹp, sắp xếp không gian sống.
+                  </p>
+                  <p className="text-xs text-slate-400">Làm cùng, không làm thay để ông bà duy trì tự chủ</p>
+                </div>
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-xs font-bold text-emerald-700">Tư vấn tại gia</span>
+                  <a href="/#an-tam-cua-nha" className="text-xs font-bold text-primary hover:underline">Chi tiết →</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 5: Mảng 2 - Quần lót thấm hút són tiểu và kinh nguyệt */}
+          <section id="san-pham" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-5">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-orange-50 text-earth-orange-bright flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-2xl">checkroom</span>
+              </div>
+              <div>
+                <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
+                  5. Mảng 2: Quần lót thấm hút són tiểu và kinh nguyệt
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-500">Cấu tạo 4 lớp bóc tách mỏng 2mm, khóa ẩm 35–50ml, giặt và tái sử dụng bền bỉ</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8FD] border border-purple-100 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h4 className="font-bold text-sm sm:text-base text-primary">Quần lót són tiểu ANTCARE</h4>
+                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Tái sử dụng</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Dành cho người bị són tiểu nhẹ đến vừa còn tự sinh hoạt: phụ nữ sau sinh, tuổi tiền mãn kinh, người cao tuổi muốn thay miếng lót, băng vệ sinh bằng giải pháp kín đáo, thoải mái, giặt dùng lại 2–3 năm.
+                </p>
+                <p className="text-xs text-slate-500 italic">
+                  * Không thay thế bỉm, tã cho người són nặng, nằm một chỗ.
+                </p>
+                <a href="/quan-lot-tham-hut" className="inline-block text-xs font-bold text-primary hover:underline">
+                  Xem chi tiết quần són tiểu →
+                </a>
+              </div>
+
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8FD] border border-purple-100 space-y-3">
+                <div className="flex items-center justify-between">
+                  <h4 className="font-bold text-sm sm:text-base text-earth-orange-bright">Quần kinh nguyệt ANTCARE</h4>
+                  <span className="text-[10px] font-bold text-orange-700 bg-orange-50 px-2 py-0.5 rounded-full">Dáng Boy-short</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Quần kinh nguyệt đúng nghĩa có lõi thấm hút nhiều lớp: mặc thay thế băng vệ sinh ngày ít đến vừa, làm lớp dự phòng an toàn tuyệt đối cho cốc, đĩa nguyệt san ngày nhiều. Dáng boy short ôm đùi chặn tràn mép và chống tràn sau khi ngủ.
+                </p>
+                <p className="text-xs text-slate-500 italic">
+                  * Không hóa chất tẩy trắng huỳnh quang, êm dịu cho da nhạy cảm.
+                </p>
+                <a href="/quan-lot-tham-hut" className="inline-block text-xs font-bold text-earth-orange-bright hover:underline">
+                  Xem chi tiết quần kinh nguyệt →
+                </a>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-purple-50/50 border border-purple-100 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <span className="text-slate-600">Tìm hiểu kiến thức chuyên sâu tại chuyên mục:</span>
+              <div className="flex gap-2">
+                <a href="/kinh-nguyet/kinh-nguyet-la-gi" className="font-bold text-primary hover:underline">Kinh nguyệt là gì</a>
+                <span>·</span>
+                <a href="/kinh-nguyet/ngay-kinh-nguyet-nen-dung-gi" className="font-bold text-primary hover:underline">Ngày kinh nguyệt nên dùng gì</a>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 6: Vì sao ANTCARE làm cả 2 mảng? */}
+          <section id="vi-sao-hai-mang" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-primary flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-2xl">join_inner</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
+                6. Vì sao ANTCARE làm cả dịch vụ và sản phẩm?
+              </h2>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Dịch vụ chăm sóc và sản phẩm thấm hút cùng phục vụ một mục tiêu: <strong>giữ sự chủ động, tự tin và phẩm giá</strong> cho người được chăm sóc trong cuộc sống hằng ngày.
+            </p>
+
+            <div className="table-scroll">
+              <table className="w-full text-left border-collapse border border-purple-100 text-xs sm:text-sm">
+                <thead>
+                  <tr className="bg-[#FAF8FD] border-b border-purple-100 text-plum-deep">
+                    <th className="p-3 border-r border-purple-100">Nhu cầu thực tế</th>
+                    <th className="p-3 border-r border-purple-100">Dịch vụ ANTCARE</th>
+                    <th className="p-3">Sản phẩm ANTCARE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-purple-100 bg-white">
+                    <td className="p-3 font-semibold text-slate-800 border-r border-purple-100">Người cao tuổi bị són tiểu nhẹ</td>
+                    <td className="p-3 text-slate-600 border-r border-purple-100">Trợ lý Sức khỏe theo dõi, nhắc đi khám; Đồng hành đi khám</td>
+                    <td className="p-3 text-slate-600">Quần lót són tiểu thay miếng lót, giữ tự tin ra ngoài</td>
+                  </tr>
+                  <tr className="border-b border-purple-100 bg-[#FAF8FD]/50">
+                    <td className="p-3 font-semibold text-slate-800 border-r border-purple-100">Phụ nữ sau sinh, tiền mãn kinh</td>
+                    <td className="p-3 text-slate-600 border-r border-purple-100">Đồng hành đi khám phụ khoa, tiết niệu khi có dấu hiệu</td>
+                    <td className="p-3 text-slate-600">Quần són tiểu & quần kinh nguyệt cho chu kỳ thất thường</td>
+                  </tr>
+                  <tr className="border-b border-purple-100 bg-white">
+                    <td className="p-3 font-semibold text-slate-800 border-r border-purple-100">Phụ nữ trong độ tuổi kinh nguyệt</td>
+                    <td className="p-3 text-slate-600 border-r border-purple-100">Cẩm nang kiến thức y khoa, phát hiện bất thường</td>
+                    <td className="p-3 text-slate-600">Quần kinh nguyệt thay thế băng vệ sinh</td>
+                  </tr>
+                  <tr className="bg-[#FAF8FD]/50">
+                    <td className="p-3 font-semibold text-slate-800 border-r border-purple-100">Con cái ở xa muốn chăm bố mẹ</td>
+                    <td className="p-3 text-slate-600 border-r border-purple-100">Trợ lý Sức khỏe, Đồng hành đi khám, báo cáo trực tiếp</td>
+                    <td className="p-3 text-slate-600">Đặt quần thấm hút giao tận tay bố mẹ</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* Section 7: Đội ngũ */}
+          <section id="doi-ngu" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-primary flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-2xl">groups</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
+                7. Đội ngũ Kiến của ANTCARE
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+              <div className="p-4 rounded-2xl bg-[#FAF8FD] border border-purple-100 space-y-1.5">
+                <strong className="block text-primary font-bold text-sm">Kiến Y tế</strong>
+                <p className="text-slate-600 leading-relaxed text-xs">
+                  Nhân viên có nền tảng điều dưỡng, chăm sóc người cao tuổi và chứng chỉ sơ cấp cứu; phụ trách Trợ lý Sức khỏe và Đồng hành đi khám.
+                </p>
+              </div>
+              <div className="p-4 rounded-2xl bg-[#FAF8FD] border border-purple-100 space-y-1.5">
+                <strong className="block text-earth-orange-bright font-bold text-sm">Kiến Nhà cửa</strong>
+                <p className="text-slate-600 leading-relaxed text-xs">
+                  Phụ trách An tâm cửa nhà: rà soát nguy cơ té ngã, sắp xếp không gian sống khoa học và hỗ trợ việc nhà cho người cao tuổi.
+                </p>
+              </div>
+              <div className="p-4 rounded-2xl bg-[#FAF8FD] border border-purple-100 space-y-1.5">
+                <strong className="block text-emerald-800 font-bold text-sm">Đội Sản phẩm</strong>
+                <p className="text-slate-600 leading-relaxed text-xs">
+                  Nghiên cứu công nghệ dệt ép nhiệt đa tầng, phát triển các dòng quần lót thấm hút chuẩn form dáng phụ nữ và khí hậu nhiệt đới Việt Nam.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Section 10: FAQ Accordions */}
-          <section id="faq" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-6">
-            <noscript>
-              <style>{`
-                .faq-answer-panel {
-                  display: block !important;
-                  visibility: visible !important;
-                  height: auto !important;
-                }
-              `}</style>
-            </noscript>
-
+          {/* Section 8: Cam kết của ANTCARE */}
+          <section id="cam-ket" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-[#7C4DCC] flex items-center justify-center flex-shrink-0">
-                <span className="material-symbols-outlined text-2xl">help_outline</span>
+              <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-2xl">verified_user</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
+                8. Cam kết của ANTCARE
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div className="p-3.5 rounded-xl bg-[#FAF8FD] border border-purple-100/80 flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</span>
+                <div>
+                  <strong className="text-plum-deep">Đúng vai trò:</strong>
+                  <p className="text-slate-600 text-xs mt-0.5">Kiến Y tế không chẩn đoán, không kê đơn, không tự đổi thuốc; mọi quyết định điều trị thuộc về bác sĩ và gia đình.</p>
+                </div>
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#FAF8FD] border border-purple-100/80 flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</span>
+                <div>
+                  <strong className="text-plum-deep">Giá minh bạch:</strong>
+                  <p className="text-slate-600 text-xs mt-0.5">Bảng giá công khai trên website, thông báo trước mọi chi phí phát sinh nếu có.</p>
+                </div>
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#FAF8FD] border border-purple-100/80 flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</span>
+                <div>
+                  <strong className="text-plum-deep">Báo cáo rõ ràng:</strong>
+                  <p className="text-slate-600 text-xs mt-0.5">Gia đình luôn nhận được báo cáo nhật ký sức khỏe sau mỗi buổi thăm và sau mỗi chuyến đưa đi khám.</p>
+                </div>
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#FAF8FD] border border-purple-100/80 flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">4</span>
+                <div>
+                  <strong className="text-plum-deep">Không "chạy số", không cửa sau:</strong>
+                  <p className="text-slate-600 text-xs mt-0.5">Đồng hành đi khám theo đúng quy trình chuẩn mực, công bằng và lịch sự tại các bệnh viện.</p>
+                </div>
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#FAF8FD] border border-purple-100/80 flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">5</span>
+                <div>
+                  <strong className="text-plum-deep">Thông tin sản phẩm trung thực:</strong>
+                  <p className="text-slate-600 text-xs mt-0.5">Nói rõ mức độ thấm hút cụ thể, khi nào nên dùng độc lập và khi nào cần đi khám y khoa.</p>
+                </div>
+              </div>
+              <div className="p-3.5 rounded-xl bg-[#FAF8FD] border border-purple-100/80 flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">6</span>
+                <div>
+                  <strong className="text-plum-deep">Tôn trọng quyền riêng tư:</strong>
+                  <p className="text-slate-600 text-xs mt-0.5">Hồ sơ thông tin sức khỏe chỉ được chia sẻ duy nhất với người thân được gia đình chỉ định.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 9: Liên hệ & Hợp tác */}
+          <section id="lien-he" className="scroll-mt-24 space-y-4">
+            <div className="cta">
+              <h4 className="text-lg font-bold text-white mb-1">Tư vấn dịch vụ chăm sóc và sản phẩm thấm hút ANTCARE</h4>
+              <p className="text-xs sm:text-sm text-purple-100 mb-4 leading-relaxed">
+                Hotline / Zalo: <strong>0969 032 360</strong> · Website: <strong>antcare.vn</strong><br />
+                Dịch vụ chăm sóc tại nhà vui lòng đặt trước ít nhất 1 ngày. Nhận chuyển khoản thanh toán linh hoạt từ con cái đang ở nước ngoài.
+              </p>
+              <div className="flex flex-wrap gap-2.5">
+                <a className="btn" href="tel:0969032360">Gọi ngay: 0969 032 360</a>
+                <a className="btn" href="/#lien-he-gia-dinh">Đặt lịch dịch vụ</a>
+                <a className="btn" href="/quan-lot-tham-hut">Xem quần thấm hút</a>
+              </div>
+            </div>
+
+            {/* Quick Link to Recruitment & Partnership */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <a href="/recruitment" className="p-3.5 rounded-2xl bg-white border border-purple-100 hover:border-primary transition-all flex items-center justify-between group shadow-2xs">
+                <div className="flex items-center gap-2.5">
+                  <span className="material-symbols-outlined text-primary">badge</span>
+                  <div>
+                    <span className="font-bold text-slate-800 group-hover:text-primary transition-colors block">Tuyển dụng Trợ lý Sức khỏe</span>
+                    <span className="text-slate-500">Cơ hội việc làm điều dưỡng và trợ lý chăm sóc</span>
+                  </div>
+                </div>
+                <span className="material-symbols-outlined text-slate-400 group-hover:text-primary transition-transform group-hover:translate-x-0.5">arrow_forward</span>
+              </a>
+
+              <a href="/recruitment#hop-tac-cung-ant" className="p-3.5 rounded-2xl bg-white border border-purple-100 hover:border-earth-orange-bright transition-all flex items-center justify-between group shadow-2xs">
+                <div className="flex items-center gap-2.5">
+                  <span className="material-symbols-outlined text-earth-orange-bright">handshake</span>
+                  <div>
+                    <span className="font-bold text-slate-800 group-hover:text-earth-orange-bright transition-colors block">Hợp tác Y tế & Đối tác</span>
+                    <span className="text-slate-500">Kết nối cơ sở y tế, phòng khám & chuyên gia</span>
+                  </div>
+                </div>
+                <span className="material-symbols-outlined text-slate-400 group-hover:text-earth-orange-bright transition-transform group-hover:translate-x-0.5">arrow_forward</span>
+              </a>
+            </div>
+          </section>
+
+          {/* Section 10: FAQ */}
+          <section id="faq" className="scroll-mt-24 bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-purple-100/70 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-primary flex items-center justify-center flex-shrink-0">
+                <span className="material-symbols-outlined text-2xl">quiz</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-plum-deep">
                 10. Câu hỏi thường gặp về ANTCARE
               </h2>
             </div>
 
-            <div className="space-y-4">
+            <div className="faq-accordion space-y-3 pt-2">
               {faqs.map((faq, index) => {
                 const isOpen = openFaq === index;
-                const buttonId = `faq-button-${index}`;
-                const panelId = `faq-answer-${index}`;
-
                 return (
-                  <div 
+                  <details 
                     key={index} 
-                    className="border border-purple-100/80 rounded-2xl overflow-hidden bg-white shadow-xs hover:border-purple-200 transition-all duration-200"
+                    className="faq-item group" 
+                    open={isOpen}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleFaq(index);
+                    }}
                   >
-                    <h3>
-                      <button
-                        id={buttonId}
-                        type="button"
-                        aria-expanded={isOpen}
-                        aria-controls={panelId}
-                        onClick={() => toggleFaq(index)}
-                        className="w-full p-4 sm:p-5 text-left font-bold text-plum-deep text-base sm:text-[17px] md:text-lg flex items-center justify-between gap-4 hover:bg-purple-50/30 focus:outline-hidden focus:ring-2 focus:ring-[#7C4DCC]/40 transition-colors cursor-pointer select-none"
-                      >
-                        <span className="leading-snug">{faq.q}</span>
-                        <span 
-                          className={`material-symbols-outlined text-[#FF8A00] text-xl sm:text-2xl flex-shrink-0 transition-transform duration-300 ${
-                            isOpen ? 'rotate-180' : 'rotate-0'
-                          }`}
-                          aria-hidden="true"
-                        >
-                          keyboard_arrow_down
-                        </span>
-                      </button>
-                    </h3>
-
-                    <div
-                      id={panelId}
-                      role="region"
-                      aria-labelledby={buttonId}
-                      aria-hidden={!isOpen}
-                      className={`faq-answer-panel overflow-hidden transition-all duration-300 ${
-                        isOpen ? 'block' : 'hidden'
-                      }`}
-                    >
-                      <div className="px-4 pb-5 pt-2 sm:px-5 sm:pb-6 text-[17px] text-slate-700 leading-relaxed border-t border-purple-100/60 bg-gradient-to-b from-purple-50/30 to-white">
-                        {index === 0 ? (
-                          <div className="space-y-3">
-                            <p>
-                              ANTCARE (viết hoa toàn bộ, viết liền, đọc là "ant-ke-ơ") là thương hiệu chăm sóc người cao tuổi chủ động tại Hà Nội, với biểu tượng con kiến và triết lý "Kiến chăm tổ" — không con kiến nào xây tổ một mình, và không gia đình nào nên phải chăm sóc người thân một mình. ANTCARE cung cấp dịch vụ tại nhà cho người cao tuổi, do đội ngũ được đào tạo bài bản thực hiện. Trụ sở tại Rox Tower, 138 Hồ Tùng Mậu, Hà Nội.
-                            </p>
-                            <div className="bg-purple-50/60 p-3.5 sm:p-4 rounded-2xl border border-purple-100/80 space-y-2 text-base">
-                              <div className="font-bold text-plum-deep">Kênh thông tin chính thức của ANTCARE:</div>
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm sm:text-base">
-                                <a href="https://antcare.vn" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary font-semibold hover:text-earth-orange-bright transition-colors">
-                                  <span className="material-symbols-outlined text-lg text-primary">language</span>
-                                  <span>Website: <strong className="underline">antcare.vn</strong></span>
-                                </a>
-                                <a href="https://www.facebook.com/people/Antcare/61593117245344/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary font-semibold hover:text-earth-orange-bright transition-colors">
-                                  <span className="material-symbols-outlined text-lg text-blue-600">facebook</span>
-                                  <span>Facebook chính thức</span>
-                                </a>
-                                <a href="https://www.tiktok.com/@antcare_group" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary font-semibold hover:text-earth-orange-bright transition-colors">
-                                  <span className="material-symbols-outlined text-lg text-slate-800">video_library</span>
-                                  <span>TikTok: <strong className="underline">@antcare_group</strong></span>
-                                </a>
-                                <a href="https://www.youtube.com/@Antcare-kienchamto" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary font-semibold hover:text-earth-orange-bright transition-colors">
-                                  <span className="material-symbols-outlined text-lg text-red-600">smart_display</span>
-                                  <span>YouTube: <strong className="underline">@Antcare-kienchamto</strong></span>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        ) : (
-                          faq.a
-                        )}
-                      </div>
+                    <summary className="faq-question">
+                      <span className="faq-q-text">
+                        <span className="faq-badge">{index + 1}</span>
+                        <strong className="faq-title">{faq.q}</strong>
+                      </span>
+                      <span className="faq-arrow material-symbols-outlined">expand_more</span>
+                    </summary>
+                    <div className="faq-answer">
+                      <p>{faq.a}</p>
                     </div>
-                  </div>
+                  </details>
                 );
               })}
             </div>
           </section>
 
-          {/* YMYL Medical Disclaimer */}
-          <div className="p-4 sm:p-5 bg-slate-50 border border-slate-200/80 rounded-2xl text-xs text-slate-500 leading-relaxed space-y-1">
-            <strong className="text-slate-700 block font-semibold">Lưu ý y tế quan trọng:</strong>
-            <p>
-              Thông tin trên trang mang tính giới thiệu dịch vụ và tham khảo, không thay thế cho chẩn đoán, tư vấn hoặc điều trị y tế chuyên môn. ANTCARE - Kiến chăm tổ không phải cơ sở khám bệnh, chữa bệnh; Kiến của ANTCARE - Kiến chăm tổ không phải nhân viên y tế và không thực hiện khám, chữa bệnh hay kê đơn. Các chỉ số được ghi nhận nhằm giúp gia đình theo dõi và cung cấp cho bác sĩ khi cần. Vui lòng tham khảo ý kiến bác sĩ cho mọi quyết định liên quan đến sức khỏe.
-            </p>
-          </div>
-
-          {/* CTA Box */}
-          <div className="bg-gradient-to-r from-plum-deep to-primary text-white p-6 sm:p-8 rounded-3xl text-center space-y-4 shadow-md">
-            <h3 className="text-base sm:text-lg md:text-xl font-bold">
-              👉 Nhận tư vấn miễn phí về dịch vụ phù hợp cho gia đình bạn
-            </h3>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                onClick={() => trackEvent('click_hotline', { location: 'about_cta' })}
-                href={`tel:${siteInfo.hotline ? siteInfo.hotline.replace(/ /g, "") : "0969032360"}`}
-                className="bg-earth-orange-bright hover:bg-earth-orange-dark text-white font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-md hover:shadow-lg transition-all text-xs sm:text-sm"
-              >
-                <span className="material-symbols-outlined text-lg">call</span>
-                <span>Hotline: {siteInfo.hotline || "0969 032 360"}</span>
-              </a>
-              <a
-                href="/#lien-he-gia-dinh"
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-full border border-white/20 transition-all text-xs sm:text-sm"
-              >
-                Đăng ký nhận tư vấn
-              </a>
-            </div>
-          </div>
+          {/* Medical Disclaimer */}
+          <p className="note">
+            Thông tin giới thiệu về dịch vụ và sản phẩm mang tính định hướng chăm sóc sức khỏe chủ động, không thay thế chẩn đoán hay điều trị y khoa của bác sĩ.
+          </p>
 
         </div>
       </div>

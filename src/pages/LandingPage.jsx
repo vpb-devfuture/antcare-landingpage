@@ -205,7 +205,7 @@ const LandingPage = () => {
         {/* Desktop Background Image (Hidden on Mobile) */}
         <img 
           src="/images/hero-bg.jpg" 
-          alt="Hero background" 
+          alt="ANTCARE – Nhẹ nhàng mỗi ngày, an tâm mọi lúc" 
           className="hidden sm:block absolute inset-0 w-full h-full object-cover object-center z-0 pointer-events-none" 
         />
 
@@ -217,7 +217,7 @@ const LandingPage = () => {
             <div className="w-full rounded-3xl overflow-hidden shadow-sm border border-slate-200/80 bg-white">
               <img 
                 src="/images/hero-bg-mobile.jpg" 
-                alt="ANTCARE Chăm sóc người cao tuổi" 
+                alt="ANTCARE – Các thế hệ phụ nữ đều vui khỏe, an tâm" 
                 className="w-full h-auto object-cover max-h-[420px] object-top" 
               />
             </div>
