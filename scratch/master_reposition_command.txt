@@ -1,0 +1,411 @@
+<USER_REQUEST>
+giúp tớ điều chỉnh nha: <!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lệnh cho Antigravity</title>
+<style>body{margin:0;font-family:Arial,sans-serif;background:#f6f1fc;color:#1f1a2b}
+.bar{position:sticky;top:0;background:#6633B4;color:#fff;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+button{background:#FD711A;color:#fff;border:0;border-radius:20px;padding:10px 18px;font-weight:700;font-size:15px;cursor:pointer}
+pre{white-space:pre-wrap;word-wrap:break-word;background:#fff;margin:16px;padding:16px;border-radius:8px;font-size:14px;line-height:1.55;border:1px solid #e6dff2}</style></head>
+<body><div class="bar"><strong>Lệnh cho Antigravity – định vị lại ANTCARE</strong><button id="b">Sao chép toàn bộ</button><span id="m"></span></div>
+<pre id="t"># LỆNH CHO ANTIGRAVITY: ĐỊNH VỊ LẠI ANTCARE THÀNH THƯƠNG HIỆU ĐỒ LÓT CHỨC NĂNG
+
+&gt; Dán toàn bộ nội dung dưới đây vào Antigravity. Phần &quot;BƯỚC 0&quot; yêu cầu agent đọc dự án và báo kế hoạch trước khi sửa.
+&gt; Địa chỉ, số điện thoại, link mạng xã hội: **dùng đúng thông tin đang có sẵn trên website** (không tự đặt ra). Không thêm năm thành lập, pháp nhân, mã số thuế, tên người sáng lập ở bất kỳ đâu.
+
+---
+
+## BỐI CẢNH
+
+Website antcare.vn đang định vị là &quot;dịch vụ chăm sóc người cao tuổi tại nhà Hà Nội&quot;. Chủ website quyết định **định vị lại ANTCARE thành thương hiệu đồ lót chức năng Việt Nam**: quần kinh nguyệt (thay băng vệ sinh) và quần chống són tiểu (cho són tiểu nhẹ). Câu chuyện thương hiệu: ANTCARE **bắt nguồn từ mảng chăm sóc sức khỏe cho người cao tuổi và phụ nữ**; trong quá trình đó nhận thấy phụ nữ và người cao tuổi dùng tã, bỉm, băng vệ sinh dùng một lần hay bị kích ứng, bí, không thoải mái, nên phát triển đồ lót thấm hút dùng lại.
+
+Mục tiêu của đợt sửa:
+1. Trang chủ `/` trở thành trang thương hiệu đồ lót chức năng (thay cho nội dung chăm sóc người cao tuổi).
+2. Dịch vụ chăm sóc người cao tuổi **đang tạm dừng nhận khách mới** nhưng **không xóa**: chuyển sang trang riêng `/cham-soc-nguoi-cao-tuoi`, đặt ở cuối menu và phía dưới trang chủ, đóng vai trò **câu chuyện khởi nguồn** của thương hiệu (đồng thời giữ thứ hạng SEO đã có).
+3. Viết lại trang &quot;Về chúng tôi&quot;.
+4. Chuẩn hóa SEO kỹ thuật, schema (JSON-LD), liên kết nội bộ, và tín hiệu cho công cụ tìm kiếm AI (GEO/AEO).
+
+**Quy tắc nội dung bắt buộc (rất quan trọng):**
+- Sản phẩm **chưa ra mắt**, chưa chốt nhà cung cấp. KHÔNG viết bất kỳ thông số, chứng nhận, kết quả thử nghiệm nào chưa có.
+- **Xóa** các khẳng định đang có trên trang `/quan-lot-tham-hut`: &quot;kháng khuẩn&quot;, &quot;giặt tái dùng 100+ lần&quot;, &quot;4 lớp kháng khuẩn&quot; và mọi câu tương tự.
+- Không viết sản phẩm &quot;điều trị&quot;, &quot;chữa&quot;, &quot;ngăn ngừa&quot; bệnh. Chỉ nói &quot;giúp thoải mái hơn&quot;, &quot;giảm cọ xát&quot;, &quot;lớp bảo vệ&quot;.
+- Không dùng &quot;100% chống tràn&quot;, &quot;tốt nhất&quot;, &quot;số 1&quot;.
+
+---
+
+## BƯỚC 0 – ĐỌC DỰ ÁN VÀ BÁO KẾ HOẠCH TRƯỚC KHI SỬA
+
+1. Xác định framework, cấu trúc thư mục, cách routing, nơi đặt `&lt;head&gt;` (title, meta, canonical, JSON-LD), sitemap, robots.txt, file cấu hình redirect của hosting.
+2. Liệt kê toàn bộ route hiện có (đặc biệt: `/`, `/quan-lot-tham-hut`, `/dich-vu/*`, `/kinh-nguyet/*`, `/news`, trang &quot;Về chúng tôi&quot; nếu có, các trang són tiểu nếu có).
+3. Tìm mọi chỗ link tới `/#dich-vu`, `/#bang-gia-chi-tiet`, `/quan-lot-tham-hut` và các anchor khác của trang chủ cũ.
+4. Kiểm tra JSON-LD có thực sự được render trong HTML trả về (view-source/HTML build ra), không chỉ có trong code.
+5. Kiểm tra trang có render nội dung chính phía server/static không (nội dung phải có trong HTML ban đầu, không chỉ sinh ra bằng JavaScript sau khi tải).
+6. Báo lại kế hoạch thay đổi theo danh sách bên dưới, chờ xác nhận rồi mới sửa.
+
+---
+
+## BƯỚC 1 – KIẾN TRÚC URL VÀ CHUYỂN HƯỚNG
+
+| URL | Việc cần làm |
+|---|---|
+| `/` | Trang chủ mới: thương hiệu đồ lót chức năng (nội dung ở BƯỚC 3) |
+| `/quan-lot-tham-hut` | **Chuyển hướng 301 về `/`** (nội dung đã gộp vào trang chủ) |
+| `/cham-soc-nguoi-cao-tuoi` | **Trang mới**: chuyển toàn bộ nội dung trang chủ cũ sang đây (3 dịch vụ Trợ lý sức khỏe, Đồng hành khám bệnh, An tâm nhà cửa, bảng giá). Giữ nguyên các id anchor `#dich-vu`, `#bang-gia-chi-tiet`. Thêm khối thông báo đầu trang (xem BƯỚC 3B) |
+| `/dich-vu/*` | Giữ nguyên URL và nội dung, thêm khối thông báo tạm dừng giống BƯỚC 3B ngay dưới H1; đổi các nút &quot;Đặt lịch&quot; thành &quot;Nhắn Zalo&quot;. Sửa breadcrumb: Trang chủ → Chăm sóc người cao tuổi (`/cham-soc-nguoi-cao-tuoi`) → trang hiện tại. Sửa link `/#dich-vu` → `/cham-soc-nguoi-cao-tuoi#dich-vu`, `/#bang-gia-chi-tiet` → `/cham-soc-nguoi-cao-tuoi#bang-gia-chi-tiet` |
+| `/ve-chung-toi` | Trang &quot;Về chúng tôi&quot; mới (nội dung ở BƯỚC 4). Nếu trang này đang ở URL khác, giữ URL cũ hoặc đặt 301 từ URL cũ sang `/ve-chung-toi` |
+| `/kinh-nguyet` | Trang danh mục (hub) liệt kê tất cả bài trong `/kinh-nguyet/*`, nhóm theo chủ đề, mỗi bài có tiêu đề + 1 câu mô tả |
+| `/son-tieu` | Trang danh mục cho các bài về són tiểu (nếu đã có bài; nếu chưa có thì tạo khung rỗng nhưng không đưa vào sitemap) |
+| Mọi bài viết | Tìm và thay link `/quan-lot-tham-hut` → `/` (giữ 301 làm lưới an toàn) |
+
+Không đổi URL của các bài `/kinh-nguyet/*` và `/dich-vu/*` đang có.
+
+---
+
+## BƯỚC 2 – MENU VÀ FOOTER (DÙNG CHUNG TOÀN SITE)
+
+**Menu chính:**
+- Quần kinh nguyệt → `/#quan-kinh-nguyet`
+- Quần chống són tiểu → `/#quan-chong-son-tieu`
+- Cẩm nang → `/kinh-nguyet` (có mục con: Kinh nguyệt `/kinh-nguyet`, Són tiểu `/son-tieu`)
+- Về ANTCARE → `/ve-chung-toi`
+- **Câu chuyện khởi nguồn: Chăm sóc người cao tuổi** → `/cham-soc-nguoi-cao-tuoi` (mục **cuối cùng** của menu, kiểu chữ thường, không nổi bật)
+- Nút nổi bật: &quot;Nhận thông tin ra mắt&quot; → `/#dang-ky`
+
+**Footer:**
+- Câu định nghĩa thương hiệu (giữ nguyên chữ, xem BƯỚC 5).
+- Liên kết: Quần kinh nguyệt, Quần chống són tiểu, Cẩm nang kinh nguyệt, Cẩm nang són tiểu, Về ANTCARE, **Dịch vụ chăm sóc người cao tuổi** (`/cham-soc-nguoi-cao-tuoi`).
+- Thông tin liên hệ hiển thị dạng chữ (không chỉ trong meta): Hotline/Zalo 0969 032 360 (`tel:0969032360`, `https://zalo.me/0969032360`); Địa chỉ: **lấy đúng địa chỉ Rox Tower đang có trên website** (meta description/og:description hiện tại); Email: chỉ hiển thị nếu dự án đã có.
+- Link mạng xã hội chính thức: **lấy các link đang có sẵn trong dự án** (Facebook, YouTube, TikTok, Instagram).
+
+---
+
+## BƯỚC 3 – TRANG CHỦ MỚI `/`
+
+### Thẻ `&lt;head&gt;`
+- `&lt;title&gt;`: `ANTCARE – Quần kinh nguyệt &amp; quần chống són tiểu`
+- `&lt;meta name=&quot;description&quot;&gt;`: `ANTCARE – đồ lót chức năng Việt Nam: quần kinh nguyệt thay băng vệ sinh, quần chống són tiểu nhẹ. Mềm, giặt được, dùng lại. Đăng ký nhận thông tin ra mắt.`
+- `&lt;link rel=&quot;canonical&quot; href=&quot;https://antcare.vn/&quot;&gt;`
+- `og:type` = `website`, `og:title`, `og:description` giống title/description, `og:image` = logo hiện có (`/images/footer-logo.png`); khi có ảnh sản phẩm 1200×630 thì thay, `og:locale` = `vi_VN`
+- `&lt;html lang=&quot;vi&quot;&gt;`
+- Chỉ có **một** thẻ H1.
+
+### Nội dung (giữ đúng cấu trúc heading, có thể chỉnh câu chữ cho mượt nhưng không thêm khẳng định mới)
+
+**H1:** ANTCARE – Đồ lót chức năng cho phụ nữ và người cao tuổi: quần kinh nguyệt và quần chống són tiểu
+
+Đoạn mở đầu (khối &quot;Trả lời nhanh&quot;, đặt ngay dưới H1, nổi bật):
+&gt; **ANTCARE là thương hiệu đồ lót chức năng của Việt Nam, gồm quần kinh nguyệt và quần chống són tiểu có lõi thấm hút, giặt và dùng lại được.** ANTCARE bắt nguồn từ dịch vụ chăm sóc sức khỏe cho người cao tuổi và phụ nữ tại Hà Nội. Từ những người mình chăm sóc, chúng tôi thấy tã, bỉm và băng vệ sinh dùng một lần thường gây bí, cọ xát, kích ứng da, nên phát triển những chiếc quần mặc như quần lót bình thường nhưng thấm hút được máu kinh hoặc nước tiểu rỉ nhẹ.
+
+Nút: &quot;Nhận thông tin ra mắt&quot; (→ `#dang-ky`) và &quot;Tư vấn Zalo 0969 032 360&quot;.
+
+Dòng nhỏ dưới nút: *Sản phẩm đang trong giai đoạn hoàn thiện. Thông số, chứng nhận vải và giá sẽ được công bố khi ra mắt.*
+
+---
+
+**H2 (id=&quot;van-de&quot;):** Vì sao phụ nữ và người cao tuổi cần một lựa chọn khác tã, bỉm, băng vệ sinh dùng một lần?
+
+- **Bí và ẩm:** sản phẩm dùng một lần giữ ẩm sát da khi dùng lâu, nhất là khí hậu nóng ẩm.
+- **Cọ xát, hăm, kích ứng:** mép băng, cánh băng, keo dán, hương liệu dễ gây đỏ rát vùng bẹn.
+- **Xô lệch, tràn:** băng dễ xô khi vận động, khi ngủ trở mình.
+- **Ngại và bất tiện:** người són tiểu nhẹ không muốn mặc bỉm; phụ nữ phải mang băng theo, lo tìm thùng rác.
+- **Nhiều rác thải:** mỗi người dùng hàng nghìn sản phẩm dùng một lần trong đời.
+
+---
+
+**H2 (id=&quot;quan-kinh-nguyet&quot;):** Quần kinh nguyệt ANTCARE – mặc như quần lót, thấm như băng vệ sinh
+
+Quần kinh nguyệt có phần đáy nhiều lớp: lớp tiếp xúc da mềm, lõi thấm giữ máu kinh, lớp chống thấm giúp không thấm ra quần ngoài. Bạn mặc như quần lót bình thường, không cần dán hay đặt gì vào cơ thể.
+
+- **Dùng cho:** ngày ra ít đến trung bình dùng một mình; ngày ra nhiều có thể dùng làm lớp dự phòng cùng băng hoặc cốc nguyệt san; ban đêm với dáng boy short vùng thấm dài.
+- **Phù hợp:** học sinh, phụ nữ đi làm, phụ nữ hay tràn ban đêm, da nhạy cảm với keo và mép băng, phụ nữ tiền mãn kinh có chu kỳ thất thường.
+- **Dáng chủ lực: boy short cạp cao**, ôm đùi, giữ vùng thấm ổn định khi ngồi lâu và ngủ.
+
+Liên kết đọc thêm (link nội bộ thật tới bài tương ứng nếu đã đăng): Ngày kinh nguyệt nên dùng gì? So sánh 5 lựa chọn (`/kinh-nguyet/ngay-kinh-nguyet-nen-dung-gi`); Cách chọn quần kinh nguyệt theo lượng kinh; Quần kinh nguyệt thấm được bao nhiêu ml.
+
+---
+
+**H2 (id=&quot;quan-chong-son-tieu&quot;):** Quần chống són tiểu ANTCARE – cho những lần rỉ nhẹ khi ho, hắt hơi, vận động
+
+Són tiểu nhẹ rất phổ biến ở phụ nữ sau sinh, tuổi tiền mãn kinh và người cao tuổi. Quần chống són tiểu có lõi hút nhanh và vùng thấm rộng phía trước, mặc như quần lót, kín đáo hơn bỉm.
+
+- **Phù hợp:** són tiểu nhẹ, rỉ vài giọt khi ho, hắt hơi, cười, vận động; người còn tự sinh hoạt, không muốn mặc bỉm.
+- **Chưa phù hợp:** tiểu không tự chủ mức độ nặng, người nằm một chỗ (nên dùng sản phẩm chuyên dụng theo tư vấn y tế).
+- Quần thấm hút **không điều trị** són tiểu. Hãy đi khám nếu són tiểu mới xuất hiện, nặng dần, hoặc kèm tiểu buốt, có máu.
+
+Liên kết đọc thêm: Són tiểu khi ho, hắt hơi; Quần kinh nguyệt có dùng cho són tiểu được không? (link nội bộ thật nếu đã đăng).
+
+---
+
+**H2 (id=&quot;so-sanh&quot;):** So sánh nhanh: quần thấm hút và sản phẩm dùng một lần
+
+| Tiêu chí | Băng vệ sinh / bỉm dùng một lần | Quần thấm hút ANTCARE |
+|---|---|---|
+| Cách dùng | Dán hoặc mặc, vứt sau mỗi lần | Mặc như quần lót, giặt và dùng lại |
+| Cọ xát, keo dán | Có mép, cánh, keo | Không keo, không cánh |
+| Xô lệch khi vận động | Có thể | Vùng thấm may liền với quần |
+| Ngày ra rất nhiều / són tiểu nặng | Phù hợp | Có thể cần kết hợp hoặc sản phẩm chuyên dụng |
+| Rác thải | Nhiều | Ít |
+| Chi phí | Thấp mỗi lần, đều đặn hằng tháng | Cao hơn lúc mua, dùng lâu dài |
+| Công sức | Mua, vứt | Xả, giặt, phơi |
+
+---
+
+**H2 (id=&quot;cam-ket&quot;):** Cam kết minh bạch của ANTCARE
+
+- Công bố rõ cấu tạo các lớp và chất liệu khi ra mắt.
+- Chỉ chọn nhà sản xuất chứng minh được lớp chống thấm không thêm PFAS và có chứng nhận vải tra cứu được (ví dụ OEKO-TEX Standard 100).
+- Công bố mức thấm và số lần giặt dựa trên kết quả thử nghiệm, không dùng con số quảng cáo chung chung.
+- Hướng dẫn sử dụng, giặt bằng tiếng Việt; tư vấn chọn size và mức thấm qua Zalo.
+
+---
+
+**H2 (id=&quot;cau-chuyen&quot;):** Bắt nguồn từ chăm sóc người cao tuổi và phụ nữ
+
+ANTCARE – Kiến chăm tổ bắt đầu với dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà và đồng hành đi khám ở Hà Nội. Khi chăm sóc người cao tuổi và trò chuyện với các chị em, chúng tôi gặp một vấn đề ít ai nói ra: són tiểu, những ngày đèn đỏ khó chịu, và làn da bị kích ứng vì sản phẩm dùng một lần. Đó là lý do ANTCARE tập trung vào đồ lót chức năng.
+
+Thêm 3 thẻ nhỏ kể lại hành trình (dạng mốc, không ghi năm):
+1. **Chăm sóc người cao tuổi tại nhà:** Trợ lý sức khỏe đến nhà đo huyết áp, đường huyết, tập vận động; đồng hành đưa người cao tuổi đi khám ở Hà Nội.
+2. **Lắng nghe một nhu cầu ít ai nói ra:** són tiểu ở người cao tuổi, phụ nữ sau sinh và tuổi mãn kinh; những ngày đèn đỏ bí bách; da kích ứng vì tã, bỉm, băng dùng một lần.
+3. **Tập trung vào đồ lót chức năng:** quần kinh nguyệt và quần chống són tiểu, mặc như quần lót, giặt và dùng lại.
+
+Link: &quot;Đọc câu chuyện ANTCARE&quot; → `/ve-chung-toi`. Link phụ: &quot;Câu chuyện khởi nguồn: dịch vụ chăm sóc người cao tuổi&quot; → `/cham-soc-nguoi-cao-tuoi`.
+
+**Vị trí:** mục này đặt **phía dưới** các mục sản phẩm, so sánh và cam kết (thứ tự trang chủ: Mở đầu → Vấn đề → Quần kinh nguyệt → Quần chống són tiểu → So sánh → Cam kết → Câu chuyện → Cẩm nang → Đăng ký → Hỏi đáp).
+
+---
+
+**H2 (id=&quot;cam-nang&quot;):** Cẩm nang kinh nguyệt và són tiểu
+
+Lưới 6–9 thẻ bài viết mới nhất/quan trọng nhất từ `/kinh-nguyet` và `/son-tieu` (ảnh, tiêu đề, 1 câu mô tả). Nút &quot;Xem tất cả&quot; → `/kinh-nguyet`.
+
+---
+
+**H2 (id=&quot;dang-ky&quot;):** Đăng ký nhận thông tin ra mắt
+
+Form: Họ tên, Số điện thoại (bắt buộc), Quan tâm (Quần kinh nguyệt / Quần chống són tiểu / Cả hai), Size thường mặc (S/M/L/XL/Chưa biết). Nút &quot;Đăng ký&quot;. Dòng chú thích: &quot;ANTCARE chỉ dùng số điện thoại để báo tin ra mắt và tư vấn; không chia sẻ cho bên thứ ba.&quot;
+- Dùng cơ chế gửi form sẵn có của dự án. Nếu chưa có, hỏi chủ website endpoint (Google Sheets / Formspree / email) trước khi làm; tạm thời hiển thị nút Zalo.
+- Gắn sự kiện Facebook Pixel `Lead` khi gửi thành công (pixel ID đang có: 1692777472851360).
+
+---
+
+**H2 (id=&quot;hoi-dap&quot;):** Câu hỏi thường gặp
+
+Dùng thẻ `&lt;details&gt;&lt;summary&gt;` hoặc `&lt;dl&gt;`, nội dung câu trả lời phải có sẵn trong HTML (không tải bằng JS):
+
+1. **ANTCARE là thương hiệu gì?** – ANTCARE là thương hiệu đồ lót chức năng của Việt Nam, gồm quần kinh nguyệt và quần chống són tiểu giặt và dùng lại được. ANTCARE bắt nguồn từ dịch vụ chăm sóc sức khỏe người cao tuổi và phụ nữ tại Hà Nội.
+2. **Quần kinh nguyệt có thay được băng vệ sinh không?** – Với ngày ra ít và trung bình, quần kinh nguyệt thường dùng một mình được. Ngày ra rất nhiều có thể kết hợp với băng hoặc cốc nguyệt san.
+3. **Quần chống són tiểu dùng cho ai?** – Cho người són tiểu nhẹ, rỉ vài giọt khi ho, hắt hơi, cười, vận động, còn tự sinh hoạt. Són tiểu nặng nên dùng sản phẩm chuyên dụng theo tư vấn y tế.
+4. **Quần thấm hút có vệ sinh không?** – Có, nếu thay kịp thời, xả nước lạnh, giặt bằng xà phòng dịu, không dùng nước xả vải và phơi khô hoàn toàn.
+5. **Khi nào sản phẩm ANTCARE ra mắt?** – Sản phẩm đang được hoàn thiện. Hãy để lại số điện thoại để nhận thông tin sớm nhất.
+6. **ANTCARE còn dịch vụ chăm sóc người cao tuổi không?** – Dịch vụ chăm sóc người cao tuổi là nơi ANTCARE bắt đầu và hiện đang tạm dừng nhận khách mới để tập trung vào đồ lót chức năng. Thông tin dịch vụ vẫn được giữ tại trang Chăm sóc người cao tuổi.
+
+---
+
+## BƯỚC 3B – TRANG `/cham-soc-nguoi-cao-tuoi` (CÂU CHUYỆN KHỞI NGUỒN)
+
+- `&lt;title&gt;`: `Chăm sóc người cao tuổi Hà Nội – Khởi nguồn ANTCARE`
+- `&lt;meta name=&quot;description&quot;&gt;`: `Dịch vụ Trợ lý sức khỏe và Đồng hành đi khám cho người cao tuổi tại Hà Nội – nơi ANTCARE bắt đầu. Dịch vụ đang tạm dừng nhận khách mới.`
+- **H1:** Chăm sóc người cao tuổi tại Hà Nội – nơi ANTCARE bắt đầu
+- Khối thông báo ngay dưới H1 (nền nhạt, viền cam): *&quot;Dịch vụ chăm sóc người cao tuổi của ANTCARE hiện tạm dừng nhận khách mới để tập trung phát triển đồ lót chức năng. Chúng tôi giữ lại trang này như một phần câu chuyện của ANTCARE. Nếu cần tư vấn, bạn vẫn có thể nhắn Zalo 0969 032 360.&quot;*
+- Đoạn kể chuyện 3–4 câu: những gì ANTCARE đã làm (Trợ lý sức khỏe tại nhà, Đồng hành đi khám), điều học được (són tiểu, kích ứng do tã/bỉm/băng), và vì sao chuyển sang đồ lót chức năng. Nút: &quot;Xem quần kinh nguyệt &amp; quần chống són tiểu&quot; → `/`.
+- Bên dưới: giữ nguyên nội dung 3 dịch vụ và bảng giá cũ (để giữ SEO), nhưng các nút đặt lịch đổi thành &quot;Nhắn Zalo&quot;.
+
+---
+
+## BƯỚC 4 – TRANG &quot;VỀ CHÚNG TÔI&quot; `/ve-chung-toi`
+
+### `&lt;head&gt;`
+- `&lt;title&gt;`: `Về ANTCARE – Thương hiệu đồ lót chức năng Việt Nam`
+- `&lt;meta name=&quot;description&quot;&gt;`: `ANTCARE là thương hiệu đồ lót chức năng Việt Nam: quần kinh nguyệt, quần chống són tiểu. Bắt nguồn từ chăm sóc sức khỏe người cao tuổi và phụ nữ tại Hà Nội.`
+- canonical `https://antcare.vn/ve-chung-toi`; `og:type` = `website` (dùng schema AboutPage ở BƯỚC 5).
+
+### Nội dung
+
+**H1:** Về ANTCARE – thương hiệu đồ lót chức năng bắt nguồn từ chăm sóc sức khỏe
+
+Khối &quot;Trả lời nhanh&quot; (giữ nguyên câu định nghĩa ở BƯỚC 5).
+
+**H2: Thông tin chung** (bảng)
+| | |
+|---|---|
+| Tên thương hiệu | ANTCARE – Kiến chăm tổ |
+| Lĩnh vực | Đồ lót chức năng: quần kinh nguyệt, quần chống són tiểu |
+| Khởi nguồn | Dịch vụ chăm sóc sức khỏe người cao tuổi và phụ nữ tại Hà Nội |
+| Khách hàng | Phụ nữ trong độ tuổi có kinh nguyệt, phụ nữ sau sinh, tuổi tiền mãn kinh, người cao tuổi bị són tiểu nhẹ |
+| Khu vực bán | Toàn quốc (khi ra mắt) |
+| Website | antcare.vn |
+| Hotline / Zalo | 0969 032 360 |
+| Địa chỉ | (địa chỉ Rox Tower đang có trên website) |
+
+Dòng nhỏ: *ANTCARE (antcare.vn) là thương hiệu Việt Nam, không liên quan đến các công ty nước ngoài có tên tương tự.*
+
+**H2: Câu chuyện ANTCARE**
+ANTCARE bắt đầu từ dịch vụ chăm sóc sức khỏe người cao tuổi tại nhà và đồng hành đi khám ở Hà Nội. Làm việc hằng ngày với người cao tuổi và phụ nữ, chúng tôi nhận ra một nỗi khó chịu chung mà ít ai nói thành lời: những ngày đèn đỏ bí bách, tràn ban đêm; những lần rỉ nước tiểu khi ho, hắt hơi khiến người ta ngại ra ngoài; làn da hăm đỏ vì băng vệ sinh, tã, bỉm dùng một lần. Nhiều người són tiểu nhẹ không muốn mặc bỉm, nhưng cũng chưa có lựa chọn nào kín đáo và dễ chịu hơn.
+Từ đó, ANTCARE quyết định tập trung vào đồ lót chức năng: những chiếc quần mặc như quần lót bình thường, nhưng có lõi thấm hút cho máu kinh hoặc nước tiểu rỉ nhẹ, giặt và dùng lại được.
+
+**H2: Ý nghĩa tên &quot;Kiến chăm tổ&quot;**
+Đàn kiến nhỏ bé nhưng chăm chỉ và luôn chăm lo cho tổ của mình. ANTCARE giữ tinh thần ấy: chăm sóc người phụ nữ và gia đình bằng những điều nhỏ, dùng mỗi ngày, làm thật tận tâm.
+
+**H2: Sứ mệnh, tầm nhìn, giá trị**
+- **Sứ mệnh:** giúp phụ nữ và người cao tuổi Việt thoải mái, tự tin trong những ngày đèn đỏ và với són tiểu nhẹ, bằng đồ lót chức năng an toàn, dễ dùng.
+- **Tầm nhìn:** trở thành thương hiệu đồ lót chức năng được phụ nữ Việt tin dùng, đồng hành qua các giai đoạn: tuổi dậy thì, đi làm, sau sinh, tiền mãn kinh và tuổi già.
+- **Giá trị:** Trung thực (chỉ công bố điều đã kiểm chứng) · Thấu hiểu (thiết kế từ nhu cầu thật) · An toàn (chất liệu có chứng nhận) · Bền vững (dùng lại, giảm rác).
+
+**H2: Sản phẩm của ANTCARE**
+- Quần kinh nguyệt (link `/#quan-kinh-nguyet`)
+- Quần chống són tiểu (link `/#quan-chong-son-tieu`)
+
+**H2: Cách ANTCARE chọn sản phẩm**
+Giữ nội dung giống mục &quot;Cam kết minh bạch&quot; ở trang chủ (chứng nhận vải tra cứu được, không thêm PFAS, công bố mức thấm và độ bền theo thử nghiệm).
+
+**H2: Cẩm nang sức khỏe**
+ANTCARE xuất bản cẩm nang về kinh nguyệt và són tiểu bằng tiếng Việt, có dẫn nguồn từ WHO, NHS và các hiệp hội chuyên môn. Nội dung mang tính tham khảo, không thay thế tư vấn của bác sĩ. Link `/kinh-nguyet`, `/son-tieu`.
+(Khi có bác sĩ duyệt nội dung, thêm dòng &quot;Nội dung y khoa được duyệt bởi BS. … – chuyên khoa Sản phụ khoa&quot;. Chưa có thì bỏ qua.)
+
+**H2: Hành trình: từ chăm sóc người cao tuổi đến đồ lót chức năng**
+ANTCARE từng cung cấp dịch vụ Trợ lý sức khỏe tại nhà và Đồng hành đi khám cho người cao tuổi ở Hà Nội và các tỉnh miền Bắc. Đây là nơi chúng tôi học được nhiều nhất về nhu cầu thật của người cao tuổi và phụ nữ. Hiện ANTCARE tạm dừng nhận khách mới cho mảng dịch vụ để tập trung vào đồ lót chức năng; thông tin dịch vụ vẫn được giữ tại trang `/cham-soc-nguoi-cao-tuoi`.
+
+**H2: Liên hệ** – hotline, Zalo, địa chỉ, mạng xã hội (giống footer).
+
+**H2: Câu hỏi thường gặp về ANTCARE** (có trong HTML)
+1. ANTCARE là gì? – (câu định nghĩa)
+2. ANTCARE có phải thương hiệu Việt Nam không? – Có. ANTCARE (antcare.vn) là thương hiệu Việt Nam, không liên quan các công ty nước ngoài có tên tương tự.
+3. Vì sao một đơn vị chăm sóc người cao tuổi lại làm đồ lót? – Vì khi chăm sóc người cao tuổi và phụ nữ, ANTCARE thấy són tiểu, kinh nguyệt và kích ứng do sản phẩm dùng một lần là nhu cầu rất thật nhưng ít được quan tâm.
+4. ANTCARE còn nhận dịch vụ chăm sóc người cao tuổi không? – Hiện ANTCARE tạm dừng nhận khách mới cho mảng dịch vụ để tập trung vào đồ lót chức năng.
+5. Mua sản phẩm ANTCARE ở đâu? – Sản phẩm đang chuẩn bị ra mắt; đăng ký nhận thông tin tại antcare.vn hoặc nhắn Zalo 0969 032 360.
+
+---
+
+## BƯỚC 5 – CÂU ĐỊNH NGHĨA THƯƠNG HIỆU (DÙNG Y NGUYÊN MỌI NƠI)
+
+&gt; **ANTCARE là thương hiệu đồ lót chức năng của Việt Nam, gồm quần kinh nguyệt và quần chống són tiểu giặt và dùng lại được, bắt nguồn từ dịch vụ chăm sóc sức khỏe người cao tuổi và phụ nữ tại Hà Nội.**
+
+Dùng câu này (đúng từng chữ) ở: khối Trả lời nhanh trang chủ, trang Về chúng tôi, footer, schema `description` của Organization, file `llms.txt`. Chủ website cũng nên dán câu này vào phần giới thiệu Facebook, Google Business Profile, TikTok, YouTube, Instagram.
+
+---
+
+## BƯỚC 6 – SCHEMA JSON-LD
+
+Đặt trong `&lt;head&gt;` bằng `&lt;script type=&quot;application/ld+json&quot;&gt;`, đảm bảo **xuất hiện trong HTML build ra** (kiểm tra bằng view-source). Thay các giá trị trong dấu `&lt; &gt;` bằng dữ liệu thật lấy từ dự án; nếu không tìm thấy thì bỏ trường đó. Không thêm `foundingDate`, `founder`, `legalName`, `taxID`.
+
+### 6.1 Toàn site (trang chủ đặt đầy đủ; trang khác tham chiếu bằng `@id`)
+```json
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@graph&quot;: [
+    {
+      &quot;@type&quot;: &quot;Organization&quot;,
+      &quot;@id&quot;: &quot;https://antcare.vn/#org&quot;,
+      &quot;name&quot;: &quot;ANTCARE&quot;,
+      &quot;alternateName&quot;: [&quot;ANTCARE – Kiến chăm tổ&quot;, &quot;Kiến chăm tổ&quot;],
+      &quot;url&quot;: &quot;https://antcare.vn/&quot;,
+      &quot;logo&quot;: &quot;https://antcare.vn/images/footer-logo.png&quot;,
+      &quot;description&quot;: &quot;ANTCARE là thương hiệu đồ lót chức năng của Việt Nam, gồm quần kinh nguyệt và quần chống són tiểu giặt và dùng lại được, bắt nguồn từ dịch vụ chăm sóc sức khỏe người cao tuổi và phụ nữ tại Hà Nội.&quot;,
+      &quot;telephone&quot;: &quot;+84969032360&quot;,
+      &quot;areaServed&quot;: {&quot;@type&quot;: &quot;Country&quot;, &quot;name&quot;: &quot;Việt Nam&quot;},
+      &quot;knowsAbout&quot;: [&quot;quần kinh nguyệt&quot;, &quot;quần chống són tiểu&quot;, &quot;đồ lót chức năng&quot;, &quot;sức khỏe kinh nguyệt&quot;, &quot;són tiểu ở phụ nữ&quot;, &quot;chăm sóc người cao tuổi&quot;],
+      &quot;address&quot;: {&quot;@type&quot;: &quot;PostalAddress&quot;, &quot;streetAddress&quot;: &quot;&lt;địa chỉ Rox Tower đang có trên website&gt;&quot;, &quot;addressLocality&quot;: &quot;Hà Nội&quot;, &quot;addressCountry&quot;: &quot;VN&quot;},
+      &quot;sameAs&quot;: [&quot;&lt;các link Facebook, YouTube, TikTok, Instagram đang có sẵn trong dự án&gt;&quot;],
+      &quot;contactPoint&quot;: {&quot;@type&quot;: &quot;ContactPoint&quot;, &quot;telephone&quot;: &quot;+84969032360&quot;, &quot;contactType&quot;: &quot;customer service&quot;, &quot;availableLanguage&quot;: &quot;vi&quot;}
+    },
+    {
+      &quot;@type&quot;: &quot;Brand&quot;,
+      &quot;@id&quot;: &quot;https://antcare.vn/#brand&quot;,
+      &quot;name&quot;: &quot;ANTCARE&quot;,
+      &quot;description&quot;: &quot;Thương hiệu đồ lót chức năng: quần kinh nguyệt, quần chống són tiểu.&quot;
+    },
+    {
+      &quot;@type&quot;: &quot;WebSite&quot;,
+      &quot;@id&quot;: &quot;https://antcare.vn/#website&quot;,
+      &quot;url&quot;: &quot;https://antcare.vn/&quot;,
+      &quot;name&quot;: &quot;ANTCARE&quot;,
+      &quot;inLanguage&quot;: &quot;vi&quot;,
+      &quot;publisher&quot;: {&quot;@id&quot;: &quot;https://antcare.vn/#org&quot;}
+    },
+    {
+      &quot;@type&quot;: &quot;WebPage&quot;,
+      &quot;@id&quot;: &quot;https://antcare.vn/#webpage&quot;,
+      &quot;url&quot;: &quot;https://antcare.vn/&quot;,
+      &quot;name&quot;: &quot;ANTCARE – Quần kinh nguyệt &amp; quần chống són tiểu&quot;,
+      &quot;isPartOf&quot;: {&quot;@id&quot;: &quot;https://antcare.vn/#website&quot;},
+      &quot;about&quot;: {&quot;@id&quot;: &quot;https://antcare.vn/#org&quot;},
+      &quot;inLanguage&quot;: &quot;vi&quot;
+    }
+  ]
+}
+```
+Thêm một `FAQPage` sinh tự động từ phần Hỏi đáp của trang (câu hỏi/câu trả lời phải khớp 100% với chữ hiển thị).
+
+**Chưa thêm schema `Product`/`Offer`** cho đến khi có giá, ảnh thật và hàng bán được.
+
+### 6.2 `/ve-chung-toi`
+`AboutPage` (`about` → `#org`, `isPartOf` → `#website`) + `FAQPage` từ phần hỏi đáp + `BreadcrumbList` (Trang chủ → Về ANTCARE).
+
+### 6.3 `/cham-soc-nguoi-cao-tuoi` và `/dich-vu/*`
+Vì dịch vụ đang tạm dừng: dùng `WebPage` (`about` → `#org`) + `BreadcrumbList`. **Xóa** schema `Service`/`Offer`/`LocalBusiness` của mảng dịch vụ nếu đang có, để Google không hiển thị giá cho dịch vụ không còn nhận khách.
+
+### 6.4 Mọi bài `/kinh-nguyet/*`, `/son-tieu/*`
+Kiểm tra từng bài: nếu chưa có JSON-LD trong HTML build ra, thêm `BlogPosting` (`headline` = H1, `description` = meta description, `datePublished`, `dateModified`, `author` và `publisher` → `#org`, `mainEntityOfPage` = URL bài, `inLanguage` = `vi`) + `FAQPage` sinh từ phần câu hỏi thường gặp của bài (nếu có) + `BreadcrumbList` (Trang chủ → Cẩm nang → Bài).
+Đổi `og:type` của bài viết thành `article`.
+
+---
+
+## BƯỚC 7 – SEO KỸ THUẬT VÀ GEO
+
+1. **sitemap.xml**: liệt kê `/`, `/ve-chung-toi`, `/kinh-nguyet`, `/son-tieu` (nếu có bài), tất cả bài, `/cham-soc-nguoi-cao-tuoi`, `/dich-vu/*`; `lastmod` đúng ngày sửa. **Không** đưa `/quan-lot-tham-hut` (đã 301).
+2. **robots.txt**: cho phép crawl toàn site; khai báo `Sitemap: https://antcare.vn/sitemap.xml`. Không chặn các bot AI: `Googlebot`, `Bingbot`, `GPTBot`, `OAI-SearchBot`, `ChatGPT-User`, `PerplexityBot`, `ClaudeBot`, `Google-Extended`.
+3. **llms.txt** (tạo file `/llms.txt`):
+```
+# ANTCARE
+&gt; ANTCARE là thương hiệu đồ lót chức năng của Việt Nam, gồm quần kinh nguyệt và quần chống són tiểu giặt và dùng lại được, bắt nguồn từ dịch vụ chăm sóc sức khỏe người cao tuổi và phụ nữ tại Hà Nội.
+
+## Sản phẩm
+- [Quần kinh nguyệt](https://antcare.vn/#quan-kinh-nguyet): mặc như quần lót, thay băng vệ sinh ngày ra ít đến trung bình.
+- [Quần chống són tiểu](https://antcare.vn/#quan-chong-son-tieu): cho són tiểu nhẹ khi ho, hắt hơi, vận động.
+
+## Cẩm nang
+- [Cẩm nang kinh nguyệt](https://antcare.vn/kinh-nguyet)
+- [Ngày kinh nguyệt nên dùng gì? So sánh 5 lựa chọn](https://antcare.vn/kinh-nguyet/ngay-kinh-nguyet-nen-dung-gi)
+- [Cẩm nang són tiểu](https://antcare.vn/son-tieu)
+
+## Về ANTCARE
+- [Về chúng tôi](https://antcare.vn/ve-chung-toi)
+- [Dịch vụ chăm sóc người cao tuổi tại Hà Nội](https://antcare.vn/cham-soc-nguoi-cao-tuoi)
+- Liên hệ: 0969 032 360 (Hotline/Zalo)
+```
+4. **Nội dung trong HTML ban đầu**: toàn bộ chữ của trang chủ, trang Về chúng tôi, FAQ phải có trong HTML trả về (pre-render/SSG nếu framework là SPA). Các bot AI thường không chạy JavaScript.
+5. **Heading**: mỗi trang đúng một H1; H2/H3 theo thứ tự, không nhảy cấp.
+6. **Ảnh**: mọi ảnh có `alt` mô tả bằng tiếng Việt (ví dụ &quot;Quần kinh nguyệt ANTCARE dáng boy short cạp cao&quot;), có `width`/`height`, định dạng WebP, `loading=&quot;lazy&quot;` trừ ảnh đầu trang.
+7. **Tốc độ**: kiểm tra PageSpeed (mobile) cho `/` sau khi sửa; LCP &lt; 2,5 giây.
+8. **Breadcrumb hiển thị** trên tất cả trang con, khớp với schema BreadcrumbList.
+9. **Link nội bộ**: mọi bài trong `/kinh-nguyet/*` có link về `/` (sản phẩm) và về trang hub `/kinh-nguyet`; trang hub link xuống mọi bài.
+10. **Theo dõi**: giữ Facebook Pixel; nếu dự án chưa có, thêm chỗ để chèn GA4 (`G-XXXXXXX` – chủ website cung cấp) và Microsoft Clarity.
+
+---
+
+## BƯỚC 8 – KIỂM TRA SAU KHI SỬA (BÁO LẠI KẾT QUẢ)
+
+- [ ] `/quan-lot-tham-hut` trả về 301 → `/`.
+- [ ] Không còn link nào trỏ tới `/#dich-vu`, `/#bang-gia-chi-tiet` trên trang chủ mới; các link đó đã trỏ tới `/cham-soc-nguoi-cao-tuoi#...` và anchor tồn tại.
+- [ ] Không còn chữ &quot;kháng khuẩn&quot;, &quot;100+ lần&quot;, &quot;100% chống tràn&quot; ở bất kỳ trang sản phẩm nào.
+- [ ] View-source `/`, `/ve-chung-toi`, 1 bài `/kinh-nguyet/*`: thấy JSON-LD hợp lệ, không còn giá trị dạng `&lt; &gt;` chưa thay.
+- [ ] Mỗi trang có đúng 1 H1, title ≤ 60 ký tự, meta description ≤ 160 ký tự, canonical đúng.
+- [ ] sitemap.xml, robots.txt, llms.txt truy cập được.
+- [ ] Khối thông báo tạm dừng hiển thị trên `/cham-soc-nguoi-cao-tuoi` và mọi trang `/dich-vu/*`; mục &quot;Chăm sóc người cao tuổi&quot; nằm cuối menu.
+- [ ] Không có năm thành lập, pháp nhân, tên người sáng lập ở bất kỳ trang hay schema nào.
+- [ ] Liệt kê thông tin nào không tìm thấy trong dự án (địa chỉ, link mạng xã hội) để chủ website bổ sung.
+</pre>
+<script>document.getElementById('b').onclick=async()=>{const t=document.getElementById('t').innerText;try{await navigator.clipboard.writeText(t);}catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById('t'));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);document.execCommand('copy');}document.getElementById('m').textContent='Đã sao chép ✓';};</script>
+</body></html>
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-09T11:31:50+07:00.
+
+The user's current state is as follows:
+Active Document: c:\my-projects\antcare\sourcecode\antcare-landingpage\src\pages\LandingPage.jsx (LANGUAGE_UNSPECIFIED)
+Cursor is on line: 1
+Other open documents:
+- c:\my-projects\antcare\sourcecode\antcare-landingpage\src\pages\AbsorbentUnderwear.jsx (LANGUAGE_UNSPECIFIED)
+- c:\my-projects\antcare\sourcecode\antcare-landingpage\scratch\add_medical_escort_7.cjs (LANGUAGE_UNSPECIFIED)
+- c:\my-projects\antcare\sourcecode\antcare-landingpage\scratch\verify_articles.cjs (LANGUAGE_UNSPECIFIED)
+- c:\my-projects\antcare\sourcecode\antcare-landingpage\scratch\build_news_en.cjs (LANGUAGE_UNSPECIFIED)
+- c:\my-projects\antcare\sourcecode\antcare-landingpage\scratch\add_all_10_articles.cjs (LANGUAGE_UNSPECIFIED)
+</ADDITIONAL_METADATA>

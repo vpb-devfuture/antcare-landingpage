@@ -1,7 +1,39 @@
 [
   {
+    "id": "products",
+    "path": "/#quan-lot-tham-hut",
+    "i18nKey": "menu.products"
+  },
+  {
+    "id": "about",
+    "path": "/ve-chung-toi",
+    "i18nKey": "menu.about"
+  },
+  {
+    "id": "handbook",
+    "path": "/kinh-nguyet",
+    "i18nKey": "menu.handbook",
+    "children": [
+      {
+        "id": "handbook_period",
+        "path": "/kinh-nguyet",
+        "i18nKey": "menu.handbook_period"
+      },
+      {
+        "id": "handbook_incontinence",
+        "path": "/son-tieu",
+        "i18nKey": "menu.handbook_incontinence"
+      }
+    ]
+  },
+  {
+    "id": "news",
+    "path": "/news",
+    "i18nKey": "menu.news"
+  },
+  {
     "id": "services",
-    "path": "/#dich-vu",
+    "path": "/dich-vu",
     "i18nKey": "menu.services",
     "children": [
       {
@@ -11,86 +43,34 @@
       },
       {
         "id": "service_packages",
-        "path": "/#dich-vu",
+        "path": "/dich-vu#dich-vu",
         "i18nKey": "menu.service_packages"
       },
       {
         "id": "service_why_antcare",
-        "path": "/#tai-sao-la-antcare",
+        "path": "/dich-vu#tai-sao-la-antcare",
         "i18nKey": "menu.service_why_antcare"
       },
       {
         "id": "service_tracking",
-        "path": "/#giai-phap-cham-soc",
+        "path": "/dich-vu#giai-phap-cham-soc",
         "i18nKey": "menu.service_tracking"
       },
       {
         "id": "service_education",
-        "path": "/#giai-phap-cham-soc",
+        "path": "/dich-vu#giai-phap-cham-soc",
         "i18nKey": "menu.service_education"
       },
       {
         "id": "service_maid",
-        "path": "/#giai-phap-cham-soc",
+        "path": "/dich-vu#giai-phap-cham-soc",
         "i18nKey": "menu.service_maid"
       },
       {
         "id": "service_process",
-        "path": "/#quy-trinh-hoat-dong",
+        "path": "/dich-vu#quy-trinh-hoat-dong",
         "i18nKey": "menu.service_process"
       }
     ]
-  },
-  {
-    "id": "products",
-    "path": "/quan-lot-tham-hut",
-    "i18nKey": "menu.products"
-  },
-  {
-    "id": "about",
-    "path": "/ve-antcare",
-    "i18nKey": "menu.about",
-    "children": [
-      {
-        "id": "about_main",
-        "path": "/ve-antcare",
-        "i18nKey": "menu.about_main"
-      },
-      {
-        "id": "about_story",
-        "path": "/ve-antcare#cau-chuyen",
-        "i18nKey": "menu.about_story"
-      },
-      {
-        "id": "contact_info",
-        "path": "/recruitment#thong-tin-lien-he",
-        "i18nKey": "menu.contact_info"
-      },
-      {
-        "id": "contact_recruitment",
-        "path": "/recruitment",
-        "i18nKey": "menu.recruitment"
-      },
-      {
-        "id": "contact_partnership",
-        "path": "/recruitment#hop-tac-cung-ant",
-        "i18nKey": "menu.contact_partnership"
-      }
-    ]
-  },
-  {
-    "id": "handbook",
-    "path": "/kinh-nguyet",
-    "i18nKey": "menu.handbook"
-  },
-  {
-    "id": "news",
-    "path": "/news",
-    "i18nKey": "menu.news"
-  },
-  {
-    "id": "activities",
-    "path": "/activities",
-    "i18nKey": "menu.activities"
   }
 ]

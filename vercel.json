@@ -416,43 +416,73 @@
       "permanent": true
     },
     {
-      "source": "/dich-vu",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/dich-vu/",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/quan-lot-tham-hut-nguyet-san-son-tieu",
-      "destination": "/quan-lot-tham-hut",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/quan-lot-nguyet-san-son-tieu",
-      "destination": "/quan-lot-tham-hut",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/quan-lot-son-tieu",
-      "destination": "/quan-lot-tham-hut",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/quan-lot-nguyet-san",
-      "destination": "/quan-lot-tham-hut",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/quan-chong-son-tieu",
-      "destination": "/quan-lot-tham-hut",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/san-pham/quan-lot-tham-hut",
-      "destination": "/quan-lot-tham-hut",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/quan-lot-tham-hut",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/quan-lot-tham-hut/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ve-antcare",
+      "destination": "/ve-chung-toi",
+      "permanent": true
+    },
+    {
+      "source": "/ve-antcare/",
+      "destination": "/ve-chung-toi",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/ve-chung-toi",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/ve-chung-toi",
+      "permanent": true
+    },
+    {
+      "source": "/giai-phap-cham-soc",
+      "destination": "/dich-vu",
+      "permanent": true
+    },
+    {
+      "source": "/giai-phap-cham-soc/",
+      "destination": "/dich-vu",
       "permanent": true
     }
   ],

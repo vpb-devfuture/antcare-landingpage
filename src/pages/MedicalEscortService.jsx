@@ -70,7 +70,7 @@ const MedicalEscortService = () => {
     let ogImage = document.querySelector('meta[property="og:image"]');
     if (ogImage) ogImage.content = "https://antcare.vn/images/footer-logo.png";
 
-    // BreadcrumbList JSON-LD: 2 levels only (Trang chủ > Đưa người cao tuổi đi khám)
+    // BreadcrumbList JSON-LD: 3 levels (Trang chủ > Chăm sóc người cao tuổi > Đưa người cao tuổi đi khám)
     const breadcrumbJsonLd = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -84,6 +84,12 @@ const MedicalEscortService = () => {
         {
           "@type": "ListItem",
           "position": 2,
+          "name": "Chăm sóc người cao tuổi",
+          "item": "https://antcare.vn/cham-soc-nguoi-cao-tuoi"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": "Đưa người cao tuổi đi khám",
           "item": canonicalUrl
         }
@@ -180,8 +186,8 @@ const MedicalEscortService = () => {
             Trang chủ
           </Link>
           <span className="text-slate-400">/</span>
-          <Link to="/#dich-vu" className="hover:text-[#6633B4] transition-colors">
-            Dịch vụ
+          <Link to="/cham-soc-nguoi-cao-tuoi" className="hover:text-[#6633B4] transition-colors">
+            Chăm sóc người cao tuổi
           </Link>
           <span className="text-slate-400">/</span>
           <span className="text-slate-800 font-semibold" aria-current="page">
@@ -201,6 +207,8 @@ const MedicalEscortService = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#2A1B3D] leading-tight mb-5 tracking-tight">
             Dịch vụ đưa người cao tuổi đi khám bệnh tại Hà Nội
           </h1>
+
+          
 
           <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal mb-5">
             <strong>Bố mẹ có lịch khám nhưng con không sắp xếp được? Kiến Y tế của ANTCARE, với nền tảng điều dưỡng và chứng chỉ sơ cấp cứu, sẽ thay con đưa ông bà đi khám, lo trọn thủ tục ở bệnh viện, ghi lại đầy đủ lời bác sĩ dặn và báo cáo ngay cho gia đình.</strong>
@@ -442,7 +450,7 @@ const MedicalEscortService = () => {
           {/* Cross-sell block */}
           <blockquote className="bg-purple-50/80 border-l-4 border-[#6633B4] p-4 sm:p-5 rounded-r-2xl text-xs sm:text-sm text-slate-700">
             Bố mẹ cần được theo dõi sức khỏe thường xuyên? Xem thêm các{' '}
-            <Link to="/#bang-gia-chi-tiet" className="font-bold text-[#6633B4] hover:underline">
+            <Link to="/cham-soc-nguoi-cao-tuoi#bang-gia-chi-tiet" className="font-bold text-[#6633B4] hover:underline">
               Gói Trợ lý Sức khỏe
             </Link>{' '}
             định kỳ tại nhà, từ 990.000đ/tháng.

@@ -252,7 +252,41 @@ const NewsDetail = () => {
     );
   }
 
-  // Get related articles from the same language dataset
+  // Classifiers for accurate topic separation in handbook & related articles
+  const isSonTieuItem = (item) => {
+    if (!item) return false;
+    if (item.category === 'Tiểu són' || item.group === 'son-tieu' || item.category === 'Incontinence' || item.category === 'Urinary Incontinence') return true;
+    if (item.slug && !item.slug.includes('quan-kinh-nguyet') && (
+      item.slug.includes('son-tieu') || item.slug.includes('tieu-son') || item.slug.includes('ri-tieu') || item.slug.includes('quan-chong-son')
+    )) return true;
+    return false;
+  };
+
+  const isKinhNguyetItem = (item) => {
+    if (!item) return false;
+    if (isSonTieuItem(item)) return false;
+    if (item.category === 'Kinh nguyệt' || item.category === 'Menstrual Care' || item.category === 'Menstrual Health') return true;
+    if (item.group === 'kinh-nguyet' || item.category === 'Cẩm nang') return true;
+    if (item.slug && (
+      item.slug.includes('kinh-nguyet') || item.slug.includes('nguyet-san') || item.slug.includes('tampon') || item.slug.includes('bang-ve-sinh') || item.slug.includes('den-thang') || item.slug.includes('quan-boy-short') || item.slug.includes('quan-lot-nu')
+    )) return true;
+    return false;
+  };
+
+  const isSonTieuArticle = isSonTieuItem(article) || location.pathname.startsWith('/son-tieu') || location.pathname.startsWith('/tieu-son');
+  const isKinhNguyetArticle = !isSonTieuArticle && (isKinhNguyetItem(article) || location.pathname.startsWith('/kinh-nguyet') || location.pathname.startsWith('/cam-nang'));
+
+  const backLinkPath = isSonTieuArticle 
+    ? '/son-tieu' 
+    : isKinhNguyetArticle 
+      ? '/kinh-nguyet' 
+      : '/news';
+
+  const backLinkText = isCurrentArticleEn
+    ? (isSonTieuArticle ? "Back to Incontinence Handbook" : isKinhNguyetArticle ? "Back to Menstrual Handbook" : "Back to Articles")
+    : (isSonTieuArticle ? "Trở về Cẩm nang Tiểu són" : isKinhNguyetArticle ? "Trở về Cẩm nang Kinh nguyệt" : "Trở về Tin tức");
+
+  // Get related articles from the same language dataset and strictly within same topic
   const activeDataset = isCurrentArticleEn ? enList : viList;
   const allArticlesListSorted = sortArticlesByDate(activeDataset);
 
@@ -263,11 +297,17 @@ const NewsDetail = () => {
     (!Array.isArray(article.oldSlugs) || !article.oldSlugs.includes(item.slug))
   );
 
-  const sameCategoryArticles = availableArticles.filter(item => item.category === article.category);
-  const otherCategoryArticles = availableArticles.filter(item => item.category !== article.category);
+  const topicMatchedArticles = isSonTieuArticle
+    ? availableArticles.filter(isSonTieuItem)
+    : isKinhNguyetArticle
+      ? availableArticles.filter(isKinhNguyetItem)
+      : availableArticles.filter(item => !isSonTieuItem(item) && !isKinhNguyetItem(item));
 
-  // Combine: same category first, then latest articles to get 3
-  const relatedArticles = [...sameCategoryArticles, ...otherCategoryArticles].slice(0, 3);
+  const sameCategoryArticles = topicMatchedArticles.filter(item => item.category === article.category);
+  const otherSameTopicArticles = topicMatchedArticles.filter(item => item.category !== article.category);
+
+  // Combine: same category first, then same topic to get 3
+  const relatedArticles = [...sameCategoryArticles, ...otherSameTopicArticles, ...availableArticles].slice(0, 3);
 
   const schemaMarkup = article.schema || {
     "@context": "https://schema.org",
@@ -305,11 +345,11 @@ const NewsDetail = () => {
           {/* Top navigation row: Left-aligned with bold text */}
           <div className="w-full flex items-center justify-start gap-3 mb-4">
             <Link 
-              to={(location.pathname.startsWith('/kinh-nguyet') || location.pathname.startsWith('/kinhnguyet') || location.pathname.startsWith('/cam-nang')) ? '/kinh-nguyet' : '/news'} 
+              to={backLinkPath} 
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-plum-deep hover:text-earth-orange-bright transition-colors group"
             >
               <span className="material-symbols-outlined text-lg group-hover:-translate-x-0.5 transition-transform font-bold">arrow_back</span>
-              <span>{isCurrentArticleEn ? "Back to Articles" : ((location.pathname.startsWith('/kinh-nguyet') || location.pathname.startsWith('/kinhnguyet') || location.pathname.startsWith('/cam-nang')) ? "Trở về Cẩm nang" : "Trở về Tin tức")}</span>
+              <span>{backLinkText}</span>
             </Link>
             <span className="text-surface-lavender">•</span>
             <span className="px-3 py-0.5 rounded-full bg-earth-orange-bright/10 text-earth-orange-bright font-bold text-xs">
@@ -514,7 +554,7 @@ const NewsDetail = () => {
               <div className="space-y-3">
                 {relatedArticles.map(item => (
                   <Link 
-                    to={item.slug ? (activitiesData.some(a => a.slug === item.slug) ? `/activities/${item.slug}` : `/news/${item.slug}`) : `/news/${item.id}`} 
+                    to={item.slug ? (activitiesData.some(a => a.slug === item.slug) ? `/activities/${item.slug}` : (isSonTieuItem(item) ? `/son-tieu/${item.slug}` : isKinhNguyetItem(item) ? `/kinh-nguyet/${item.slug}` : `/news/${item.slug}`)) : `/news/${item.id}`} 
                     key={`sb-${item.category}-${item.slug || item.id}-${item.id}`}
                     className="flex gap-3 group items-center p-2 rounded-xl hover:bg-surface-mist transition-all duration-200 border border-transparent hover:border-surface-lavender/60"
                   >

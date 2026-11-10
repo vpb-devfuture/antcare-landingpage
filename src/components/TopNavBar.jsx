@@ -44,7 +44,10 @@ const TopNavBar = () => {
       const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
       const cleanBasePath = (basePath === '' || basePath === '/') ? '/' : basePath.replace(/\/$/, '');
 
-      const isSamePage = (currentPath === cleanBasePath) ||
+      const isServicePage = (currentPath === '/dich-vu' || currentPath === '/cham-soc-nguoi-cao-tuoi' || currentPath === '/giai-phap-cham-soc') &&
+                            (cleanBasePath === '/dich-vu' || cleanBasePath === '/cham-soc-nguoi-cao-tuoi' || cleanBasePath === '/giai-phap-cham-soc');
+
+      const isSamePage = (currentPath === cleanBasePath) || isServicePage ||
                          (currentPath === '/recruitment' && (cleanBasePath === '/hop-tac' || cleanBasePath === '/lien-he' || cleanBasePath === '/recruitment')) ||
                          ((currentPath === '/lien-he' || currentPath === '/hop-tac') && cleanBasePath === '/recruitment');
 
@@ -169,14 +172,14 @@ const TopNavBar = () => {
                 <Link
                   key={item.id}
                   to={item.path}
-                  className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium"
+                  className="group flex items-center gap-1 px-3 py-2 rounded-full transition-all text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 text-[15px] font-medium"
                   onClick={() => window.scrollTo(0, 0)}
                   dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }}
                 />
               ) : (
                 <a
                   key={item.id}
-                  className="group flex items-center gap-1 px-3 py-2 rounded-full text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 transition-all text-[15px] font-medium"
+                  className="group flex items-center gap-1 px-3 py-2 rounded-full transition-all text-plum-deep hover:text-earth-orange-bright hover:bg-earth-orange-bright/10 text-[15px] font-medium"
                   href={item.path}
                   onClick={(e) => handleNavClick(e, item.path)}
                   dangerouslySetInnerHTML={{ __html: t(item.i18nKey) }}
@@ -186,10 +189,10 @@ const TopNavBar = () => {
           </div>
 
           {/* Desktop: Hotline + Language (right) */}
-          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
-            <a onClick={() => trackEvent('click_hotline', { location: 'header_desktop' })} className="flex items-center gap-2 px-4 py-2 border border-[#68259E]/30 rounded-full text-plum-deep hover:bg-earth-orange-bright hover:text-white hover:border-earth-orange-bright transition-all duration-300 shadow-sm hover:shadow-md group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
-              <span className="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">call</span>
-              <span className="text-[15px] font-bold">{siteInfo.hotline}</span>
+          <div className="hidden md:flex items-center gap-2.5 flex-shrink-0">
+            <a onClick={() => trackEvent('click_hotline', { location: 'header_desktop' })} className="flex items-center gap-2 px-3.5 py-2 border border-[#68259E]/30 rounded-full text-plum-deep hover:bg-earth-orange-bright hover:text-white hover:border-earth-orange-bright transition-all duration-300 shadow-xs hover:shadow-md group" href={`tel:${siteInfo.hotline.replace(/ /g, "")}`}>
+              <span className="material-symbols-outlined text-[19px] group-hover:scale-110 transition-transform">call</span>
+              <span className="text-[14px] font-bold">{siteInfo.hotline}</span>
             </a>
             <div className="h-5 w-px bg-border-muted"></div>
             <div className="relative group">
@@ -259,6 +262,8 @@ const TopNavBar = () => {
             </a>
           </div>
 
+
+
           {/* Main Navigation Accordion */}
           <div className="flex flex-col divide-y divide-border-muted/40">
             {menu.map(item => {
@@ -266,6 +271,7 @@ const TopNavBar = () => {
               const isExpanded = !!expandedItems[item.id];
               const menuIcons = {
                 services: 'medical_services',
+                elderly_care: 'medical_services',
                 products: 'inventory_2',
                 about: 'info',
                 contact: 'support_agent',

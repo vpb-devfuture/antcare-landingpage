@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
+import Home from './pages/Home';
+import AboutUsNew from './pages/AboutUsNew';
 import LandingPage from './pages/LandingPage';
 import MedicalEscortService from './pages/MedicalEscortService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -52,14 +54,17 @@ function App() {
     // Page titles & meta description updates for standard routes
     let metaDesc = document.querySelector('meta[name="description"]');
     if (cleanPath === '/') {
-      document.title = "ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi tại nhà Hà Nội";
-      if (metaDesc) metaDesc.content = "ANTCARE – Kiến chăm tổ là dịch vụ trợ lý chăm sóc sức khỏe và đồng hành cùng người cao tuổi tại nhà chuẩn quốc tế. Hotline: 0969 032 360. Địa chỉ: Tòa Rox Tower, 138 Hồ Tùng Mậu, Hà Nội.";
-    } else if (cleanPath === '/giai-phap-cham-soc') {
+      document.title = "ANTCARE – Quần kinh nguyệt & quần chống són tiểu";
+      if (metaDesc) metaDesc.content = "ANTCARE – đồ lót chức năng Việt Nam: quần kinh nguyệt thay băng vệ sinh, quần chống són tiểu nhẹ. Mềm, giặt được, dùng lại. Đăng ký nhận thông tin ra mắt.";
+    } else if (cleanPath === '/dich-vu' || cleanPath === '/cham-soc-nguoi-cao-tuoi' || cleanPath === '/giai-phap-cham-soc') {
       document.title = "Dịch vụ chăm sóc người cao tuổi tại nhà Hà Nội | ANTCARE — Kiến chăm tổ";
-      if (metaDesc) metaDesc.content = "ANTCARE — Kiến chăm tổ cung cấp 3 dịch vụ chăm sóc người cao tuổi tại Hà Nội: đưa đi khám bệnh, theo dõi sức khỏe tại nhà và hỗ trợ an toàn nhà cửa. Hotline: 0969 032 360.";
+      if (metaDesc) metaDesc.content = "ANTCARE — Kiến chăm tổ cung cấp dịch vụ chăm sóc người cao tuổi tại Hà Nội: đưa đi khám bệnh, theo dõi sức khỏe tại nhà, trợ lý sức khỏe và hỗ trợ y tế. Hotline: 0969 032 360.";
+    } else if (cleanPath === '/ve-chung-toi' || cleanPath === '/ve-antcare' || cleanPath === '/about') {
+      document.title = "Về ANTCARE – Thương hiệu đồ lót chức năng Việt Nam";
+      if (metaDesc) metaDesc.content = "ANTCARE là thương hiệu đồ lót chức năng Việt Nam: quần kinh nguyệt, quần chống són tiểu. Bắt nguồn từ chăm sóc sức khỏe người cao tuổi và phụ nữ tại Hà Nội.";
     } else if (cleanPath === '/quan-lot-tham-hut' || cleanPath === '/quan-lot-son-tieu' || cleanPath === '/quan-lot-nguyet-san' || cleanPath === '/quan-chong-son-tieu' || cleanPath === '/quan-lot-tham-hut-nguyet-san-son-tieu' || cleanPath === '/quan-lot-nguyet-san-son-tieu') {
-      document.title = "Quần Lót Thấm Hút ANTCARE – Chống Són Tiểu & Thay Thế Băng Vệ Sinh 2-in-1";
-      if (metaDesc) metaDesc.content = "Quần lót thấm hút ANTCARE công nghệ 4 lớp kháng khuẩn: vừa là quần lót nguyệt san chống tràn ban đêm, vừa là quần lót chống són tiểu cho mẹ sau sinh & người lớn tuổi. Giặt tái dùng 100+ lần.";
+      document.title = "ANTCARE – Quần kinh nguyệt & quần chống són tiểu";
+      if (metaDesc) metaDesc.content = "ANTCARE – đồ lót chức năng Việt Nam: quần kinh nguyệt thay băng vệ sinh, quần chống són tiểu nhẹ. Mềm, giặt được, dùng lại. Đăng ký nhận thông tin ra mắt.";
     } else if (cleanPath === '/san-pham') {
       document.title = "Dụng cụ rèn luyện thể chất & trí não cho người cao tuổi | ANTCARE — Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Đồ chơi thủ công, dụng cụ rèn luyện vận động tinh ngón tay và kích thích trí não chuyên biệt cho người cao tuổi từ ANTCARE – Kiến chăm tổ.";
@@ -139,12 +144,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<LandingPage />} />
+        <Route index element={<Home />} />
+        <Route path="dich-vu" element={<LandingPage />} />
+        <Route path="cham-soc-nguoi-cao-tuoi" element={<LandingPage />} />
         <Route path="giai-phap-cham-soc" element={<LandingPage />} />
         <Route path="dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi" element={<MedicalEscortService />} />
-        
-        {/* 301 Redirects for consolidated articles & service root */}
-        <Route path="dich-vu" element={<Navigate to="/" replace />} />
         <Route path="news/chuan-bi-gi-khi-dua-bo-me-di-kham-benh" element={<Navigate to="/news/checklist-dua-bo-me-di-kham-benh-vien" replace />} />
         <Route path="news/dua-bo-me-di-kham-benh-ha-noi-can-chuan-bi-gi" element={<Navigate to="/news/checklist-dua-bo-me-di-kham-benh-vien" replace />} />
         <Route path="news/dich-vu-dong-hanh-di-kham-benh-cho-nguoi-gia" element={<Navigate to="/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi" replace />} />
@@ -303,11 +307,11 @@ function App() {
         <Route path="kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
         <Route path="kien-thuc/kham-benh-vien-dai-hoc-y-ha-noi" element={<Navigate to="/news/kinh-nghiem-di-kham-benh-vien-dai-hoc-y-ha-noi" replace />} />
         
-        <Route path="quan-lot-tham-hut" element={<AbsorbentUnderwear />} />
-        <Route path="quan-lot-tham-hut-nguyet-san-son-tieu" element={<Navigate to="/quan-lot-tham-hut" replace />} />
-        <Route path="quan-lot-nguyet-san-son-tieu" element={<Navigate to="/quan-lot-tham-hut" replace />} />
-        <Route path="quan-lot-son-tieu" element={<Navigate to="/quan-lot-tham-hut" replace />} />
-        <Route path="quan-lot-nguyet-san" element={<Navigate to="/quan-lot-tham-hut" replace />} />
+        <Route path="quan-lot-tham-hut" element={<Navigate to="/" replace />} />
+        <Route path="quan-lot-tham-hut-nguyet-san-son-tieu" element={<Navigate to="/" replace />} />
+        <Route path="quan-lot-nguyet-san-son-tieu" element={<Navigate to="/" replace />} />
+        <Route path="quan-lot-son-tieu" element={<Navigate to="/" replace />} />
+        <Route path="quan-lot-nguyet-san" element={<Navigate to="/" replace />} />
         <Route path="quan-chong-son-tieu" element={<Navigate to="/quan-lot-tham-hut" replace />} />
         <Route path="san-pham/quan-lot-tham-hut" element={<Navigate to="/quan-lot-tham-hut" replace />} />
         
@@ -318,6 +322,46 @@ function App() {
         <Route path="activities" element={<Activities />} />
         <Route path="activities/:id" element={<NewsDetail />} />
         {/* Chuyên mục Kinh nguyệt (URL chuẩn SEO /kinh-nguyet) */}
+        <Route path="dau-bung-kinh-nguyen-nhan-cach-giam" element={<Navigate to="/kinh-nguyet/dau-bung-kinh-nguyen-nhan-cach-giam" replace />} />
+        <Route path="hoi-chung-tien-kinh-nguyet-pms-pmdd" element={<Navigate to="/kinh-nguyet/hoi-chung-tien-kinh-nguyet-pms-pmdd" replace />} />
+        <Route path="rong-kinh-cuong-kinh-thieu-mau" element={<Navigate to="/kinh-nguyet/rong-kinh-cuong-kinh-thieu-mau" replace />} />
+        <Route path="kinh-nguyet-khong-deu-buong-trung-da-nang" element={<Navigate to="/kinh-nguyet/kinh-nguyet-khong-deu-buong-trung-da-nang" replace />} />
+        <Route path="lac-noi-mac-tu-cung-dau-bung-kinh" element={<Navigate to="/kinh-nguyet/lac-noi-mac-tu-cung-dau-bung-kinh" replace />} />
+        <Route path="u-xo-tu-cung-kinh-nguyet-ra-nhieu" element={<Navigate to="/kinh-nguyet/u-xo-tu-cung-kinh-nguyet-ra-nhieu" replace />} />
+        <Route path="viem-am-dao-nam-am-dao-sau-ky-kinh" element={<Navigate to="/kinh-nguyet/viem-am-dao-nam-am-dao-sau-ky-kinh" replace />} />
+        <Route path="dau-nua-dau-khi-den-thang" element={<Navigate to="/kinh-nguyet/dau-nua-dau-khi-den-thang" replace />} />
+        <Route path="hoi-chung-soc-doc-to-tss-tampon" element={<Navigate to="/kinh-nguyet/hoi-chung-soc-doc-to-tss-tampon" replace />} />
+        <Route path="ham-ngua-kich-ung-do-bang-ve-sinh" element={<Navigate to="/kinh-nguyet/ham-ngua-kich-ung-do-bang-ve-sinh" replace />} />
+        <Route path="quan-kinh-nguyet-bi-tran-ban-dem" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-bi-tran-ban-dem" replace />} />
+        <Route path="quan-kinh-nguyet-tran-hai-ben" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-tran-hai-ben" replace />} />
+        <Route path="quan-kinh-nguyet-tham-duoc-bao-nhieu-ml" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-tham-duoc-bao-nhieu-ml" replace />} />
+        <Route path="chon-quan-kinh-nguyet-theo-luong-kinh" element={<Navigate to="/kinh-nguyet/chon-quan-kinh-nguyet-theo-luong-kinh" replace />} />
+        <Route path="quan-kinh-nguyet-cho-ngay-ra-nhieu" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-cho-ngay-ra-nhieu" replace />} />
+        <Route path="quan-kinh-nguyet-hoat-dong-nhu-the-nao" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-hoat-dong-nhu-the-nao" replace />} />
+        <Route path="chat-lieu-quan-kinh-nguyet" element={<Navigate to="/kinh-nguyet/chat-lieu-quan-kinh-nguyet" replace />} />
+        <Route path="quan-kinh-nguyet-pfas" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-pfas" replace />} />
+        <Route path="oeko-tex-standard-100-la-gi" element={<Navigate to="/kinh-nguyet/oeko-tex-standard-100-la-gi" replace />} />
+        <Route path="quan-kinh-nguyet-duoc-san-xuat-nhu-the-nao" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-duoc-san-xuat-nhu-the-nao" replace />} />
+        <Route path="cach-dung-quan-kinh-nguyet-lan-dau" element={<Navigate to="/kinh-nguyet/cach-dung-quan-kinh-nguyet-lan-dau" replace />} />
+        <Route path="bao-lau-thay-quan-kinh-nguyet" element={<Navigate to="/kinh-nguyet/bao-lau-thay-quan-kinh-nguyet" replace />} />
+        <Route path="mac-quan-kinh-nguyet-ca-ngay" element={<Navigate to="/kinh-nguyet/mac-quan-kinh-nguyet-ca-ngay" replace />} />
+        <Route path="quan-kinh-nguyet-thay-bang-ve-sinh" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-thay-bang-ve-sinh" replace />} />
+        <Route path="quan-kinh-nguyet-di-lam-di-du-lich" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-di-lam-di-du-lich" replace />} />
+        <Route path="3-nguyen-tac-giat-quan-kinh-nguyet" element={<Navigate to="/kinh-nguyet/3-nguyen-tac-giat-quan-kinh-nguyet" replace />} />
+        <Route path="quan-kinh-nguyet-dung-duoc-bao-lau" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-dung-duoc-bao-lau" replace />} />
+        <Route path="quan-kinh-nguyet-bi-mui" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-bi-mui" replace />} />
+        <Route path="day-quan-kinh-nguyet-bi-cung" element={<Navigate to="/kinh-nguyet/day-quan-kinh-nguyet-bi-cung" replace />} />
+        <Route path="quan-lot-co-mui-nuoc-tieu-sau-khi-giat" element={<Navigate to="/kinh-nguyet/quan-lot-co-mui-nuoc-tieu-sau-khi-giat" replace />} />
+        <Route path="son-tieu-khi-ho-hat-hoi-cuoi" element={<Navigate to="/kinh-nguyet/son-tieu-khi-ho-hat-hoi-cuoi" replace />} />
+        <Route path="quan-kinh-nguyet-co-dung-cho-son-tieu-duoc-khong" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-co-dung-cho-son-tieu-duoc-khong" replace />} />
+        <Route path="son-tieu-tuoi-tien-man-kinh" element={<Navigate to="/kinh-nguyet/son-tieu-tuoi-tien-man-kinh" replace />} />
+        <Route path="kinh-nguyet-tien-man-kinh" element={<Navigate to="/kinh-nguyet/kinh-nguyet-tien-man-kinh" replace />} />
+        <Route path="den-thang-di-boi-duoc-khong" element={<Navigate to="/kinh-nguyet/den-thang-di-boi-duoc-khong" replace />} />
+        <Route path="chuan-bi-cho-con-lan-dau-co-kinh" element={<Navigate to="/kinh-nguyet/chuan-bi-cho-con-lan-dau-co-kinh" replace />} />
+        <Route path="mau-sac-mau-kinh-nguyet-noi-gi" element={<Navigate to="/kinh-nguyet/mau-sac-mau-kinh-nguyet-noi-gi" replace />} />
+        <Route path="an-uong-anh-huong-kinh-nguyet" element={<Navigate to="/kinh-nguyet/an-uong-anh-huong-kinh-nguyet" replace />} />
+        <Route path="quan-kinh-nguyet-tiet-kiem-bao-nhieu" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-tiet-kiem-bao-nhieu" replace />} />
+        <Route path="quan-kinh-nguyet-va-bang-vai" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-va-bang-vai" replace />} />
         <Route path="kinh-nguyet" element={<News />} />
         <Route path="kinh-nguyet/:id" element={<NewsDetail />} />
         <Route path="kinhnguyet" element={<Navigate to="/kinh-nguyet" replace />} />
@@ -335,8 +379,7 @@ function App() {
         <Route path="tin-tuc/:id" element={<NewsDetail />} />
         <Route path="song-tu-tin" element={<News />} />
         <Route path="song-tu-tin/:id" element={<NewsDetail />} />
-        <Route path="cham-soc-nguoi-cao-tuoi" element={<News />} />
-        <Route path="cham-soc-nguoi-cao-tuoi/:id" element={<NewsDetail />} />
+                <Route path="cham-soc-nguoi-cao-tuoi/:id" element={<NewsDetail />} />
         <Route path="tieu-son" element={<News />} />
         <Route path="tieu-son/:id" element={<NewsDetail />} />
         <Route path="son-tieu" element={<News />} />
@@ -350,8 +393,9 @@ function App() {
         <Route path="recruitment" element={<Recruitment />} />
         <Route path="hop-tac" element={<Recruitment />} />
         <Route path="lien-he" element={<Recruitment />} />
-        <Route path="ve-antcare" element={<AboutUs />} />
-        <Route path="about" element={<AboutUs />} />
+        <Route path="ve-chung-toi" element={<AboutUsNew />} />
+        <Route path="ve-antcare" element={<Navigate to="/ve-chung-toi" replace />} />
+        <Route path="about" element={<Navigate to="/ve-chung-toi" replace />} />
       </Route>
     </Routes>
   );

@@ -908,3 +908,74 @@ nav.toc a:hover {
 .related-articles-box a:hover {
   text-decoration: none;
 }
+
+/* Additional styles for Són tiểu pillar article */
+.article-son-tieu .news {
+  background: #fff4ec;
+  border-left: 5px solid #FD711A;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin: 18px 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.article-son-tieu .news strong:first-child {
+  color: #c4520f;
+}
+
+.article-son-tieu .defs {
+  background: #f6f1fc;
+  border: 1px dashed #6633B4;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 18px 0;
+  line-height: 1.7;
+}
+
+.article-son-tieu .defs p {
+  margin: 0.4em 0;
+}
+
+.article-son-tieu .toc-inline {
+  background: #faf8fd;
+  border: 1px solid #e6dff2;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+
+.article-son-tieu .toc-inline strong {
+  color: #6633B4;
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.article-son-tieu .toc-inline ol {
+  margin: 8px 0 0 20px;
+  padding: 0;
+  line-height: 1.8;
+}
+
+.article-son-tieu .toc-inline a {
+  color: #6633B4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.article-son-tieu .toc-inline a:hover {
+  text-decoration: underline;
+  color: #FD711A;
+}
+
+.article-son-tieu .table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px 0;
+}
+
+.article-son-tieu .table-scroll table {
+  margin: 0 !important;
+  min-width: 580px;
+}

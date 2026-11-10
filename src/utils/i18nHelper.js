@@ -16,6 +16,8 @@ export const getCategoryLabel = (cat, isEn) => {
   if (!isEn) return cat;
   const map = {
     'Tất cả': 'All',
+    'Kinh nguyệt': 'Menstrual Health',
+    'Cẩm nang': 'Care Guide',
     'Đồng hành đi khám': 'Medical Escort',
     'Tiểu són': 'Urinary Incontinence',
     'Sống tự tin': 'Live with Confidence',

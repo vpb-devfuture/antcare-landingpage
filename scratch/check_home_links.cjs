@@ -1,0 +1,7 @@
+const fs = require('fs');
+const content = fs.readFileSync('src/pages/Home.jsx', 'utf-8');
+const lines = content.split('\n');
+lines.forEach((l, i) => {
+  if (l.includes('/quan-lot-tham-hut')) console.log(i + 1, l.trim());
+});
+

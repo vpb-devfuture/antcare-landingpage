@@ -1,22 +1,99 @@
 import React, { useEffect, useState } from 'react';
 import { useAppTranslation, sortArticlesByDate } from '../utils/i18nHelper';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import newsViData from '../data/news.json';
 import newsEnData from '../data/news.en.json';
 
 const News = () => {
-  const { t, isEn, tr } = useAppTranslation();
+  const { isEn, tr } = useAppTranslation();
   const currentNewsData = isEn ? newsEnData : newsViData;
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isSonTieuPath = 
+    location.pathname.startsWith('/son-tieu') || 
+    location.pathname.startsWith('/tieu-son');
+
+  const isKinhNguyetPath = 
+    location.pathname.startsWith('/kinh-nguyet') || 
+    location.pathname.startsWith('/kinhnguyet') || 
+    location.pathname.startsWith('/cam-nang') || 
+    location.pathname.startsWith('/camnang');
+
+  const isHandbook = isSonTieuPath || isKinhNguyetPath;
+
+  const basePrefix = isSonTieuPath 
+    ? '/son-tieu' 
+    : isKinhNguyetPath 
+      ? '/kinh-nguyet' 
+      : '/news';
+
+  // Strict classification to guarantee 0 crossover between Kinh nguyệt and Tiểu són
+  const isSonTieuItem = (item) => {
+    if (!item) return false;
+    if (item.category === 'Tiểu són' || item.group === 'son-tieu' || item.category === 'Incontinence' || item.category === 'Urinary Incontinence') return true;
+    if (item.slug && !item.slug.includes('quan-kinh-nguyet') && (
+      item.slug.includes('son-tieu') || 
+      item.slug.includes('tieu-son') || 
+      item.slug.includes('ri-tieu') || 
+      item.slug.includes('quan-chong-son')
+    )) return true;
+    return false;
+  };
+
+  const isKinhNguyetItem = (item) => {
+    if (!item) return false;
+    if (isSonTieuItem(item)) return false;
+    if (item.category === 'Kinh nguyệt' || item.category === 'Menstrual Care' || item.category === 'Menstrual Health') return true;
+    if (item.group === 'kinh-nguyet') return true;
+    if (item.category === 'Cẩm nang') return true;
+    if (item.slug && (
+      item.slug.includes('kinh-nguyet') || 
+      item.slug.includes('nguyet-san') || 
+      item.slug.includes('tampon') || 
+      item.slug.includes('bang-ve-sinh') || 
+      item.slug.includes('den-thang') ||
+      item.slug.includes('quan-boy-short') ||
+      item.slug.includes('quan-lot-nu') ||
+      item.slug.includes('pfas') ||
+      item.slug.includes('oeko-tex')
+    )) return true;
+    return false;
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    const siteSuffix = isEn ? 'ANTCARE' : 'ANTCARE – Kiến chăm tổ';
+    if (isSonTieuPath) {
+      document.title = isEn 
+        ? `Incontinence & Pelvic Health Handbook | ${siteSuffix}`
+        : `Cẩm nang Tiểu són & Bài tập Kegel | ${siteSuffix}`;
+    } else if (isKinhNguyetPath) {
+      document.title = isEn 
+        ? `Menstrual Health & Period Care Handbook | ${siteSuffix}`
+        : `Cẩm nang Kinh nguyệt & Sức khỏe Phụ nữ | ${siteSuffix}`;
+    } else {
+      document.title = isEn 
+        ? `Healthcare News & Medical Escort Guides | ${siteSuffix}`
+        : `Tin tức & Đồng hành khám bệnh | ${siteSuffix}`;
+    }
+  }, [isSonTieuPath, isKinhNguyetPath, isEn]);
 
-  // Sort list articles descending by date (newest first, pinned on top)
-  const sortedList = sortArticlesByDate(currentNewsData.list || []);
+  // Section list strictly separated by topic
+  const sectionList = (currentNewsData.list || []).filter(item => {
+    if (isSonTieuPath) return isSonTieuItem(item);
+    if (isKinhNguyetPath) return isKinhNguyetItem(item);
+    return !isSonTieuItem(item) && !isKinhNguyetItem(item);
+  });
 
-  // Ensure pinned / featured article is always at the very top (index 0)
-  const featuredArticle = currentNewsData.featured || sortedList.find(item => item.isPinned) || sortedList[0];
+  const sortedList = sortArticlesByDate(sectionList);
+
+  const featuredArticle = isHandbook
+    ? (sortedList.find(item => item.isPinned) || sortedList[0])
+    : (currentNewsData.featured && !isSonTieuItem(currentNewsData.featured) && !isKinhNguyetItem(currentNewsData.featured)
+        ? currentNewsData.featured
+        : (sortedList.find(item => item.isPinned) || sortedList[0]));
+
   const remainingList = sortedList.filter(item => item.id !== featuredArticle?.id && item.slug !== featuredArticle?.slug);
 
   const allArticles = featuredArticle 
@@ -42,49 +119,52 @@ const News = () => {
   // Top Right 3 Stacked Cards (3 next newest articles)
   const topRightArticles = allArticles.slice(1, 4);
 
-  const location = useLocation();
-
-  // Category filtering for archive list below
+  // Category filtering for archive list below (News only)
   const [selectedCategory, setSelectedCategory] = useState(isEn ? 'All' : 'Tất cả');
 
   useEffect(() => {
-    if (location.pathname.includes('tieu-son') || location.pathname.includes('son-tieu')) {
-      setSelectedCategory('Tiểu són');
-    } else if (location.pathname.includes('dong-hanh-di-kham') || location.pathname.includes('dong-hanh-kham-benh')) {
-      setSelectedCategory('Đồng hành đi khám');
-    } else if (location.pathname.includes('song-tu-tin')) {
-      setSelectedCategory('Sống tự tin');
-    } else if (location.pathname.includes('cham-soc-nguoi-cao-tuoi')) {
-      setSelectedCategory('Chăm sóc người cao tuổi');
-    } else {
-      setSelectedCategory(isEn ? 'All' : 'Tất cả');
+    if (!isHandbook) {
+      if (location.pathname.includes('dong-hanh-di-kham') || location.pathname.includes('dong-hanh-kham-benh')) {
+        setSelectedCategory(isEn ? 'Medical Escort' : 'Đồng hành đi khám');
+      } else if (location.pathname.includes('cham-soc-nguoi-cao-tuoi')) {
+        setSelectedCategory(isEn ? 'Elderly Care' : 'Chăm sóc người cao tuổi');
+      } else {
+        setSelectedCategory(isEn ? 'All' : 'Tất cả');
+      }
     }
     setCurrentPage(1);
     setActiveSlide(0);
-  }, [isEn, location.pathname]);
+  }, [isEn, location.pathname, isHandbook]);
 
-  const basePrefix = (location.pathname.startsWith('/kinh-nguyet') || location.pathname.startsWith('/kinhnguyet') || location.pathname.startsWith('/cam-nang')) 
-    ? '/kinh-nguyet' 
-    : '/news';
+  const handbookTabs = [
+    { id: 'kinh-nguyet', path: '/kinh-nguyet', label: tr('Kinh nguyệt', 'Menstrual Care') },
+    { id: 'son-tieu', path: '/son-tieu', label: tr('Tiểu són', 'Incontinence') }
+  ];
 
-  const categories = isEn
-    ? ['All', ...Array.from(new Set(allArticles.map(item => item.category).filter(Boolean)))]
-    : ['Tất cả', ...Array.from(new Set(allArticles.map(item => item.category).filter(Boolean)))];
+  const newsCategories = isEn 
+    ? ['All', 'News & Updates', 'Medical Escort', 'Elderly Care', 'Healthcare']
+    : ['Tất cả', 'Tin tức', 'Đồng hành đi khám', 'Chăm sóc người cao tuổi', 'Chăm sóc sức khỏe'];
 
   const getCategoryLabel = (cat) => {
     if (isEn) return cat;
     const map = {
-      'Tất cả': 'All',
-      'Cẩm nang': 'Care Guide',
-      'Đồng hành đi khám': 'Medical Escort',
-      'Tiểu són': 'Urinary Incontinence',
-      'Sống tự tin': 'Live with Confidence',
-      'Chăm sóc người cao tuổi': 'Elderly Care',
-      'An toàn nhà ở': 'Home Safety',
-      'Tri ân khách hàng': 'Customer Appreciation',
-      'Chăm sóc sức khỏe': 'Healthcare',
-      'Sữa': 'Nutrition & Milk',
-      'Tin tức': 'News & Updates'
+      'Tất cả': 'Tất cả',
+      'All': 'All',
+      'Kinh nguyệt': 'Kinh nguyệt',
+      'Menstrual Health': 'Menstrual Health',
+      'Menstrual Care': 'Menstrual Care',
+      'Tiểu són': 'Tiểu són',
+      'Urinary Incontinence': 'Urinary Incontinence',
+      'Incontinence': 'Incontinence',
+      'Cẩm nang': 'Cẩm nang',
+      'Đồng hành đi khám': 'Đồng hành đi khám',
+      'Medical Escort': 'Medical Escort',
+      'Tin tức': 'Tin tức',
+      'News & Updates': 'News & Updates',
+      'Chăm sóc người cao tuổi': 'Chăm sóc người cao tuổi',
+      'Elderly Care': 'Elderly Care',
+      'Chăm sóc sức khỏe': 'Chăm sóc sức khỏe',
+      'Healthcare': 'Healthcare'
     };
     return map[cat] || cat;
   };
@@ -99,9 +179,13 @@ const News = () => {
   };
 
   const isAllCategory = selectedCategory === 'Tất cả' || selectedCategory === 'All';
-  const filteredArchive = isAllCategory
-    ? allArticles 
-    : allArticles.filter(item => item.category === selectedCategory);
+  const filteredArchive = isHandbook
+    ? allArticles
+    : isAllCategory
+      ? allArticles
+      : ((selectedCategory === 'Đồng hành đi khám' || selectedCategory === 'Medical Escort')
+          ? allArticles.filter(item => item.category === 'Đồng hành đi khám' || item.group === 'dong-hanh-di-kham' || item.group === 'dai-hoc-y-ha-noi' || (item.slug && item.slug.includes('kham')))
+          : allArticles.filter(item => item.category === selectedCategory));
 
   const totalPages = Math.ceil(filteredArchive.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -180,7 +264,7 @@ const News = () => {
                     </span>
                   )}
                   <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-white bg-earth-orange-bright px-2.5 py-0.5 rounded-full">
-                    {currentHeroArticle.category || 'Cẩm nang'}
+                    {getCategoryLabel(currentHeroArticle.category || (isSonTieuPath ? 'Tiểu són' : isKinhNguyetPath ? 'Kinh nguyệt' : 'Tin tức'))}
                   </span>
                 </div>
                 <h1 className="text-base sm:text-lg md:text-2xl font-extrabold md:font-black text-white leading-snug line-clamp-2 group-hover/link:text-earth-orange-bright transition-colors drop-shadow-md tracking-tight">
@@ -226,27 +310,60 @@ const News = () => {
         <section className="pt-6 border-t border-slate-200 scroll-mt-24" id="tat-ca-bai-viet">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1 tracking-tight">{tr("Tất cả bài viết", "All Articles")}</h2>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1 tracking-tight">
+                {isSonTieuPath 
+                  ? tr("Cẩm nang Tiểu són & Quần chống són tiểu", "Incontinence & Bladder Care Handbook")
+                  : isKinhNguyetPath
+                    ? tr("Cẩm nang Kinh nguyệt & Quần lót thấm hút", "Menstrual Health & Period Care Handbook")
+                    : tr("Tin tức & Đồng hành khám bệnh", "Healthcare News & Medical Escort Guides")}
+              </h2>
               <p className="text-sm text-slate-600">
-                {tr("Khám phá thông tin dinh dưỡng & chăm sóc sức khỏe cho người cao tuổi từ ANTCARE - Kiến chăm tổ", "Purpose-built activity tools, dementia care guides, and healthy ageing insights from ANTCARE.")}
+                {isSonTieuPath
+                  ? tr("Kiến thức toàn diện về són tiểu, rỉ tiểu sau sinh, tuổi tiền mãn kinh, bài tập Kegel và giải pháp quần chống són thấm hút từ ANTCARE.", "Comprehensive guide on bladder leaks, postpartum & menopausal incontinence, Kegel exercises, and absorbent apparel from ANTCARE.")
+                  : isKinhNguyetPath
+                    ? tr("Kiến thức toàn diện về chu kỳ kinh nguyệt, so sánh băng vệ sinh, tampon, cốc, đĩa nguyệt san và giải pháp quần kinh nguyệt chống tràn ANTCARE.", "Comprehensive guides on menstrual cycles, comparing pads, tampons, cups, discs, and leakproof period underwear from ANTCARE.")
+                    : tr("Cập nhật tin y tế mới nhất, kinh nghiệm đưa bố mẹ đi khám tại các bệnh viện lớn ở Hà Nội và kiến thức chăm sóc người cao tuổi từ ANTCARE.", "Latest healthcare news, hospital escort experiences in Hanoi, and eldercare insights from ANTCARE.")}
               </p>
             </div>
             
-            {/* Category Filter Tabs in Clean White Palette */}
+            {/* Category Filter Tabs */}
             <div className="flex flex-wrap gap-2">
-              {categories.map((cat) => (
-                <button
-                  key={getCategoryLabel(cat)}
-                  onClick={() => handleCategoryChange(cat)}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                    selectedCategory === cat
-                      ? 'bg-primary text-white shadow-xs'
-                      : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                  }`}
-                >
-                  {getCategoryLabel(cat)}
-                </button>
-              ))}
+              {isHandbook ? (
+                handbookTabs.map((tab) => {
+                  const isActive = (tab.id === 'son-tieu' && isSonTieuPath) || (tab.id === 'kinh-nguyet' && isKinhNguyetPath);
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => {
+                        navigate(tab.path);
+                        setCurrentPage(1);
+                        setActiveSlide(0);
+                      }}
+                      className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                        isActive
+                          ? 'bg-primary text-white shadow-xs'
+                          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  );
+                })
+              ) : (
+                newsCategories.map((cat) => (
+                  <button
+                    key={getCategoryLabel(cat)}
+                    onClick={() => handleCategoryChange(cat)}
+                    className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                      selectedCategory === cat
+                        ? 'bg-primary text-white shadow-xs'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    }`}
+                  >
+                    {getCategoryLabel(cat)}
+                  </button>
+                ))
+              )}
             </div>
           </div>
 
@@ -384,4 +501,3 @@ const News = () => {
 };
 
 export default News;
-

@@ -73,6 +73,15 @@ const LandingPage = () => {
   useEffect(() => {
     if (isLoading) return;
 
+    if (window.location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(window.location.hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+    }
+
     var rellax = new Rellax('.rellax', {
       speed: -2,
       center: true,
