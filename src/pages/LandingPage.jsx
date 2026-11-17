@@ -19,7 +19,7 @@ const LandingPage = () => {
   const handleConsultSubmit = async (e) => {
     e.preventDefault();
     if (!consultForm.name.trim() || !consultForm.phone.trim() || !consultForm.location.trim()) {
-      setConsultError('Khách hàng lưu ý cần nhập đủ 3 dòng thông tin nhé ạ');
+      setConsultError(tr('Khách hàng lưu ý cần nhập đủ 3 dòng thông tin nhé ạ', 'Please fill in all 3 required fields'));
       setConsultSuccess(false);
       return;
     }
@@ -63,12 +63,14 @@ const LandingPage = () => {
   };
 
   useEffect(() => {
-    document.title = "ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi tại nhà Hà Nội";
+    document.title = isEn 
+      ? "ANTCARE – Elder Care at Home in Hanoi"
+      : "ANTCARE – Kiến chăm tổ | Chăm sóc người cao tuổi tại nhà Hà Nội";
     getLandingPageData().then(data => {
       setPageData(data);
       setIsLoading(false);
     });
-  }, []);
+  }, [isEn]);
 
   useEffect(() => {
     if (isLoading) return;
@@ -333,7 +335,7 @@ const LandingPage = () => {
       <span className={`w-8 h-8 shrink-0 rounded-full ${item.color} text-white flex items-center justify-center font-bold text-xs shadow-sm`}>
         {item.number}
       </span> 
-      <span className="text-xs font-bold uppercase tracking-wider text-earth-orange-bright">Chia sẻ gia đình</span>
+      <span className="text-xs font-bold uppercase tracking-wider text-earth-orange-bright">{tr('Chia sẻ gia đình', 'Family Stories')}</span>
     </div>
     <h3 className="text-base sm:text-lg font-bold text-plum-deep mb-3 leading-snug">
       {item.title}
@@ -359,7 +361,7 @@ const LandingPage = () => {
       {idx === 1 && (
         <div className="pt-2">
           <Link className="inline-flex items-center gap-2 px-6 py-2.5 bg-white border-2 border-primary text-primary rounded-full font-bold hover:bg-primary hover:text-white transition-all shadow-sm text-xs sm:text-sm cursor-pointer" to="/news" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            Khám phá thêm các chia sẻ y khoa <span className="material-symbols-outlined text-[18px]">menu_book</span>
+            {tr('Khám phá thêm các chia sẻ y khoa', 'Explore more medical articles')} <span className="material-symbols-outlined text-[18px]">menu_book</span>
           </Link>
         </div>
       )}
@@ -810,7 +812,7 @@ const LandingPage = () => {
             <div className="flex justify-between items-center">
               <div>
                 <span className="font-bold text-plum-deep block">{tr("Trọn gói chăm sóc", "Full Care Bundle")}</span>
-                <span className="text-[11px] text-on-surface-variant">4 ca nhà cửa + 4 ca Sức khỏe</span>
+                <span className="text-[11px] text-on-surface-variant">{tr("4 ca nhà cửa + 4 ca Sức khỏe", "4 home care sessions + 4 health sessions")}</span>
               </div>
               <div className="text-right">
                 <span className="font-bold text-earth-orange-bright">3.750.000đ</span>

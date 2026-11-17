@@ -11,10 +11,8 @@ import Activities from './pages/Activities';
 import News from './pages/News';
 import NewsDetail from './pages/NewsDetail';
 import Recruitment from './pages/Recruitment';
-import AboutUs from './pages/AboutUs';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
-import AbsorbentUnderwear from './pages/AbsorbentUnderwear';
 import { trackPageView, initClarity } from './utils/analytics';
 import siteInfo from './config/siteInfo.json';
 
@@ -52,19 +50,36 @@ function App() {
     ogUrl.content = canonicalUrl;
 
     // Page titles & meta description updates for standard routes
+    const isEnglish = (localStorage.getItem('i18nextLng') || '').startsWith('en');
     let metaDesc = document.querySelector('meta[name="description"]');
     if (cleanPath === '/') {
-      document.title = "ANTCARE – Quần kinh nguyệt & quần chống són tiểu";
-      if (metaDesc) metaDesc.content = "ANTCARE – đồ lót chức năng Việt Nam: quần kinh nguyệt thay băng vệ sinh, quần chống són tiểu nhẹ. Mềm, giặt được, dùng lại. Đăng ký nhận thông tin ra mắt.";
+      document.title = isEnglish
+        ? "ANTCARE – Period Underwear & Light Incontinence Underwear"
+        : "ANTCARE – Quần kinh nguyệt & quần chống són tiểu";
+      if (metaDesc) metaDesc.content = isEnglish
+        ? "ANTCARE – Functional underwear in Vietnam: washable period panties replacing disposable pads, light bladder leak underwear. Soft, reusable. Sign up for launch updates."
+        : "ANTCARE – đồ lót chức năng Việt Nam: quần kinh nguyệt thay băng vệ sinh, quần chống són tiểu nhẹ. Mềm, giặt được, dùng lại. Đăng ký nhận thông tin ra mắt.";
     } else if (cleanPath === '/dich-vu' || cleanPath === '/cham-soc-nguoi-cao-tuoi' || cleanPath === '/giai-phap-cham-soc') {
-      document.title = "Dịch vụ chăm sóc người cao tuổi tại nhà Hà Nội | ANTCARE — Kiến chăm tổ";
-      if (metaDesc) metaDesc.content = "ANTCARE — Kiến chăm tổ cung cấp dịch vụ chăm sóc người cao tuổi tại Hà Nội: đưa đi khám bệnh, theo dõi sức khỏe tại nhà, trợ lý sức khỏe và hỗ trợ y tế. Hotline: 0969 032 360.";
+      document.title = isEnglish
+        ? "Elder Care Services at Home in Hanoi | ANTCARE — Kiến chăm tổ"
+        : "Dịch vụ chăm sóc người cao tuổi tại nhà Hà Nội | ANTCARE — Kiến chăm tổ";
+      if (metaDesc) metaDesc.content = isEnglish
+        ? "ANTCARE provides home elder care services in Hanoi: medical hospital escort, vital signs monitoring, health assistants and daily support. Hotline: +84 969 032 360."
+        : "ANTCARE — Kiến chăm tổ cung cấp dịch vụ chăm sóc người cao tuổi tại Hà Nội: đưa đi khám bệnh, theo dõi sức khỏe tại nhà, trợ lý sức khỏe và hỗ trợ y tế. Hotline: 0969 032 360.";
     } else if (cleanPath === '/ve-chung-toi' || cleanPath === '/ve-antcare' || cleanPath === '/about') {
-      document.title = "Về ANTCARE – Thương hiệu đồ lót chức năng Việt Nam";
-      if (metaDesc) metaDesc.content = "ANTCARE là thương hiệu đồ lót chức năng Việt Nam: quần kinh nguyệt, quần chống són tiểu. Bắt nguồn từ chăm sóc sức khỏe người cao tuổi và phụ nữ tại Hà Nội.";
+      document.title = isEnglish
+        ? "About ANTCARE – Functional Underwear Brand in Vietnam"
+        : "Về ANTCARE – Thương hiệu đồ lót chức năng Việt Nam";
+      if (metaDesc) metaDesc.content = isEnglish
+        ? "ANTCARE is a Vietnamese functional underwear brand: period panties, light bladder leak underwear. Rooted in elder and women's health care in Hanoi."
+        : "ANTCARE là thương hiệu đồ lót chức năng Việt Nam: quần kinh nguyệt, quần chống són tiểu. Bắt nguồn từ chăm sóc sức khỏe người cao tuổi và phụ nữ tại Hà Nội.";
     } else if (cleanPath === '/quan-lot-tham-hut' || cleanPath === '/quan-lot-son-tieu' || cleanPath === '/quan-lot-nguyet-san' || cleanPath === '/quan-chong-son-tieu' || cleanPath === '/quan-lot-tham-hut-nguyet-san-son-tieu' || cleanPath === '/quan-lot-nguyet-san-son-tieu') {
-      document.title = "ANTCARE – Quần kinh nguyệt & quần chống són tiểu";
-      if (metaDesc) metaDesc.content = "ANTCARE – đồ lót chức năng Việt Nam: quần kinh nguyệt thay băng vệ sinh, quần chống són tiểu nhẹ. Mềm, giặt được, dùng lại. Đăng ký nhận thông tin ra mắt.";
+      document.title = isEnglish
+        ? "ANTCARE – Period Underwear & Light Incontinence Underwear"
+        : "ANTCARE – Quần kinh nguyệt & quần chống són tiểu";
+      if (metaDesc) metaDesc.content = isEnglish
+        ? "ANTCARE – Functional underwear in Vietnam: washable period panties replacing disposable pads, light bladder leak underwear. Soft, reusable. Sign up for launch updates."
+        : "ANTCARE – đồ lót chức năng Việt Nam: quần kinh nguyệt thay băng vệ sinh, quần chống són tiểu nhẹ. Mềm, giặt được, dùng lại. Đăng ký nhận thông tin ra mắt.";
     } else if (cleanPath === '/san-pham') {
       document.title = "Dụng cụ rèn luyện thể chất & trí não cho người cao tuổi | ANTCARE — Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Đồ chơi thủ công, dụng cụ rèn luyện vận động tinh ngón tay và kích thích trí não chuyên biệt cho người cao tuổi từ ANTCARE – Kiến chăm tổ.";
@@ -80,9 +95,6 @@ function App() {
     } else if (cleanPath === '/dong-hanh-di-kham' || cleanPath === '/dong-hanh-kham-benh') {
       document.title = "Dịch vụ đồng hành đi khám cho người cao tuổi: cẩm nang cho gia đình | ANTCARE";
       if (metaDesc) metaDesc.content = "10 bài cẩm nang về dịch vụ đồng hành đi khám, đưa bố mẹ đi khám khi con bận hoặc ở xa: chuẩn bị giấy tờ, thủ tục BHYT, quy trình khám, chi phí và cách chọn dịch vụ uy tín.";
-    } else if (cleanPath === '/cham-soc-nguoi-cao-tuoi') {
-      document.title = "Chăm sóc người cao tuổi tại Hà Nội: Trợ lý Sức khỏe & Đồng hành đi khám | ANTCARE";
-      if (metaDesc) metaDesc.content = "15 bài cẩm nang chăm sóc người cao tuổi tại Hà Nội: trợ lý sức khỏe bán thời gian, theo dõi huyết áp, quản lý thuốc, phòng té ngã, sau xuất viện và đưa bố mẹ đi khám.";
     } else if (cleanPath === '/kinh-nguyet' || cleanPath === '/kinhnguyet' || cleanPath === '/cam-nang') {
       const isEnglish = (localStorage.getItem('i18nextLng') || '').startsWith('en');
       document.title = isEnglish
@@ -118,8 +130,12 @@ function App() {
       document.title = "Điều khoản sử dụng | ANTCARE – Kiến chăm tổ";
       if (metaDesc) metaDesc.content = "Quy định và điều khoản sử dụng dịch vụ trợ lý chăm sóc sức khỏe ANTCARE – Kiến chăm tổ.";
     } else if (cleanPath === '/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi') {
-      document.title = "Dịch vụ đưa người cao tuổi đi khám tại Hà Nội – từ 390.000đ | ANTCARE";
-      if (metaDesc) metaDesc.content = "Kiến Y tế ANTCARE có nền tảng điều dưỡng, đưa ông bà đi khám tại các bệnh viện Hà Nội: lấy số, làm thủ tục BHYT, đi cùng vào phòng khám, báo cáo cho gia đình. Từ 390.000đ/lần.";
+      document.title = isEnglish
+        ? "Medical Escort Service for Seniors in Hanoi – from 390,000 VND | ANTCARE"
+        : "Dịch vụ đưa người cao tuổi đi khám tại Hà Nội – từ 390.000đ | ANTCARE";
+      if (metaDesc) metaDesc.content = isEnglish
+        ? "ANTCARE Medical Assistants with nursing backgrounds escort seniors to Hanoi hospitals: queuing, health insurance paperwork, doctor consultation accompaniment, detailed family reports. From 390,000 VND/visit."
+        : "Kiến Y tế ANTCARE có nền tảng điều dưỡng, đưa ông bà đi khám tại các bệnh viện Hà Nội: lấy số, làm thủ tục BHYT, đi cùng vào phòng khám, báo cáo cho gia đình. Từ 390.000đ/lần.";
       if (canonicalLink) canonicalLink.href = "https://antcare.vn/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi";
       if (ogUrl) ogUrl.content = "https://antcare.vn/dich-vu/dua-nguoi-cao-tuoi-di-kham-ha-noi";
     }
@@ -362,6 +378,14 @@ function App() {
         <Route path="an-uong-anh-huong-kinh-nguyet" element={<Navigate to="/kinh-nguyet/an-uong-anh-huong-kinh-nguyet" replace />} />
         <Route path="quan-kinh-nguyet-tiet-kiem-bao-nhieu" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-tiet-kiem-bao-nhieu" replace />} />
         <Route path="quan-kinh-nguyet-va-bang-vai" element={<Navigate to="/kinh-nguyet/quan-kinh-nguyet-va-bang-vai" replace />} />
+        <Route path="kinh-nguyet/hoc-sinh" element={<Navigate to="/kinh-nguyet/kinh-nguyet-tuoi-hoc-sinh" replace />} />
+        <Route path="hoc-sinh" element={<Navigate to="/kinh-nguyet/kinh-nguyet-tuoi-hoc-sinh" replace />} />
+        <Route path="kien-thuc/kinh-nguyet-lan-dau" element={<Navigate to="/kinh-nguyet/kinh-nguyet-lan-dau" replace />} />
+        <Route path="kinh-nguyet-lan-dau" element={<Navigate to="/kinh-nguyet/kinh-nguyet-lan-dau" replace />} />
+        <Route path="kien-thuc/coc-nguyet-san-va-quan-nguyet-san" element={<Navigate to="/kinh-nguyet/coc-nguyet-san-va-quan-nguyet-san" replace />} />
+        <Route path="coc-nguyet-san-va-quan-nguyet-san" element={<Navigate to="/kinh-nguyet/coc-nguyet-san-va-quan-nguyet-san" replace />} />
+        <Route path="kien-thuc/nen-chon-coc-nguyet-san-nao" element={<Navigate to="/kinh-nguyet/nen-chon-coc-nguyet-san-nao" replace />} />
+        <Route path="nen-chon-coc-nguyet-san-nao" element={<Navigate to="/kinh-nguyet/nen-chon-coc-nguyet-san-nao" replace />} />
         <Route path="kinh-nguyet" element={<News />} />
         <Route path="kinh-nguyet/:id" element={<NewsDetail />} />
         <Route path="kinhnguyet" element={<Navigate to="/kinh-nguyet" replace />} />

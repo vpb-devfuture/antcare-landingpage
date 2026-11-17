@@ -255,7 +255,7 @@ export function runPrerender() {
             "name": "ANTCARE còn dịch vụ chăm sóc người cao tuổi không?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "ANTCARE cung cấp các dịch vụ chăm sóc người cao tuổi tại Hà Nội: Trợ lý sức khỏe tại nhà, đưa người cao tuổi đi khám bệnh viện và giải pháp an tâm nhà cửa."
+              "text": "Dịch vụ chăm sóc người cao tuổi là nơi ANTCARE bắt đầu và hiện tạm dừng nhận khách mới để tập trung vào đồ lót chức năng. Thông tin dịch vụ vẫn được giữ tại trang Chăm sóc người cao tuổi."
             }
           }
         ]
@@ -266,9 +266,15 @@ export function runPrerender() {
   const homeBody = `
     <main class="antcare-home-prerender max-w-5xl mx-auto px-4 sm:px-6 py-12">
       <header class="mb-8">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#6633B4]/10 text-[#6633B4] text-xs font-bold uppercase tracking-wider mb-3">
+          • ĐỒ LÓT CHỨC NĂNG CHO PHỤ NỮ
+        </div>
         <h1 class="text-2xl sm:text-4xl md:text-5xl font-black text-[#1C1917] leading-tight tracking-tight">
           ANTCARE – Đồ lót chức năng cho phụ nữ: quần kinh nguyệt và quần chống són tiểu
         </h1>
+        <p class="text-xs sm:text-sm text-[#78716C] mt-2 mb-2 font-medium">
+          Mặc êm ái như đồ lót bình thường • Lõi thấm nhiều lớp chống tràn • Giặt và tái sử dụng bền bỉ
+        </p>
         <div class="bg-[#F6F1FC] border-l-4 border-[#6633B4] p-5 sm:p-7 rounded-r-2xl my-6 text-left">
           <p class="text-base sm:text-lg text-[#1f1a2b] leading-relaxed">
             <strong class="text-[#6633B4] font-bold">ANTCARE là thương hiệu đồ lót chức năng của Việt Nam, gồm quần kinh nguyệt và quần chống són tiểu có lõi thấm hút, giặt và dùng lại được.</strong> ANTCARE bắt nguồn từ dịch vụ chăm sóc sức khỏe cho người cao tuổi và phụ nữ tại Hà Nội. Từ những người mình chăm sóc, chúng tôi thấy tã, bỉm và băng vệ sinh dùng một lần thường gây bí, cọ xát, kích ứng da, nên phát triển những chiếc quần mặc như quần lót bình thường nhưng thấm hút được máu kinh hoặc nước tiểu rỉ nhẹ.
@@ -281,23 +287,48 @@ export function runPrerender() {
         <p class="text-xs text-[#78716C] italic mt-3">
           Sản phẩm đang trong giai đoạn hoàn thiện. Thông số, chứng nhận vải và giá sẽ được công bố khi ra mắt.
         </p>
+        <!-- Yêu cầu 1: Định hướng sản phẩm -->
+        <div class="mt-8 pt-6 border-t border-[#E8DFD5]">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-[#6633B4] mb-4 text-center sm:text-left">Định hướng sản phẩm</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+            <div class="p-3 bg-white rounded-xl border border-[#E8DFD5]">
+              <h3 class="font-bold text-xs sm:text-sm text-[#1C1917]">Lõi thấm nhiều lớp</h3>
+              <p class="text-[11px] text-[#78716C] mt-0.5">Thiết kế cho máu kinh và nước tiểu rỉ nhẹ</p>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-[#E8DFD5]">
+              <h3 class="font-bold text-xs sm:text-sm text-[#1C1917]">Mềm cho da</h3>
+              <p class="text-[11px] text-[#78716C] mt-0.5">Không keo dán, không cánh băng</p>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-[#E8DFD5]">
+              <h3 class="font-bold text-xs sm:text-sm text-[#1C1917]">Giặt và dùng lại</h3>
+              <p class="text-[11px] text-[#78716C] mt-0.5">Tiết kiệm, giảm rác thải</p>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-[#E8DFD5]">
+              <h3 class="font-bold text-xs sm:text-sm text-[#1C1917]">Hướng tới không thêm PFAS</h3>
+              <p class="text-[11px] text-[#78716C] mt-0.5">Chỉ chọn nhà sản xuất chứng minh được</p>
+            </div>
+          </div>
+        </div>
       </header>
 
       <section id="van-de" class="py-10 border-t border-[#E8DFD5]">
         <h2 class="text-2xl font-extrabold text-[#1C1917] mb-4">Vì sao phụ nữ và người cao tuổi cần một lựa chọn khác tã, bỉm, băng vệ sinh dùng một lần?</h2>
+        <div class="mb-4 p-3.5 rounded-xl bg-[#FFF8F3] border border-[#FD711A]/20 text-xs sm:text-sm text-[#8A3B00]">
+          <strong>📊 Thống kê:</strong> Gần 4 trong 10 phụ nữ gặp tình trạng mất kiểm soát tiểu tiện hoặc đại tiện (<a href="https://www.continence.org.au/about-incontinence/what-is-incontinence/statistics-on-incontinence/" target="_blank" rel="noopener noreferrer" class="text-[#6633B4] font-semibold underline hover:text-[#FD711A]">Continence Health Australia, 2024</a>).
+        </div>
         <ul class="space-y-3 text-slate-700">
           <li><strong>Bí và ẩm:</strong> Sản phẩm dùng một lần giữ ẩm sát da khi dùng lâu, nhất là khí hậu nóng ẩm Việt Nam.</li>
           <li><strong>Cọ xát, hăm, kích ứng:</strong> Mép băng, cánh băng, keo dán, hương liệu dễ gây đỏ rát vùng bẹn.</li>
           <li><strong>Xô lệch, tràn:</strong> Băng dễ xô khi vận động thể thao hoặc khi ngủ trở mình ban đêm.</li>
           <li><strong>Ngại và bất tiện:</strong> Người són tiểu nhẹ không muốn mặc bỉm; phụ nữ phải mang băng theo, lo tìm thùng rác.</li>
-          <li><strong>Nhiều rác thải:</strong> Mỗi người dùng hàng nghìn sản phẩm dùng một lần trong suốt cuộc đời.</li>
+          <li><strong>Nhiều rác thải khó phân hủy:</strong> Mỗi người dùng hàng nghìn sản phẩm dùng một lần trong đời, cần thời gian rất dài để phân hủy tại các bãi chôn lấp.</li>
         </ul>
       </section>
 
       <section id="quan-kinh-nguyet" class="py-10 border-t border-[#E8DFD5] relative">
         <div id="quan-lot-tham-hut" class="absolute -top-20"></div>
         <h2 class="text-2xl font-extrabold text-[#1C1917] mb-4">Quần kinh nguyệt ANTCARE – mặc như quần lót, thấm như băng vệ sinh</h2>
-        <p class="text-slate-700 mb-4">Quần kinh nguyệt có phần đáy nhiều lớp: lớp tiếp xúc da mềm dịu, lõi thấm giữ máu kinh, lớp chống thấm giúp không thấm ra quần ngoài. Bạn mặc như quần lót bình thường, không cần dán keo hay đặt bất kỳ dụng cụ nào vào cơ thể.</p>
+        <p class="text-slate-700 mb-4">Quần kinh nguyệt (còn gọi là quần lót kinh nguyệt, quần nguyệt san) có phần đáy nhiều lớp: lớp tiếp xúc da mềm dịu, lõi thấm giữ máu kinh, lớp chống thấm giúp không thấm ra quần ngoài. Bạn mặc như quần lót bình thường, không cần dán keo hay đặt bất kỳ dụng cụ nào vào cơ thể.</p>
         <ul class="space-y-2 text-slate-700 mb-4">
           <li>• <strong>Dùng cho:</strong> Ngày ra ít đến trung bình có thể dùng một mình; ngày ra nhiều dùng làm lớp dự phòng êm ái cùng cốc nguyệt san hoặc băng vệ sinh; ban đêm thoải mái xoay người.</li>
           <li>• <strong>Phù hợp:</strong> Học sinh tuổi dậy thì, phụ nữ văn phòng, phụ nữ hay tràn ban đêm, da nhạy cảm với keo và mép băng, tuổi tiền mãn kinh chu kỳ thất thường.</li>
@@ -312,7 +343,7 @@ export function runPrerender() {
 
       <section id="quan-chong-son-tieu" class="py-10 border-t border-[#E8DFD5]">
         <h2 class="text-2xl font-extrabold text-[#1C1917] mb-4">Quần chống són tiểu ANTCARE – cho những lần rỉ nhẹ khi ho, hắt hơi, vận động</h2>
-        <p class="text-slate-700 mb-4">Són tiểu nhẹ rất phổ biến ở phụ nữ sau sinh, độ tuổi tiền mãn kinh và người cao tuổi. Quần chống són tiểu có lõi thấm hút nhanh và vùng bảo vệ phía trước, mặc kín đáo như đồ lót bình thường, không gây cảm giác mặc bỉm tã.</p>
+        <p class="text-slate-700 mb-4">Quần chống són tiểu (quần chống rò rỉ, quần són tiểu) dành cho những lần rỉ nhẹ khi ho, hắt hơi, vận động. Có lõi hút nhanh và vùng thấm rộng phía trước, mặc như quần lót thông thường, kín đáo và thoải mái hơn bỉm tã rất nhiều.</p>
         <ul class="space-y-2 text-slate-700 mb-4">
           <li>• <strong>Phù hợp:</strong> Són tiểu nhẹ, rỉ vài giọt khi ho, hắt hơi, cười, mang vác, tập thể dục; người lớn tuổi còn tự chủ sinh hoạt.</li>
           <li>• <strong>Chưa phù hợp:</strong> Tiểu không tự chủ mức độ nặng, người nằm một chỗ (nên dùng sản phẩm chuyên dụng theo tư vấn y tế).</li>
@@ -326,7 +357,7 @@ export function runPrerender() {
       </section>
 
       <section id="so-sanh" class="py-10 border-t border-[#E8DFD5]">
-        <h2 class="text-2xl font-extrabold text-[#1C1917] mb-4">So sánh các giải pháp cho ngày kinh nguyệt và són tiểu</h2>
+        <h2 class="text-2xl font-extrabold text-[#1C1917] mb-4">So sánh nhanh: quần chống rò rỉ và sản phẩm dùng một lần</h2>
         <div class="overflow-x-auto">
           <table class="w-full text-left border-collapse text-sm">
             <thead>
@@ -402,7 +433,7 @@ export function runPrerender() {
           </div>
           <div class="border-b border-[#E8DFD5] pb-3">
             <dt class="font-bold text-[#1C1917]">6. ANTCARE còn dịch vụ chăm sóc người cao tuổi không?</dt>
-            <dd class="text-slate-700 mt-1">ANTCARE cung cấp các dịch vụ chăm sóc người cao tuổi tại Hà Nội: Trợ lý sức khỏe tại nhà, đưa người cao tuổi đi khám bệnh viện và giải pháp an tâm nhà cửa. Chi tiết xem tại trang <a href="/dich-vu" class="text-[#6633B4] font-bold hover:underline">/dich-vu</a>.</dd>
+            <dd class="text-slate-700 mt-1">Dịch vụ chăm sóc người cao tuổi là nơi ANTCARE bắt đầu và hiện tạm dừng nhận khách mới để tập trung vào đồ lót chức năng. Thông tin dịch vụ vẫn được giữ tại trang <a href="/cham-soc-nguoi-cao-tuoi" class="text-[#6633B4] font-bold underline">Chăm sóc người cao tuổi</a>.</dd>
           </div>
         </dl>
       </section>
@@ -1388,7 +1419,7 @@ export function runPrerender() {
         <div class="mt-8">
           <h2 class="text-xl font-bold text-[#6633B4] mb-4">Bài viết nổi bật trong Cẩm nang Kinh nguyệt</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            ${sortedKn.slice(0, 8).map(a => `
+            ${sortedKn.slice(0, 20).map(a => `
               <article class="p-4 bg-white rounded-xl border border-slate-200 shadow-xs">
                 ${a.isPinned ? '<span class="inline-block text-xs font-bold text-amber-800 bg-amber-50 border border-amber-300 px-2 py-0.5 rounded mb-2">📌 Đã ghim</span>' : ''}
                 <h3 class="font-bold text-base text-[#1C1917] mb-1.5"><a href="/kinh-nguyet/${a.slug}" class="hover:text-[#6633B4]">${a.title}</a></h3>
@@ -1640,10 +1671,6 @@ export function runPrerender() {
   // ==========================================
   const staticRedirects = [
     {
-      source: '/quan-lot-tham-hut',
-      target: '/'
-    },
-    {
       source: '/ve-antcare',
       target: '/ve-chung-toi'
     },
@@ -1666,6 +1693,38 @@ export function runPrerender() {
     {
       source: '/kinhnguyet',
       target: '/kinh-nguyet'
+    },
+    {
+      source: '/kinh-nguyet/hoc-sinh',
+      target: '/kinh-nguyet/kinh-nguyet-tuoi-hoc-sinh'
+    },
+    {
+      source: '/hoc-sinh',
+      target: '/kinh-nguyet/kinh-nguyet-tuoi-hoc-sinh'
+    },
+    {
+      source: '/kien-thuc/kinh-nguyet-lan-dau',
+      target: '/kinh-nguyet/kinh-nguyet-lan-dau'
+    },
+    {
+      source: '/kinh-nguyet-lan-dau',
+      target: '/kinh-nguyet/kinh-nguyet-lan-dau'
+    },
+    {
+      source: '/kien-thuc/coc-nguyet-san-va-quan-nguyet-san',
+      target: '/kinh-nguyet/coc-nguyet-san-va-quan-nguyet-san'
+    },
+    {
+      source: '/coc-nguyet-san-va-quan-nguyet-san',
+      target: '/kinh-nguyet/coc-nguyet-san-va-quan-nguyet-san'
+    },
+    {
+      source: '/kien-thuc/nen-chon-coc-nguyet-san-nao',
+      target: '/kinh-nguyet/nen-chon-coc-nguyet-san-nao'
+    },
+    {
+      source: '/nen-chon-coc-nguyet-san-nao',
+      target: '/kinh-nguyet/nen-chon-coc-nguyet-san-nao'
     },
         {
       source: '/news/chuan-bi-gi-khi-dua-bo-me-di-kham-benh',

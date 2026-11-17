@@ -1,6 +1,6 @@
 {
   "menu": {
-    "services": "Dịch vụ",
+    "services": "Câu chuyện khởi nguồn",
     "service_packages": "Gói Dịch vụ & Bảng giá",
     "service_escort": "Đưa người cao tuổi đi khám",
     "service_tracking": "Trợ lý sức khỏe",
@@ -29,8 +29,8 @@
     "period_panties": "Quần kinh nguyệt",
     "incontinence_panties": "Quần chống són tiểu",
     "handbook_period": "Kinh nguyệt",
-    "handbook_incontinence": "Tiểu són",
-    "elderly_care": "Dịch vụ",
+    "handbook_incontinence": "Són tiểu",
+    "elderly_care": "Câu chuyện khởi nguồn",
     "preorder": "Nhận thông tin ra mắt"
   },
   "announcement": {

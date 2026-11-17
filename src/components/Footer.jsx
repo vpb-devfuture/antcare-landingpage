@@ -34,7 +34,7 @@ const Footer = () => {
             <li><a className="md:hover:text-earth-orange-bright transition-colors" href="/#quan-kinh-nguyet">{isEn ? 'Period Underwear' : 'Quần kinh nguyệt'}</a></li>
             <li><a className="md:hover:text-earth-orange-bright transition-colors" href="/#quan-chong-son-tieu">{isEn ? 'Incontinence Panties' : 'Quần chống són tiểu'}</a></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/kinh-nguyet">{isEn ? 'Menstrual Handbook' : 'Cẩm nang kinh nguyệt'}</Link></li>
-            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/son-tieu">{isEn ? 'Incontinence Handbook' : 'Cẩm nang tiểu són'}</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/son-tieu">{isEn ? 'Incontinence Handbook' : 'Cẩm nang són tiểu'}</Link></li>
             <li><a className="md:hover:text-earth-orange-bright transition-colors" href="/#dang-ky">{isEn ? 'Launch Pre-order' : 'Nhận thông tin ra mắt'}</a></li>
           </ul>
         </div>
@@ -44,7 +44,7 @@ const Footer = () => {
           <h4 className="font-bold text-sm sm:text-base text-white tracking-wide">{isEn ? 'About ANTCARE' : 'Về ANTCARE'}</h4>
           <ul className="space-y-2 text-xs sm:text-sm text-white/75">
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/ve-chung-toi">{isEn ? 'About Us' : 'Về chúng tôi'}</Link></li>
-            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/dich-vu">{isEn ? 'Services' : 'Dịch vụ'}</Link></li>
+            <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/cham-soc-nguoi-cao-tuoi">{isEn ? 'Origin Story' : 'Câu chuyện khởi nguồn'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/news">{isEn ? 'News & Escort Care' : 'Tin tức & Đồng hành đi khám'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/privacy-policy">{isEn ? 'Privacy Policy' : 'Chính sách bảo mật'}</Link></li>
             <li><Link className="md:hover:text-earth-orange-bright transition-colors" to="/terms-of-use">{isEn ? 'Terms of Use' : 'Điều khoản sử dụng'}</Link></li>

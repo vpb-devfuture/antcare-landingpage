@@ -6,7 +6,7 @@
   "ctaText": "Đăng ký nhận thông tin",
   "ctaTextEn": "Get Launch Info",
   "ctaLink": "/#dang-ky",
-  "speedSeconds": 32,
+  "speedSeconds": 64,
   "shippingItems": [
     {
       "icon": "🚚",
